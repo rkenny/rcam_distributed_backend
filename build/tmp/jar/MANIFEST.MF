@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Implementation-Title: rCam Distributed Backend
+Implementation-Version: 1.0
+Main-Class: tk.bad_rabbit.rcam.distributed_backend.app.Main
+
