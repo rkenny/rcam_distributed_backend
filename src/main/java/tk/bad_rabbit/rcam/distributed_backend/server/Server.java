@@ -18,6 +18,7 @@ import tk.bad_rabbit.rcam.distributed_backend.command.ICommand;
 import tk.bad_rabbit.rcam.distributed_backend.commandfactory.CommandFactory;
 import tk.bad_rabbit.rcam.distributed_backend.commandfactory.ICommandFactory;
 import tk.bad_rabbit.rcam.distributed_backend.commandqueue.ICommandQueuer;
+import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.IConfigurationProvider;
 
 public class Server implements Runnable {
   int port;
@@ -26,16 +27,25 @@ public class Server implements Runnable {
   SocketChannel socketChannel;
   Selector serverSelector;
   
-  CharsetDecoder asciiDecoder = Charset.forName("US-ASCII").newDecoder();
-  CharsetEncoder asciiEncoder = Charset.forName("US-ASCII").newEncoder();
+  CharsetDecoder asciiDecoder;
+  CharsetEncoder asciiEncoder;
   
   ICommandQueuer commandQueuer;
   ICommandFactory commandFactory;
+  IConfigurationProvider configurationProvider;
   
-  public Server(int port, ICommandQueuer commandQueuer) {//ConcurrentLinkedQueue<String> incomingCommandsQueue, ConcurrentLinkedQueue<String> outgoingCommandsQueue) {
+  public Server(int port, ICommandQueuer commandQueuer, IConfigurationProvider configurationProvider) {
+    this();
     this.port = port;
     this.commandQueuer = commandQueuer;
-    this.commandFactory = new CommandFactory();
+    this.configurationProvider = configurationProvider;
+    this.commandFactory = new CommandFactory(this.configurationProvider.getCommandConfigurations());
+    
+  }
+  
+  public Server() {
+    asciiDecoder = Charset.forName("US-ASCII").newDecoder();
+    asciiEncoder = Charset.forName("US-ASCII").newEncoder();
   }
 
   public void run() {
@@ -87,10 +97,9 @@ public class Server implements Runnable {
   }
   
   private void performPendingSocketIOs() throws IOException {
-    //List<CharBuffer> incomingCommands = new ArrayList<CharBuffer>();
     if(socketChannel != null) {
       if(serverSelector.select() == 0) {
-        return;// incomingCommands; // there are no connections ready yet
+        return;
       }
       
       Iterator<SelectionKey> selectedKeyIterator = serverSelector.selectedKeys().iterator();
@@ -112,7 +121,7 @@ public class Server implements Runnable {
               commandQueuer.addIncomingCommand(incomingCommand);
               writeCommandToChannel(selectedChannel, commandFactory.ackCommand());  
             } else {
-              writeCommandToChannel(selectedChannel, commandFactory.errorCommand());  
+              //writeCommandToChannel(selectedChannel, commandFactory.errorCommand());  
             }
             
             
@@ -156,7 +165,7 @@ public class Server implements Runnable {
   }
       
   public void writeCommandToChannel(SocketChannel selectedChannel, ICommand command) throws IOException {
-    ByteBuffer buffer = asciiEncoder.encode(command.asByteBuffer());
+    ByteBuffer buffer = asciiEncoder.encode(command.asCharBuffer());
 
     while(buffer.hasRemaining()) {
         selectedChannel.write(buffer);
@@ -200,6 +209,7 @@ public class Server implements Runnable {
         continue;
       }
       if(selectedKey.isAcceptable()) {
+        System.out.println("Accepting a new connection.");
         socketChannel = serverSocketChannel.accept();
         socketChannel.configureBlocking(false);
         socketChannel.register(serverSelector, SelectionKey.OP_WRITE | SelectionKey.OP_READ);

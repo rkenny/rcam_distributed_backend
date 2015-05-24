@@ -5,5 +5,5 @@ import java.nio.CharBuffer;
 public interface ICommand {
   public void run();
 
-  public CharBuffer asByteBuffer();
+  public CharBuffer asCharBuffer();
 }
