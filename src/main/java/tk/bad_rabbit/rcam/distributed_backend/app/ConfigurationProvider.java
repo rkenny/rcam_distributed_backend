@@ -19,7 +19,6 @@ public class ConfigurationProvider implements IConfigurationProvider {
   public ConfigurationProvider() {
     readServerConfiguration();
     readCommandConfigurations();
-   
   }
   
   private void readServerConfiguration() {
@@ -28,10 +27,8 @@ public class ConfigurationProvider implements IConfigurationProvider {
   
   private void readCommandConfigurations() {
     commandConfigurations = new HashMap<String, List<String>>();
-    
     File commandConfigFolder = new File("config/commands");
     for(File commandConfigFile : commandConfigFolder.listFiles()) {
-      System.out.println("File: " + commandConfigFile.getAbsolutePath());
       List<String> commandArgs = new ArrayList<String>();
       if(commandConfigFile.isFile()) {
 
@@ -51,9 +48,6 @@ public class ConfigurationProvider implements IConfigurationProvider {
         }
       }     
     }
-
-  //args.add(duration.toString());
-  //args.add(videoSource);
   }
   
   public int getServerPort() {
