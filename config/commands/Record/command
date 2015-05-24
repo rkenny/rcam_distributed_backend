@@ -1,4 +1,4 @@
-$vlcPath
+@vlcPath
 --run-fake-tty
 --run-time
 &duration

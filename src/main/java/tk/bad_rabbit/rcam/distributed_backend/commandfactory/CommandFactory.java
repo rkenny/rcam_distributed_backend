@@ -13,9 +13,14 @@ import tk.bad_rabbit.rcam.distributed_backend.command.ICommand;
 public class CommandFactory implements ICommandFactory {
 
   Map<String, List<String>> commandConfigurations;
+  Map<String, Map<String, String>> commandVariables;
+  Map<String, String> serverVariables;
   
-  public CommandFactory(Map<String, List<String>> map) {
-    this.commandConfigurations = map;
+  public CommandFactory(Map<String, List<String>> commandConfigurations, Map<String,
+      Map<String, String>> commandVariables, Map<String, String> serverVariables) {
+    this.commandConfigurations = commandConfigurations;
+    this.commandVariables = commandVariables;
+    this.serverVariables = serverVariables;
   }
   
   public ICommand createCommand(CharBuffer commandCharBuffer) {    
@@ -30,7 +35,8 @@ public class CommandFactory implements ICommandFactory {
     commandType = commandString.substring(0, commandTypeLength).trim();
     
     if(commandConfigurations.containsKey(commandType)) {
-      command = new Command(commandType, commandConfigurations.get(commandType), createClientVariablesMap(commandString));
+      command = new Command(commandType, commandConfigurations.get(commandType), createClientVariablesMap(commandString),
+          commandVariables.get(commandType), serverVariables);
     } else {
       // won't hit this yet
       System.out.println("Won't instantiate that command");

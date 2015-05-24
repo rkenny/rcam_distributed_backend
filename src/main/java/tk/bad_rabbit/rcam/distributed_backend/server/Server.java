@@ -39,7 +39,8 @@ public class Server implements Runnable {
     this.port = port;
     this.commandQueuer = commandQueuer;
     this.configurationProvider = configurationProvider;
-    this.commandFactory = new CommandFactory(this.configurationProvider.getCommandConfigurations());
+    this.commandFactory = new CommandFactory(this.configurationProvider.getCommandConfigurations(), 
+        this.configurationProvider.getCommandVariables(), this.configurationProvider.getServerVariables());
     
   }
   
