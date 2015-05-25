@@ -9,4 +9,5 @@ public interface ICommandQueuer {
   public ICommand getNextIncomingCommand();
   public ICommand getNextOutgoingCommand();
   
+  public void flushQueues();
 }

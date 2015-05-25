@@ -40,7 +40,7 @@ public class Server implements Runnable {
     this.commandQueuer = commandQueuer;
     this.configurationProvider = configurationProvider;
     this.commandFactory = new CommandFactory(this.configurationProvider.getCommandConfigurations(), 
-        this.configurationProvider.getCommandVariables(), this.configurationProvider.getServerVariables());
+    this.configurationProvider.getCommandVariables(), this.configurationProvider.getServerVariables());
     
   }
   
@@ -111,6 +111,8 @@ public class Server implements Runnable {
         
         
         if(!selectedKey.isValid() || !selectedChannel.isConnected()) {
+          System.out.println("selected key not valid or channel isn't connected");
+          commandQueuer.flushQueues();
           selectedChannel.close();
           continue;
         }
@@ -122,13 +124,14 @@ public class Server implements Runnable {
               commandQueuer.addIncomingCommand(incomingCommand);
               writeCommandToChannel(selectedChannel, commandFactory.ackCommand());  
             } else {
-              //writeCommandToChannel(selectedChannel, commandFactory.errorCommand());  
+              writeCommandToChannel(selectedChannel, commandFactory.errorCommand());  
             }
             
             
           }  catch(IOException ioException) {
             System.err.println("Error reading from a channel. Closing that channel.");
             try {
+              commandQueuer.flushQueues();
               selectedChannel.close();
             } catch (IOException e) {
               System.err.println("Error closing the channel.");
@@ -148,6 +151,7 @@ public class Server implements Runnable {
             System.err.println("Error writing to a channel. Closing that channel");
             ioException.printStackTrace();
             try {
+              commandQueuer.flushQueues();
               socketChannel.register(serverSelector, SelectionKey.OP_READ);
               selectedChannel.close();
             } catch (IOException e) {

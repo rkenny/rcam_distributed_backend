@@ -30,4 +30,9 @@ public class CommandQueuer implements ICommandQueuer {
     return incomingCommandsQueue.poll();
   }
 
+  public void flushQueues() {
+    incomingCommandsQueue.removeAll(incomingCommandsQueue);
+    outgoingCommandsQueue.removeAll(outgoingCommandsQueue);
+  }
+  
 }
