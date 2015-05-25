@@ -39,7 +39,7 @@ public class CommandFactory implements ICommandFactory {
           commandVariables.get(commandType), serverVariables);
     } else {
       // won't hit this yet
-      System.out.println("Won't instantiate that command");
+      System.out.println("Won't instantiate that command [" +commandString+ "]");
     }      
     
     return command;
