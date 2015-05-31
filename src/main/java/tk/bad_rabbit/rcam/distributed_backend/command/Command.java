@@ -33,14 +33,14 @@ public class Command implements ICommand {
     }
     return finalCommandString;
   }
-  
-  public void run() {
-    System.out.println(commandName + " " + finalizeCommandString());
-  }
 
   public CharBuffer asCharBuffer() {
     // TODO Auto-generated method stub
-    return null;
+    return CharBuffer.wrap(commandName + " " + finalizeCommandString());
+  }
+
+  public CommandResult call() throws Exception {
+    return new CommandResult(commandName);//.setSuccess();//commandName + " " + finalizeCommandString();
   }
 
 }

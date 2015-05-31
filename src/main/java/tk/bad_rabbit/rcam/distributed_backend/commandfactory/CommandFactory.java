@@ -27,6 +27,7 @@ public class CommandFactory implements ICommandFactory {
     return createCommand(commandCharBuffer.toString());
   }
   
+  
   public ICommand createCommand(String commandString) {
     ICommand command = null;
     
@@ -37,6 +38,10 @@ public class CommandFactory implements ICommandFactory {
     if(commandConfigurations.containsKey(commandType)) {
       command = new Command(commandType, commandConfigurations.get(commandType), createClientVariablesMap(commandString),
           commandVariables.get(commandType), serverVariables);
+    } else if(commandString.equals("Ack")) {
+      command = new AckCommand();
+    } else if(commandString.equals("Error")) {
+      command = new ErrorCommand();
     } else {
       // won't hit this yet
       System.out.println("Won't instantiate that command [" +commandString+ "]");
@@ -60,21 +65,16 @@ public class CommandFactory implements ICommandFactory {
       }
       
       for(String clientVariable : clientVariableArray) {
-        String[] variableAndValue = clientVariable.split("=");
-        clientVariables.put(variableAndValue[0], variableAndValue[1]);
+        if(clientVariable.indexOf("=") > 0) {
+          String[] variableAndValue = clientVariable.split("=");
+          clientVariables.put(variableAndValue[0], variableAndValue[1]);
+        }
       }
     }
     
     return clientVariables;
   }
   
-  public ICommand ackCommand() {
-    // TODO Auto-generated method stub
-    return new AckCommand();
-  }
   
-  public ICommand errorCommand() {
-    return new ErrorCommand();
-  }
 
 }

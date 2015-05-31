@@ -14,11 +14,11 @@ public class Main {
     ICommandQueuer commandQueuer = new CommandQueuer();
     IConfigurationProvider configurationProvider = new ConfigurationProvider();
     startServer(commandQueuer, configurationProvider);
-    startController(commandQueuer);  
+    startController(commandQueuer, configurationProvider);  
   }
     
-  private static void startController(ICommandQueuer commandQueuer) {
-    commandController = new Controller(commandQueuer);
+  private static void startController(ICommandQueuer commandQueuer, IConfigurationProvider configurationProvider) {
+    commandController = new Controller(commandQueuer, configurationProvider);
     controllerThread = new Thread(commandController);
     controllerThread.start();
   }
