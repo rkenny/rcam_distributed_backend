@@ -42,7 +42,9 @@ public class Controller implements Runnable{
       }
       
       while((command = commandQueuer.getNextIncomingCommand()) != null) {
-        commandResults.add(commandExecutor.submit(command));
+        if(!command.isIgnored()) {
+          commandResults.add(commandExecutor.submit(command));
+        }
       }
       
       Iterator<Future<CommandResult>> resultIterator = commandResults.iterator();

@@ -6,4 +6,7 @@ import java.util.concurrent.Callable;
 public interface ICommand extends  Callable<CommandResult>{
 
   public CharBuffer asCharBuffer();
+  public Boolean isIgnored();
+  public String getCommandName();
+  public Integer getAckNumber();
 }

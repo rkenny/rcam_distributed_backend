@@ -40,7 +40,7 @@ public class Server implements Runnable {
     this.commandQueuer = commandQueuer;
     this.configurationProvider = configurationProvider;
     this.commandFactory = new CommandFactory(this.configurationProvider.getCommandConfigurations(), 
-    this.configurationProvider.getCommandVariables(), this.configurationProvider.getServerVariables());
+        this.configurationProvider.getCommandVariables(), this.configurationProvider.getServerVariables());
     
   }
   
@@ -122,7 +122,9 @@ public class Server implements Runnable {
             ICommand incomingCommand = commandFactory.createCommand(readFromChannel(selectedChannel));
             if(null != incomingCommand) {
               commandQueuer.addIncomingCommand(incomingCommand);
-              writeCommandToChannel(selectedChannel, commandFactory.createCommand("Ack"));  
+              if(!incomingCommand.isIgnored()) {
+                writeCommandToChannel(selectedChannel, commandFactory.createAckCommand(incomingCommand));                  
+              }
             } else {
               writeCommandToChannel(selectedChannel, commandFactory.createCommand("Error"));  
             }

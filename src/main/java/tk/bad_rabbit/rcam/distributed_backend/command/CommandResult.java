@@ -21,6 +21,10 @@ public class CommandResult implements ICommand {
     return "this was toStringed.";
   }
   
+  public Boolean isIgnored() {
+    return false;
+  }
+  
   public String notificationCommand()  { 
     return success ? commandType + "(Success)" : commandType + "(Fail)";
   }
@@ -35,5 +39,17 @@ public class CommandResult implements ICommand {
   public CharBuffer asCharBuffer() {
     // TODO Auto-generated method stub
     return CharBuffer.wrap(notificationCommand());
+  }
+
+
+  public String getCommandName() {
+    // TODO Auto-generated method stub
+    return commandType;
+  }
+
+
+  public Integer getAckNumber() {
+    // TODO Auto-generated method stub
+    return null;
   }
 }
