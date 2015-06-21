@@ -41,9 +41,11 @@ public class Controller implements Runnable{
         e.printStackTrace();
       }
       
-      while((command = commandQueuer.getNextIncomingCommand()) != null) {
+      while((command = commandQueuer.getNextReadyToExecuteCommand()) != null) {
         if(!command.isIgnored()) {
-          commandResults.add(commandExecutor.submit(command));
+          commandResults.add(commandExecutor.submit(command.setDone()));
+        } else {
+          command.setDone();
         }
       }
       
@@ -52,8 +54,7 @@ public class Controller implements Runnable{
         Future<CommandResult> commandResult = resultIterator.next();
         try {
           CommandResult result = commandResult.get();
-          System.out.println("Result: " + result);
-          commandQueuer.addOutgoingCommand(result);
+          commandQueuer.addOutgoingCommand(result.readyToSend());
         } catch (InterruptedException e) {
           e.printStackTrace();
         } catch (ExecutionException e) {

@@ -23,20 +23,63 @@ public class Command implements ICommand {
     this.commandAckNumber = commandAckNumber;
     this.state = CommandState.NEW;
   }
-  
-  public Boolean isIgnored() {
-    return commandVariables.get("ignored") == "true";
+
+  public ICommand setReadyToExecute() {
+    this.state = CommandState.READY_TO_EXECUTE;
+    return this;
   }
   
+  public Boolean isReadyToExecute() {
+    return this.isInState(CommandState.READY_TO_EXECUTE);
+  }
+  
+  public ICommand setDone() {
+    this.state = CommandState.DONE;
+    return this;
+  }
+  
+  public Boolean isInState(CommandState state) {
+    return this.state == state;
+  }
+  
+  public Boolean isReadyToSend() {
+    return (isIgnored() && this.state == CommandState.NEW || !isIgnored() && this.state == CommandState.READY_TO_SEND);
+  }
+  
+  public ICommand readyToSend() {
+    this.state = CommandState.READY_TO_SEND;
+    return this;
+  }
+  
+  public Boolean wasSent() {
+    return this.state == CommandState.SENT || this.state == CommandState.AWAITING_ACK || this.state == CommandState.DONE;
+  }
+  
+  public ICommand setSent() {
+    this.state = isIgnored() ? CommandState.SENT : CommandState.AWAITING_ACK;
+    return this;
+  }
+  
+  public ICommand wasReceived() {
+    this.state = CommandState.RECEIVED;
+    return this;
+  }
+ ;
   public ICommand wasAcked() {
     this.state = CommandState.ACKED;
     return this;
   }
   
-  public ICommand wasReceived() {
-    this.state = CommandState.RECIEVED;
+  public ICommand commandError() {
+    this.state = CommandState.ERROR;
     return this;
   }
+  
+  public Boolean isIgnored() {
+    return commandVariables.get("ignored") == "true";
+  }
+  
+  
   
   public String finalizeCommandString() {
     String finalCommandString = commandString.toString();

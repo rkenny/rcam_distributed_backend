@@ -10,6 +10,18 @@ public interface ICommand extends  Callable<CommandResult>{
   public String getCommandName();
   public Integer getAckNumber();
   
-  public ICommand wasAcked();
   public ICommand wasReceived();
+  public ICommand wasAcked();
+  public ICommand readyToSend();
+  public ICommand setSent();
+  public Boolean wasSent();
+  public ICommand commandError();
+  
+  public ICommand setReadyToExecute();
+  public Boolean isReadyToExecute();
+  
+  public ICommand setDone();
+  
+  public Boolean isReadyToSend();
+  public Boolean isInState(CommandState state);
 }

@@ -12,6 +12,7 @@ import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CharsetEncoder;
+import java.util.Collection;
 import java.util.Iterator;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.ICommand;
@@ -126,6 +127,8 @@ public class Server implements Runnable {
                 // the command should set its state to ACKED later on, but that requires bigger changes.
                 writeCommandToChannel(selectedChannel, commandFactory.createAckCommand(incomingCommand.wasAcked()));                
               }
+              
+              incomingCommand.setReadyToExecute();
             } else {
               writeCommandToChannel(selectedChannel, commandFactory.createCommand("Error"));  
             }
@@ -147,8 +150,8 @@ public class Server implements Runnable {
         if(selectedKey.isWritable()) {
           try {
             ICommand outgoingCommand;
-            while((outgoingCommand = commandQueuer.getNextOutgoingCommand()) != null) {
-              writeCommandToChannel(selectedChannel, outgoingCommand);
+            while((outgoingCommand = commandQueuer.getNextReadyToSendOutgoingCommand()) != null) {
+              writeCommandToChannel(selectedChannel, outgoingCommand.setSent());
             }
           } catch(IOException ioException) {
             System.err.println("Error writing to a channel. Closing that channel");
@@ -172,6 +175,8 @@ public class Server implements Runnable {
     return;
   }
       
+  
+  
   public void writeCommandToChannel(SocketChannel selectedChannel, ICommand command) throws IOException {
     ByteBuffer buffer = asciiEncoder.encode(command.asCharBuffer());
 
