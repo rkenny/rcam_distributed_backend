@@ -1,8 +1,13 @@
 package tk.bad_rabbit.rcam.distributed_backend.command;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.nio.CharBuffer;
 import java.util.List;
 import java.util.Map;
+
+
+
 
 public class Command implements ICommand {
   private List<String> commandString;
@@ -82,7 +87,12 @@ public class Command implements ICommand {
   
   
   public String finalizeCommandString() {
-    String finalCommandString = commandString.toString();
+    //String finalCommandString = commandString.toString();
+    StringBuilder stringBuilder = new StringBuilder();
+    for(String aString : commandString) {
+      stringBuilder.append(" ").append(aString);
+    }
+    String finalCommandString = stringBuilder.toString().trim();
     for(String key : clientVariables.keySet()) {
       finalCommandString = finalCommandString.replace("&"+key, clientVariables.get(key));
     }
@@ -92,8 +102,8 @@ public class Command implements ICommand {
     for(String key : serverVariables.keySet()) {
       finalCommandString = finalCommandString.replace("$"+key, serverVariables.get(key));
     }
-    finalCommandString = finalCommandString.replaceFirst("\\[", "(");
-    finalCommandString = finalCommandString.substring(0, finalCommandString.length() - 1).concat(")");
+    //finalCommandString = finalCommandString.replaceFirst("\\[", "(");
+    //finalCommandString = finalCommandString.concat(")");
 
     return finalCommandString;
   }
@@ -112,7 +122,27 @@ public class Command implements ICommand {
   }
 
   public CommandResult call() throws Exception {
-    return new CommandResult(commandName).setSuccess();//commandName + " " + finalizeCommandString();
+    String thisCommandString = finalizeCommandString();
+   // thisCommandString = thisCommandString.substring(1, thisCommandString.length() -1 );
+    System.out.println(commandName + " [" + thisCommandString + "]");
+    
+    Process p = Runtime.getRuntime().exec(thisCommandString);
+     
+    CommandResult result = new CommandResult(commandName);
+    if((p.waitFor() == 0)) {
+      result.setSuccess();
+    }
+    
+    BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+    StringBuilder sb = new StringBuilder();
+    String line = "";     
+    while ((line = reader.readLine())!= null) {
+      sb.append(line + "\n");
+    }
+    
+    System.out.println(sb);
+    
+    return result;
   }
 
 }
