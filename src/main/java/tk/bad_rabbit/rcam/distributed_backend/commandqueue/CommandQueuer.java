@@ -9,7 +9,7 @@ public class CommandQueuer implements ICommandQueuer {
   Queue<ICommand> outgoingCommandsQueue = null;
   
   public CommandQueuer() {
-    incomingCommandsQueue = new ConcurrentLinkedQueue<ICommand>();
+    incomingCommandsQueue = new ConcurrentLinkedQueue<ConcurrentHashMap<Integer, ICommand>>();
     outgoingCommandsQueue = new ConcurrentLinkedQueue<ICommand>();
   }
 

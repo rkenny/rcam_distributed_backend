@@ -121,9 +121,10 @@ public class Server implements Runnable {
           try {
             ICommand incomingCommand = commandFactory.createCommand(readFromChannel(selectedChannel));
             if(null != incomingCommand) {
-              commandQueuer.addIncomingCommand(incomingCommand);
+              commandQueuer.addIncomingCommand(incomingCommand.wasReceived());
               if(!incomingCommand.isIgnored()) {
-                writeCommandToChannel(selectedChannel, commandFactory.createAckCommand(incomingCommand));                  
+                // the command should set its state to ACKED later on, but that requires bigger changes.
+                writeCommandToChannel(selectedChannel, commandFactory.createAckCommand(incomingCommand.wasAcked()));                
               }
             } else {
               writeCommandToChannel(selectedChannel, commandFactory.createCommand("Error"));  

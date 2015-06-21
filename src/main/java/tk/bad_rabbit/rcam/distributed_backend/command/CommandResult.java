@@ -52,4 +52,16 @@ public class CommandResult implements ICommand {
     // TODO Auto-generated method stub
     return null;
   }
+
+
+  public ICommand wasAcked() {
+    // TODO Auto-generated method stub
+    return this;
+  }
+
+
+  public ICommand wasReceived() {
+    // TODO Auto-generated method stub
+    return this;
+  }
 }

@@ -9,4 +9,7 @@ public interface ICommand extends  Callable<CommandResult>{
   public Boolean isIgnored();
   public String getCommandName();
   public Integer getAckNumber();
+  
+  public ICommand wasAcked();
+  public ICommand wasReceived();
 }
