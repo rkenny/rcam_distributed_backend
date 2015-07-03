@@ -30,6 +30,7 @@ public class CommandQueuer implements ICommandQueuer {
   }
 
   public void addOutgoingCommand(ICommand command) {
+    System.out.println("Added a command to the outgoing queue " + command.getCommandName());
     outgoingCommandsMap.put(command.getAckNumber(), command);
   }
 
@@ -38,9 +39,11 @@ public class CommandQueuer implements ICommandQueuer {
       Collection<ICommand> commands =  outgoingCommandsMap.values();
       Iterator<ICommand> i = commands.iterator();
       ICommand command;
-      if(i.hasNext()) {
+      while(i.hasNext()) {
         command = i.next();
+        System.out.println("Is command(type="+command.getCommandName()+" acknumber="+command.getAckNumber()+") ready to send? " + command.isReadyToSend());
         if(command.isReadyToSend()) {
+          i.remove();
           return command;
         }
       }
@@ -53,12 +56,12 @@ public class CommandQueuer implements ICommandQueuer {
       Collection<ICommand> commands =  outgoingCommandsMap.values();
       Iterator<ICommand> i = commands.iterator();
       ICommand command;
-      if(i.hasNext()) {
+      while(i.hasNext()) {
         command = i.next();
         if(command.isInState(state)) {
+          i.remove();
           return command;
         }
-        i.remove();
       }
       return null;
     }
@@ -69,7 +72,7 @@ public class CommandQueuer implements ICommandQueuer {
       Collection<ICommand> commands =  incomingCommandsMap.values();
       Iterator<ICommand> i = commands.iterator();
       ICommand command;
-      if(i.hasNext()) {
+      while(i.hasNext()) {
         command = i.next();
         if(command.isInState(state)) {
           return command;
@@ -85,7 +88,7 @@ public class CommandQueuer implements ICommandQueuer {
       Collection<ICommand> commands =  incomingCommandsMap.values();
       Iterator<ICommand> i = commands.iterator();
       ICommand command;
-      if(i.hasNext()) {
+      while(i.hasNext()) {
         command = i.next();
         if(command.isReadyToExecute()) {
           return command;

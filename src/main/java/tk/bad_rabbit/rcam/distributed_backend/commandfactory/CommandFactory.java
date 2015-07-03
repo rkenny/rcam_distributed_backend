@@ -8,6 +8,7 @@ import java.util.Random;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.Command;
 import tk.bad_rabbit.rcam.distributed_backend.command.ICommand;
+import tk.bad_rabbit.rcam.distributed_backend.command.Pair;
 
 public class CommandFactory implements ICommandFactory {
 
@@ -23,6 +24,10 @@ public class CommandFactory implements ICommandFactory {
     this.serverVariables = serverVariables;
     rand = new Random();
   }
+  
+  public ICommand createResultCommand(Pair<Integer, Integer> commandResult) {
+    return createCommand("CommandResult(ackNumber="+commandResult.getLeft()+",resultCode="+commandResult.getRight()+")");
+  }
     
   public ICommand createAckCommand(ICommand command) {
     return createCommand("Ack(command=" + command.getCommandName() + ",ackNumber="+command.getAckNumber()+")");
@@ -35,10 +40,11 @@ public class CommandFactory implements ICommandFactory {
   public ICommand createCommand(String commandString) {
     ICommand command = null;
     
-    System.out.println(commandString);
-    
     String commandType;
     int commandTypeLength;
+    
+    System.out.println("Creating command " + commandString);
+    
     commandTypeLength = commandString.indexOf("(") > 0 ? commandString.indexOf("(") : commandString.length();
     commandTypeLength = (commandString.indexOf("[") < commandTypeLength  
         && commandString.indexOf("[") > 0 )? commandString.indexOf("[") : commandTypeLength;
@@ -59,6 +65,7 @@ public class CommandFactory implements ICommandFactory {
     if(commandConfigurations.containsKey(commandType)) {
       command = new Command(commandType, commandAckNumber, commandConfigurations.get(commandType), createClientVariablesMap(commandString),
           commandVariables.get(commandType), serverVariables);
+      System.out.println("Command generated");
     } else {
       System.out.println("no command generated");
     }

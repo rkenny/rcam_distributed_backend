@@ -121,17 +121,16 @@ public class Command implements ICommand {
     return CharBuffer.wrap(commandName + "[" + commandAckNumber.toString() + "]" + finalizeCommandString());
   }
 
-  public CommandResult call() throws Exception {
+  public Pair<Integer, Integer> call() throws Exception {
     String thisCommandString = finalizeCommandString();
    // thisCommandString = thisCommandString.substring(1, thisCommandString.length() -1 );
     System.out.println(commandName + " [" + thisCommandString + "]");
     
     Process p = Runtime.getRuntime().exec(thisCommandString);
      
-    CommandResult result = new CommandResult(commandName);
-    if((p.waitFor() == 0)) {
-      result.setSuccess();
-    }
+    //CommandResult result = new CommandResult(commandName);
+    
+    p.waitFor();
     
     BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
     StringBuilder sb = new StringBuilder();
@@ -142,7 +141,7 @@ public class Command implements ICommand {
     
     System.out.println(sb);
     
-    return result;
+    return new Pair<Integer, Integer>(this.commandAckNumber, p.exitValue());
   }
 
 }

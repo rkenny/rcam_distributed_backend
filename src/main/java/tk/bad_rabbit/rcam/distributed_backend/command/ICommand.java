@@ -3,7 +3,7 @@ package tk.bad_rabbit.rcam.distributed_backend.command;
 import java.nio.CharBuffer;
 import java.util.concurrent.Callable;
 
-public interface ICommand extends  Callable<CommandResult>{
+public interface ICommand extends  Callable<Pair<Integer, Integer>>{
 
   public CharBuffer asCharBuffer();
   public Boolean isIgnored();
