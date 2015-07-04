@@ -41,7 +41,7 @@ public class CommandQueuer implements ICommandQueuer {
       ICommand command;
       while(i.hasNext()) {
         command = i.next();
-        System.out.println("Is command(type="+command.getCommandName()+" acknumber="+command.getAckNumber()+") ready to send? " + command.isReadyToSend());
+        
         if(command.isReadyToSend()) {
           i.remove();
           return command;
@@ -75,9 +75,9 @@ public class CommandQueuer implements ICommandQueuer {
       while(i.hasNext()) {
         command = i.next();
         if(command.isInState(state)) {
+          i.remove();
           return command;
         }
-        i.remove();
       }
       return null;
     }
@@ -91,9 +91,10 @@ public class CommandQueuer implements ICommandQueuer {
       while(i.hasNext()) {
         command = i.next();
         if(command.isReadyToExecute()) {
+          i.remove();
           return command;
         }
-        i.remove();
+        
       }
       return null;
     }

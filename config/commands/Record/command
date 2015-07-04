@@ -1,2 +1,4 @@
-/bin/echo
+/bin/grep
 whatitbe
+/etc/passwd
+
