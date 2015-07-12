@@ -23,7 +23,7 @@ public class ConfigurationProvider implements IConfigurationProvider {
     readCommandConfigurations();
     
 
-    addSystemCommand("Ack", "&command[&ackNumber]", "true");
+    addSystemCommand("Ack", "(command=&command,ackNumber=&ackNumber)", "true");
     addSystemCommand("CommandResult", "(ackNumber=&ackNumber,resultCode=&resultCode)", "false");
     
   }

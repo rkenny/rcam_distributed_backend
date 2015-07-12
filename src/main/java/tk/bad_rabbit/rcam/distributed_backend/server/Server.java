@@ -183,7 +183,7 @@ public class Server implements Runnable {
     while(buffer.hasRemaining()) {
         selectedChannel.write(buffer);
     }
-    System.out.println("Wrote " + asciiEncoder.encode(command.asCharBuffer()).toString());
+    System.out.println("Wrote " + command.asCharBuffer().toString());
     buffer.clear();
   }
   
