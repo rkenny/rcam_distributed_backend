@@ -124,7 +124,7 @@ public class Command extends ACommand {
   
   public CharBuffer asCharBuffer() {
     // TODO Auto-generated method stub
-    return CharBuffer.wrap(commandName + "[" + commandAckNumber.toString() + "]" + finalizeCommandString());
+    return CharBuffer.wrap(commandName + "[" + commandAckNumber.toString() + "]" + finalizeCommandString() + '\n');
   }
 
   public Pair<Integer, Integer> call() throws Exception {

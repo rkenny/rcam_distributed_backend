@@ -137,6 +137,7 @@ public class ServerThread implements Runnable, Observer {
           if(key.isWritable()) {
             //keyIterator.remove();
             writeCommandToChannel(selectedChannel, command);
+            //Thread.sleep(25);
           } else {
             System.out.println("Key is not writable.");
           }
@@ -149,8 +150,12 @@ public class ServerThread implements Runnable, Observer {
             System.err.println("Error closing the channel.");
             e.printStackTrace();
           }
-        }
+        //} catch (InterruptedException e) {
+        //  // TODO Auto-generated catch block
+        //  e.printStackTrace();
+        //}
       }
+    }
   }
   
   private void performPendingSocketIOs() throws IOException {
