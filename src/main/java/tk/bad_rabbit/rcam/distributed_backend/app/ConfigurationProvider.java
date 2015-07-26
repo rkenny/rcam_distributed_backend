@@ -10,31 +10,38 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.AckCommandResponseAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.DefaultCommandResponseAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ResultCommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.IConfigurationProvider;
 
 public class ConfigurationProvider implements IConfigurationProvider {
   Map<String, List<String>> commandConfigurations;
   Map<String, Map<String, String>> commandVariables;
   Map<String, String> serverVariables;
+  Map<String, ICommandResponseAction> commandResultResponses;
   
   public ConfigurationProvider() {
     serverVariables = new HashMap<String, String>();
+    commandResultResponses = new HashMap<String, ICommandResponseAction>();
     readServerConfiguration();
     readCommandConfigurations();
     
 
-    addSystemCommand("Ack", "(command=&command,ackNumber=&ackNumber)", "true");
-    addSystemCommand("CommandResult", "(ackNumber=&ackNumber,resultCode=&resultCode)", "false");
+    addSystemCommand("Ack", "(command=&command,ackNumber=&ackNumber)", "true", new AckCommandResponseAction());
+    addSystemCommand("CommandResult", "(ackNumber=&ackNumber,resultCode=&resultCode)", "false", new ResultCommandResponseAction());
     
   }
   
-  private void addSystemCommand(String commandType, String commandString, String isIgnored) {
+  private void addSystemCommand(String commandType, String commandString, String isIgnored, ICommandResponseAction commandResultResponseAction) {
     List<String> successCommand = new ArrayList<String>();
     successCommand.add(commandString);
     commandConfigurations.put(commandType, successCommand);
     Map<String, String> successCommandVariables = new HashMap<String, String>();
     successCommandVariables.put("ignored", isIgnored);
     commandVariables.put(commandType, successCommandVariables);
+    commandResultResponses.put(commandType, commandResultResponseAction);
   }
   
   private void readServerConfiguration() {
@@ -115,9 +122,8 @@ public class ConfigurationProvider implements IConfigurationProvider {
         
         commandConfigurations.put(commandConfigDirectory.getName(), commandArgs);
         commandVariables.put(commandConfigDirectory.getName(), commandVars);
+        commandResultResponses.put(commandConfigDirectory.getName(), new DefaultCommandResponseAction());
       }
-      
-           
     }
   }
   
@@ -135,6 +141,10 @@ public class ConfigurationProvider implements IConfigurationProvider {
   
   public Map<String, Map<String, String>> getCommandVariables() {
     return commandVariables;
+  }
+
+  public ICommandResponseAction getCommandResponseAction(String commandType) {
+    return commandResultResponses.get(commandType);
   }
 
 }

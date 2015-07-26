@@ -5,79 +5,85 @@ import java.io.InputStreamReader;
 import java.nio.CharBuffer;
 import java.util.List;
 import java.util.Map;
+import java.util.Observer;
+
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.state.ICommandState;
 
 
 
 
-public class Command implements ICommand {
+public class Command extends ACommand {
   private List<String> commandString;
   private String commandName;
   private Map<String, String> clientVariables;
   private Map<String, String> commandVariables;
   private Map<String, String> serverVariables;
   private Integer commandAckNumber;
-  private CommandState state;
+  private volatile ICommandState state;
+  private volatile ICommandResponseAction commandResponseAction;
+  private String returnCode;
   
   public Command(String commandName, Integer commandAckNumber, List<String> commandString, Map<String, String> clientVariables,
-      Map<String, String> commandVariables, Map<String, String> serverVariables) {
+      Map<String, String> commandVariables, Map<String, String> serverVariables, ICommandResponseAction commandResponseAction) {
     this.commandName = commandName;
     this.commandString = commandString;
     this.clientVariables = clientVariables;
     this.commandVariables = commandVariables;
     this.serverVariables = serverVariables;
     this.commandAckNumber = commandAckNumber;
-    this.state = CommandState.NEW;
+    this.commandResponseAction = commandResponseAction;
   }
 
-  public ICommand setReadyToExecute() {
-    this.state = CommandState.READY_TO_EXECUTE;
-    return this;
+  public void doAction(Observer actionObserver, ICommandState commandState) {
+    if(commandState.getClass().getSimpleName().equals(this.state.getClass().getSimpleName())) {
+      this.state.doAction(actionObserver, this);
+    }  
   }
   
-  public Boolean isReadyToExecute() {
-    return this.isInState(CommandState.READY_TO_EXECUTE);
+  public ICommandState setState(ICommandState state) {
+    
+    this.state = state;
+    
+    System.out.println("Command " + getAckNumber() + " had its state changed to " + state.getClass().getSimpleName());
+    
+    setChanged();
+    notifyObservers(state);
+    
+    
+    return state;
   }
   
-  public ICommand setDone() {
-    this.state = CommandState.DONE;
-    return this;
+  public ICommandState getState() {
+    return this.state;
   }
   
-  public Boolean isInState(CommandState state) {
-    return this.state == state;
+  public String getClientVariable(String variable) {
+    return this.clientVariables.get(variable);
   }
   
-  public Boolean isReadyToSend() {
-    return (isIgnored() && this.state == CommandState.NEW || !isIgnored() && this.state == CommandState.READY_TO_SEND);
+  public String getCommandVariable(String variable) {
+    return this.commandVariables.get(variable);
   }
   
-  public ICommand readyToSend() {
-    this.state = CommandState.READY_TO_SEND;
-    return this;
+  public String getServerVariable(String variable) {
+    return this.serverVariables.get(variable);
+  }
+   
+  public String getReturnCode() {
+    return returnCode;
   }
   
-  public Boolean wasSent() {
-    return this.state == CommandState.SENT || this.state == CommandState.AWAITING_ACK || this.state == CommandState.DONE;
+  public void performCommandResponseAction(Object actionObject) {
+    commandResponseAction.doAction(actionObject, this);
   }
   
-  public ICommand setSent() {
-    this.state = isIgnored() ? CommandState.SENT : CommandState.AWAITING_ACK;
-    return this;
+  public void setReturnCode(String returnCode) {
+    this.returnCode = returnCode;
   }
   
-  public ICommand wasReceived() {
-    this.state = CommandState.RECEIVED;
-    return this;
-  }
- ;
-  public ICommand wasAcked() {
-    this.state = CommandState.ACKED;
-    return this;
-  }
-  
-  public ICommand commandError() {
-    this.state = CommandState.ERROR;
-    return this;
+  public Boolean isType(String type) {
+    return commandName == type;
   }
   
   public Boolean isIgnored() {

@@ -6,9 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.Command;
-import tk.bad_rabbit.rcam.distributed_backend.command.ICommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.Pair;
+import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.IConfigurationProvider;
 
 public class CommandFactory implements ICommandFactory {
 
@@ -17,28 +18,31 @@ public class CommandFactory implements ICommandFactory {
   Map<String, String> serverVariables;
   Random rand;
   
+  IConfigurationProvider configurationProvider;
+  
   public CommandFactory(Map<String, List<String>> commandConfigurations, Map<String,
-      Map<String, String>> commandVariables, Map<String, String> serverVariables) {
+      Map<String, String>> commandVariables, Map<String, String> serverVariables, IConfigurationProvider configurationProvider) {
     this.commandConfigurations = commandConfigurations;
     this.commandVariables = commandVariables;
     this.serverVariables = serverVariables;
     rand = new Random();
+    this.configurationProvider = configurationProvider;
   }
   
-  public ICommand createResultCommand(Pair<Integer, Integer> commandResult) {
+  public ACommand createResultCommand(Pair<Integer, Integer> commandResult) {
     return createCommand("CommandResult(ackNumber="+commandResult.getLeft()+",resultCode="+commandResult.getRight()+")");
   }
     
-  public ICommand createAckCommand(ICommand command) {
+  public ACommand createAckCommand(ACommand command) {
     return createCommand("Ack(command=" + command.getCommandName() + ",ackNumber="+command.getAckNumber()+")");
   }
   
-  public ICommand createCommand(CharBuffer commandBuffer) {
+  public ACommand createCommand(CharBuffer commandBuffer) {
     return createCommand(commandBuffer.toString());
   }
   
-  public ICommand createCommand(String commandString) {
-    ICommand command = null;
+  public ACommand createCommand(String commandString) {
+    ACommand command = null;
     
     String commandType;
     int commandTypeLength;
@@ -64,7 +68,7 @@ public class CommandFactory implements ICommandFactory {
     //Ack(command=Record,ackNumber=23456)
     if(commandConfigurations.containsKey(commandType)) {
       command = new Command(commandType, commandAckNumber, commandConfigurations.get(commandType), createClientVariablesMap(commandString),
-          commandVariables.get(commandType), serverVariables);
+          commandVariables.get(commandType), serverVariables, configurationProvider.getCommandResponseAction(commandType));
       System.out.println("Command generated");
     } else {
       System.out.println("no command generated");
