@@ -43,7 +43,7 @@ public class Controller implements Runnable, Observer{
   }
   
   public void runCommand(ACommand command) {
-    System.out.println("If you see this more than once, command " + command.getAckNumber() + " will run more than once.");
+    commandResults.add(commandExecutor.submit(command));
   }
   
   public void run() {
@@ -67,14 +67,14 @@ public class Controller implements Runnable, Observer{
       Iterator<Future<Pair<Integer, Integer>>> resultIterator = commandResults.iterator();
       while(resultIterator.hasNext()) {
         Future<Pair<Integer, Integer>> commandResult = resultIterator.next();
-        try {
-          ICommand returnCommand = commandFactory.createResultCommand(commandResult.get());
+//        try {
+          //ICommand returnCommand = commandFactory.createResultCommand(commandResult.get());
 //          commandQueuer.addOutgoingCommand(returnCommand.readyToSend());
-        } catch (InterruptedException e) {
-          e.printStackTrace();
-        } catch (ExecutionException e) {
-          e.printStackTrace();
-        }
+//        } catch (InterruptedException e) {
+//          e.printStackTrace();
+//        } catch (ExecutionException e) {
+//          e.printStackTrace();
+//        }
         resultIterator.remove();
       }
     }

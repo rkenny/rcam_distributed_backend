@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Observer;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.state.DoneState;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.ICommandState;
 
 
@@ -145,6 +146,11 @@ public class Command extends ACommand {
     }
     
     System.out.println(sb);
+    commandVariables.put("returnCode", Integer.toString(p.exitValue()));
+    
+    this.setState(new DoneState());
+    
+    
     
     return new Pair<Integer, Integer>(this.commandAckNumber, p.exitValue());
   }

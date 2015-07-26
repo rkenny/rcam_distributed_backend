@@ -123,6 +123,11 @@ public class ServerThread implements Runnable, Observer {
       //command.notifyObservers(ackedState);
   }
   
+  public void sendResult(ACommand command) {
+    ACommand resultCommand = commandFactory.createResultCommand(command);
+    send(resultCommand);
+  }
+  
   public void send(ACommand command) {
       Iterator<SelectionKey> keyIterator = serverSelector.selectedKeys().iterator();
       while(keyIterator.hasNext()) {

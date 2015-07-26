@@ -1,4 +1,4 @@
-package tk.bad_rabbit.rcam.distributed_backend.app;
+package tk.bad_rabbit.rcam.distributed_backend.configurationprovider;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,7 +14,6 @@ import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.AckCommand
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.DefaultCommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ResultCommandResponseAction;
-import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.IConfigurationProvider;
 
 public class ConfigurationProvider implements IConfigurationProvider {
   Map<String, List<String>> commandConfigurations;
@@ -119,6 +118,8 @@ public class ConfigurationProvider implements IConfigurationProvider {
             e.printStackTrace();
           }
         }
+        
+        
         
         commandConfigurations.put(commandConfigDirectory.getName(), commandArgs);
         commandVariables.put(commandConfigDirectory.getName(), commandVars);

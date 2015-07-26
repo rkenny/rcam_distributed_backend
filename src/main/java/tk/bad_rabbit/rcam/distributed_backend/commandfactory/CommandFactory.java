@@ -29,8 +29,12 @@ public class CommandFactory implements ICommandFactory {
     this.configurationProvider = configurationProvider;
   }
   
-  public ACommand createResultCommand(Pair<Integer, Integer> commandResult) {
-    return createCommand("CommandResult(ackNumber="+commandResult.getLeft()+",resultCode="+commandResult.getRight()+")");
+//  public ACommand createResultCommand(Pair<Integer, Integer> commandResult) {
+//    return createCommand("CommandResult(ackNumber="+commandResult.getLeft()+",resultCode="+commandResult.getRight()+")");
+//  }
+  
+  public ACommand createResultCommand(ACommand command) {
+    return createCommand("CommandResult(ackNumber="+command.getAckNumber()+",resultCode="+command.getCommandVariable("returnCode")+")");
   }
     
   public ACommand createAckCommand(ACommand command) {
