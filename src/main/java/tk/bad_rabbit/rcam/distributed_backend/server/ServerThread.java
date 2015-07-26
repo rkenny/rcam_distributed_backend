@@ -40,15 +40,10 @@ public class ServerThread implements Runnable, Observer {
   Controller controller;
   
   public void observeCommand(ACommand command) {
-      System.out.println("Server Observing " + command.getAckNumber());
       command.addObserver(this);
   }
   
   public void update(Observable updatedCommand, Object arg) {
-    System.out.println("ServerThread received a notification about " + ((ACommand) updatedCommand).getAckNumber());
-    System.out.println("Its new state is " + arg.getClass().getSimpleName());
-    
-    
     ((ACommand) updatedCommand).doAction(this, (ICommandState) arg); 
   }
   
@@ -124,7 +119,6 @@ public class ServerThread implements Runnable, Observer {
       send(ackCommand);
       //observeCommand(ackCommand);
       ICommandState ackedState = new AckedState();
-      System.out.println("Send Ack called.");
       command.setState(ackedState);
       //command.notifyObservers(ackedState);
   }

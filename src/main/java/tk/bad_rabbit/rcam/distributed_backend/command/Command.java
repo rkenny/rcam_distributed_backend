@@ -45,7 +45,6 @@ public class Command extends ACommand {
     
     this.state = state;
     
-    System.out.println("Command " + getAckNumber() + " had its state changed to " + state.getClass().getSimpleName());
     
     setChanged();
     notifyObservers(state);

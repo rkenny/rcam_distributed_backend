@@ -47,7 +47,7 @@ public class CommandFactory implements ICommandFactory {
     String commandType;
     int commandTypeLength;
     
-    System.out.println("Creating command " + commandString);
+    //System.out.println("Creating command " + commandString);
     
     commandTypeLength = commandString.indexOf("(") > 0 ? commandString.indexOf("(") : commandString.length();
     commandTypeLength = (commandString.indexOf("[") < commandTypeLength  
@@ -69,7 +69,7 @@ public class CommandFactory implements ICommandFactory {
     if(commandConfigurations.containsKey(commandType)) {
       command = new Command(commandType, commandAckNumber, commandConfigurations.get(commandType), createClientVariablesMap(commandString),
           commandVariables.get(commandType), serverVariables, configurationProvider.getCommandResponseAction(commandType));
-      System.out.println("Command generated");
+      //System.out.println("Command generated");
     } else {
       System.out.println("no command generated");
     }

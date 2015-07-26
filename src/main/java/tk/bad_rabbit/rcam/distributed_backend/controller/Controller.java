@@ -39,7 +39,6 @@ public class Controller implements Runnable, Observer{
   }
   
   public void observeCommand(ACommand command) {
-     System.out.println("Controller observing " + command.getAckNumber());
      command.addObserver(this);
   }
   
@@ -83,13 +82,10 @@ public class Controller implements Runnable, Observer{
   }
   
   public void update(Observable updatedCommand, Object arg) {
-    System.out.println("Controller received a notification about " + ((ACommand) updatedCommand).getAckNumber());
-    System.out.println("Its new state is " + arg.getClass().getSimpleName());
-      
-      if(! (commandList.containsKey(((ACommand) updatedCommand).getAckNumber()))) {
-        commandList.put(((ACommand) updatedCommand).getAckNumber(), (ACommand) updatedCommand);
-      }
-      ((ACommand) updatedCommand).doAction(this, (ICommandState) arg);
+    if(! (commandList.containsKey(((ACommand) updatedCommand).getAckNumber()))) {
+      commandList.put(((ACommand) updatedCommand).getAckNumber(), (ACommand) updatedCommand);
+    }
+    ((ACommand) updatedCommand).doAction(this, (ICommandState) arg);
   }
 
   public void removeCommand(ACommand actionSubject) {
