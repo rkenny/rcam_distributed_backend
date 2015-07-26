@@ -23,7 +23,7 @@ public class Controller implements Runnable, Observer{
   
   boolean running;
   ExecutorService commandExecutor;
-  List<Future<Pair<Integer, Integer>>> commandResults; // commands return 'true' for success, 'false' for fail
+//  List<Future<Pair<Integer, Integer>>> commandResults; // commands return 'true' for success, 'false' for fail
   CommandFactory commandFactory;
   ConcurrentHashMap<Integer, ACommand> commandList;
 
@@ -32,7 +32,7 @@ public class Controller implements Runnable, Observer{
   public Controller(IConfigurationProvider configurationProvider) {
     this.commandList = new ConcurrentHashMap<Integer, ACommand>();
     commandExecutor = Executors.newFixedThreadPool(5);
-    commandResults = new ArrayList<Future<Pair<Integer, Integer>>>();
+//    commandResults = new ArrayList<Future<Pair<Integer, Integer>>>();
     commandFactory = new CommandFactory(configurationProvider.getCommandConfigurations(), 
         configurationProvider.getCommandVariables(), configurationProvider.getServerVariables(), configurationProvider);
     
@@ -43,7 +43,7 @@ public class Controller implements Runnable, Observer{
   }
   
   public void runCommand(ACommand command) {
-    commandResults.add(commandExecutor.submit(command));
+    commandExecutor.submit(command);
   }
   
   public void run() {
@@ -55,7 +55,7 @@ public class Controller implements Runnable, Observer{
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
-      
+    }
 //      while((command = commandQueuer.getNextReadyToExecuteCommand()) != null) {
 //        if(!command.isIgnored()) {
 //          commandResults.add(commandExecutor.submit(command.setDone()));
@@ -64,9 +64,9 @@ public class Controller implements Runnable, Observer{
 //        }
 //      }
       
-      Iterator<Future<Pair<Integer, Integer>>> resultIterator = commandResults.iterator();
-      while(resultIterator.hasNext()) {
-        Future<Pair<Integer, Integer>> commandResult = resultIterator.next();
+//      Iterator<Future<Pair<Integer, Integer>>> resultIterator = commandResults.iterator();
+//      while(resultIterator.hasNext()) {
+//        Future<Pair<Integer, Integer>> commandResult = resultIterator.next();
 //        try {
           //ICommand returnCommand = commandFactory.createResultCommand(commandResult.get());
 //          commandQueuer.addOutgoingCommand(returnCommand.readyToSend());
@@ -75,10 +75,10 @@ public class Controller implements Runnable, Observer{
 //        } catch (ExecutionException e) {
 //          e.printStackTrace();
 //        }
-        resultIterator.remove();
-      }
-    }
-    commandExecutor.shutdown();
+//        resultIterator.remove();
+//      }
+//    }
+//    commandExecutor.shutdown();
   }
   
   public void update(Observable updatedCommand, Object arg) {
