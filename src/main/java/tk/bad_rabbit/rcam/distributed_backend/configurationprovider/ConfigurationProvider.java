@@ -28,8 +28,8 @@ public class ConfigurationProvider implements IConfigurationProvider {
     readCommandConfigurations();
     
 
-    addSystemCommand("Ack", "(command=&command,ackNumber=&ackNumber)", "true", new AckCommandResponseAction());
-    addSystemCommand("CommandResult", "(ackNumber=&ackNumber,resultCode=&resultCode)", "false", new ResultCommandResponseAction());
+    addSystemCommand("Ack", "{command:&command,ackNumber:&ackNumber}", "true", new AckCommandResponseAction());
+    addSystemCommand("CommandResult", "{ackNumber:&ackNumber,resultCode:&resultCode}", "false", new ResultCommandResponseAction());
     
   }
   

@@ -3,9 +3,12 @@ package tk.bad_rabbit.rcam.distributed_backend.command;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.nio.CharBuffer;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Observer;
+
+import org.json.JSONObject;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.DoneState;
@@ -17,7 +20,7 @@ import tk.bad_rabbit.rcam.distributed_backend.command.state.ICommandState;
 public class Command extends ACommand {
   private List<String> commandString;
   private String commandName;
-  private Map<String, String> clientVariables;
+  private JSONObject clientVariables;
   private Map<String, String> commandVariables;
   private Map<String, String> serverVariables;
   private Integer commandAckNumber;
@@ -25,7 +28,7 @@ public class Command extends ACommand {
   private volatile ICommandResponseAction commandResponseAction;
   private String returnCode;
   
-  public Command(String commandName, Integer commandAckNumber, List<String> commandString, Map<String, String> clientVariables,
+  public Command(String commandName, Integer commandAckNumber, List<String> commandString, JSONObject clientVariables,
       Map<String, String> commandVariables, Map<String, String> serverVariables, ICommandResponseAction commandResponseAction) {
     this.commandName = commandName;
     this.commandString = commandString;
@@ -34,6 +37,8 @@ public class Command extends ACommand {
     this.serverVariables = serverVariables;
     this.commandAckNumber = commandAckNumber;
     this.commandResponseAction = commandResponseAction;
+    
+    System.out.println("Created command " + commandName + "[" + commandAckNumber + "]" + clientVariables);
   }
 
   public void doAction(Observer actionObserver, ICommandState commandState) {
@@ -58,7 +63,7 @@ public class Command extends ACommand {
     return this.state;
   }
   
-  public String getClientVariable(String variable) {
+  public Object getClientVariable(String variable) {
     return this.clientVariables.get(variable);
   }
   
@@ -99,9 +104,13 @@ public class Command extends ACommand {
       stringBuilder.append(" ").append(aString);
     }
     String finalCommandString = stringBuilder.toString().trim();
-    for(String key : clientVariables.keySet()) {
-      finalCommandString = finalCommandString.replace("&"+key, clientVariables.get(key));
+    
+    Iterator<String> clientVariableIterator = clientVariables.keys();
+    while(clientVariableIterator.hasNext()) {
+      String key = clientVariableIterator.next();
+      finalCommandString = finalCommandString.replace("&"+key, clientVariables.get(key).toString());
     }
+    
     for(String key : commandVariables.keySet()) {
       finalCommandString = finalCommandString.replace("@"+key, commandVariables.get(key));
     }

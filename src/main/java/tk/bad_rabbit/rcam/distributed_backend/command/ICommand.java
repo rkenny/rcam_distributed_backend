@@ -15,7 +15,7 @@ public interface ICommand extends  Callable<Pair<Integer, Integer>>{
   
   
   public String getCommandVariable(String variableName);
-  public String getClientVariable(String variableName);
+  public Object getClientVariable(String variableName);
   public String getServerVariable(String variableName);
 
   public void performCommandResponseAction(Object actionObject);

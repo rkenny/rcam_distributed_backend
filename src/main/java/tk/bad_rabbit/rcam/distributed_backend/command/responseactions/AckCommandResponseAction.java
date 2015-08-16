@@ -7,8 +7,11 @@ public class AckCommandResponseAction implements ICommandResponseAction {
 
   public void doAction(Object actionObject, ACommand actionSubject) {
     if( ((ACommand) actionSubject).isType("Ack")) {
-      ((Controller) actionObject).ackCommandReceived(Integer.parseInt(((ACommand) actionSubject).getClientVariable("ackNumber")));
-      ((Controller) actionObject).removeCommand(actionSubject);
+      Object ackNumber = ((ACommand) actionSubject).getClientVariable("ackNumber");
+      if(ackNumber instanceof Integer) {
+        ((Controller) actionObject).ackCommandReceived((Integer) ackNumber);
+        ((Controller) actionObject).removeCommand(actionSubject);
+      }
       
     }
     
