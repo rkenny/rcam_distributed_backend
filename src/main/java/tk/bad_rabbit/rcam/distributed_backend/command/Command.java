@@ -1,8 +1,10 @@
 package tk.bad_rabbit.rcam.distributed_backend.command;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.CharBuffer;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -117,8 +119,8 @@ public class Command extends ACommand {
     for(String key : serverVariables.keySet()) {
       finalCommandString = finalCommandString.replace("$"+key, serverVariables.get(key));
     }
-    //finalCommandString = finalCommandString.replaceFirst("\\[", "(");
-    //finalCommandString = finalCommandString.concat(")");
+    finalCommandString = finalCommandString.replaceFirst("\\[", "(");
+    finalCommandString = finalCommandString.concat(")");
 
     return finalCommandString;
   }
@@ -135,33 +137,55 @@ public class Command extends ACommand {
     // TODO Auto-generated method stub
     return CharBuffer.wrap(commandName + "[" + commandAckNumber.toString() + "]" + finalizeCommandString() + '\n');
   }
+  
+  public void setupEnvironment(Map<String, String> environment) {
+    for(String key : serverVariables.keySet()) {
+      environment.put(key, serverVariables.get(key));
+    }     
+     
+     for(String key : commandVariables.keySet()) {
+       environment.put(key, commandVariables.get(key));
+     }
+         
+     Iterator<String> clientVariableIterator = clientVariables.keys();
+     while(clientVariableIterator.hasNext()) {
+       String key = clientVariableIterator.next();
+       environment.put(key, clientVariables.get(key).toString());
+     }
+  }
 
   public Pair<Integer, Integer> call() throws Exception {
-    String thisCommandString = finalizeCommandString();
-   // thisCommandString = thisCommandString.substring(1, thisCommandString.length() -1 );
-    System.out.println(commandName + " [" + thisCommandString + "]");
+    String[] command = {"./config/commands/"+commandName+"/command"};
+    System.out.println(command);
+    ProcessBuilder pb = new ProcessBuilder(command);
     
-    Process p = Runtime.getRuntime().exec(thisCommandString);
-     
-    //CommandResult result = new CommandResult(commandName);
     
-    p.waitFor();
+    setupEnvironment(pb.environment());
     
-    BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-    StringBuilder sb = new StringBuilder();
-    String line = "";     
-    while ((line = reader.readLine())!= null) {
-      sb.append(line + "\n");
+    Process process = pb.start();
+    
+    //Read out dir output
+    InputStream is = process.getInputStream();
+    InputStreamReader isr = new InputStreamReader(is);
+    BufferedReader br = new BufferedReader(isr);
+    String line;
+    System.out.printf("Output of running %s is:\n", Arrays.toString(command));
+    while ((line = br.readLine()) != null) {
+        System.out.println(line);
     }
     
-    System.out.println(sb);
-    commandVariables.put("returnCode", Integer.toString(p.exitValue()));
-    
-    this.setState(new DoneState());
-    
-    
-    
-    return new Pair<Integer, Integer>(this.commandAckNumber, p.exitValue());
+    //Wait to get exit value
+    Integer exitValue = null;
+    try {
+      exitValue = process.waitFor();
+      commandVariables.put("returnCode", Integer.toString(exitValue));
+      this.setState(new DoneState());
+      System.out.println("\n\nExit Value is " + exitValue);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+     
+    return new Pair<Integer, Integer>(this.commandAckNumber, exitValue);
   }
 
 }
