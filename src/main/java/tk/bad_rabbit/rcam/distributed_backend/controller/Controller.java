@@ -34,7 +34,7 @@ public class Controller implements Runnable, Observer{
     commandExecutor = Executors.newFixedThreadPool(5);
 //    commandResults = new ArrayList<Future<Pair<Integer, Integer>>>();
     commandFactory = new CommandFactory(configurationProvider.getCommandConfigurations(), 
-        configurationProvider.getCommandVariables(), configurationProvider.getServerVariables(), configurationProvider);
+        configurationProvider.getServerVariables(), configurationProvider);
     
   }
   

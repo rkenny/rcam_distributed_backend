@@ -14,17 +14,17 @@ import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.IConfigurati
 
 public class CommandFactory implements ICommandFactory {
 
-  Map<String, List<String>> commandConfigurations;
-  Map<String, Map<String, String>> commandVariables;
-  Map<String, String> serverVariables;
+  Map<String, JSONObject> commandConfigurations;
+  
+  JSONObject serverVariables;
   Random rand;
   
   IConfigurationProvider configurationProvider;
   
-  public CommandFactory(Map<String, List<String>> commandConfigurations, Map<String,
-      Map<String, String>> commandVariables, Map<String, String> serverVariables, IConfigurationProvider configurationProvider) {
+  public CommandFactory(Map<String, JSONObject> commandConfigurations, 
+      JSONObject serverVariables, IConfigurationProvider configurationProvider) {
     this.commandConfigurations = commandConfigurations;
-    this.commandVariables = commandVariables;
+    
     this.serverVariables = serverVariables;
     rand = new Random();
     this.configurationProvider = configurationProvider;
@@ -38,7 +38,7 @@ public class CommandFactory implements ICommandFactory {
     ACommand command = null;
     if(commandConfigurations.containsKey(commandType)) {
       command = new Command(commandType, ackNumber, commandConfigurations.get(commandType), clientVariables, //createClientVariablesMap(commandString),
-          commandVariables.get(commandType), serverVariables, configurationProvider.getCommandResponseAction(commandType));
+          serverVariables, configurationProvider.getCommandResponseAction(commandType));
       //System.out.println("Command generated");
     } else {
       System.out.println("no command generated");
@@ -47,7 +47,8 @@ public class CommandFactory implements ICommandFactory {
   }
   
   public ACommand createResultCommand(ACommand command) {
-    return createCommand("CommandResult{ackNumber:"+command.getAckNumber()+",resultCode:"+command.getCommandVariable("returnCode")+"}");
+    System.out.println("Attempting to create a resultCommand");
+    return createCommand("CommandResult{ackNumber:"+command.getAckNumber()+",resultCode:"+command.getReturnCode()+"}");
   }
     
   public ACommand createAckCommand(ACommand command) {

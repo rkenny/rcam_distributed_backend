@@ -1,3 +1,9 @@
-#!/bin/sh
-echo $user /etc/passwd
+{
+  "clientVars":["user"],
+  "commandVars":{"videoSource":"ohYeah", "vlcPath":"somewhere"},
+  "OldCommandString":"user:&user",
+  "reductionCommand":"thisReducesRecord",
+  "commandExecutable":"./config/commands/Record/command.sh"
+}
+
 

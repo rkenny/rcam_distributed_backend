@@ -14,9 +14,8 @@ public interface ICommand extends  Callable<Pair<Integer, Integer>>{
   public Integer getAckNumber();
   
   
-  public String getCommandVariable(String variableName);
   public Object getClientVariable(String variableName);
-  public String getServerVariable(String variableName);
+  public Object getServerVariable(String variableName);
 
   public void performCommandResponseAction(Object actionObject);
   

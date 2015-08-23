@@ -32,7 +32,7 @@ task fatJar(type: Jar) {
 //      aspectPath:configurations.springAspects.asPath,  
 //      inpath:configuration.ajInpath.asPath,
     //  sourceRootCopyFilter:"**/.svn/*,**/*.java",
-      classpath:configurations.compile.asPath
+    //  classpath:configurations.compile.asPath
     //) {
     //  sourceroots {
     //    sourceSets.main.java.srcDirs.each {

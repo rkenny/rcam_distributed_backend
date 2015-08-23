@@ -37,7 +37,7 @@ public class Server  {
     this.controller = controller;
     this.configurationProvider = configurationProvider;
     this.commandFactory = new CommandFactory(this.configurationProvider.getCommandConfigurations(), 
-        this.configurationProvider.getCommandVariables(), this.configurationProvider.getServerVariables(), configurationProvider);
+        this.configurationProvider.getServerVariables(), configurationProvider);
     this.serverThread = new ServerThread(commandFactory, controller, port);
   }
   

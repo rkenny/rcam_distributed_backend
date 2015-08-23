@@ -224,6 +224,7 @@ public class ServerThread implements Runnable, Observer {
       returnedBuffer = CharBuffer.allocate(1024);
     }
     
+    System.out.println("Read " + returnedBuffer.toString());
     return returnedBuffer;
     
   }

@@ -17,25 +17,24 @@ import tk.bad_rabbit.rcam.distributed_backend.command.state.DoneState;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.ICommandState;
 
 
-
-
 public class Command extends ACommand {
-  private List<String> commandString;
   private String commandName;
   private JSONObject clientVariables;
-  private Map<String, String> commandVariables;
-  private Map<String, String> serverVariables;
+  //private JSONObject commandVariables;
+  
+  private volatile JSONObject commandConfiguration;
+  private JSONObject serverVariables;
   private Integer commandAckNumber;
   private volatile ICommandState state;
   private volatile ICommandResponseAction commandResponseAction;
   private String returnCode;
   
-  public Command(String commandName, Integer commandAckNumber, List<String> commandString, JSONObject clientVariables,
-      Map<String, String> commandVariables, Map<String, String> serverVariables, ICommandResponseAction commandResponseAction) {
+  public Command(String commandName, Integer commandAckNumber, JSONObject commandConfiguration, JSONObject clientVariables,
+      JSONObject serverVariables, ICommandResponseAction commandResponseAction) {
     this.commandName = commandName;
-    this.commandString = commandString;
+    
     this.clientVariables = clientVariables;
-    this.commandVariables = commandVariables;
+    this.commandConfiguration = commandConfiguration;
     this.serverVariables = serverVariables;
     this.commandAckNumber = commandAckNumber;
     this.commandResponseAction = commandResponseAction;
@@ -69,16 +68,18 @@ public class Command extends ACommand {
     return this.clientVariables.get(variable);
   }
   
-  public String getCommandVariable(String variable) {
-    return this.commandVariables.get(variable);
-  }
+  //public Object getCommandVariable(String variable) {
+  //  return this.commandVariables.get(variable);
+  //}
   
-  public String getServerVariable(String variable) {
+  public Object getServerVariable(String variable) {
     return this.serverVariables.get(variable);
   }
    
   public String getReturnCode() {
-    return returnCode;
+    System.out.println(commandConfiguration.getJSONObject("commandVars"));
+    System.out.println("Getting return code = " + this.commandConfiguration.get("returnCode").toString());
+    return this.commandConfiguration.get("returnCode").toString();
   }
   
   public void performCommandResponseAction(Object actionObject) {
@@ -94,35 +95,57 @@ public class Command extends ACommand {
   }
   
   public Boolean isIgnored() {
-    return commandVariables.get("ignored") == "true";
+    return (commandConfiguration.getJSONObject("commandVars").get("ignored") == "true");
   }
   
   
   
   public String finalizeCommandString() {
     //String finalCommandString = commandString.toString();
-    StringBuilder stringBuilder = new StringBuilder();
-    for(String aString : commandString) {
-      stringBuilder.append(" ").append(aString);
-    }
-    String finalCommandString = stringBuilder.toString().trim();
+    StringBuilder finalCommandString = new StringBuilder();
+    //System.out.println(clientVariables);
+    System.out.println("finalCommandString is " + finalCommandString + " before the replaces");
+    finalCommandString.append("{");
     
-    Iterator<String> clientVariableIterator = clientVariables.keys();
-    while(clientVariableIterator.hasNext()) {
-      String key = clientVariableIterator.next();
-      finalCommandString = finalCommandString.replace("&"+key, clientVariables.get(key).toString());
+    System.out.println("commandConfiguration is " + commandConfiguration.toString());
+    System.out.println("clientVars is" + commandConfiguration.get("clientVars").toString());
+    String[] clientVars = (String[]) commandConfiguration.get("clientVars");
+    if(commandConfiguration.has("clientVars")) {
+      for(int i = 0; i < clientVars.length; i++) {
+        finalCommandString.append("\""+clientVars[i]+"\":");
+        // haaaack.
+        if(clientVariables.get(clientVars[i]) instanceof String) {
+          finalCommandString.append("\"");
+        }
+        finalCommandString.append(clientVariables.get(clientVars[i]));
+        if(clientVariables.get(clientVars[i]) instanceof String) {
+          finalCommandString.append("\"");
+        }
+        finalCommandString.append(",");
+      }
     }
-    
-    for(String key : commandVariables.keySet()) {
-      finalCommandString = finalCommandString.replace("@"+key, commandVariables.get(key));
-    }
-    for(String key : serverVariables.keySet()) {
-      finalCommandString = finalCommandString.replace("$"+key, serverVariables.get(key));
-    }
-    finalCommandString = finalCommandString.replaceFirst("\\[", "(");
-    finalCommandString = finalCommandString.concat(")");
 
-    return finalCommandString;
+    Iterator<String> variableIterator = commandConfiguration.getJSONObject("commandVars").keys();
+    while(variableIterator.hasNext()) {
+      String key = variableIterator.next();
+      //finalCommandString = finalCommandString.replace("@"+key, commandVariables.get(key).toString());
+      finalCommandString.append("\"" + key + "\":\"" + commandConfiguration.getJSONObject("commandVars").get(key).toString()+"\"");
+      finalCommandString.append(",");
+    }
+    
+    if(commandConfiguration.has("serverVars")) {
+      for(int i = 0; i < commandConfiguration.getJSONArray("serverVars").length(); i++) {
+      finalCommandString.append("\""+commandConfiguration.getJSONArray("serverVars").get(i).toString()+"\":");
+      finalCommandString.append("\""+clientVariables.get(commandConfiguration.getJSONArray("serverVars").get(i).toString())+"\"");
+      finalCommandString.append(",");
+      }
+    }
+    
+    finalCommandString.deleteCharAt(finalCommandString.length()-1);
+    finalCommandString.append("}");
+    
+    System.out.println("FinalCommandString after is " + finalCommandString + " after the replaces");
+    return finalCommandString.toString();
   }
   
   public String getCommandName() {
@@ -130,6 +153,7 @@ public class Command extends ACommand {
   }
 
   public Integer getAckNumber() {
+    System.out.println("Getting ackNumber");
     return commandAckNumber;
   }
   
@@ -139,13 +163,19 @@ public class Command extends ACommand {
   }
   
   public void setupEnvironment(Map<String, String> environment) {
-    for(String key : serverVariables.keySet()) {
-      environment.put(key, serverVariables.get(key));
+    
+    Iterator<String> serverVariableIterator = serverVariables.keys();
+    while(serverVariableIterator.hasNext()) {
+      String key = serverVariableIterator.next();
+      environment.put(key, serverVariables.get(key).toString());
     }     
      
-     for(String key : commandVariables.keySet()) {
-       environment.put(key, commandVariables.get(key));
-     }
+    Iterator<String> variableIterator = commandConfiguration.getJSONObject("commandVars").keys();
+    while(variableIterator.hasNext()) {
+      String key = variableIterator.next();
+      //finalCommandString = finalCommandString.replace("@"+key, commandVariables.get(key).toString());
+      environment.put(key, commandConfiguration.getJSONObject("commandVars").get(key).toString());
+    }
          
      Iterator<String> clientVariableIterator = clientVariables.keys();
      while(clientVariableIterator.hasNext()) {
@@ -155,7 +185,9 @@ public class Command extends ACommand {
   }
 
   public Pair<Integer, Integer> call() throws Exception {
-    String[] command = {"./config/commands/"+commandName+"/command"};
+    
+    System.out.println("Calling command");
+    String[] command = {commandConfiguration.getString("commandExecutable")};
     System.out.println(command);
     ProcessBuilder pb = new ProcessBuilder(command);
     
@@ -178,7 +210,8 @@ public class Command extends ACommand {
     Integer exitValue = null;
     try {
       exitValue = process.waitFor();
-      commandVariables.put("returnCode", Integer.toString(exitValue));
+      commandConfiguration.put("returnCode", Integer.toString(exitValue));
+      System.out.println(commandConfiguration);
       this.setState(new DoneState());
       System.out.println("\n\nExit Value is " + exitValue);
     } catch (InterruptedException e) {
