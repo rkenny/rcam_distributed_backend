@@ -1,3 +1,3 @@
 #!/bin/sh
-echo $user $videoSource $vlcPath /etc/passwd
+echo $user $anotherUser $videoSource $vlcPath /etc/passwd
 

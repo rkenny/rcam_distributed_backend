@@ -11,7 +11,10 @@ public interface IConfigurationProvider {
   public int getServerPort();
 
   public Map<String, JSONObject> getCommandConfigurations();
-
+  public JSONObject getCommandConfiguration(String commandType);
+  public String getCommandConfigurationPath();
+  
   public JSONObject getServerVariables();
   public ICommandResponseAction getCommandResponseAction(String commandType);
+  
 }

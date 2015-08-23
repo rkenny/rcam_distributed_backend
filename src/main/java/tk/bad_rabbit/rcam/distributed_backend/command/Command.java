@@ -6,10 +6,10 @@ import java.io.InputStreamReader;
 import java.nio.CharBuffer;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Observer;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
@@ -104,21 +104,24 @@ public class Command extends ACommand {
     //String finalCommandString = commandString.toString();
     StringBuilder finalCommandString = new StringBuilder();
     //System.out.println(clientVariables);
+    System.out.println("Finalizing command " + commandName);
     System.out.println("finalCommandString is " + finalCommandString + " before the replaces");
     finalCommandString.append("{");
     
     System.out.println("commandConfiguration is " + commandConfiguration.toString());
-    System.out.println("clientVars is" + commandConfiguration.get("clientVars").toString());
-    String[] clientVars = (String[]) commandConfiguration.get("clientVars");
+    //System.out.println("clientVars is" + commandConfiguration.get("clientVars").toString());
+    //System.out.println("clientVariables is " + clientVariables);
+    
     if(commandConfiguration.has("clientVars")) {
-      for(int i = 0; i < clientVars.length; i++) {
-        finalCommandString.append("\""+clientVars[i]+"\":");
+      JSONArray clientVars = commandConfiguration.getJSONArray("clientVars");
+      for(int i = 0; i < clientVars.length(); i++) {
+        finalCommandString.append("\""+clientVars.get(i).toString()+"\":");
         // haaaack.
-        if(clientVariables.get(clientVars[i]) instanceof String) {
+        if(clientVariables.get(clientVars.get(i).toString()) instanceof String) {
           finalCommandString.append("\"");
         }
-        finalCommandString.append(clientVariables.get(clientVars[i]));
-        if(clientVariables.get(clientVars[i]) instanceof String) {
+        finalCommandString.append(clientVariables.get(clientVars.get(i).toString()));
+        if(clientVariables.get(clientVars.get(i).toString()) instanceof String) {
           finalCommandString.append("\"");
         }
         finalCommandString.append(",");

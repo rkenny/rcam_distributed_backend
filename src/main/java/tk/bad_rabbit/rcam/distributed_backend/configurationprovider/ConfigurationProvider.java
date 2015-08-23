@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.AckCommandResponseAction;
@@ -19,7 +20,7 @@ import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ResultComm
 
 public class ConfigurationProvider implements IConfigurationProvider {
   Map<String, JSONObject> commandConfigurations;
-  Map<String, JSONObject> commandVariables;
+  //Map<String, JSONObject> commandVariables;
   JSONObject serverVariables;
   Map<String, ICommandResponseAction> commandResultResponses;
   
@@ -32,13 +33,19 @@ public class ConfigurationProvider implements IConfigurationProvider {
     //addSystemCommand("Ack", "{command:&command,ackNumber:&ackNumber}", "true", new AckCommandResponseAction());
     //addSystemCommand("CommandResult", "{ackNumber:&ackNumber,resultCode:&resultCode}", "false", new ResultCommandResponseAction());
     JSONObject ackConfiguration = new JSONObject();
-
-    ackConfiguration.put("clientVars", new String[]{"ackNumber", "command"});
+    JSONArray ackClientVars = new JSONArray();
+    ackClientVars.put("ackNumber");
+    ackClientVars.put("command");
+    ackConfiguration.put("clientVars", ackClientVars);
     ackConfiguration.put("commandVars", new JSONObject("{ignored: true}"));
     addSystemCommand("Ack", ackConfiguration, new AckCommandResponseAction());
     
+    
     JSONObject commandResultConfiguration = new JSONObject();
-    commandResultConfiguration.put("clientVars", new String[]{"ackNumber", "resultCode"});
+    JSONArray resultClientVars = new JSONArray();
+    resultClientVars.put("ackNumber");
+    resultClientVars.put("resultCode");
+    commandResultConfiguration.put("clientVars", resultClientVars);
     commandResultConfiguration.put("commandVars", new JSONObject("{ignored: false}"));
     addSystemCommand("CommandResult", commandResultConfiguration, new ResultCommandResponseAction());
   }
@@ -46,6 +53,14 @@ public class ConfigurationProvider implements IConfigurationProvider {
   private void addSystemCommand(String commandType, JSONObject commandConfiguration, ICommandResponseAction commandResponseAction) {
     commandConfigurations.put(commandType, commandConfiguration);
     System.out.println("Is clientVars an array here? " + commandConfiguration.get("clientVars").getClass().getSimpleName());
+  }
+  
+  public String getCommandConfigurationPath() {
+    return "config/commands";
+  }
+  
+  public JSONObject getCommandConfiguration(String commandType) {
+    return this.commandConfigurations.get(commandType);
   }
   
   private void readServerConfiguration() {
@@ -75,7 +90,7 @@ public class ConfigurationProvider implements IConfigurationProvider {
   
   private void readCommandConfigurations() {
     commandConfigurations = new HashMap<String, JSONObject>();
-    commandVariables = new HashMap<String, JSONObject>();
+    //commandVariables = new HashMap<String, JSONObject>();
     File commandConfigFolder = new File("config/commands");
     for(File commandConfigDirectory : commandConfigFolder.listFiles()) {
       if(commandConfigDirectory.isDirectory()) {
@@ -98,29 +113,6 @@ public class ConfigurationProvider implements IConfigurationProvider {
           }
         }
         
-        File commandVariableFile = new File(commandConfigDirectory, "vars");
-        StringBuilder configFile = new StringBuilder();
-        if(commandVariableFile.isFile()) {
-          BufferedReader reader;
-          try {
-            reader = new BufferedReader(new FileReader(commandVariableFile));
-            String configFileLine;
-            while((configFileLine = reader.readLine()) != null) {
-              configFile.append(configFileLine);
-            }
-            reader.close();
-          } catch (FileNotFoundException e) {
-            e.printStackTrace();
-          } catch (IOException e) {
-            e.printStackTrace();
-          }
-          commandVariables.put(commandConfigDirectory.getName(), new JSONObject(configFile.toString()));
-        }
-        
-        
-        
-        commandConfigurations.put(commandConfigDirectory.getName(), new JSONObject(commandArgs.toString()));
-        
         commandResultResponses.put(commandConfigDirectory.getName(), new DefaultCommandResponseAction());
       }
     }
@@ -137,10 +129,6 @@ public class ConfigurationProvider implements IConfigurationProvider {
 
   public Map<String, JSONObject> getCommandConfigurations() {
     return commandConfigurations;
-  }
-  
-  public Map<String, JSONObject> getCommandVariables() {
-    return commandVariables;
   }
 
   public ICommandResponseAction getCommandResponseAction(String commandType) {
