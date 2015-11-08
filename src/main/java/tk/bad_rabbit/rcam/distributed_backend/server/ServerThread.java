@@ -25,7 +25,7 @@ import tk.bad_rabbit.rcam.distributed_backend.command.state.ReceivedCommandState
 import tk.bad_rabbit.rcam.distributed_backend.commandfactory.ICommandFactory;
 import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
 
-public class ServerThread implements Runnable, Observer {
+public class ServerThread extends Observable implements Runnable, Observer {
   
   ServerSocketChannel serverSocketChannel;
   SocketChannel socketChannel;
@@ -41,12 +41,16 @@ public class ServerThread implements Runnable, Observer {
   
   public void observeCommand(ACommand command) {
       command.addObserver(this);
+      this.addObserver(command);
   }
   
   public void update(Observable updatedCommand, Object arg) {
     ((ACommand) updatedCommand).doAction(this, (ICommandState) arg); 
   }
   
+  public void doAction(Observable updatedCommand, Object arg) {
+    
+  }
   
 
   
@@ -116,11 +120,11 @@ public class ServerThread implements Runnable, Observer {
   
   public void sendAck(ACommand command) {
       ACommand ackCommand = commandFactory.createAckCommand(command);
+      observeCommand(ackCommand);
       send(ackCommand);
-      //observeCommand(ackCommand);
+      
       ICommandState ackedState = new AckedState();
       command.setState(ackedState);
-      //command.notifyObservers(ackedState);
   }
   
   public void sendResult(ACommand command) {
@@ -135,9 +139,7 @@ public class ServerThread implements Runnable, Observer {
         SocketChannel selectedChannel = (SocketChannel) key.channel();
         try {
           if(key.isWritable()) {
-            //keyIterator.remove();
             writeCommandToChannel(selectedChannel, command);
-            //Thread.sleep(25);
           } else {
             System.out.println("Key is not writable.");
           }
@@ -150,10 +152,6 @@ public class ServerThread implements Runnable, Observer {
             System.err.println("Error closing the channel.");
             e.printStackTrace();
           }
-        //} catch (InterruptedException e) {
-        //  // TODO Auto-generated catch block
-        //  e.printStackTrace();
-        //}
       }
     }
   }
@@ -175,13 +173,15 @@ public class ServerThread implements Runnable, Observer {
         }
         
         if(selectedKey.isReadable()) {
-          //selectedKeyIterator.remove();
           try {
           ACommand incomingCommand = commandFactory.createCommand(readFromChannel(selectedChannel));
-          controller.observeCommand(incomingCommand);
-          this.observeCommand(incomingCommand);
-          ICommandState newState = new ReceivedCommandState();
-          incomingCommand.setState(newState);
+          if(incomingCommand != null) {
+            controller.observeCommand(incomingCommand);
+            this.observeCommand(incomingCommand);
+            ICommandState newState = new ReceivedCommandState();
+            incomingCommand.setState(newState);            
+          }
+
           } catch(IOException ioException) {
             System.err.println("Error reading from a channel. Closing that channel.");
             try {
@@ -233,7 +233,6 @@ public class ServerThread implements Runnable, Observer {
     
     if(serverSocketChannel != null) {
       if(serverSelector.select() == 0) {
-        //System.out.println("Nothing to select, yet");
         return;
       }
     }

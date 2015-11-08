@@ -8,7 +8,10 @@ import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
 
 
 public class AckedState implements ICommandState {
-
+  public String getStateExecutableType() {
+    return "commandExecutable";
+  }
+  
   public void doAction(Observer actionObserver, ACommand actionSubject) {
     if(actionObserver instanceof Controller) {
       ((Controller) actionObserver).runCommand((ACommand) actionSubject);

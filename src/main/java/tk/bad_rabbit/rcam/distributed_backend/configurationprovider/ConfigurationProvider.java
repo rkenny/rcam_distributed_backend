@@ -5,15 +5,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.AckCommandResponseAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.CancelCommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.DefaultCommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ResultCommandResponseAction;
@@ -48,10 +47,19 @@ public class ConfigurationProvider implements IConfigurationProvider {
     commandResultConfiguration.put("clientVars", resultClientVars);
     commandResultConfiguration.put("commandVars", new JSONObject("{ignored: false}"));
     addSystemCommand("CommandResult", commandResultConfiguration, new ResultCommandResponseAction());
+    
+    JSONObject cancelConfiguration = new JSONObject();
+    JSONArray cancelClientVars = new JSONArray();
+    cancelClientVars.put("ackNumber");
+    cancelClientVars.put("resultCode");
+    cancelConfiguration.put("clientVars", cancelClientVars);
+    cancelConfiguration.put("commandVars", new JSONObject("{ignored: true}"));
+    addSystemCommand("Cancel", cancelConfiguration, new CancelCommandResponseAction());
   }
   
   private void addSystemCommand(String commandType, JSONObject commandConfiguration, ICommandResponseAction commandResponseAction) {
     commandConfigurations.put(commandType, commandConfiguration);
+    commandResultResponses.put(commandType, commandResponseAction);
     System.out.println("Is clientVars an array here? " + commandConfiguration.get("clientVars").getClass().getSimpleName());
   }
   

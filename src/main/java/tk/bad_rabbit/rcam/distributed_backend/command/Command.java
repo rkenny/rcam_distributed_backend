@@ -7,7 +7,9 @@ import java.nio.CharBuffer;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Observable;
 import java.util.Observer;
+import java.util.concurrent.Callable;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -15,12 +17,13 @@ import org.json.JSONObject;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.DoneState;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.ICommandState;
+import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
+import tk.bad_rabbit.rcam.distributed_backend.server.ServerThread;
 
 
 public class Command extends ACommand {
   private String commandName;
   private JSONObject clientVariables;
-  //private JSONObject commandVariables;
   
   private volatile JSONObject commandConfiguration;
   private JSONObject serverVariables;
@@ -43,7 +46,11 @@ public class Command extends ACommand {
   }
 
   public void doAction(Observer actionObserver, ICommandState commandState) {
+    System.out.println(commandState.getClass().getSimpleName());
+    System.out.println(this.state.getClass().getSimpleName());
+    
     if(commandState.getClass().getSimpleName().equals(this.state.getClass().getSimpleName())) {
+      System.out.println("Going to do the state's action");
       this.state.doAction(actionObserver, this);
     }  
   }
@@ -52,10 +59,8 @@ public class Command extends ACommand {
     
     this.state = state;
     
-    
     setChanged();
     notifyObservers(state);
-    
     
     return state;
   }
@@ -67,10 +72,6 @@ public class Command extends ACommand {
   public Object getClientVariable(String variable) {
     return this.clientVariables.get(variable);
   }
-  
-  //public Object getCommandVariable(String variable) {
-  //  return this.commandVariables.get(variable);
-  //}
   
   public Object getServerVariable(String variable) {
     return this.serverVariables.get(variable);
@@ -188,10 +189,21 @@ public class Command extends ACommand {
   }
 
   public Pair<Integer, Integer> call() throws Exception {
-    
+  //public Callable<Pair<Integer, Integer>> getCallable() {
+  //  final ACommand something = this; 
+  //  return new Callable<Pair<Integer, Integer>>() {
+ //    public Pair<Integer, Integer> call() throws Exception {
     System.out.println("Calling command");
-    String[] command = {commandConfiguration.getString("commandExecutable")};
+    System.out.println("Command is in state  " + this.state.getClass().getSimpleName());
+    String[] command = {commandConfiguration.getString(this.state.getStateExecutableType())};
+    System.out.println(commandConfiguration);
     System.out.println(command);
+    System.out.println("Got here");
+    System.out.println("Going to run " +commandConfiguration.getString(this.state.getStateExecutableType()));
+    System.out.println(commandConfiguration);
+    System.out.println(this.state.getStateExecutableType());
+    System.out.println("WTF it's 1:20 am. go to bed after this run.");
+    
     ProcessBuilder pb = new ProcessBuilder(command);
     
     
@@ -221,7 +233,14 @@ public class Command extends ACommand {
         e.printStackTrace();
     }
      
-    return new Pair<Integer, Integer>(this.commandAckNumber, exitValue);
+    return new Pair<Integer, Integer>(this.getAckNumber(), exitValue);
+      
   }
 
+  public void update(Observable serverThread, Object arg) {
+    if(serverThread instanceof ServerThread) {
+      ((ServerThread) serverThread).doAction(this, arg);
+    }
+  }
+  
 }

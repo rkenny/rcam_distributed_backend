@@ -100,6 +100,10 @@ public class CommandFactory implements ICommandFactory {
   }
   
   public ACommand createCommand(String commandString) {
+    if(commandString == null || commandString.length() == 0) {
+      return null;
+    }
+    
     ACommand command = null;
     
     String commandType;
@@ -111,8 +115,6 @@ public class CommandFactory implements ICommandFactory {
     commandTypeLength = (commandString.indexOf("[") < commandTypeLength  
         && commandString.indexOf("[") > 0 )? commandString.indexOf("[") : commandTypeLength;
     commandType = commandString.substring(0, commandTypeLength).trim();
-      
-    
     
     Integer commandAckNumber;
     if(commandString.indexOf("[") > 0 && commandString.indexOf("[") < commandString.indexOf("{") ) {
@@ -122,11 +124,7 @@ public class CommandFactory implements ICommandFactory {
     }
     
     JSONObject clientVariables = new JSONObject(commandString.substring(commandString.indexOf("{"), commandString.length()));
-    //Something => Something[12345] => Ack(Something[12345])
-    //Record(duration=200) => Record[123456](duration=200) => Ack(Record[123456])
-    
-    //Ack[12345](@Commmand[@AckNumber])
-    //Ack(command=Record,ackNumber=23456)
+
     return createCommand(commandType, commandAckNumber, clientVariables);
   }
   
