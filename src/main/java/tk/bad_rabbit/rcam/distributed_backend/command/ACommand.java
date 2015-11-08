@@ -9,12 +9,6 @@ public abstract class ACommand extends Observable implements ICommand, Observer 
   public void notifyObservers(Object arg) {
     synchronized(this) {
       super.notifyObservers(arg);
-//      try {
-//        this.wait();
-//      } catch (InterruptedException e) {
-//         TODO Auto-generated catch block
-//        e.printStackTrace();
-//      }
     }
   }
 

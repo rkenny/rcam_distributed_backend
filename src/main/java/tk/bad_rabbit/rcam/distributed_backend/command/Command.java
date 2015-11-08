@@ -46,11 +46,7 @@ public class Command extends ACommand {
   }
 
   public void doAction(Observer actionObserver, ICommandState commandState) {
-    System.out.println(commandState.getClass().getSimpleName());
-    System.out.println(this.state.getClass().getSimpleName());
-    
     if(commandState.getClass().getSimpleName().equals(this.state.getClass().getSimpleName())) {
-      System.out.println("Going to do the state's action");
       this.state.doAction(actionObserver, this);
     }  
   }
@@ -78,8 +74,6 @@ public class Command extends ACommand {
   }
    
   public String getReturnCode() {
-    System.out.println(commandConfiguration.getJSONObject("commandVars"));
-    System.out.println("Getting return code = " + this.commandConfiguration.get("returnCode").toString());
     return this.commandConfiguration.get("returnCode").toString();
   }
   
@@ -102,16 +96,10 @@ public class Command extends ACommand {
   
   
   public String finalizeCommandString() {
-    //String finalCommandString = commandString.toString();
     StringBuilder finalCommandString = new StringBuilder();
-    //System.out.println(clientVariables);
-    System.out.println("Finalizing command " + commandName);
-    System.out.println("finalCommandString is " + finalCommandString + " before the replaces");
+
     finalCommandString.append("{");
-    
-    System.out.println("commandConfiguration is " + commandConfiguration.toString());
-    //System.out.println("clientVars is" + commandConfiguration.get("clientVars").toString());
-    //System.out.println("clientVariables is " + clientVariables);
+
     
     if(commandConfiguration.has("clientVars")) {
       JSONArray clientVars = commandConfiguration.getJSONArray("clientVars");
@@ -132,7 +120,6 @@ public class Command extends ACommand {
     Iterator<String> variableIterator = commandConfiguration.getJSONObject("commandVars").keys();
     while(variableIterator.hasNext()) {
       String key = variableIterator.next();
-      //finalCommandString = finalCommandString.replace("@"+key, commandVariables.get(key).toString());
       finalCommandString.append("\"" + key + "\":\"" + commandConfiguration.getJSONObject("commandVars").get(key).toString()+"\"");
       finalCommandString.append(",");
     }
@@ -148,7 +135,6 @@ public class Command extends ACommand {
     finalCommandString.deleteCharAt(finalCommandString.length()-1);
     finalCommandString.append("}");
     
-    System.out.println("FinalCommandString after is " + finalCommandString + " after the replaces");
     return finalCommandString.toString();
   }
   
@@ -157,12 +143,10 @@ public class Command extends ACommand {
   }
 
   public Integer getAckNumber() {
-    System.out.println("Getting ackNumber");
     return commandAckNumber;
   }
   
   public CharBuffer asCharBuffer() {
-    // TODO Auto-generated method stub
     return CharBuffer.wrap(commandName + "[" + commandAckNumber.toString() + "]" + finalizeCommandString() + '\n');
   }
   
@@ -189,34 +173,18 @@ public class Command extends ACommand {
   }
 
   public Pair<Integer, Integer> call() throws Exception {
-  //public Callable<Pair<Integer, Integer>> getCallable() {
-  //  final ACommand something = this; 
-  //  return new Callable<Pair<Integer, Integer>>() {
- //    public Pair<Integer, Integer> call() throws Exception {
-    System.out.println("Calling command");
-    System.out.println("Command is in state  " + this.state.getClass().getSimpleName());
     String[] command = {commandConfiguration.getString(this.state.getStateExecutableType())};
-    System.out.println(commandConfiguration);
-    System.out.println(command);
-    System.out.println("Got here");
-    System.out.println("Going to run " +commandConfiguration.getString(this.state.getStateExecutableType()));
-    System.out.println(commandConfiguration);
-    System.out.println(this.state.getStateExecutableType());
-    System.out.println("WTF it's 1:20 am. go to bed after this run.");
-    
     ProcessBuilder pb = new ProcessBuilder(command);
-    
     
     setupEnvironment(pb.environment());
     
     Process process = pb.start();
     
-    //Read out dir output
     InputStream is = process.getInputStream();
     InputStreamReader isr = new InputStreamReader(is);
     BufferedReader br = new BufferedReader(isr);
     String line;
-    System.out.printf("Output of running %s is:\n", Arrays.toString(command));
+
     while ((line = br.readLine()) != null) {
         System.out.println(line);
     }
@@ -226,9 +194,7 @@ public class Command extends ACommand {
     try {
       exitValue = process.waitFor();
       commandConfiguration.put("returnCode", Integer.toString(exitValue));
-      System.out.println(commandConfiguration);
       this.setState(new DoneState());
-      System.out.println("\n\nExit Value is " + exitValue);
     } catch (InterruptedException e) {
         e.printStackTrace();
     }

@@ -11,10 +11,6 @@ public class CommandCompletedState implements ICommandState {
   }
   
   public void doAction(Observer actionObserver, ACommand actionSubject) {
-    System.out.println("Commands on the backend are not reduced");
-    //if(actionObject instanceof Controller) {
-    //  ((Controller) actionObject).readyToReduce((ACommand) actionSubject);
-    // }
   }
 
 }

@@ -19,18 +19,14 @@ import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ResultComm
 
 public class ConfigurationProvider implements IConfigurationProvider {
   Map<String, JSONObject> commandConfigurations;
-  //Map<String, JSONObject> commandVariables;
   JSONObject serverVariables;
   Map<String, ICommandResponseAction> commandResultResponses;
   
-  public ConfigurationProvider() {
-//    serverVariables = 
+  public ConfigurationProvider() { 
     commandResultResponses = new HashMap<String, ICommandResponseAction>();
     readServerConfiguration();
     readCommandConfigurations();
 
-    //addSystemCommand("Ack", "{command:&command,ackNumber:&ackNumber}", "true", new AckCommandResponseAction());
-    //addSystemCommand("CommandResult", "{ackNumber:&ackNumber,resultCode:&resultCode}", "false", new ResultCommandResponseAction());
     JSONObject ackConfiguration = new JSONObject();
     JSONArray ackClientVars = new JSONArray();
     ackClientVars.put("ackNumber");
@@ -60,7 +56,6 @@ public class ConfigurationProvider implements IConfigurationProvider {
   private void addSystemCommand(String commandType, JSONObject commandConfiguration, ICommandResponseAction commandResponseAction) {
     commandConfigurations.put(commandType, commandConfiguration);
     commandResultResponses.put(commandType, commandResponseAction);
-    System.out.println("Is clientVars an array here? " + commandConfiguration.get("clientVars").getClass().getSimpleName());
   }
   
   public String getCommandConfigurationPath() {
@@ -72,7 +67,6 @@ public class ConfigurationProvider implements IConfigurationProvider {
   }
   
   private void readServerConfiguration() {
-    //serverPort = 12345;
     File serverConfigFile = new File("config/server.conf");
     BufferedReader reader;
     try {
@@ -80,7 +74,6 @@ public class ConfigurationProvider implements IConfigurationProvider {
       String configFileLine;
       StringBuilder serverConfig = new StringBuilder();
       while((configFileLine = reader.readLine()) != null) {
-        //parseServerConfigLine(configFileLine);
         serverConfig.append(configFileLine);
       }
       serverVariables = new JSONObject(serverConfig.toString());
@@ -98,7 +91,6 @@ public class ConfigurationProvider implements IConfigurationProvider {
   
   private void readCommandConfigurations() {
     commandConfigurations = new HashMap<String, JSONObject>();
-    //commandVariables = new HashMap<String, JSONObject>();
     File commandConfigFolder = new File("config/commands");
     for(File commandConfigDirectory : commandConfigFolder.listFiles()) {
       if(commandConfigDirectory.isDirectory()) {

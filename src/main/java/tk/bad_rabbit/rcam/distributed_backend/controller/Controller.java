@@ -18,7 +18,7 @@ public class Controller implements Runnable, Observer {
   
   boolean running;
   ExecutorService commandExecutor;
-//  List<Future<Pair<Integer, Integer>>> commandResults; // commands return 'true' for success, 'false' for fail
+
   CommandFactory commandFactory;
   ConcurrentHashMap<Integer, ACommand> commandList;
 
@@ -27,7 +27,7 @@ public class Controller implements Runnable, Observer {
   public Controller(IConfigurationProvider configurationProvider) {
     this.commandList = new ConcurrentHashMap<Integer, ACommand>();
     commandExecutor = Executors.newFixedThreadPool(5);
-//    commandResults = new ArrayList<Future<Pair<Integer, Integer>>>();
+
     commandFactory = new CommandFactory(configurationProvider.getCommandConfigurations(), 
         configurationProvider.getServerVariables(), configurationProvider);
     
@@ -42,7 +42,6 @@ public class Controller implements Runnable, Observer {
   }
   
   public void cancelCommand(ACommand commandToCancel) {
-    System.out.println("Controller: Going to cancel command " + commandToCancel.getAckNumber());
     commandExecutor.submit(commandToCancel);
   }
   
@@ -58,9 +57,7 @@ public class Controller implements Runnable, Observer {
     }
   }
   
-  public void update(Observable updatedCommand, Object arg) {
-    System.out.println("Controller observed a change in " + ((ACommand) updatedCommand).getAckNumber());
-    
+  public void update(Observable updatedCommand, Object arg) {    
     if(! (commandList.containsKey(((ACommand) updatedCommand).getAckNumber()))) {
       commandList.put(((ACommand) updatedCommand).getAckNumber(), (ACommand) updatedCommand);
     }
@@ -77,7 +74,6 @@ public class Controller implements Runnable, Observer {
   }
   
   public void ackCommandReceived(Integer ackNumber) {
-    System.out.println("Ack command received for " + ackNumber);
     commandList.get(ackNumber).setState(new AckedState());
   }
   

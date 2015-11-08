@@ -13,8 +13,7 @@ public class ReceivedCommandState implements ICommandState {
   }
   
   public void doAction(Observer actionObserver, ACommand command) {
-    // shit. This is the root of a few defects.
-    //if(actionObserver instanceof ServerThread) {
+    // shit. This could be the root of a few unseen defects.
       (command).performCommandResponseAction(actionObserver);
     //}
   }

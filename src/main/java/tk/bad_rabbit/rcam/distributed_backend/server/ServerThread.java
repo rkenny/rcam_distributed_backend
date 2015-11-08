@@ -206,7 +206,7 @@ public class ServerThread extends Observable implements Runnable, Observer {
     while(buffer.hasRemaining()) {
         selectedChannel.write(buffer);
     }
-    System.out.println("Wrote " + command.asCharBuffer().toString());
+    //System.out.println("Server("+port+"):  wrote " + command.asCharBuffer().toString());
     buffer.clear();
   }
   
@@ -224,7 +224,7 @@ public class ServerThread extends Observable implements Runnable, Observer {
       returnedBuffer = CharBuffer.allocate(1024);
     }
     
-    System.out.println("Read " + returnedBuffer.toString());
+    //System.out.println("Server("+port+"): read " + returnedBuffer.toString());
     return returnedBuffer;
     
   }

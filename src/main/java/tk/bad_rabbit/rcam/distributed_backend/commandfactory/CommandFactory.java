@@ -35,18 +35,13 @@ public class CommandFactory implements ICommandFactory {
     this.configurationProvider = configurationProvider;
   }
   
-//  public ACommand createResultCommand(Pair<Integer, Integer> commandResult) {
-//    return createCommand("CommandResult(ackNumber="+commandResult.getLeft()+",resultCode="+commandResult.getRight()+")");
-//  }
   
   public JSONObject createCommandConfiguration(String commandType) {
     StringBuilder commandArgs = new StringBuilder();
-    //
     File commandConfigFolder = new File("./config/commands/" + commandType);
-    System.out.println("Looking for a file in ./config/commands/"+ commandType);
+    
     if(commandConfigFolder.isDirectory()) {
       File commandConfigFile = new File(commandConfigFolder, "command");
-      System.out.println("Found the command file for " + commandType);
       
       if(commandConfigFile.isFile()) {
         BufferedReader reader;
@@ -68,26 +63,19 @@ public class CommandFactory implements ICommandFactory {
     } else {
       commandArgs.append("{}");
     }
-    System.out.println("commandArgs is " + commandArgs.toString());
+
     return new JSONObject(commandArgs.toString());
   }
   
   public ACommand createCommand(String commandType, Integer ackNumber, JSONObject clientVariables) {
     ACommand command = null;
-    //if(commandConfigurations.containsKey(commandType)) {
     command = new Command(commandType, ackNumber, createCommandConfiguration(commandType), clientVariables,
           serverVariables, configurationProvider.getCommandResponseAction(commandType));
-      //command = new Command(commandType, ackNumber, commandConfigurations.get(commandType), clientVariables,
-      //    serverVariables, configurationProvider.getCommandResponseAction(commandType));
-      //System.out.println("Command generated");
-    //} else {
-    //  System.out.println("no command generated");
-    //}
+
     return command;
   }
   
   public ACommand createResultCommand(ACommand command) {
-    System.out.println("Attempting to create a resultCommand");
     return createCommand("CommandResult{ackNumber:"+command.getAckNumber()+",resultCode:"+command.getReturnCode()+"}");
   }
     
@@ -108,8 +96,6 @@ public class CommandFactory implements ICommandFactory {
     
     String commandType;
     int commandTypeLength;
-    
-    System.out.println("Creating command " + commandString);
     
     commandTypeLength = commandString.indexOf("{") > 0 ? commandString.indexOf("{") : commandString.length();
     commandTypeLength = (commandString.indexOf("[") < commandTypeLength  
