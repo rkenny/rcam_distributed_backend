@@ -164,7 +164,6 @@ public class ServerThread extends Observable implements Runnable, Observer {
       Iterator<SelectionKey> selectedKeyIterator = serverSelector.selectedKeys().iterator();
       while(selectedKeyIterator.hasNext()) {
         SelectionKey selectedKey = selectedKeyIterator.next();
-        //selectedKeyIterator.remove();
         
         SocketChannel selectedChannel = (SocketChannel) selectedKey.channel();
         if(!selectedKey.isValid() || !selectedChannel.isConnected()) {
