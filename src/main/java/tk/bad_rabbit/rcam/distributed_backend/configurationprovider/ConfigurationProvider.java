@@ -11,6 +11,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ACommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.AckCommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.CancelCommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.DefaultCommandResponseAction;
@@ -20,10 +21,10 @@ import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ResultComm
 public class ConfigurationProvider implements IConfigurationProvider {
   Map<String, JSONObject> commandConfigurations;
   JSONObject serverVariables;
-  Map<String, ICommandResponseAction> commandResultResponses;
+  Map<String, ACommandResponseAction> commandResultResponses;
   
   public ConfigurationProvider() { 
-    commandResultResponses = new HashMap<String, ICommandResponseAction>();
+    commandResultResponses = new HashMap<String, ACommandResponseAction>();
     readServerConfiguration();
     readCommandConfigurations();
 
@@ -53,7 +54,7 @@ public class ConfigurationProvider implements IConfigurationProvider {
     addSystemCommand("Cancel", cancelConfiguration, new CancelCommandResponseAction());
   }
   
-  private void addSystemCommand(String commandType, JSONObject commandConfiguration, ICommandResponseAction commandResponseAction) {
+  private void addSystemCommand(String commandType, JSONObject commandConfiguration, ACommandResponseAction commandResponseAction) {
     commandConfigurations.put(commandType, commandConfiguration);
     commandResultResponses.put(commandType, commandResponseAction);
   }
@@ -126,12 +127,17 @@ public class ConfigurationProvider implements IConfigurationProvider {
     System.out.println(serverVariables);
     return serverVariables.getInt("port");
   }
+  
+  public String getServerAddress() {
+    System.out.println(serverVariables);
+    return serverVariables.getString("address");
+  }
 
   public Map<String, JSONObject> getCommandConfigurations() {
     return commandConfigurations;
   }
 
-  public ICommandResponseAction getCommandResponseAction(String commandType) {
+  public ACommandResponseAction getCommandResponseAction(String commandType) {
     return commandResultResponses.get(commandType);
   }
 

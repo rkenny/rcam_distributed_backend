@@ -38,6 +38,7 @@ public class Controller implements Runnable, Observer {
   }
   
   public void runCommand(ACommand command) {
+    System.out.println("RCam Distributed Backend - Controller - Going to run command " + command.getCommandName() + "[" + command.getAckNumber() + "]");
     commandExecutor.submit(command);
   }
   
@@ -62,7 +63,7 @@ public class Controller implements Runnable, Observer {
       commandList.put(((ACommand) updatedCommand).getAckNumber(), (ACommand) updatedCommand);
     }
     
-    ((ACommand) updatedCommand).doAction(this, (ICommandState) arg);
+    ((ACommand) updatedCommand).doRelatedCommandAction(this, (ICommandState) arg);
   }
 
   public void removeCommand(ACommand actionSubject) {

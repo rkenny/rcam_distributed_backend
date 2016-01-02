@@ -1,14 +1,27 @@
 package tk.bad_rabbit.rcam.distributed_backend.command.responseactions;
 
+import java.util.Observer;
+
+import tk.bad_rabbit.rcam.distributed_backend.client.ClientThread;
 import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.AckedState;
-import tk.bad_rabbit.rcam.distributed_backend.server.Server;
-import tk.bad_rabbit.rcam.distributed_backend.server.ServerThread;
 
-public class DefaultCommandResponseAction implements ICommandResponseAction {
-  public void doAction(Object actionObject, ACommand actionSubject) {
-      if(actionObject instanceof ServerThread) {
-        ((ServerThread) actionObject).sendAck(actionSubject);
+public class DefaultCommandResponseAction extends ACommandResponseAction {
+  
+  public void doRelatedCommandStuff(Observer actionObject, ACommand actionSubject) {
+  }
+  
+  public void doNetworkStuff(Observer actionObject, ACommand actionSubject) {
+      if(actionObject instanceof ClientThread) {
+        ((ClientThread) actionObject).sendAck(actionSubject);
+        nextState(actionSubject);
       }
     }
+  
+  
+  public void nextState(ACommand command) {
+    command.setState(new AckedState());
+  }
 }
+
+

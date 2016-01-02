@@ -16,56 +16,56 @@ import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.IConfigurati
 import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
 
 public class Server  {
-  int port;
-  
-  ServerSocketChannel serverSocketChannel;
-  SocketChannel socketChannel;
-  Selector serverSelector;
-  
-  CharsetDecoder asciiDecoder;
-  CharsetEncoder asciiEncoder;
-  
-  
-  ICommandFactory commandFactory;
-  IConfigurationProvider configurationProvider;
-  ServerThread serverThread;
-  Controller controller;
-  
-  public Server(int port, Controller controller, IConfigurationProvider configurationProvider) {
-    this();
-    this.port = port;
-    this.controller = controller;
-    this.configurationProvider = configurationProvider;
-    this.commandFactory = new CommandFactory(this.configurationProvider.getCommandConfigurations(), 
-        this.configurationProvider.getServerVariables(), configurationProvider);
-    this.serverThread = new ServerThread(commandFactory, controller, port);
-  }
-  
-  public Server() {
-    asciiDecoder = Charset.forName("US-ASCII").newDecoder();
-    asciiEncoder = Charset.forName("US-ASCII").newEncoder();
-    
-  }
-
-  public void startServerThread() {
-    serverThread.start();
-  }
-  
-  public void observeCommand(ACommand command) {
-    this.serverThread.observeCommand(command);
-  }
-  
-  public void send(ACommand command) {
-    sendCommand(command);
-    command.setState(new AwaitingAckState());
-  }
-
-  private void sendCommand(ACommand command) {
-    synchronized(command) {
-      serverThread.send(command);
-    }
-  }
-  
+//  int port;
+//  
+//  ServerSocketChannel serverSocketChannel;
+//  SocketChannel socketChannel;
+//  Selector serverSelector;
+//  
+//  CharsetDecoder asciiDecoder;
+//  CharsetEncoder asciiEncoder;
+//  
+//  
+//  ICommandFactory commandFactory;
+//  IConfigurationProvider configurationProvider;
+//  ServerThread serverThread;
+//  Controller controller;
+//  
+//  public Server(int port, Controller controller, IConfigurationProvider configurationProvider) {
+//    this();
+//    this.port = port;
+//    this.controller = controller;
+//    this.configurationProvider = configurationProvider;
+//    this.commandFactory = new CommandFactory(this.configurationProvider.getCommandConfigurations(), 
+//        this.configurationProvider.getServerVariables(), configurationProvider);
+//    this.serverThread = new ServerThread(commandFactory, controller, port);
+//  }
+//  
+//  public Server() {
+//    asciiDecoder = Charset.forName("US-ASCII").newDecoder();
+//    asciiEncoder = Charset.forName("US-ASCII").newEncoder();
+//    
+//  }
+//
+//  public void startServerThread() {
+//    serverThread.start();
+//  }
+//  
+//  public void observeCommand(ACommand command) {
+//    this.serverThread.observeCommand(command);
+//  }
+//  
+//  public void send(ACommand command) {
+//    sendCommand(command);
+//    command.setState(new AwaitingAckState());
+//  }
+//
+//  private void sendCommand(ACommand command) {
+//    synchronized(command) {
+//      serverThread.send(command);
+//    }
+//  }
+//  
  
   
 }

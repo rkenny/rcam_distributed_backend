@@ -2,19 +2,21 @@ package tk.bad_rabbit.rcam.distributed_backend.command.state;
 
 import java.util.Observer;
 
+import tk.bad_rabbit.rcam.distributed_backend.client.ClientThread;
 import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
-import tk.bad_rabbit.rcam.distributed_backend.server.ServerThread;
 
-public class AwaitingAckState implements ICommandState {
+public class AwaitingAckState extends ACommandState {
   public String getStateExecutableType() {
     return "commandExecutable";
   }
   
-  public void doAction(Observer actionObserver, ACommand actionSubject) {
-    if(actionObserver instanceof ServerThread) {
-      ((ServerThread) actionObserver).sendAck((ACommand)actionSubject);
+  public void doNetworkStuff(Observer actionObserver, ACommand actionSubject) {
+    if(actionObserver instanceof ClientThread) {
+      ((ClientThread) actionObserver).sendAck((ACommand)actionSubject);
       ((ACommand) actionSubject).setState(new AckedState());
     }
   }
+  
+  public void doRelatedCommandStuff(Observer actionObserver, ACommand actionSubject) {}
 
 }

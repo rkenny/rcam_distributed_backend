@@ -17,7 +17,8 @@ public interface ICommand extends  Callable<Pair<Integer, Integer>>{
   public Object getClientVariable(String variableName);
   public Object getServerVariable(String variableName);
 
-  public void performCommandResponseAction(Object actionObject);
+  public void performCommandResponseNetworkAction(Observer actionObject);
+  public void performCommandResponseRelatedCommandAction(Observer actionObject);
   
   public Boolean isType(String commandType);
   public ICommandState getState();
@@ -28,7 +29,8 @@ public interface ICommand extends  Callable<Pair<Integer, Integer>>{
   public void setReturnCode(String returnCode);
   public String getReturnCode();
 
-  public void doAction(Observer actionObserver, ICommandState commandState);
+  public void doNetworkAction(Observer actionObserver, ICommandState commandState);
+  public void doRelatedCommandAction(Observer actionObserver, ICommandState commandState);
 
   
 }

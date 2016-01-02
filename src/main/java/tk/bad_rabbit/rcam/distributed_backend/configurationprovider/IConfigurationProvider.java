@@ -1,11 +1,10 @@
 package tk.bad_rabbit.rcam.distributed_backend.configurationprovider;
 
-import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
 
-import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ACommandResponseAction;
 
 public interface IConfigurationProvider {
   public int getServerPort();
@@ -15,6 +14,7 @@ public interface IConfigurationProvider {
   public String getCommandConfigurationPath();
   
   public JSONObject getServerVariables();
-  public ICommandResponseAction getCommandResponseAction(String commandType);
+  public String getServerAddress();
+  public ACommandResponseAction getCommandResponseAction(String commandType);
   
 }

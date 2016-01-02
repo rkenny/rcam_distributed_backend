@@ -4,20 +4,17 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.CharBuffer;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.concurrent.Callable;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ACommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.DoneState;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.ICommandState;
-import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
 import tk.bad_rabbit.rcam.distributed_backend.server.ServerThread;
 
 
@@ -29,26 +26,29 @@ public class Command extends ACommand {
   private JSONObject serverVariables;
   private Integer commandAckNumber;
   private volatile ICommandState state;
-  private volatile ICommandResponseAction commandResponseAction;
+  private volatile ACommandResponseAction commandResponsNetworkeAction;
   private String returnCode;
   
   public Command(String commandName, Integer commandAckNumber, JSONObject commandConfiguration, JSONObject clientVariables,
-      JSONObject serverVariables, ICommandResponseAction commandResponseAction) {
+      JSONObject serverVariables, ACommandResponseAction commandResponsNetworkeAction) {
     this.commandName = commandName;
     
     this.clientVariables = clientVariables;
     this.commandConfiguration = commandConfiguration;
     this.serverVariables = serverVariables;
     this.commandAckNumber = commandAckNumber;
-    this.commandResponseAction = commandResponseAction;
+    this.commandResponsNetworkeAction = commandResponsNetworkeAction;
     
     System.out.println("Created command " + commandName + "[" + commandAckNumber + "]" + clientVariables);
   }
 
-  public void doAction(Observer actionObserver, ICommandState commandState) {
-    if(commandState.getClass().getSimpleName().equals(this.state.getClass().getSimpleName())) {
-      this.state.doAction(actionObserver, this);
-    }  
+  public void doNetworkAction(Observer actionObserver, ICommandState commandState) {
+    this.state.doNetworkAction(actionObserver, this);
+  }
+  
+  public void doRelatedCommandAction(Observer actionObserver, ICommandState commandState) {
+    System.out.println("RCam Distributed Backend - Command - doRelatedCommandAction called");
+    commandState.doRelatedCommandAction(actionObserver, this);
   }
   
   public ICommandState setState(ICommandState state) {
@@ -77,9 +77,14 @@ public class Command extends ACommand {
     return this.commandConfiguration.get("returnCode").toString();
   }
   
-  public void performCommandResponseAction(Object actionObject) {
-    commandResponseAction.doAction(actionObject, this);
+  public void performCommandResponseNetworkAction(Observer actionObject) {
+    commandResponsNetworkeAction.doNetworkAction(actionObject, this);
   }
+  
+  public void performCommandResponseRelatedCommandAction(Observer actionObject) {
+    commandResponsNetworkeAction.doRelatedCommandAction(actionObject, this);
+  }
+  
   
   public void setReturnCode(String returnCode) {
     this.returnCode = returnCode;
@@ -173,6 +178,7 @@ public class Command extends ACommand {
   }
 
   public Pair<Integer, Integer> call() throws Exception {
+    System.out.println("RCam Distributed Backend - Command - " + getCommandName() + "[" + getAckNumber() + "] has been call()ed");
     String[] command = {commandConfiguration.getString(this.state.getStateExecutableType())};
     ProcessBuilder pb = new ProcessBuilder(command);
     
@@ -204,9 +210,11 @@ public class Command extends ACommand {
   }
 
   public void update(Observable serverThread, Object arg) {
-    if(serverThread instanceof ServerThread) {
-      ((ServerThread) serverThread).doAction(this, arg);
-    }
+    //if(serverThread instanceof ServerThread) {
+    //  ((ServerThread) serverThread).doAction(this, arg);
+   // }
   }
+
+
   
 }
