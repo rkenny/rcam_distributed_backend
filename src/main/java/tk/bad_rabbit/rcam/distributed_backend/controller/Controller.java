@@ -21,22 +21,14 @@ public class Controller implements Runnable, Observer {
   ExecutorService commandExecutor;
 
   CommandFactory commandFactory;
-  ConcurrentHashMap<Integer, ACommand> commandList;
-  //List<Observer> observers;
-  
+  ConcurrentHashMap<Integer, ACommand> commandList;  
   
   public Controller(IConfigurationProvider configurationProvider) {
-    //this.observers = new ArrayList<Observer>();
-    //observers.add(this);
     this.commandList = new ConcurrentHashMap<Integer, ACommand>();
     commandExecutor = Executors.newFixedThreadPool(5);
     commandFactory = new CommandFactory(configurationProvider.getCommandConfigurations(), configurationProvider.getServerVariables(), configurationProvider);
     
   }
-  
-  //public void observeCommand(ACommand command) {
-  //   command.addObserver(this);
-  //}
   
   public void runCommand(ACommand command) {
     System.out.println("RCam Distributed Backend - Controller - Going to run command " + command.getCommandName() + "[" + command.getAckNumber() + "]");
@@ -71,17 +63,6 @@ public class Controller implements Runnable, Observer {
   public void removeCommand(ACommand actionSubject) {
     this.commandList.remove(actionSubject.getAckNumber());
   }
-
-  public void commandResultReceived(int parseInt, String clientVariable) {
-    
-  }
   
-  public void ackCommandReceived(Integer ackNumber) {
-    commandList.get(ackNumber).setState(new AckedState());
-  }
   
-  public void cancelCommandReceived(Integer ackNumber) {
-    commandList.get(ackNumber).setState(new ErrorCommandState());
-  }
- 
 }

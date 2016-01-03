@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.CharBuffer;
+import java.util.AbstractMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Observable;
@@ -12,11 +13,8 @@ import java.util.Observer;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ACommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.CommandReadyToReduceState;
-import tk.bad_rabbit.rcam.distributed_backend.command.state.DoneState;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.ICommandState;
-import tk.bad_rabbit.rcam.distributed_backend.server.ServerThread;
 
 
 public class Command extends ACommand {
@@ -178,7 +176,7 @@ public class Command extends ACommand {
      }
   }
 
-  public Pair<Integer, Integer> call() throws Exception {
+  public Map.Entry<Integer, Integer> call() throws Exception {
     System.out.println("RCam Distributed Backend - Command - " + getCommandName() + "[" + getAckNumber() + "] has been call()ed");
     String[] command = {commandConfiguration.getString(this.state.getStateExecutableType())};
     ProcessBuilder pb = new ProcessBuilder(command);
@@ -205,9 +203,8 @@ public class Command extends ACommand {
     } catch (InterruptedException e) {
         e.printStackTrace();
     }
-     
-    return new Pair<Integer, Integer>(this.getAckNumber(), exitValue);
-      
+
+    return new AbstractMap.SimpleEntry<Integer, Integer>(this.getAckNumber(), exitValue);      
   }
 
   public void update(Observable serverThread, Object arg) {

@@ -2,12 +2,13 @@ package tk.bad_rabbit.rcam.distributed_backend.command;
 
 import java.nio.CharBuffer;
 import java.util.List;
+import java.util.Map;
 import java.util.Observer;
 import java.util.concurrent.Callable;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.state.ICommandState;
 
-public interface ICommand extends  Callable<Pair<Integer, Integer>>{
+public interface ICommand extends  Callable<Map.Entry<Integer, Integer>>{
 
   public CharBuffer asCharBuffer();
   public Boolean isIgnored();
