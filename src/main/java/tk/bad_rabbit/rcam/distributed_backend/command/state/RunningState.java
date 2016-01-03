@@ -1,23 +1,22 @@
 package tk.bad_rabbit.rcam.distributed_backend.command.state;
 
-import java.util.Observer;
-
-import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.RunCommandResponseAction;
 
-public class CommandSentState extends ACommandState {
-
+public class RunningState extends ACommandState {
   public String getStateExecutableType() {
-    // TODO Auto-generated method stub
-    return null;
+    return "commandExecutable";
   }
-
+  
 
   ICommandResponseAction networkResponseAction;
   ICommandResponseAction relatedCommandResponseAction;
   
+  public RunningState() {
+    //this.relatedCommandResponseAction = new RunCommandResponseAction();
+  }
+  
   public ICommandResponseAction getNetworkResponseAction() {
-    // TODO Auto-generated method stub
     return networkResponseAction;
   }
   public ICommandResponseAction getRelatedCommandResponseAction() {

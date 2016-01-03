@@ -69,8 +69,7 @@ public class CommandFactory implements ICommandFactory {
   
   public ACommand createCommand(String commandType, Integer ackNumber, JSONObject clientVariables) {
     ACommand command = null;
-    command = new Command(commandType, ackNumber, createCommandConfiguration(commandType), clientVariables,
-          serverVariables, configurationProvider.getCommandResponseAction(commandType));
+    command = new Command(commandType, ackNumber, createCommandConfiguration(commandType), clientVariables, serverVariables);
 
     return command;
   }

@@ -1,14 +1,11 @@
 package tk.bad_rabbit.rcam.distributed_backend.command.state;
 
-import java.util.Observer;
-
-import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
-import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.RunCommandResponseAction;
 
 
 
-public class AckedState extends ACommandState {
+public class AckSentState extends ACommandState {
   public String getStateExecutableType() {
     return "commandExecutable";
   }
@@ -31,6 +28,10 @@ public class AckedState extends ACommandState {
 
   ICommandResponseAction networkResponseAction;
   ICommandResponseAction relatedCommandResponseAction;
+  
+  public AckSentState() {
+    this.relatedCommandResponseAction = new RunCommandResponseAction();
+  }
   
   public ICommandResponseAction getNetworkResponseAction() {
     return networkResponseAction;

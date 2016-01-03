@@ -13,6 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ACommandResponseAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.state.CommandReadyToReduceState;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.DoneState;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.ICommandState;
 import tk.bad_rabbit.rcam.distributed_backend.server.ServerThread;
@@ -26,18 +27,18 @@ public class Command extends ACommand {
   private JSONObject serverVariables;
   private Integer commandAckNumber;
   private volatile ICommandState state;
-  private volatile ACommandResponseAction commandResponsNetworkeAction;
+
   private String returnCode;
   
   public Command(String commandName, Integer commandAckNumber, JSONObject commandConfiguration, JSONObject clientVariables,
-      JSONObject serverVariables, ACommandResponseAction commandResponsNetworkeAction) {
+      JSONObject serverVariables) {
     this.commandName = commandName;
     
     this.clientVariables = clientVariables;
     this.commandConfiguration = commandConfiguration;
     this.serverVariables = serverVariables;
     this.commandAckNumber = commandAckNumber;
-    this.commandResponsNetworkeAction = commandResponsNetworkeAction;
+    //this.commandResponsNetworkeAction = commandResponsNetworkeAction;
     
     System.out.println("Created command " + commandName + "[" + commandAckNumber + "]" + clientVariables);
   }
@@ -77,13 +78,13 @@ public class Command extends ACommand {
     return this.commandConfiguration.get("returnCode").toString();
   }
   
-  public void performCommandResponseNetworkAction(Observer actionObject) {
-    commandResponsNetworkeAction.doNetworkAction(actionObject, this);
-  }
+  //public void performCommandResponseNetworkAction(Observer actionObject) {
+//    commandResponsNetworkeAction.doNetworkAction(actionObject, this);
+//  }
   
-  public void performCommandResponseRelatedCommandAction(Observer actionObject) {
-    commandResponsNetworkeAction.doRelatedCommandAction(actionObject, this);
-  }
+  //public void performCommandResponseRelatedCommandAction(Observer actionObject) {
+//    commandResponsNetworkeAction.doRelatedCommandAction(actionObject, this);
+//  }
   
   
   public void setReturnCode(String returnCode) {
@@ -200,7 +201,7 @@ public class Command extends ACommand {
     try {
       exitValue = process.waitFor();
       commandConfiguration.put("returnCode", Integer.toString(exitValue));
-      this.setState(new DoneState());
+      this.setState(new CommandReadyToReduceState());
     } catch (InterruptedException e) {
         e.printStackTrace();
     }

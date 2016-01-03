@@ -17,8 +17,8 @@ public interface ICommand extends  Callable<Pair<Integer, Integer>>{
   public Object getClientVariable(String variableName);
   public Object getServerVariable(String variableName);
 
-  public void performCommandResponseNetworkAction(Observer actionObject);
-  public void performCommandResponseRelatedCommandAction(Observer actionObject);
+  public void doNetworkAction(Observer actionObserver);
+  public void doRelatedCommandAction(Observer actionObserver);
   
   public Boolean isType(String commandType);
   public ICommandState getState();

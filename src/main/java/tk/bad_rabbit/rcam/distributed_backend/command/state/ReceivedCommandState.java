@@ -1,10 +1,7 @@
 package tk.bad_rabbit.rcam.distributed_backend.command.state;
 
-import java.util.Observer;
-
-import tk.bad_rabbit.rcam.distributed_backend.client.ClientThread;
-import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
-import tk.bad_rabbit.rcam.distributed_backend.server.ServerThread;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.SendAckAction;
 
 
 public class ReceivedCommandState extends ACommandState {
@@ -12,15 +9,25 @@ public class ReceivedCommandState extends ACommandState {
   public String getStateExecutableType() {
     return "commandExecutable";
   }
-  public void doNetworkStuff(Observer actionObserver, ACommand actionSubject) {
-    //if(actionObserver instanceof ClientThread ) {
-      //((ClientThread) actionObserver).send((ACommand) actionSubject);
-      ((ACommand) actionSubject).performCommandResponseNetworkAction(actionObserver);
-    //}
+  
+  ICommandResponseAction networkResponseAction;
+  ICommandResponseAction relatedCommandResponseAction;
+  
+  public ReceivedCommandState() {
+    setNetworkResponseAction(new SendAckAction());
   }
   
-  public void doRelatedCommandStuff(Observer actionObserver, ACommand actionSubject) {
-    //((ACommand) actionSubject).performCommandResponseRelatedCommandAction(actionObserver);
+  public ICommandResponseAction getNetworkResponseAction() {
+    return networkResponseAction;
+  }
+  public ICommandResponseAction getRelatedCommandResponseAction() {
+    return relatedCommandResponseAction;
+  }
+  public void setNetworkResponseAction(ICommandResponseAction newNetworkResponseAction) {
+    this.networkResponseAction = newNetworkResponseAction;
+  }
+  public void setRelatedCommandResponseAction(ICommandResponseAction newRelatedCommandResponseAction) {
+    this.relatedCommandResponseAction = newRelatedCommandResponseAction;
   }
 
 }

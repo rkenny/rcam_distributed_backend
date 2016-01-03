@@ -7,21 +7,11 @@ import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.AckedState;
 
 public class DefaultCommandResponseAction extends ACommandResponseAction {
+  @Override
+  public void doStuff(Observer actionObject, ACommand actionSubject) {}
   
-  public void doRelatedCommandStuff(Observer actionObject, ACommand actionSubject) {
-  }
-  
-  public void doNetworkStuff(Observer actionObject, ACommand actionSubject) {
-      if(actionObject instanceof ClientThread) {
-        ((ClientThread) actionObject).sendAck(actionSubject);
-        nextState(actionSubject);
-      }
-    }
-  
-  
-  public void nextState(ACommand command) {
-    command.setState(new AckedState());
-  }
+  public void nextState(ACommand command) {}
+
 }
 
 

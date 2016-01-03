@@ -3,6 +3,7 @@ package tk.bad_rabbit.rcam.distributed_backend.command.state;
 import java.util.Observer;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
 
 public class CommandCompletedState extends ACommandState {
 
@@ -10,8 +11,22 @@ public class CommandCompletedState extends ACommandState {
     return "commandExecutable";
   }
   
-  public void doNetworkStuff(Observer actionObserver, ACommand actionSubject) {
+
+  ICommandResponseAction networkResponseAction;
+  ICommandResponseAction relatedCommandResponseAction;
+  
+  public ICommandResponseAction getNetworkResponseAction() {
+    // TODO Auto-generated method stub
+    return networkResponseAction;
   }
-  public void doRelatedCommandStuff(Observer actionObserver, ACommand actionSubject) {}
+  public ICommandResponseAction getRelatedCommandResponseAction() {
+    return relatedCommandResponseAction;
+  }
+  public void setNetworkResponseAction(ICommandResponseAction newNetworkResponseAction) {
+    this.networkResponseAction = newNetworkResponseAction;
+  }
+  public void setRelatedCommandResponseAction(ICommandResponseAction newRelatedCommandResponseAction) {
+    this.relatedCommandResponseAction = newRelatedCommandResponseAction;
+  }
 
 }

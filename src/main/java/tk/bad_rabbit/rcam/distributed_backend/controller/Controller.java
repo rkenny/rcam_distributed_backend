@@ -28,8 +28,7 @@ public class Controller implements Runnable, Observer {
     this.commandList = new ConcurrentHashMap<Integer, ACommand>();
     commandExecutor = Executors.newFixedThreadPool(5);
 
-    commandFactory = new CommandFactory(configurationProvider.getCommandConfigurations(), 
-        configurationProvider.getServerVariables(), configurationProvider);
+    commandFactory = new CommandFactory(configurationProvider.getCommandConfigurations(), configurationProvider.getServerVariables(), configurationProvider);
     
   }
   
