@@ -31,5 +31,9 @@ public class CommandReadyToReduceState extends ACommandState {
     this.relatedCommandResponseAction = newRelatedCommandResponseAction;
   }
 
+  ICommandResponseAction runCommandResponseAction;
+  public ICommandResponseAction getRunCommandResponseAction() { return this.runCommandResponseAction; }
+  public void setRunCommandResponseAction(ICommandResponseAction newRunCommandResponseAction) {  this.runCommandResponseAction = newRunCommandResponseAction; }
+  
 
 }

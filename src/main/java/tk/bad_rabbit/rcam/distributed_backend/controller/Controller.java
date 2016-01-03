@@ -1,5 +1,7 @@
 package tk.bad_rabbit.rcam.distributed_backend.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,7 +12,6 @@ import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.ICommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.AckedState;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.ErrorCommandState;
-import tk.bad_rabbit.rcam.distributed_backend.command.state.ICommandState;
 import tk.bad_rabbit.rcam.distributed_backend.commandfactory.CommandFactory;
 import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.IConfigurationProvider;
 
@@ -21,20 +22,21 @@ public class Controller implements Runnable, Observer {
 
   CommandFactory commandFactory;
   ConcurrentHashMap<Integer, ACommand> commandList;
-
+  //List<Observer> observers;
   
   
   public Controller(IConfigurationProvider configurationProvider) {
+    //this.observers = new ArrayList<Observer>();
+    //observers.add(this);
     this.commandList = new ConcurrentHashMap<Integer, ACommand>();
     commandExecutor = Executors.newFixedThreadPool(5);
-
     commandFactory = new CommandFactory(configurationProvider.getCommandConfigurations(), configurationProvider.getServerVariables(), configurationProvider);
     
   }
   
-  public void observeCommand(ACommand command) {
-     command.addObserver(this);
-  }
+  //public void observeCommand(ACommand command) {
+  //   command.addObserver(this);
+  //}
   
   public void runCommand(ACommand command) {
     System.out.println("RCam Distributed Backend - Controller - Going to run command " + command.getCommandName() + "[" + command.getAckNumber() + "]");
@@ -62,7 +64,8 @@ public class Controller implements Runnable, Observer {
       commandList.put(((ACommand) updatedCommand).getAckNumber(), (ACommand) updatedCommand);
     }
     
-    ((ACommand) updatedCommand).doRelatedCommandAction(this, (ICommandState) arg);
+    ((ACommand) updatedCommand).doRelatedCommandAction(this);
+    ((ACommand) updatedCommand).doRunCommandAction(this);
   }
 
   public void removeCommand(ACommand actionSubject) {

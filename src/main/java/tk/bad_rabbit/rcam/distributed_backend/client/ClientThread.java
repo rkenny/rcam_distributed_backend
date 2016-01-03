@@ -40,13 +40,16 @@ public class ClientThread implements Runnable, Observer {
   ICommandFactory commandFactory;
   IConfigurationProvider configurationProvider;
   Thread clientThread;
-  Controller controller;
+  List<Observer> observers;
   
   public ClientThread(String address, int port, ICommandFactory commandFactory, Controller controller) {
     this.port = port;
     this.address = address;
     this.commandFactory = commandFactory;
-    this.controller = controller;
+    
+    observers = new ArrayList<Observer>();
+    observers.add(controller);
+    observers.add(this);
     
 
     this.asciiDecoder = Charset.forName("US-ASCII").newDecoder();
@@ -117,8 +120,8 @@ public class ClientThread implements Runnable, Observer {
 
             ACommand newCommand = commandFactory.createCommand(cB);
             if(newCommand != null) {
-              newCommand.addObserver(this);;
-              newCommand.addObserver(controller);
+              
+              newCommand.addObservers(observers);
               newCommand.setState(new ReceivedCommandState());
             }
           }
@@ -181,7 +184,7 @@ public class ClientThread implements Runnable, Observer {
   public void update(Observable o, Object arg) {
     ACommand updatedCommand = (ACommand) o;
     System.out.println("RCam Distributed Backend - ClientThread - Received an update for command " + updatedCommand.getAckNumber());
-    updatedCommand.doNetworkAction(this, (ICommandState) arg);
+    updatedCommand.doNetworkAction(this);
   }
   
   public void sendAck(ACommand command) {
@@ -203,8 +206,7 @@ public class ClientThread implements Runnable, Observer {
       try {
         if(key.isWritable()) {
           writeCommandToChannel(selectedChannel, command);
-          command.addObserver(this);
-          command.addObserver(controller);
+          command.addObservers(observers);
           command.setState(new CommandSentState());
         } else {
           System.out.println("Key is not writable.");

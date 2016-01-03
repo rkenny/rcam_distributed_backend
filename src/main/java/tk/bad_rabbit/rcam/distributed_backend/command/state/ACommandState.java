@@ -10,6 +10,7 @@ public abstract class ACommandState implements ICommandState {
   public ACommandState() {
     setNetworkResponseAction(new DefaultCommandResponseAction());
     setRelatedCommandResponseAction(new DefaultCommandResponseAction());
+    setRunCommandResponseAction(new DefaultCommandResponseAction());
   }
   
   public void doNetworkAction(Observer actionObserver, ACommand actionSubject){
@@ -21,4 +22,12 @@ public abstract class ACommandState implements ICommandState {
     System.out.println("RCam Distributed Backend - "+ this.getClass().getSimpleName() +" doRelatedCommandAction called");
     getRelatedCommandResponseAction().doStuff(actionObserver, actionSubject);
   }
+  
+  public void doRunCommandAction(Observer actionObserver, ACommand actionSubject) {
+    System.out.println("RCam Coordinator - " + getClass().getSimpleName() + " - Telling "+ actionObserver.getClass().getSimpleName() + " to doStuff to Command(" + actionSubject.getCommandName()+"["+actionSubject.getAckNumber()+"])");
+    getRunCommandResponseAction().doStuff(actionObserver, actionSubject);
+  }
+  
+  
+  
 }

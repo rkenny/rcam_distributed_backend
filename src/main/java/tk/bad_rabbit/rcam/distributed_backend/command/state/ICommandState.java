@@ -18,4 +18,8 @@ public interface ICommandState {
   void setNetworkResponseAction(ICommandResponseAction newNetworkResponseAction);
   void setRelatedCommandResponseAction(ICommandResponseAction newRelatedCommandResponseAction);
   
+  
+  ICommandResponseAction getRunCommandResponseAction();
+  void setRunCommandResponseAction(ICommandResponseAction newRunCommandResponseAction);
+  public void doRunCommandAction(Observer actionObserver, ACommand actionSubject);
 }

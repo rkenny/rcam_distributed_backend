@@ -1,6 +1,7 @@
 package tk.bad_rabbit.rcam.distributed_backend.command;
 
 import java.nio.CharBuffer;
+import java.util.List;
 import java.util.Observer;
 import java.util.concurrent.Callable;
 
@@ -19,6 +20,7 @@ public interface ICommand extends  Callable<Pair<Integer, Integer>>{
 
   public void doNetworkAction(Observer actionObserver);
   public void doRelatedCommandAction(Observer actionObserver);
+  public void doRunCommandAction(Observer actionObserver);
   
   public Boolean isType(String commandType);
   public ICommandState getState();
@@ -29,8 +31,10 @@ public interface ICommand extends  Callable<Pair<Integer, Integer>>{
   public void setReturnCode(String returnCode);
   public String getReturnCode();
 
-  public void doNetworkAction(Observer actionObserver, ICommandState commandState);
-  public void doRelatedCommandAction(Observer actionObserver, ICommandState commandState);
+  public void addObservers(List<Observer> observers);
+  
+  //public void doNetworkAction(Observer actionObserver, ICommandState commandState);
+  //public void doRelatedCommandAction(Observer actionObserver, ICommandState commandState);
 
   
 }

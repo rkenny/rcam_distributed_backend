@@ -38,5 +38,10 @@ public class CommandReducedState extends ACommandState {
   public void setRelatedCommandResponseAction(ICommandResponseAction newRelatedCommandResponseAction) {
     this.relatedCommandResponseAction = newRelatedCommandResponseAction;
   }
+  
+  ICommandResponseAction runCommandResponseAction;
+  public ICommandResponseAction getRunCommandResponseAction() { return this.runCommandResponseAction; }
+  public void setRunCommandResponseAction(ICommandResponseAction newRunCommandResponseAction) {  this.runCommandResponseAction = newRunCommandResponseAction; }
+  
 
 }
