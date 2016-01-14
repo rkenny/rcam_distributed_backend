@@ -64,5 +64,8 @@ public class Controller implements Runnable, Observer {
     this.commandList.remove(actionSubject.getAckNumber());
   }
   
+  public ACommand getCommand(Integer ackNumber) {
+    return this.commandList.get(ackNumber);
+  }
   
 }

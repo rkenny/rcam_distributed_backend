@@ -187,6 +187,7 @@ public class ClientThread implements Runnable, Observer {
     updatedCommand.doNetworkAction(this);
   }
   
+  // Commands need to construct their own ack and results. That's next.
   public void sendAck(ACommand command) {
     System.out.println("RCam Distributed Backend - ClientThread - sendAck - Command " + command.getCommandName() + "[" + command.getAckNumber() + "] wants to send an ack");
     send(commandFactory.createAckCommand(command));

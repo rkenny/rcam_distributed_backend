@@ -94,7 +94,9 @@ public class Command extends ACommand {
   }
   
   public Boolean isIgnored() {
-    return (commandConfiguration.getJSONObject("commandVars").get("ignored") == "true");
+    
+    
+    return commandConfiguration.getJSONObject("commandVars").has("ignored") && (commandConfiguration.getJSONObject("commandVars").getBoolean("ignored") == true);
   }
   
   

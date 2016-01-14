@@ -1,6 +1,10 @@
 package tk.bad_rabbit.rcam.distributed_backend.command.state;
 
+import java.util.Observer;
+
+import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ReductionCompleteResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.SendAckAction;
 
 
@@ -14,7 +18,26 @@ public class ReceivedCommandState extends ACommandState {
   ICommandResponseAction relatedCommandResponseAction;
   
   public ReceivedCommandState() {
-    setNetworkResponseAction(new SendAckAction());
+  }
+  
+  public void doNetworkAction(Observer actionObserver, ACommand actionSubject) {
+    System.out.println("RCam Distributed Backend - ReceivedCommandState - overriding doNetworkCommandAction for  command name: ["+actionSubject.getCommandName()+"]");
+    
+    if(!(actionSubject.isIgnored())) {
+      setNetworkResponseAction(new SendAckAction());
+    }
+    
+    getNetworkResponseAction().doStuff(actionObserver, actionSubject);
+  }
+  
+  public void doRelatedCommandAction(Observer actionObserver, ACommand actionSubject) {
+    System.out.println("RCam Distributed Backend - ReceivedCommandState - overriding doRelatedCommandAction for  command name: ["+actionSubject.getCommandName()+"]");
+    
+    if(actionSubject.getCommandName().equals("ReductionComplete")) {
+      setRelatedCommandResponseAction(new ReductionCompleteResponseAction());
+    }
+    
+    getRelatedCommandResponseAction().doStuff(actionObserver, actionSubject);
   }
   
   public ICommandResponseAction getNetworkResponseAction() {
