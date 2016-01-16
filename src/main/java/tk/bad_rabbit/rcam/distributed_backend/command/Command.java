@@ -36,9 +36,7 @@ public class Command extends ACommand {
     this.commandConfiguration = commandConfiguration;
     this.serverVariables = serverVariables;
     this.commandAckNumber = commandAckNumber;
-    //this.commandResponsNetworkeAction = commandResponsNetworkeAction;
     
-    System.out.println("Created command " + commandName + "[" + commandAckNumber + "]" + clientVariables);
   }
 
   public void doNetworkAction(Observer actionObserver, ICommandState commandState) {
@@ -76,14 +74,6 @@ public class Command extends ACommand {
     return this.commandConfiguration.get("returnCode").toString();
   }
   
-  //public void performCommandResponseNetworkAction(Observer actionObject) {
-//    commandResponsNetworkeAction.doNetworkAction(actionObject, this);
-//  }
-  
-  //public void performCommandResponseRelatedCommandAction(Observer actionObject) {
-//    commandResponsNetworkeAction.doRelatedCommandAction(actionObject, this);
-//  }
-  
   
   public void setReturnCode(String returnCode) {
     this.returnCode = returnCode;
@@ -94,8 +84,6 @@ public class Command extends ACommand {
   }
   
   public Boolean isIgnored() {
-    
-    
     return commandConfiguration.getJSONObject("commandVars").has("ignored") && (commandConfiguration.getJSONObject("commandVars").getBoolean("ignored") == true);
   }
   
@@ -167,7 +155,6 @@ public class Command extends ACommand {
     Iterator<String> variableIterator = commandConfiguration.getJSONObject("commandVars").keys();
     while(variableIterator.hasNext()) {
       String key = variableIterator.next();
-      //finalCommandString = finalCommandString.replace("@"+key, commandVariables.get(key).toString());
       environment.put(key, commandConfiguration.getJSONObject("commandVars").get(key).toString());
     }
          
@@ -179,9 +166,8 @@ public class Command extends ACommand {
   }
 
   public Map.Entry<Integer, Integer> call() throws Exception {
-    System.out.println("RCam Distributed Backend - Command - " + getCommandName() + "[" + getAckNumber() + "] has been call()ed");
-    String[] command = {commandConfiguration.getString(this.state.getStateExecutableType())};
-    ProcessBuilder pb = new ProcessBuilder(command);
+    //String[] command = {commandConfiguration.getString(this.state.getStateExecutableType())};
+    ProcessBuilder pb = new ProcessBuilder(commandConfiguration.getString("commandExecutable"));
     
     setupEnvironment(pb.environment());
     

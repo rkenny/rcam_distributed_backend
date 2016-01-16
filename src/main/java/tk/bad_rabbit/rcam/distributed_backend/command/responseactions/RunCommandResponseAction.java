@@ -9,7 +9,6 @@ import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
 public class RunCommandResponseAction extends ACommandResponseAction {
   @Override
   public void doStuff(Observer actionObject, ACommand actionSubject) {
-    System.out.println("RCam Distributed Backend - RunCommandResponseAction - Will ask the Controller to run Command("+actionSubject.getCommandName()+"["+actionSubject.getAckNumber()+"]");
     ((Controller) actionObject).runCommand(actionSubject);
     nextState(actionSubject);
   }

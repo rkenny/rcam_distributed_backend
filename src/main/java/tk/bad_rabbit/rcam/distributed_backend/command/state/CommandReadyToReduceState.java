@@ -18,7 +18,6 @@ public class CommandReadyToReduceState extends ACommandState {
   }
   
   public ICommandResponseAction getNetworkResponseAction() {
-    // TODO Auto-generated method stub
     return networkResponseAction;
   }
   public ICommandResponseAction getRelatedCommandResponseAction() {

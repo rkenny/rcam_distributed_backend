@@ -10,7 +10,6 @@ public class DefaultCommandResponseAction extends ACommandResponseAction {
   @Override
   public void doStuff(Observer actionObject, ACommand actionSubject) {}
   
-  public void nextState(ACommand command) {}
 
 }
 

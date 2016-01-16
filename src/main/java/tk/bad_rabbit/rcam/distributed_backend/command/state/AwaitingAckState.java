@@ -11,20 +11,10 @@ public class AwaitingAckState extends ACommandState {
     return "commandExecutable";
   }
   
-//  public void doNetworkStuff(Observer actionObserver, ACommand actionSubject) {
-//    if(actionObserver instanceof ClientThread) {
-//      ((ClientThread) actionObserver).sendAck((ACommand)actionSubject);
-//      ((ACommand) actionSubject).setState(new AckedState());
-//    }
-//  }
-//  
-//  public void doRelatedCommandStuff(Observer actionObserver, ACommand actionSubject) {}
-
   ICommandResponseAction networkResponseAction;
   ICommandResponseAction relatedCommandResponseAction;
   
   public ICommandResponseAction getNetworkResponseAction() {
-    // TODO Auto-generated method stub
     return networkResponseAction;
   }
   public ICommandResponseAction getRelatedCommandResponseAction() {

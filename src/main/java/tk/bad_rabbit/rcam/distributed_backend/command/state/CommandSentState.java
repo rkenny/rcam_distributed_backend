@@ -8,7 +8,6 @@ import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandRe
 public class CommandSentState extends ACommandState {
 
   public String getStateExecutableType() {
-    // TODO Auto-generated method stub
     return null;
   }
 
@@ -17,7 +16,6 @@ public class CommandSentState extends ACommandState {
   ICommandResponseAction relatedCommandResponseAction;
   
   public ICommandResponseAction getNetworkResponseAction() {
-    // TODO Auto-generated method stub
     return networkResponseAction;
   }
   public ICommandResponseAction getRelatedCommandResponseAction() {

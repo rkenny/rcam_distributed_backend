@@ -9,7 +9,6 @@ import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
 public class ReductionCompleteResponseAction extends ACommandResponseAction {
   @Override
   public void doStuff(Observer actionObject, ACommand actionSubject) {
-    System.out.println("Rcam Distributed Backend - ReductionCompleteResponseAction - Setting Command("+actionSubject.getCommandName()+"["+actionSubject.getClientVariable("ackNumber")+"]) to DoneState");
     ACommand relatedCommand = ((Controller) actionObject).getCommand(Integer.parseInt((String) actionSubject.getClientVariable("ackNumber")));
     
     relatedCommand.setState(new DoneState());

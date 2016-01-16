@@ -10,7 +10,4 @@ public class AckCommandResponseAction extends ACommandResponseAction {
  @Override
  public void doStuff(Observer actionObject, ACommand actionSubject) {}
  
- public void nextState(ACommand command) {}
- 
- 
 }

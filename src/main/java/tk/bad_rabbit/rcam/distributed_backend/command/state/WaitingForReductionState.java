@@ -12,16 +12,12 @@ public class WaitingForReductionState extends ACommandState {
   ICommandResponseAction networkResponseAction;
   ICommandResponseAction relatedCommandResponseAction;
   
-//  public CommandReadyToReduceState() {
-//    setNetworkResponseAction(new CommandReadyToReduceResponseAction());
-//  }
   
   public WaitingForReductionState() {
     
   }
   
   public ICommandResponseAction getNetworkResponseAction() {
-    // TODO Auto-generated method stub
     return networkResponseAction;
   }
   public ICommandResponseAction getRelatedCommandResponseAction() {

@@ -17,7 +17,6 @@ public class ReadyToSendState extends ACommandState {
   ICommandResponseAction relatedCommandResponseAction;
   
   public ICommandResponseAction getNetworkResponseAction() {
-    // TODO Auto-generated method stub
     return networkResponseAction;
   }
   public ICommandResponseAction getRelatedCommandResponseAction() {

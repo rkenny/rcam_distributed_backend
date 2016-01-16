@@ -109,12 +109,10 @@ public class ClientThread implements Runnable, Observer {
       if(key.isConnectable()) {
         selectedChannel.finishConnect();
         selectedChannel.register(clientSelector, SelectionKey.OP_READ | SelectionKey.OP_WRITE);
-        //this.setState(new ConnectedClientState());
       }
       
       try {
         if(key.isReadable()) {
-          //keyIterator.remove();
           List<CharBuffer> newCommands = readFromChannel(selectedChannel);
           for(CharBuffer cB : newCommands) {
 
@@ -130,7 +128,6 @@ public class ClientThread implements Runnable, Observer {
       } catch(IOException ioException) {
         System.err.println("Client("+address + ":" + port+": Error reading from a channel. Closing that channel.");
         try {
-          //this.setState(new DisconnectedClientState());
           selectedChannel.close();
         } catch (IOException e) {
           System.err.println("Error closing the channel.");
@@ -155,7 +152,7 @@ public class ClientThread implements Runnable, Observer {
       returnedBuffer = asciiDecoder.decode(buffer).toString();
     } catch (CharacterCodingException e) {
       e.printStackTrace();
-      returnedBuffer =""; // CharBuffer.allocate(1024);
+      returnedBuffer ="";
     }
     
     String[] tokens = returnedBuffer.split("\n");
@@ -172,7 +169,6 @@ public class ClientThread implements Runnable, Observer {
 
   
   public void writeCommandToChannel(SocketChannel selectedChannel, ACommand command) throws IOException {
-    System.out.println("RCam Distributed Backend - ClientThread - Sending " + command.getAckNumber());
     ByteBuffer buffer = asciiEncoder.encode(command.asCharBuffer());
 
     while(buffer.hasRemaining()) {
@@ -183,23 +179,19 @@ public class ClientThread implements Runnable, Observer {
 
   public void update(Observable o, Object arg) {
     ACommand updatedCommand = (ACommand) o;
-    System.out.println("RCam Distributed Backend - ClientThread - Received an update for command " + updatedCommand.getAckNumber());
     updatedCommand.doNetworkAction(this);
   }
   
   // Commands need to construct their own ack and results. That's next.
   public void sendAck(ACommand command) {
-    System.out.println("RCam Distributed Backend - ClientThread - sendAck - Command " + command.getCommandName() + "[" + command.getAckNumber() + "] wants to send an ack");
     send(commandFactory.createAckCommand(command));
   }
   
   public void sendResult(ACommand command) {
-    System.out.println("RCam Distributed Backend - ClientThread - sendResult - Command " + command.getCommandName() + "[" + command.getAckNumber() + "] wants to send its results");
     send(commandFactory.createResultCommand(command));
   }
   
   public void send(ACommand command) {
-    System.out.println("RCam Distributed Backend - ClientThread - Trying to send "+  command.getCommandName() + "[" + command.getAckNumber()+"]");
     Iterator<SelectionKey> keyIterator = clientSelector.selectedKeys().iterator();
     while(keyIterator.hasNext()) {
       SelectionKey key = keyIterator.next();
@@ -221,34 +213,8 @@ public class ClientThread implements Runnable, Observer {
           System.err.println("Error closing the channel.");
           e.printStackTrace();
         }
+      }
     }
   }
-}
-  
-  /*
-  public void delete_update(Observable observable, Object arg) {
-    //synchronized(runController) {
-      ACommand updatedCommand = (ACommand) observable;
-      System.out.println("RCam Coordinator - ServerThread - Receieved an update for command " + updatedCommand.getAckNumber());
-      Set<String> connectedClients = socketChannels.keySet();
-      Iterator<String> i = connectedClients.iterator();
-      while(i.hasNext()) {
-        String rC = i.next();
-        SocketChannel selectedChannel = socketChannels.get(rC);
-      
-        if(arg instanceof ICommandState) {
-          updatedCommand.doNetworkAction(this, rC);
-        }
-      
-        
-        if(arg instanceof Map.Entry) {
-          Map.Entry<ACommand, Map.Entry<String, ICommandState>> commandStateMap = (Map.Entry<ACommand, Map.Entry<String, ICommandState>> ) arg;
-          if(rC.equals(commandStateMap.getValue().getKey())) {
-            updatedCommand.doNetworkAction(this, rC);
-          }  
-        }
-      }
-  }
-  */
   
 }

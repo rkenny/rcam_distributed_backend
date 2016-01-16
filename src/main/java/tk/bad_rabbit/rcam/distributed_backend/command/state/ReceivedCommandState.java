@@ -21,7 +21,6 @@ public class ReceivedCommandState extends ACommandState {
   }
   
   public void doNetworkAction(Observer actionObserver, ACommand actionSubject) {
-    System.out.println("RCam Distributed Backend - ReceivedCommandState - overriding doNetworkCommandAction for  command name: ["+actionSubject.getCommandName()+"]");
     
     if(!(actionSubject.isIgnored())) {
       setNetworkResponseAction(new SendAckAction());
@@ -31,8 +30,6 @@ public class ReceivedCommandState extends ACommandState {
   }
   
   public void doRelatedCommandAction(Observer actionObserver, ACommand actionSubject) {
-    System.out.println("RCam Distributed Backend - ReceivedCommandState - overriding doRelatedCommandAction for  command name: ["+actionSubject.getCommandName()+"]");
-    
     if(actionSubject.getCommandName().equals("ReductionComplete")) {
       setRelatedCommandResponseAction(new ReductionCompleteResponseAction());
     }
