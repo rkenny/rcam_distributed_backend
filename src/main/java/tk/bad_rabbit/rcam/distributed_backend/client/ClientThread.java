@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
+import java.nio.channels.CancelledKeyException;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
@@ -27,7 +28,7 @@ import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.Configuratio
 import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.IConfigurationProvider;
 import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
 
-public class ClientThread implements Runnable, Observer {
+public class ClientThread extends Observable implements Runnable, Observer {
   //int port;
   //String address;
   
@@ -77,17 +78,56 @@ public class ClientThread implements Runnable, Observer {
     
     while(running) {
       try {
-        Thread.sleep(125);
+        Thread.sleep(1250);
+        finishPendingConnections();
         performPendingSocketIO();
+      
       } catch (InterruptedException interrupted) {
         interrupted.printStackTrace();
       } catch(IOException ioE) {
         System.err.println("Ran into a critical error. Shutting down the server.");
         running = false;
       }
+      
+      pollConnectedSockets();
+      
     }
     //shutdownServer();
   }
+  
+
+  private void pollConnectedSockets()  {
+    CharBuffer buffer = CharBuffer.wrap("!\n");
+    
+    Set<SelectionKey> selectedKeys = clientSelector.selectedKeys();
+    Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
+    while(keyIterator.hasNext()) {
+      SelectionKey key = keyIterator.next();
+      SocketChannel selectedChannel = (SocketChannel) key.channel();
+      
+      SelectionKey selectedKey = selectedChannel.keyFor(clientSelector);
+      
+      if(selectedKey.isValid() && selectedKey.isWritable()) {
+        try {
+          writeToChannel(selectedChannel, buffer);
+        } catch(IOException e) {
+          closeSocket(selectedChannel);
+        } 
+      }
+    }
+  }
+
+  private void closeSocket(SocketChannel socketChannel) {
+    try {
+      socketChannel.close();
+    } catch(IOException e) {
+      e.printStackTrace();
+    }
+    
+    setChanged();
+    notifyObservers("remoteAddress");
+  }
+  
   
   public void connectToServer() throws IOException {
     clientSelector = Selector.open();
@@ -95,12 +135,17 @@ public class ClientThread implements Runnable, Observer {
     socketChannel.configureBlocking(false);
     socketChannel.connect(new InetSocketAddress((String) configurationProvider.getServerVariable("remoteAddress"), (Integer) configurationProvider.getServerVariable("remotePort")));
     socketChannel.register(clientSelector, SelectionKey.OP_CONNECT);
+    
+    
+    
   }
   
-  private void performPendingSocketIO() throws IOException{
+  private void finishPendingConnections() throws IOException {
     if(clientSelector.select() == 0) { 
       return; 
     }
+    
+    
     
     Set<SelectionKey> selectedKeys = clientSelector.selectedKeys();
     Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
@@ -121,28 +166,48 @@ public class ClientThread implements Runnable, Observer {
         this.configurationProvider.setServerVariable("localPort", selectedChannel.getLocalAddress().toString().substring(cI+1) );
       }
       
+      
+    }
+    
+  }
+  
+  private void performPendingSocketIO(){
+    try {
+      clientSelector.select();
+    } catch(IOException e) {
+      e.printStackTrace();
+      return;
+    }
+
+    
+    Set<SelectionKey> selectedKeys = clientSelector.selectedKeys();
+    Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
+    while(keyIterator.hasNext()) {
+      SelectionKey key = keyIterator.next();
+      SocketChannel selectedChannel = (SocketChannel) key.channel();
+      
+      
+      
+      
       try {
-        if(key.isReadable()) {
+        if(key.isValid() && key.isReadable()) {
+          
           List<CharBuffer> newCommands = readFromChannel(selectedChannel);
           for(CharBuffer cB : newCommands) {
-
-            ACommand newCommand = commandFactory.createCommand(cB);
-            if(newCommand != null) {
-              
-              newCommand.addObservers(observers);
-              newCommand.setState(new ReceivedCommandState());
+            if(cB.toString().length() > 3) {
+              ACommand newCommand = commandFactory.createCommand(cB);
+              if(newCommand != null) {
+                
+                newCommand.addObservers(observers);
+                newCommand.setState(new ReceivedCommandState());
+              }
             }
           }
         }
 
       } catch(IOException ioException) {
         System.err.println("Client: Error reading from a channel. Closing that channel.");
-        try {
-          selectedChannel.close();
-        } catch (IOException e) {
-          System.err.println("Error closing the channel.");
-          e.printStackTrace();
-        }
+        closeSocket(selectedChannel);
       }
     }
   }
@@ -153,9 +218,8 @@ public class ClientThread implements Runnable, Observer {
     String returnedBuffer;
     ByteBuffer buffer = ByteBuffer.allocate(1024);
     
-    if(selectedChannel.read(buffer) == -1) {
-      throw new IOException();  
-    }
+
+    selectedChannel.read(buffer);
     buffer.flip();
     
     try {
@@ -165,10 +229,11 @@ public class ClientThread implements Runnable, Observer {
       returnedBuffer ="";
     }
     
+    buffer.clear();
+    
     String[] tokens = returnedBuffer.split("\n");
     
     for(String commandString : tokens) {
-      //System.out.println(commandString);
       returnedList.add(CharBuffer.wrap(commandString));
     }
     
@@ -178,21 +243,25 @@ public class ClientThread implements Runnable, Observer {
   
 
   
-  public void writeCommandToChannel(SocketChannel selectedChannel, ACommand command) throws IOException {
-    ByteBuffer buffer = asciiEncoder.encode(command.asCharBuffer());
+  public void writeCommandToChannel(SocketChannel selectedChannel, ACommand command) throws IOException  {
+    writeToChannel(selectedChannel, command.asCharBuffer());
+  }
+  
+  public void writeToChannel(SocketChannel selectedChannel, CharBuffer buffer) throws IOException {
 
     while(buffer.hasRemaining()) {
-        selectedChannel.write(buffer);
+        selectedChannel.write(asciiEncoder.encode(buffer));
     }    
     buffer.clear();
+
   }
+  
 
   public void update(Observable o, Object arg) {
     ACommand updatedCommand = (ACommand) o;
     updatedCommand.doNetworkAction(this);
   }
   
-  // Commands need to construct their own ack and results. That's next.
   public void sendAck(ACommand command) {
     send(commandFactory.createAckCommand(command));
   }
@@ -207,22 +276,19 @@ public class ClientThread implements Runnable, Observer {
       SelectionKey key = keyIterator.next();
       SocketChannel selectedChannel = (SocketChannel) key.channel();
       try {
-        if(key.isWritable()) {
+        if(key.isValid() && key.isWritable()) {
           writeCommandToChannel(selectedChannel, command);
-          command.addObservers(observers);
-          command.setState(new CommandSentState());
+          //command.addObservers(observers);
+          //command.setState(new CommandSentState());
         } else {
           System.out.println("Key is not writable.");
         }
       } catch(IOException ioException) {
         System.err.println("Error reading from a channel. Closing that channel.");
         command.setState(new ErrorCommandState());
-        try {
-          selectedChannel.close();
-        } catch (IOException e) {
-          System.err.println("Error closing the channel.");
-          e.printStackTrace();
-        }
+        
+        closeSocket(selectedChannel);
+        
       }
     }
   }
