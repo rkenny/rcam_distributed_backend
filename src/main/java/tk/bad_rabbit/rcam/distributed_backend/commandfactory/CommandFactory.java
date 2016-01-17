@@ -26,11 +26,13 @@ public class CommandFactory implements ICommandFactory {
   
   IConfigurationProvider configurationProvider;
   
-  public CommandFactory(Map<String, JSONObject> commandConfigurations, JSONObject serverVariables, IConfigurationProvider configurationProvider) {
+  
+  
+  
+  public CommandFactory(IConfigurationProvider configurationProvider) {
     this.commandConfigurationPath = configurationProvider.getCommandConfigurationPath();
-    
-    this.commandConfigurations = commandConfigurations;
-    this.serverVariables = serverVariables;
+    this.commandConfigurations = configurationProvider.getCommandConfigurations();
+    this.serverVariables = configurationProvider.getServerVariables();
     rand = new Random();
     this.configurationProvider = configurationProvider;
   }
@@ -113,33 +115,34 @@ public class CommandFactory implements ICommandFactory {
     return createCommand(commandType, commandAckNumber, clientVariables);
   }
   
-  
-
-  private Map<String, String> createClientVariablesMap(String commandString) {
-    Map<String, String> clientVariables = new HashMap<String, String>();
-    int variablesSubstringStart = commandString.indexOf("{");
-    int variablesSubstringEnd = commandString.indexOf("}");
-    
-    if(variablesSubstringStart > 0 && variablesSubstringEnd > 0 && variablesSubstringEnd <= commandString.length()) {
-      String[] clientVariableArray;
-      if(commandString.indexOf(",") > 0) {
-        clientVariableArray = commandString.substring(variablesSubstringStart+1, variablesSubstringEnd).split(",");
-      } else {
-        clientVariableArray = new String[1];
-        clientVariableArray[0] = commandString.substring(variablesSubstringStart+1, variablesSubstringEnd);
-      }
-      
-      for(String clientVariable : clientVariableArray) {
-        if(clientVariable.indexOf(":") > 0) {
-          String[] variableAndValue = clientVariable.split(":");
-          clientVariables.put(variableAndValue[0], variableAndValue[1]);
-        }
-      }
-    }
-    
-    return clientVariables;
-  }
-  
+//  
+//
+//  private Map<String, String> createClientVariablesMap(String commandString) {
+//    System.out.println("RCam Distributed Backend - CommandFactory - createClientVariablesMap is never called.");
+//    Map<String, String> clientVariables = new HashMap<String, String>();
+//    int variablesSubstringStart = commandString.indexOf("{");
+//    int variablesSubstringEnd = commandString.indexOf("}");
+//    
+//    if(variablesSubstringStart > 0 && variablesSubstringEnd > 0 && variablesSubstringEnd <= commandString.length()) {
+//      String[] clientVariableArray;
+//      if(commandString.indexOf(",") > 0) {
+//        clientVariableArray = commandString.substring(variablesSubstringStart+1, variablesSubstringEnd).split(",");
+//      } else {
+//        clientVariableArray = new String[1];
+//        clientVariableArray[0] = commandString.substring(variablesSubstringStart+1, variablesSubstringEnd);
+//      }
+//      
+//      for(String clientVariable : clientVariableArray) {
+//        if(clientVariable.indexOf(":") > 0) {
+//          String[] variableAndValue = clientVariable.split(":");
+//          clientVariables.put(variableAndValue[0], variableAndValue[1]);
+//        }
+//      }
+//    }
+//    
+//    return clientVariables;
+//  }
+//  
   
 
 }

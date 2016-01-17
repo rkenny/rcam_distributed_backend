@@ -94,9 +94,10 @@ public class ConfigurationProvider implements IConfigurationProvider {
       System.out.println("Error setting server configuration. Going with the defaults.");
       serverVariables = new JSONObject();
       serverVariables.put("port", 12345);
-    }
-    
+    } 
   }
+  
+  
   
   private void readCommandConfigurations() {
     commandConfigurations = new HashMap<String, JSONObject>();
@@ -127,19 +128,18 @@ public class ConfigurationProvider implements IConfigurationProvider {
     }
   }
   
+  public void setServerVariable(String key, Object value) {
+    this.serverVariables.put(key, value);
+  }
+  
+  public Object getServerVariable(String key) {
+    return this.serverVariables.get(key);
+  }
+
   public JSONObject getServerVariables() {
     return serverVariables;
   }
   
-  public int getServerPort() {
-    System.out.println(serverVariables);
-    return serverVariables.getInt("port");
-  }
-  
-  public String getServerAddress() {
-    System.out.println(serverVariables);
-    return serverVariables.getString("address");
-  }
 
   public Map<String, JSONObject> getCommandConfigurations() {
     return commandConfigurations;

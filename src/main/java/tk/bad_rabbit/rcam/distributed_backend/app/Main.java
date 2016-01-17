@@ -8,16 +8,11 @@ import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
 public class Main {
   static Client client;
   
-  static Controller commandController;
   
   public static void main(String[] args) {
-    IConfigurationProvider configurationProvider = new ConfigurationProvider();
-    commandController = new Controller(configurationProvider);
-    client = new Client(configurationProvider.getServerAddress(), configurationProvider.getServerPort(), commandController, configurationProvider);
+    
+    client = new Client(new ConfigurationProvider());
     client.start();
-    //server = new Server(configurationProvider.getServerPort(), commandController, configurationProvider);
-    //server.startServerThread();
-      
   }
   
   

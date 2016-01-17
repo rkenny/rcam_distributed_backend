@@ -20,13 +20,11 @@ public class Controller implements Runnable, Observer {
   boolean running;
   ExecutorService commandExecutor;
 
-  CommandFactory commandFactory;
   ConcurrentHashMap<Integer, ACommand> commandList;  
   
-  public Controller(IConfigurationProvider configurationProvider) {
+  public Controller() {
     this.commandList = new ConcurrentHashMap<Integer, ACommand>();
     commandExecutor = Executors.newFixedThreadPool(5);
-    commandFactory = new CommandFactory(configurationProvider.getCommandConfigurations(), configurationProvider.getServerVariables(), configurationProvider);
     
   }
   

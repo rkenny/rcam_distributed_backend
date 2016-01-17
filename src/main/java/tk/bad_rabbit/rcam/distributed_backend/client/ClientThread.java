@@ -21,15 +21,15 @@ import java.util.Set;
 import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.CommandSentState;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.ErrorCommandState;
-import tk.bad_rabbit.rcam.distributed_backend.command.state.ICommandState;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.ReceivedCommandState;
 import tk.bad_rabbit.rcam.distributed_backend.commandfactory.ICommandFactory;
+import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.ConfigurationProvider;
 import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.IConfigurationProvider;
 import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
 
 public class ClientThread implements Runnable, Observer {
-  int port;
-  String address;
+  //int port;
+  //String address;
   
   Selector clientSelector;
   SocketChannel socketChannel;
@@ -39,13 +39,16 @@ public class ClientThread implements Runnable, Observer {
   
   ICommandFactory commandFactory;
   IConfigurationProvider configurationProvider;
+  
   Thread clientThread;
   List<Observer> observers;
   
-  public ClientThread(String address, int port, ICommandFactory commandFactory, Controller controller) {
-    this.port = port;
-    this.address = address;
+  public ClientThread(IConfigurationProvider configurationProvider, ICommandFactory commandFactory, Controller controller) {
+    
+    //this.address = (String) configurationProvider.getServerVariable("address");
+    
     this.commandFactory = commandFactory;
+    this.configurationProvider = configurationProvider;
     
     observers = new ArrayList<Observer>();
     observers.add(controller);
@@ -63,7 +66,7 @@ public class ClientThread implements Runnable, Observer {
   
   public void run() {
     boolean running;
-    System.out.println("RCam Distributed Backend - Trying to connect to " + address + ":" + port);
+    System.out.println("RCam Distributed Backend - Trying to connect.");
     try {
       connectToServer();
       running = true;
@@ -90,7 +93,7 @@ public class ClientThread implements Runnable, Observer {
     clientSelector = Selector.open();
     socketChannel = SocketChannel.open();
     socketChannel.configureBlocking(false);
-    socketChannel.connect(new InetSocketAddress(address, port));
+    socketChannel.connect(new InetSocketAddress((String) configurationProvider.getServerVariable("remoteAddress"), (Integer) configurationProvider.getServerVariable("remotePort")));
     socketChannel.register(clientSelector, SelectionKey.OP_CONNECT);
   }
   
@@ -109,6 +112,13 @@ public class ClientThread implements Runnable, Observer {
       if(key.isConnectable()) {
         selectedChannel.finishConnect();
         selectedChannel.register(clientSelector, SelectionKey.OP_READ | SelectionKey.OP_WRITE);
+        
+        System.out.println("RCam Distributed Backend - Client Connected.");
+        System.out.println("RCam Distributed Backend - Local Address "+ selectedChannel.getLocalAddress().toString().substring(1));
+        System.out.println("RCam Distributed Backend - Remote Address:" + selectedChannel.getRemoteAddress().toString().substring(1));
+        Integer cI = selectedChannel.getLocalAddress().toString().indexOf(":");
+        this.configurationProvider.setServerVariable("localAddress", selectedChannel.getLocalAddress().toString().substring(1, cI) );
+        this.configurationProvider.setServerVariable("localPort", selectedChannel.getLocalAddress().toString().substring(cI+1) );
       }
       
       try {
@@ -126,7 +136,7 @@ public class ClientThread implements Runnable, Observer {
         }
 
       } catch(IOException ioException) {
-        System.err.println("Client("+address + ":" + port+": Error reading from a channel. Closing that channel.");
+        System.err.println("Client: Error reading from a channel. Closing that channel.");
         try {
           selectedChannel.close();
         } catch (IOException e) {
