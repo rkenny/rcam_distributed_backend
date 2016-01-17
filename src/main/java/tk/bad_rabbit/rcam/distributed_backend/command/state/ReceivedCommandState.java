@@ -9,10 +9,6 @@ import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.SendAckAct
 
 
 public class ReceivedCommandState extends ACommandState {
-
-  public String getStateExecutableType() {
-    return "commandExecutable";
-  }
   
   ICommandResponseAction networkResponseAction;
   ICommandResponseAction relatedCommandResponseAction;

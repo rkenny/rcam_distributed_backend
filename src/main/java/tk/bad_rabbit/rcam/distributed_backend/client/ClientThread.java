@@ -158,7 +158,7 @@ public class ClientThread implements Runnable, Observer {
     String[] tokens = returnedBuffer.split("\n");
     
     for(String commandString : tokens) {
-      System.out.println(commandString);
+      //System.out.println(commandString);
       returnedList.add(CharBuffer.wrap(commandString));
     }
     

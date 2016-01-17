@@ -4,10 +4,6 @@ import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.CommandRea
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
 
 public class WaitingForReductionState extends ACommandState {
-  public String getStateExecutableType() {
-    return "commandExecutable";
-  }
-  
 
   ICommandResponseAction networkResponseAction;
   ICommandResponseAction relatedCommandResponseAction;

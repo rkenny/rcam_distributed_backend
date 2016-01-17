@@ -5,11 +5,6 @@ import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandRe
 
 public class CommandReadyToReduceState extends ACommandState {
 
-  public String getStateExecutableType() {
-    return "commandExecutable";
-  }
-  
-
   ICommandResponseAction networkResponseAction;
   ICommandResponseAction relatedCommandResponseAction;
   

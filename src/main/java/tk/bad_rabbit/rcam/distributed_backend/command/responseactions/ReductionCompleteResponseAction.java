@@ -10,7 +10,7 @@ public class ReductionCompleteResponseAction extends ACommandResponseAction {
   @Override
   public void doStuff(Observer actionObject, ACommand actionSubject) {
     ACommand relatedCommand = ((Controller) actionObject).getCommand(Integer.parseInt((String) actionSubject.getClientVariable("ackNumber")));
-    
+    System.out.println("RCam Distributed Backend - ReductionCompleteResponseAction - Setting Command("+relatedCommand.getCommandName()+"["+relatedCommand.getAckNumber()+"]) to a DoneState");
     relatedCommand.setState(new DoneState());
     nextState(actionSubject);
   }

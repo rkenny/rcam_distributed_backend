@@ -4,10 +4,6 @@ import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandRe
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.RunCommandResponseAction;
 
 public class RunningState extends ACommandState {
-  public String getStateExecutableType() {
-    return "commandExecutable";
-  }
-  
 
   ICommandResponseAction networkResponseAction;
   ICommandResponseAction relatedCommandResponseAction;

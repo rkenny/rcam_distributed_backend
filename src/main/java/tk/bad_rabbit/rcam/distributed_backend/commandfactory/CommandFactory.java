@@ -70,7 +70,7 @@ public class CommandFactory implements ICommandFactory {
   public ACommand createCommand(String commandType, Integer ackNumber, JSONObject clientVariables) {
     ACommand command = null;
     command = new Command(commandType, ackNumber, createCommandConfiguration(commandType), clientVariables, serverVariables);
-
+    System.out.println("RCam Distirbuted Backend - CommandFactory - Creating Command("+commandType+"["+ackNumber+"])");
     return command;
   }
   

@@ -6,9 +6,6 @@ import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.RunCommand
 
 
 public class AckSentState extends ACommandState {
-  public String getStateExecutableType() {
-    return "commandExecutable";
-  }
   
 //  public void doNetworkStuff(Observer actionObserver, ACommand actionSubject) {
 //    System.out.println("RCam Distributed Backend - AckedState - doNetworkStuff for " + actionSubject.getCommandName() + "[" + actionSubject.getAckNumber() + "]");
