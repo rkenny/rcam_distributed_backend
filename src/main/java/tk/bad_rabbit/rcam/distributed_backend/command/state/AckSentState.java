@@ -7,26 +7,12 @@ import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.RunCommand
 
 public class AckSentState extends ACommandState {
   
-//  public void doNetworkStuff(Observer actionObserver, ACommand actionSubject) {
-//    System.out.println("RCam Distributed Backend - AckedState - doNetworkStuff for " + actionSubject.getCommandName() + "[" + actionSubject.getAckNumber() + "]");
-//  }
-//  
-//  public void doRelatedCommandStuff(Observer actionObserver, ACommand actionSubject) {
-//    System.out.println("RCam Distributed Backend - AckedState - doRelatedCommandStuff for " + actionSubject.getCommandName() + "[" + actionSubject.getAckNumber() + "]");
-//    if(actionObserver instanceof Controller) {
-//      ((Controller) actionObserver).runCommand((ACommand) actionSubject);
-//    }
-//  }
-//  
-//  public void nextState(ACommand actionSubject) {
-//    //actionSubject.setState(new ReadyToReduceState());
-//  }
   
-
   ICommandResponseAction networkResponseAction;
   ICommandResponseAction relatedCommandResponseAction;
   
   public AckSentState() {
+    System.out.println("Ack Sent State created. The double-run defect is caused by the run command response action changing states before the run runController finishes the actions for ack sentstate");
     setRunCommandResponseAction(new RunCommandResponseAction());
   }
   
@@ -45,7 +31,13 @@ public class AckSentState extends ACommandState {
   
   ICommandResponseAction runCommandResponseAction;
   public ICommandResponseAction getRunCommandResponseAction() { return this.runCommandResponseAction; }
-  public void setRunCommandResponseAction(ICommandResponseAction newRunCommandResponseAction) {  this.runCommandResponseAction = newRunCommandResponseAction; }
   
-
+  public void setRunCommandResponseAction(ICommandResponseAction newRunCommandResponseAction) {  
+    this.runCommandResponseAction = newRunCommandResponseAction; 
+  }
+  
+  public ACommandState getNextState() {
+    return new CommandReadyToReduceState();
+  }
+  
 }

@@ -3,7 +3,12 @@
   "commandVars":{"videoSource":"ohYeah", "vlcPath":"somewhere"},
   "OldCommandString":"user:&user",
   "reductionCommand":"thisReducesRecord",
-  "commandExecutable":"./config/commands/Record/command.sh"
+  "commandExecutable":"./config/commands/Record/command.sh",
+  "AckSentState":"./config/commands/Record/AckSentState.sh",
+  "executables":{
+    "ReceivedNewCommandAction":"./config/commands/Record/AckSentState.sh",
+    "RunNewCommandAction":"./config/commands/Record/RunCommandAction.sh",
+    "CleanupAfterReductionAction":"./config/commands/Record/CleanupAfterReductionAction.sh"
+  }
 }
-
 

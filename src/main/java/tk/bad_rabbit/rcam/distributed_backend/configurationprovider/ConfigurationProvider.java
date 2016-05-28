@@ -13,7 +13,7 @@ import org.json.JSONObject;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ACommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.AckCommandResponseAction;
-import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.CancelCommandResponseAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.CancelRelatedCommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.DefaultCommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ResultCommandResponseAction;
@@ -25,8 +25,9 @@ public class ConfigurationProvider implements IConfigurationProvider {
   
   public ConfigurationProvider() { 
     commandResultResponses = new HashMap<String, ACommandResponseAction>();
+    commandConfigurations = new HashMap<String, JSONObject>();
     readServerConfiguration();
-    readCommandConfigurations();
+    //readCommandConfigurations();
 
     JSONObject ackConfiguration = new JSONObject();
     JSONArray ackClientVars = new JSONArray();
@@ -51,7 +52,7 @@ public class ConfigurationProvider implements IConfigurationProvider {
     cancelClientVars.put("resultCode");
     cancelConfiguration.put("clientVars", cancelClientVars);
     cancelConfiguration.put("commandVars", new JSONObject("{ignored: true}"));
-    addSystemCommand("Cancel", cancelConfiguration, new CancelCommandResponseAction());
+    addSystemCommand("Cancel", cancelConfiguration, new CancelRelatedCommandResponseAction());
     
     JSONObject reductionCompleteCommand = new JSONObject();
     JSONArray reductionCompleteVars = new JSONArray();
@@ -59,7 +60,7 @@ public class ConfigurationProvider implements IConfigurationProvider {
     reductionCompleteVars.put("command");
     reductionCompleteCommand.put("clientVars", reductionCompleteVars);
     reductionCompleteCommand.put("commandVars", new JSONObject("{ignored: true}"));
-    addSystemCommand("ReductionComplete", reductionCompleteCommand, new DefaultCommandResponseAction());
+    addSystemCommand("ReduceComplete", reductionCompleteCommand, new DefaultCommandResponseAction());
   }
   
   private void addSystemCommand(String commandType, JSONObject commandConfiguration, ACommandResponseAction commandResponseAction) {
@@ -71,9 +72,9 @@ public class ConfigurationProvider implements IConfigurationProvider {
     return "config/commands";
   }
   
-  public JSONObject getCommandConfiguration(String commandType) {
-    return this.commandConfigurations.get(commandType);
-  }
+  //public JSONObject getCommandConfiguration(String commandType) {
+  //  return this.commandConfigurations.get(commandType);
+  //}
   
   private void readServerConfiguration() {
     File serverConfigFile = new File("config/server.conf");
@@ -98,15 +99,12 @@ public class ConfigurationProvider implements IConfigurationProvider {
   }
   
   
-  
-  private void readCommandConfigurations() {
-    commandConfigurations = new HashMap<String, JSONObject>();
-    File commandConfigFolder = new File("config/commands");
-    for(File commandConfigDirectory : commandConfigFolder.listFiles()) {
-      if(commandConfigDirectory.isDirectory()) {
-        File commandConfigFile = new File(commandConfigDirectory, "command");
-        
-        StringBuilder commandArgs = new StringBuilder();
+  public JSONObject getCommandConfiguration(String commandName) {
+    JSONObject commandConfiguration;
+    StringBuilder commandArgs = new StringBuilder();
+    File commandConfigDirectory = new File("config/commands/"+commandName);
+    if(commandConfigDirectory.isDirectory()) {
+      File commandConfigFile = new File(commandConfigDirectory, "command");
         if(commandConfigFile.isFile()) {
           BufferedReader reader;
           try {
@@ -122,11 +120,46 @@ public class ConfigurationProvider implements IConfigurationProvider {
             e.printStackTrace();
           }
         }
-        
-        commandResultResponses.put(commandConfigDirectory.getName(), new DefaultCommandResponseAction());
+        commandConfiguration = new JSONObject(commandArgs.toString());
+      } else {
+        commandConfiguration = defaultCommandConfiguration();
       }
-    }
+    
+    return commandConfiguration;
   }
+  
+  private JSONObject defaultCommandConfiguration() {
+    return new JSONObject("{\"executables\":{}}");
+  }
+  
+  //private void readCommandConfigurations() {
+  //  commandConfigurations = new HashMap<String, JSONObject>();
+  //  File commandConfigFolder = new File("config/commands");
+  //  for(File commandConfigDirectory : commandConfigFolder.listFiles()) {
+  //    if(commandConfigDirectory.isDirectory()) {
+  //      File commandConfigFile = new File(commandConfigDirectory, "command");
+  //      
+  //      StringBuilder commandArgs = new StringBuilder();
+  //      if(commandConfigFile.isFile()) {
+  //        BufferedReader reader;
+  //        try {
+  //          reader = new BufferedReader(new FileReader(commandConfigFile));
+  //          String configFileLine;
+  //          while((configFileLine = reader.readLine()) != null) {
+  //            commandArgs.append(configFileLine);
+  //          }
+  //          reader.close();
+  //        } catch (FileNotFoundException e) {
+  //          e.printStackTrace();
+  //        } catch (IOException e) {
+  //          e.printStackTrace();
+  //        }
+  //      }
+  //      
+  //      commandResultResponses.put(commandConfigDirectory.getName(), new DefaultCommandResponseAction());
+  //    }
+  //  }
+  //}
   
   public void setServerVariable(String key, Object value) {
     this.serverVariables.put(key, value);

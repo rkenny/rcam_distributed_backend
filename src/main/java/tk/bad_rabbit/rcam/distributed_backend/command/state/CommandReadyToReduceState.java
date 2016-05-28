@@ -29,5 +29,8 @@ public class CommandReadyToReduceState extends ACommandState {
   public ICommandResponseAction getRunCommandResponseAction() { return this.runCommandResponseAction; }
   public void setRunCommandResponseAction(ICommandResponseAction newRunCommandResponseAction) {  this.runCommandResponseAction = newRunCommandResponseAction; }
   
+  public ACommandState getNextState() {
+    return null; // not used in the backend. It would be CommandReducedState.
+  }
 
 }

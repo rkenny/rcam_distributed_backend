@@ -1,14 +1,16 @@
 package tk.bad_rabbit.rcam.distributed_backend.command.responseactions;
 
 import java.util.Observer;
+import java.util.concurrent.Future;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
-import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
 
 public class ResultCommandResponseAction extends ACommandResponseAction {
 
   @Override
-  public void doStuff(Observer actionObject, ACommand actionSubject) {}
+  public Future doStuff(Observer actionObject, ACommand actionSubject) {
+    return null;
+  }
   
   public void nextState(ACommand command) {}
 

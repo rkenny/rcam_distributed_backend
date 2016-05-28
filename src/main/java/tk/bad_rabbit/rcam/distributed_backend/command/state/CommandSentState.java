@@ -7,9 +7,6 @@ import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandRe
 
 public class CommandSentState extends ACommandState {
 
-  public String getStateExecutableType() {
-    return null;
-  }
 
 
   ICommandResponseAction networkResponseAction;
@@ -31,5 +28,9 @@ public class CommandSentState extends ACommandState {
   ICommandResponseAction runCommandResponseAction;
   public ICommandResponseAction getRunCommandResponseAction() { return this.runCommandResponseAction; }
   public void setRunCommandResponseAction(ICommandResponseAction newRunCommandResponseAction) {  this.runCommandResponseAction = newRunCommandResponseAction; }
+  
+  public ACommandState getNextState() {
+    return new AwaitingAckState();
+  }
   
 }

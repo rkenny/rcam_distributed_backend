@@ -1,0 +1,3969 @@
+.:
+total 56
+drwxr-xr-x  9 rich rich 4096 Apr 12 12:19 .
+drwxr-xr-x 10 rich rich 4096 Oct  4  2015 ..
+drwxr-xr-x  3 rich rich 4096 Apr 12 12:18 bin
+drwxr-xr-x  6 rich rich 4096 Apr 12 12:00 build
+-rw-r--r--  1 rich rich 1963 Mar 19 16:27 build.gradle
+-rw-r--r--  1 rich rich 1855 Aug 23  2015 build.gradle.old
+-rw-r--r--  1 rich rich  523 Mar 19 16:28 .classpath
+drwxr-xr-x  3 rich rich 4096 May 24  2015 config
+drwxr-xr-x  8 rich rich 4096 Jan 17 17:53 .git
+-rw-r--r--  1 rich rich   48 Apr 11  2015 .gitignore
+drwxr-xr-x  4 rich rich 4096 Mar 21  2015 .gradle
+-rw-r--r--  1 rich rich  450 Mar 19 16:28 .project
+drwxr-xr-x  3 rich rich 4096 Mar 19 16:28 .settings
+drwxr-xr-x  4 rich rich 4096 Mar 21  2015 src
+-rw-r--r--  1 rich rich    0 Apr 12 12:19 test
+
+./bin:
+total 16
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:19 ..
+-rw-r--r-- 1 rich rich  491 Apr 12 12:18 CommandCoordinator.class
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:18 tk
+
+./bin/tk:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:18 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:18 bad_rabbit
+
+./bin/tk/bad_rabbit:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:18 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:18 rcam
+
+./bin/tk/bad_rabbit/rcam:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:18 ..
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:18 distributed_backend
+
+./bin/tk/bad_rabbit/rcam/distributed_backend:
+total 36
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:18 ..
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 app
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 client
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:18 command
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 commandcoordinator
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 commandfactory
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 configurationprovider
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 controller
+
+./bin/tk/bad_rabbit/rcam/distributed_backend/app:
+total 12
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:18 ..
+-rw-r--r-- 1 rich rich  826 Apr 12 12:18 Main.class
+
+./bin/tk/bad_rabbit/rcam/distributed_backend/client:
+total 16
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:18 ..
+-rw-r--r-- 1 rich rich 1495 Apr 12 12:18 Client.class
+-rw-r--r-- 1 rich rich 3294 Apr 12 12:18 ClientThread.class
+
+./bin/tk/bad_rabbit/rcam/distributed_backend/command:
+total 36
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:18 ..
+-rw-r--r-- 1 rich rich 3008 Apr 12 12:18 ACommand.class
+-rw-r--r-- 1 rich rich 3423 Apr 12 12:18 Command$1ReductionCommand.class
+-rw-r--r-- 1 rich rich 7504 Apr 12 12:18 Command.class
+-rw-r--r-- 1 rich rich 1345 Apr 12 12:18 ICommand.class
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 responseactions
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 state
+
+./bin/tk/bad_rabbit/rcam/distributed_backend/command/responseactions:
+total 60
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:18 ..
+-rw-r--r-- 1 rich rich  960 Apr 12 12:18 AckCommandResponseAction.class
+-rw-r--r-- 1 rich rich  851 Apr 12 12:18 ACommandResponseAction.class
+-rw-r--r-- 1 rich rich 1340 Apr 12 12:18 CancelCommandResponseAction.class
+-rw-r--r-- 1 rich rich 1776 Apr 12 12:18 CancelRelatedCommandResponseAction.class
+-rw-r--r-- 1 rich rich 1658 Apr 12 12:18 CommandReadyToReduceResponseAction.class
+-rw-r--r-- 1 rich rich 1228 Apr 12 12:18 DefaultCommandResponseAction.class
+-rw-r--r-- 1 rich rich  400 Apr 12 12:18 ICommandResponseAction.class
+-rw-r--r-- 1 rich rich 2356 Apr 12 12:18 ReductionCompleteResponseAction.class
+-rw-r--r-- 1 rich rich  966 Apr 12 12:18 ResultCommandResponseAction.class
+-rw-r--r-- 1 rich rich 1283 Apr 12 12:18 RunCleanupResponseAction.class
+-rw-r--r-- 1 rich rich 2545 Apr 12 12:18 RunCommandResponseAction.class
+-rw-r--r-- 1 rich rich 1564 Apr 12 12:18 SendAckAction.class
+-rw-r--r-- 1 rich rich 1151 Apr 12 12:18 SendCommandResponseAction.class
+
+./bin/tk/bad_rabbit/rcam/distributed_backend/command/state:
+total 72
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:18 ..
+-rw-r--r-- 1 rich rich 1782 Apr 12 12:18 AckedState.class
+-rw-r--r-- 1 rich rich 2334 Apr 12 12:18 AckSentState.class
+-rw-r--r-- 1 rich rich 3116 Apr 12 12:18 ACommandState.class
+-rw-r--r-- 1 rich rich 1880 Apr 12 12:18 AwaitingAckState.class
+-rw-r--r-- 1 rich rich 1996 Apr 12 12:18 CancellingState.class
+-rw-r--r-- 1 rich rich 1815 Apr 12 12:18 CommandCompletedState.class
+-rw-r--r-- 1 rich rich 1964 Apr 12 12:18 CommandReadyToReduceState.class
+-rw-r--r-- 1 rich rich 2194 Apr 12 12:18 CommandReducedState.class
+-rw-r--r-- 1 rich rich 1886 Apr 12 12:18 CommandSentState.class
+-rw-r--r-- 1 rich rich 1779 Apr 12 12:18 DoneState.class
+-rw-r--r-- 1 rich rich 1888 Apr 12 12:18 ErrorCommandState.class
+-rw-r--r-- 1 rich rich  842 Apr 12 12:18 ICommandState.class
+-rw-r--r-- 1 rich rich 2014 Apr 12 12:18 ReadyToSendState.class
+-rw-r--r-- 1 rich rich 3627 Apr 12 12:18 ReceivedCommandState.class
+-rw-r--r-- 1 rich rich 1887 Apr 12 12:18 RunningState.class
+-rw-r--r-- 1 rich rich 1824 Apr 12 12:18 WaitingForReductionState.class
+
+./bin/tk/bad_rabbit/rcam/distributed_backend/commandcoordinator:
+total 8
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:18 ..
+
+./bin/tk/bad_rabbit/rcam/distributed_backend/commandfactory:
+total 20
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:18 ..
+-rw-r--r-- 1 rich rich 5026 Apr 12 12:18 CommandFactory.class
+-rw-r--r-- 1 rich rich  536 Apr 12 12:18 ICommandFactory.class
+
+./bin/tk/bad_rabbit/rcam/distributed_backend/configurationprovider:
+total 20
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:18 ..
+-rw-r--r-- 1 rich rich 6198 Apr 12 12:18 ConfigurationProvider.class
+-rw-r--r-- 1 rich rich  800 Apr 12 12:18 IConfigurationProvider.class
+
+./bin/tk/bad_rabbit/rcam/distributed_backend/controller:
+total 12
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:18 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:18 ..
+-rw-r--r-- 1 rich rich 3458 Apr 12 12:18 Controller.class
+
+./build:
+total 24
+drwxr-xr-x 6 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:19 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 classes
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 dependency-cache
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 libs
+drwxr-xr-x 5 rich rich 4096 Apr 12 12:00 tmp
+
+./build/classes:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 6 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 main
+
+./build/classes/main:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 tk
+
+./build/classes/main/tk:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 bad_rabbit
+
+./build/classes/main/tk/bad_rabbit:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 rcam
+
+./build/classes/main/tk/bad_rabbit/rcam:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 8 rich rich 4096 Apr 12 12:00 distributed_backend
+
+./build/classes/main/tk/bad_rabbit/rcam/distributed_backend:
+total 32
+drwxr-xr-x 8 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 app
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 client
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 command
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 commandfactory
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 configurationprovider
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 controller
+
+./build/classes/main/tk/bad_rabbit/rcam/distributed_backend/app:
+total 12
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 8 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich  826 Apr 12 12:00 Main.class
+
+./build/classes/main/tk/bad_rabbit/rcam/distributed_backend/client:
+total 24
+drwxr-xr-x 2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 8 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich  1483 Apr 12 12:00 Client.class
+-rw-r--r-- 1 rich rich 11065 Apr 12 12:00 ClientThread.class
+
+./build/classes/main/tk/bad_rabbit/rcam/distributed_backend/command:
+total 36
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 8 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich 2960 Apr 12 12:00 ACommand.class
+-rw-r--r-- 1 rich rich 3433 Apr 12 12:00 Command$1ReductionCommand.class
+-rw-r--r-- 1 rich rich 7474 Apr 12 12:00 Command.class
+-rw-r--r-- 1 rich rich 1345 Apr 12 12:00 ICommand.class
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 responseactions
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 state
+
+./build/classes/main/tk/bad_rabbit/rcam/distributed_backend/command/responseactions:
+total 60
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich  960 Apr 12 12:00 AckCommandResponseAction.class
+-rw-r--r-- 1 rich rich  851 Apr 12 12:00 ACommandResponseAction.class
+-rw-r--r-- 1 rich rich 1257 Apr 12 12:00 CancelCommandResponseAction.class
+-rw-r--r-- 1 rich rich 1776 Apr 12 12:00 CancelRelatedCommandResponseAction.class
+-rw-r--r-- 1 rich rich 1658 Apr 12 12:00 CommandReadyToReduceResponseAction.class
+-rw-r--r-- 1 rich rich 1228 Apr 12 12:00 DefaultCommandResponseAction.class
+-rw-r--r-- 1 rich rich  400 Apr 12 12:00 ICommandResponseAction.class
+-rw-r--r-- 1 rich rich 2354 Apr 12 12:00 ReductionCompleteResponseAction.class
+-rw-r--r-- 1 rich rich  966 Apr 12 12:00 ResultCommandResponseAction.class
+-rw-r--r-- 1 rich rich 1200 Apr 12 12:00 RunCleanupResponseAction.class
+-rw-r--r-- 1 rich rich 2549 Apr 12 12:00 RunCommandResponseAction.class
+-rw-r--r-- 1 rich rich 1564 Apr 12 12:00 SendAckAction.class
+-rw-r--r-- 1 rich rich 1151 Apr 12 12:00 SendCommandResponseAction.class
+
+./build/classes/main/tk/bad_rabbit/rcam/distributed_backend/command/state:
+total 72
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich 1792 Apr 12 12:00 AckedState.class
+-rw-r--r-- 1 rich rich 2344 Apr 12 12:00 AckSentState.class
+-rw-r--r-- 1 rich rich 3127 Apr 12 12:00 ACommandState.class
+-rw-r--r-- 1 rich rich 1890 Apr 12 12:00 AwaitingAckState.class
+-rw-r--r-- 1 rich rich 2006 Apr 12 12:00 CancellingState.class
+-rw-r--r-- 1 rich rich 1825 Apr 12 12:00 CommandCompletedState.class
+-rw-r--r-- 1 rich rich 1974 Apr 12 12:00 CommandReadyToReduceState.class
+-rw-r--r-- 1 rich rich 2204 Apr 12 12:00 CommandReducedState.class
+-rw-r--r-- 1 rich rich 1896 Apr 12 12:00 CommandSentState.class
+-rw-r--r-- 1 rich rich 1789 Apr 12 12:00 DoneState.class
+-rw-r--r-- 1 rich rich 1898 Apr 12 12:00 ErrorCommandState.class
+-rw-r--r-- 1 rich rich  842 Apr 12 12:00 ICommandState.class
+-rw-r--r-- 1 rich rich 2024 Apr 12 12:00 ReadyToSendState.class
+-rw-r--r-- 1 rich rich 3635 Apr 12 12:00 ReceivedCommandState.class
+-rw-r--r-- 1 rich rich 1897 Apr 12 12:00 RunningState.class
+-rw-r--r-- 1 rich rich 1834 Apr 12 12:00 WaitingForReductionState.class
+
+./build/classes/main/tk/bad_rabbit/rcam/distributed_backend/commandfactory:
+total 20
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 8 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich 5027 Apr 12 12:00 CommandFactory.class
+-rw-r--r-- 1 rich rich  536 Apr 12 12:00 ICommandFactory.class
+
+./build/classes/main/tk/bad_rabbit/rcam/distributed_backend/configurationprovider:
+total 20
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 8 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich 6260 Apr 12 12:00 ConfigurationProvider.class
+-rw-r--r-- 1 rich rich  800 Apr 12 12:00 IConfigurationProvider.class
+
+./build/classes/main/tk/bad_rabbit/rcam/distributed_backend/controller:
+total 12
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 8 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich 3827 Apr 12 12:00 Controller.class
+
+./build/dependency-cache:
+total 8
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 6 rich rich 4096 Apr 12 12:00 ..
+
+./build/libs:
+total 1112
+drwxr-xr-x 2 rich rich    4096 Apr 12 12:00 .
+drwxr-xr-x 6 rich rich    4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich 1130460 Apr 12 12:00 rcam-distributed-backend-all-1.0.jar
+
+./build/tmp:
+total 20
+drwxr-xr-x 5 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 6 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 5 rich rich 4096 Apr 12 12:00 expandedArchives
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 fatJar
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 jar
+
+./build/tmp/expandedArchives:
+total 20
+drwxr-xr-x 5 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 5 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 json-20140107.jar_3pln77h1fdgn3ubnk5g4me9012
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9:
+total 16
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 5 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 META-INF
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 org
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/META-INF:
+total 28
+drwxr-xr-x 2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 4 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich 11560 Apr 12 12:00 LICENSE.txt
+-rw-r--r-- 1 rich rich   519 Apr 12 12:00 MANIFEST.MF
+-rw-r--r-- 1 rich rich   103 Apr 12 12:00 NOTICE.txt
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 apache
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 commons
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache/commons:
+total 20
+drwxr-xr-x  3 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x  3 rich rich  4096 Apr 12 12:00 ..
+drwxr-xr-x 13 rich rich 12288 Apr 12 12:00 collections
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache/commons/collections:
+total 780
+drwxr-xr-x 13 rich rich 12288 Apr 12 12:00 .
+drwxr-xr-x  3 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  1919 Apr 12 12:00 ArrayStack.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 bag
+-rw-r--r--  1 rich rich   480 Apr 12 12:00 Bag.class
+-rw-r--r--  1 rich rich  3214 Apr 12 12:00 BagUtils.class
+-rw-r--r--  1 rich rich  1159 Apr 12 12:00 BeanMap$10.class
+-rw-r--r--  1 rich rich  1363 Apr 12 12:00 BeanMap$11.class
+-rw-r--r--  1 rich rich   681 Apr 12 12:00 BeanMap$1.class
+-rw-r--r--  1 rich rich   694 Apr 12 12:00 BeanMap$2.class
+-rw-r--r--  1 rich rich   675 Apr 12 12:00 BeanMap$3.class
+-rw-r--r--  1 rich rich   677 Apr 12 12:00 BeanMap$4.class
+-rw-r--r--  1 rich rich   681 Apr 12 12:00 BeanMap$5.class
+-rw-r--r--  1 rich rich   675 Apr 12 12:00 BeanMap$6.class
+-rw-r--r--  1 rich rich   677 Apr 12 12:00 BeanMap$7.class
+-rw-r--r--  1 rich rich   679 Apr 12 12:00 BeanMap$8.class
+-rw-r--r--  1 rich rich   870 Apr 12 12:00 BeanMap$9.class
+-rw-r--r--  1 rich rich 11242 Apr 12 12:00 BeanMap.class
+-rw-r--r--  1 rich rich  1163 Apr 12 12:00 BeanMap$MyMapEntry.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 bidimap
+-rw-r--r--  1 rich rich   470 Apr 12 12:00 BidiMap.class
+-rw-r--r--  1 rich rich  1747 Apr 12 12:00 BinaryHeap$1.class
+-rw-r--r--  1 rich rich  5696 Apr 12 12:00 BinaryHeap.class
+-rw-r--r--  1 rich rich   221 Apr 12 12:00 BoundedCollection.class
+-rw-r--r--  1 rich rich  1980 Apr 12 12:00 BoundedFifoBuffer$1.class
+-rw-r--r--  1 rich rich  4445 Apr 12 12:00 BoundedFifoBuffer.class
+-rw-r--r--  1 rich rich   200 Apr 12 12:00 BoundedMap.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 buffer
+-rw-r--r--  1 rich rich   206 Apr 12 12:00 Buffer.class
+-rw-r--r--  1 rich rich   835 Apr 12 12:00 BufferOverflowException.class
+-rw-r--r--  1 rich rich   844 Apr 12 12:00 BufferUnderflowException.class
+-rw-r--r--  1 rich rich  2864 Apr 12 12:00 BufferUtils.class
+-rw-r--r--  1 rich rich   168 Apr 12 12:00 Closure.class
+-rw-r--r--  1 rich rich  5727 Apr 12 12:00 ClosureUtils.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 collection
+-rw-r--r--  1 rich rich 14456 Apr 12 12:00 CollectionUtils.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 comparators
+-rw-r--r--  1 rich rich  3454 Apr 12 12:00 ComparatorUtils.class
+-rw-r--r--  1 rich rich 12217 Apr 12 12:00 CursorableLinkedList.class
+-rw-r--r--  1 rich rich  2982 Apr 12 12:00 CursorableLinkedList$Cursor.class
+-rw-r--r--  1 rich rich  1522 Apr 12 12:00 CursorableLinkedList$Listable.class
+-rw-r--r--  1 rich rich  3802 Apr 12 12:00 CursorableLinkedList$ListIter.class
+-rw-r--r--  1 rich rich  6316 Apr 12 12:00 CursorableSubList.class
+-rw-r--r--  1 rich rich  1422 Apr 12 12:00 DefaultMapBag$BagIterator.class
+-rw-r--r--  1 rich rich  6572 Apr 12 12:00 DefaultMapBag.class
+-rw-r--r--  1 rich rich  2011 Apr 12 12:00 DefaultMapEntry.class
+-rw-r--r--  1 rich rich  1321 Apr 12 12:00 DoubleOrderedMap$10.class
+-rw-r--r--  1 rich rich  2406 Apr 12 12:00 DoubleOrderedMap$11.class
+-rw-r--r--  1 rich rich  1216 Apr 12 12:00 DoubleOrderedMap$12.class
+-rw-r--r--  1 rich rich  2398 Apr 12 12:00 DoubleOrderedMap$1.class
+-rw-r--r--  1 rich rich  1209 Apr 12 12:00 DoubleOrderedMap$2.class
+-rw-r--r--  1 rich rich  1628 Apr 12 12:00 DoubleOrderedMap$3.class
+-rw-r--r--  1 rich rich  1318 Apr 12 12:00 DoubleOrderedMap$4.class
+-rw-r--r--  1 rich rich  2042 Apr 12 12:00 DoubleOrderedMap$5.class
+-rw-r--r--  1 rich rich  1318 Apr 12 12:00 DoubleOrderedMap$6.class
+-rw-r--r--  1 rich rich  1629 Apr 12 12:00 DoubleOrderedMap$7.class
+-rw-r--r--  1 rich rich  1319 Apr 12 12:00 DoubleOrderedMap$8.class
+-rw-r--r--  1 rich rich  2044 Apr 12 12:00 DoubleOrderedMap$9.class
+-rw-r--r--  1 rich rich 14143 Apr 12 12:00 DoubleOrderedMap.class
+-rw-r--r--  1 rich rich  2334 Apr 12 12:00 DoubleOrderedMap$DoubleOrderedMapIterator.class
+-rw-r--r--  1 rich rich  5154 Apr 12 12:00 DoubleOrderedMap$Node.class
+-rw-r--r--  1 rich rich   706 Apr 12 12:00 EnumerationUtils.class
+-rw-r--r--  1 rich rich 19102 Apr 12 12:00 ExtendedProperties.class
+-rw-r--r--  1 rich rich  1245 Apr 12 12:00 ExtendedProperties$PropertiesReader.class
+-rw-r--r--  1 rich rich  1317 Apr 12 12:00 ExtendedProperties$PropertiesTokenizer.class
+-rw-r--r--  1 rich rich   166 Apr 12 12:00 Factory.class
+-rw-r--r--  1 rich rich  1573 Apr 12 12:00 FactoryUtils.class
+-rw-r--r--  1 rich rich  7987 Apr 12 12:00 FastArrayList.class
+-rw-r--r--  1 rich rich  2498 Apr 12 12:00 FastArrayList$ListIter.class
+-rw-r--r--  1 rich rich  7516 Apr 12 12:00 FastArrayList$SubList.class
+-rw-r--r--  1 rich rich  3061 Apr 12 12:00 FastArrayList$SubList$SubListIter.class
+-rw-r--r--  1 rich rich   218 Apr 12 12:00 FastHashMap$1.class
+-rw-r--r--  1 rich rich  5143 Apr 12 12:00 FastHashMap.class
+-rw-r--r--  1 rich rich  4232 Apr 12 12:00 FastHashMap$CollectionView.class
+-rw-r--r--  1 rich rich  2129 Apr 12 12:00 FastHashMap$CollectionView$CollectionViewIterator.class
+-rw-r--r--  1 rich rich  1381 Apr 12 12:00 FastHashMap$EntrySet.class
+-rw-r--r--  1 rich rich  1420 Apr 12 12:00 FastHashMap$KeySet.class
+-rw-r--r--  1 rich rich  1408 Apr 12 12:00 FastHashMap$Values.class
+-rw-r--r--  1 rich rich   218 Apr 12 12:00 FastTreeMap$1.class
+-rw-r--r--  1 rich rich  6268 Apr 12 12:00 FastTreeMap.class
+-rw-r--r--  1 rich rich  4232 Apr 12 12:00 FastTreeMap$CollectionView.class
+-rw-r--r--  1 rich rich  2129 Apr 12 12:00 FastTreeMap$CollectionView$CollectionViewIterator.class
+-rw-r--r--  1 rich rich  1381 Apr 12 12:00 FastTreeMap$EntrySet.class
+-rw-r--r--  1 rich rich  1420 Apr 12 12:00 FastTreeMap$KeySet.class
+-rw-r--r--  1 rich rich  1408 Apr 12 12:00 FastTreeMap$Values.class
+-rw-r--r--  1 rich rich  2471 Apr 12 12:00 FunctorException.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 functors
+-rw-r--r--  1 rich rich   659 Apr 12 12:00 HashBag.class
+-rw-r--r--  1 rich rich   226 Apr 12 12:00 IterableMap.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 iterators
+-rw-r--r--  1 rich rich 13390 Apr 12 12:00 IteratorUtils.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 keyvalue
+-rw-r--r--  1 rich rich   187 Apr 12 12:00 KeyValue.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 list
+-rw-r--r--  1 rich rich  4451 Apr 12 12:00 ListUtils.class
+-rw-r--r--  1 rich rich  2724 Apr 12 12:00 LRUMap.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 map
+-rw-r--r--  1 rich rich   341 Apr 12 12:00 MapIterator.class
+-rw-r--r--  1 rich rich 18093 Apr 12 12:00 MapUtils.class
+-rw-r--r--  1 rich rich   221 Apr 12 12:00 MultiHashMap$1.class
+-rw-r--r--  1 rich rich  5817 Apr 12 12:00 MultiHashMap.class
+-rw-r--r--  1 rich rich  1740 Apr 12 12:00 MultiHashMap$ValueIterator.class
+-rw-r--r--  1 rich rich  1487 Apr 12 12:00 MultiHashMap$Values.class
+-rw-r--r--  1 rich rich   415 Apr 12 12:00 MultiMap.class
+-rw-r--r--  1 rich rich   389 Apr 12 12:00 OrderedBidiMap.class
+-rw-r--r--  1 rich rich   238 Apr 12 12:00 OrderedIterator.class
+-rw-r--r--  1 rich rich   408 Apr 12 12:00 OrderedMap.class
+-rw-r--r--  1 rich rich   322 Apr 12 12:00 OrderedMapIterator.class
+-rw-r--r--  1 rich rich   173 Apr 12 12:00 Predicate.class
+-rw-r--r--  1 rich rich  5677 Apr 12 12:00 PredicateUtils.class
+-rw-r--r--  1 rich rich   296 Apr 12 12:00 PriorityQueue.class
+-rw-r--r--  1 rich rich  1957 Apr 12 12:00 ProxyMap.class
+-rw-r--r--  1 rich rich  2495 Apr 12 12:00 ReferenceMap$1.class
+-rw-r--r--  1 rich rich  2031 Apr 12 12:00 ReferenceMap$2.class
+-rw-r--r--  1 rich rich  1744 Apr 12 12:00 ReferenceMap$3.class
+-rw-r--r--  1 rich rich  9118 Apr 12 12:00 ReferenceMap.class
+-rw-r--r--  1 rich rich  2776 Apr 12 12:00 ReferenceMap$Entry.class
+-rw-r--r--  1 rich rich  2503 Apr 12 12:00 ReferenceMap$EntryIterator.class
+-rw-r--r--  1 rich rich  1235 Apr 12 12:00 ReferenceMap$KeyIterator.class
+-rw-r--r--  1 rich rich   757 Apr 12 12:00 ReferenceMap$SoftRef.class
+-rw-r--r--  1 rich rich  1243 Apr 12 12:00 ReferenceMap$ValueIterator.class
+-rw-r--r--  1 rich rich   757 Apr 12 12:00 ReferenceMap$WeakRef.class
+-rw-r--r--  1 rich rich   196 Apr 12 12:00 ResettableIterator.class
+-rw-r--r--  1 rich rich   265 Apr 12 12:00 ResettableListIterator.class
+-rw-r--r--  1 rich rich  1681 Apr 12 12:00 SequencedHashMap$1.class
+-rw-r--r--  1 rich rich  2099 Apr 12 12:00 SequencedHashMap$2.class
+-rw-r--r--  1 rich rich  2283 Apr 12 12:00 SequencedHashMap$3.class
+-rw-r--r--  1 rich rich  9051 Apr 12 12:00 SequencedHashMap.class
+-rw-r--r--  1 rich rich  1853 Apr 12 12:00 SequencedHashMap$Entry.class
+-rw-r--r--  1 rich rich  2350 Apr 12 12:00 SequencedHashMap$OrderedIterator.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 set
+-rw-r--r--  1 rich rich  3754 Apr 12 12:00 SetUtils.class
+-rw-r--r--  1 rich rich   274 Apr 12 12:00 SortedBag.class
+-rw-r--r--  1 rich rich   370 Apr 12 12:00 SortedBidiMap.class
+-rw-r--r--  1 rich rich   230 Apr 12 12:00 StaticBucketMap$1.class
+-rw-r--r--  1 rich rich  6373 Apr 12 12:00 StaticBucketMap.class
+-rw-r--r--  1 rich rich  2568 Apr 12 12:00 StaticBucketMap$EntryIterator.class
+-rw-r--r--  1 rich rich  2681 Apr 12 12:00 StaticBucketMap$EntrySet.class
+-rw-r--r--  1 rich rich  1235 Apr 12 12:00 StaticBucketMap$KeyIterator.class
+-rw-r--r--  1 rich rich  2451 Apr 12 12:00 StaticBucketMap$KeySet.class
+-rw-r--r--  1 rich rich   724 Apr 12 12:00 StaticBucketMap$Lock.class
+-rw-r--r--  1 rich rich  1654 Apr 12 12:00 StaticBucketMap$Node.class
+-rw-r--r--  1 rich rich  1243 Apr 12 12:00 StaticBucketMap$ValueIterator.class
+-rw-r--r--  1 rich rich  1323 Apr 12 12:00 StaticBucketMap$Values.class
+-rw-r--r--  1 rich rich  1311 Apr 12 12:00 SynchronizedPriorityQueue.class
+-rw-r--r--  1 rich rich   195 Apr 12 12:00 Transformer.class
+-rw-r--r--  1 rich rich  6276 Apr 12 12:00 TransformerUtils.class
+-rw-r--r--  1 rich rich  1211 Apr 12 12:00 TreeBag.class
+-rw-r--r--  1 rich rich  1570 Apr 12 12:00 UnboundedFifoBuffer$1.class
+-rw-r--r--  1 rich rich  2737 Apr 12 12:00 UnboundedFifoBuffer.class
+-rw-r--r--  1 rich rich   136 Apr 12 12:00 Unmodifiable.class
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache/commons/collections/bag:
+total 92
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 13 rich rich 12288 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  1340 Apr 12 12:00 AbstractBagDecorator.class
+-rw-r--r--  1 rich rich  2126 Apr 12 12:00 AbstractMapBag$BagIterator.class
+-rw-r--r--  1 rich rich  7853 Apr 12 12:00 AbstractMapBag.class
+-rw-r--r--  1 rich rich   771 Apr 12 12:00 AbstractMapBag$MutableInteger.class
+-rw-r--r--  1 rich rich  1261 Apr 12 12:00 AbstractSortedBagDecorator.class
+-rw-r--r--  1 rich rich  1407 Apr 12 12:00 HashBag.class
+-rw-r--r--  1 rich rich  1792 Apr 12 12:00 PredicatedBag.class
+-rw-r--r--  1 rich rich  1596 Apr 12 12:00 PredicatedSortedBag.class
+-rw-r--r--  1 rich rich  2101 Apr 12 12:00 SynchronizedBag.class
+-rw-r--r--  1 rich rich   841 Apr 12 12:00 SynchronizedBag$SynchronizedBagSet.class
+-rw-r--r--  1 rich rich  1719 Apr 12 12:00 SynchronizedSortedBag.class
+-rw-r--r--  1 rich rich  2023 Apr 12 12:00 TransformedBag.class
+-rw-r--r--  1 rich rich  1605 Apr 12 12:00 TransformedSortedBag.class
+-rw-r--r--  1 rich rich  2076 Apr 12 12:00 TreeBag.class
+-rw-r--r--  1 rich rich   880 Apr 12 12:00 TypedBag.class
+-rw-r--r--  1 rich rich   928 Apr 12 12:00 TypedSortedBag.class
+-rw-r--r--  1 rich rich  3061 Apr 12 12:00 UnmodifiableBag.class
+-rw-r--r--  1 rich rich  3170 Apr 12 12:00 UnmodifiableSortedBag.class
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache/commons/collections/bidimap:
+total 156
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 13 rich rich 12288 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  1244 Apr 12 12:00 AbstractBidiMapDecorator.class
+-rw-r--r--  1 rich rich  3175 Apr 12 12:00 AbstractDualBidiMap$BidiMapIterator.class
+-rw-r--r--  1 rich rich  5676 Apr 12 12:00 AbstractDualBidiMap.class
+-rw-r--r--  1 rich rich  1788 Apr 12 12:00 AbstractDualBidiMap$EntrySet.class
+-rw-r--r--  1 rich rich  1753 Apr 12 12:00 AbstractDualBidiMap$EntrySetIterator.class
+-rw-r--r--  1 rich rich  1560 Apr 12 12:00 AbstractDualBidiMap$KeySet.class
+-rw-r--r--  1 rich rich  1486 Apr 12 12:00 AbstractDualBidiMap$KeySetIterator.class
+-rw-r--r--  1 rich rich  1507 Apr 12 12:00 AbstractDualBidiMap$MapEntry.class
+-rw-r--r--  1 rich rich  1567 Apr 12 12:00 AbstractDualBidiMap$Values.class
+-rw-r--r--  1 rich rich  1434 Apr 12 12:00 AbstractDualBidiMap$ValuesIterator.class
+-rw-r--r--  1 rich rich  1624 Apr 12 12:00 AbstractDualBidiMap$View.class
+-rw-r--r--  1 rich rich  1657 Apr 12 12:00 AbstractOrderedBidiMapDecorator.class
+-rw-r--r--  1 rich rich  1587 Apr 12 12:00 AbstractSortedBidiMapDecorator.class
+-rw-r--r--  1 rich rich  1972 Apr 12 12:00 DualHashBidiMap.class
+-rw-r--r--  1 rich rich  3365 Apr 12 12:00 DualTreeBidiMap$BidiOrderedMapIterator.class
+-rw-r--r--  1 rich rich  4848 Apr 12 12:00 DualTreeBidiMap.class
+-rw-r--r--  1 rich rich  2221 Apr 12 12:00 DualTreeBidiMap$ViewMap.class
+-rw-r--r--  1 rich rich 19254 Apr 12 12:00 TreeBidiMap.class
+-rw-r--r--  1 rich rich  2028 Apr 12 12:00 TreeBidiMap$EntryView.class
+-rw-r--r--  1 rich rich  6127 Apr 12 12:00 TreeBidiMap$Inverse.class
+-rw-r--r--  1 rich rich  5157 Apr 12 12:00 TreeBidiMap$Node.class
+-rw-r--r--  1 rich rich  1793 Apr 12 12:00 TreeBidiMap$View.class
+-rw-r--r--  1 rich rich  3115 Apr 12 12:00 TreeBidiMap$ViewIterator.class
+-rw-r--r--  1 rich rich  1857 Apr 12 12:00 TreeBidiMap$ViewMapIterator.class
+-rw-r--r--  1 rich rich  2825 Apr 12 12:00 UnmodifiableBidiMap.class
+-rw-r--r--  1 rich rich  3255 Apr 12 12:00 UnmodifiableOrderedBidiMap.class
+-rw-r--r--  1 rich rich  4035 Apr 12 12:00 UnmodifiableSortedBidiMap.class
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache/commons/collections/buffer:
+total 92
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 13 rich rich 12288 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  1055 Apr 12 12:00 AbstractBufferDecorator.class
+-rw-r--r--  1 rich rich  3859 Apr 12 12:00 BlockingBuffer.class
+-rw-r--r--  1 rich rich  4149 Apr 12 12:00 BoundedBuffer.class
+-rw-r--r--  1 rich rich  1152 Apr 12 12:00 BoundedBuffer$NotifyingIterator.class
+-rw-r--r--  1 rich rich  2220 Apr 12 12:00 BoundedFifoBuffer$1.class
+-rw-r--r--  1 rich rich  5501 Apr 12 12:00 BoundedFifoBuffer.class
+-rw-r--r--  1 rich rich   934 Apr 12 12:00 CircularFifoBuffer.class
+-rw-r--r--  1 rich rich  1459 Apr 12 12:00 PredicatedBuffer.class
+-rw-r--r--  1 rich rich  1763 Apr 12 12:00 PriorityBuffer$1.class
+-rw-r--r--  1 rich rich  5135 Apr 12 12:00 PriorityBuffer.class
+-rw-r--r--  1 rich rich  1490 Apr 12 12:00 SynchronizedBuffer.class
+-rw-r--r--  1 rich rich  1468 Apr 12 12:00 TransformedBuffer.class
+-rw-r--r--  1 rich rich   916 Apr 12 12:00 TypedBuffer.class
+-rw-r--r--  1 rich rich  1606 Apr 12 12:00 UnboundedFifoBuffer$1.class
+-rw-r--r--  1 rich rich  3655 Apr 12 12:00 UnboundedFifoBuffer.class
+-rw-r--r--  1 rich rich  2604 Apr 12 12:00 UnmodifiableBuffer.class
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache/commons/collections/collection:
+total 60
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 13 rich rich 12288 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  2543 Apr 12 12:00 AbstractCollectionDecorator.class
+-rw-r--r--  1 rich rich  1327 Apr 12 12:00 AbstractSerializableCollectionDecorator.class
+-rw-r--r--  1 rich rich  5721 Apr 12 12:00 CompositeCollection.class
+-rw-r--r--  1 rich rich   569 Apr 12 12:00 CompositeCollection$CollectionMutator.class
+-rw-r--r--  1 rich rich  2246 Apr 12 12:00 PredicatedCollection.class
+-rw-r--r--  1 rich rich  3294 Apr 12 12:00 SynchronizedCollection.class
+-rw-r--r--  1 rich rich  2191 Apr 12 12:00 TransformedCollection.class
+-rw-r--r--  1 rich rich   874 Apr 12 12:00 TypedCollection.class
+-rw-r--r--  1 rich rich  2736 Apr 12 12:00 UnmodifiableBoundedCollection.class
+-rw-r--r--  1 rich rich  1795 Apr 12 12:00 UnmodifiableCollection.class
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache/commons/collections/comparators:
+total 44
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 13 rich rich 12288 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  1996 Apr 12 12:00 BooleanComparator.class
+-rw-r--r--  1 rich rich  1289 Apr 12 12:00 ComparableComparator.class
+-rw-r--r--  1 rich rich  4057 Apr 12 12:00 ComparatorChain.class
+-rw-r--r--  1 rich rich  3640 Apr 12 12:00 FixedOrderComparator.class
+-rw-r--r--  1 rich rich  1799 Apr 12 12:00 NullComparator.class
+-rw-r--r--  1 rich rich  1444 Apr 12 12:00 ReverseComparator.class
+-rw-r--r--  1 rich rich  1236 Apr 12 12:00 TransformingComparator.class
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache/commons/collections/functors:
+total 220
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 13 rich rich 12288 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  1890 Apr 12 12:00 AllPredicate.class
+-rw-r--r--  1 rich rich  1489 Apr 12 12:00 AndPredicate.class
+-rw-r--r--  1 rich rich  1885 Apr 12 12:00 AnyPredicate.class
+-rw-r--r--  1 rich rich  2417 Apr 12 12:00 ChainedClosure.class
+-rw-r--r--  1 rich rich  2535 Apr 12 12:00 ChainedTransformer.class
+-rw-r--r--  1 rich rich  1138 Apr 12 12:00 CloneTransformer.class
+-rw-r--r--  1 rich rich  1327 Apr 12 12:00 ClosureTransformer.class
+-rw-r--r--  1 rich rich  1079 Apr 12 12:00 ConstantFactory.class
+-rw-r--r--  1 rich rich  1165 Apr 12 12:00 ConstantTransformer.class
+-rw-r--r--  1 rich rich  1110 Apr 12 12:00 EqualPredicate.class
+-rw-r--r--  1 rich rich   989 Apr 12 12:00 ExceptionClosure.class
+-rw-r--r--  1 rich rich   948 Apr 12 12:00 ExceptionFactory.class
+-rw-r--r--  1 rich rich  1005 Apr 12 12:00 ExceptionPredicate.class
+-rw-r--r--  1 rich rich  1036 Apr 12 12:00 ExceptionTransformer.class
+-rw-r--r--  1 rich rich  1319 Apr 12 12:00 FactoryTransformer.class
+-rw-r--r--  1 rich rich   866 Apr 12 12:00 FalsePredicate.class
+-rw-r--r--  1 rich rich  1370 Apr 12 12:00 ForClosure.class
+-rw-r--r--  1 rich rich  3006 Apr 12 12:00 FunctorUtils.class
+-rw-r--r--  1 rich rich  1105 Apr 12 12:00 IdentityPredicate.class
+-rw-r--r--  1 rich rich  2421 Apr 12 12:00 IfClosure.class
+-rw-r--r--  1 rich rich  1178 Apr 12 12:00 InstanceofPredicate.class
+-rw-r--r--  1 rich rich  2798 Apr 12 12:00 InstantiateFactory.class
+-rw-r--r--  1 rich rich  3000 Apr 12 12:00 InstantiateTransformer.class
+-rw-r--r--  1 rich rich  3065 Apr 12 12:00 InvokerTransformer.class
+-rw-r--r--  1 rich rich  1173 Apr 12 12:00 MapTransformer.class
+-rw-r--r--  1 rich rich  1857 Apr 12 12:00 NonePredicate.class
+-rw-r--r--  1 rich rich   845 Apr 12 12:00 NOPClosure.class
+-rw-r--r--  1 rich rich   889 Apr 12 12:00 NOPTransformer.class
+-rw-r--r--  1 rich rich   880 Apr 12 12:00 NotNullPredicate.class
+-rw-r--r--  1 rich rich  1304 Apr 12 12:00 NotPredicate.class
+-rw-r--r--  1 rich rich  1447 Apr 12 12:00 NullIsExceptionPredicate.class
+-rw-r--r--  1 rich rich  1334 Apr 12 12:00 NullIsFalsePredicate.class
+-rw-r--r--  1 rich rich  1331 Apr 12 12:00 NullIsTruePredicate.class
+-rw-r--r--  1 rich rich   871 Apr 12 12:00 NullPredicate.class
+-rw-r--r--  1 rich rich  1898 Apr 12 12:00 OnePredicate.class
+-rw-r--r--  1 rich rich  1486 Apr 12 12:00 OrPredicate.class
+-rw-r--r--  1 rich rich   277 Apr 12 12:00 PredicateDecorator.class
+-rw-r--r--  1 rich rich  1439 Apr 12 12:00 PredicateTransformer.class
+-rw-r--r--  1 rich rich   251 Apr 12 12:00 PrototypeFactory$1.class
+-rw-r--r--  1 rich rich  2102 Apr 12 12:00 PrototypeFactory.class
+-rw-r--r--  1 rich rich  2544 Apr 12 12:00 PrototypeFactory$PrototypeCloneFactory.class
+-rw-r--r--  1 rich rich  2277 Apr 12 12:00 PrototypeFactory$PrototypeSerializationFactory.class
+-rw-r--r--  1 rich rich   999 Apr 12 12:00 StringValueTransformer.class
+-rw-r--r--  1 rich rich  3602 Apr 12 12:00 SwitchClosure.class
+-rw-r--r--  1 rich rich  3686 Apr 12 12:00 SwitchTransformer.class
+-rw-r--r--  1 rich rich  1884 Apr 12 12:00 TransformedPredicate.class
+-rw-r--r--  1 rich rich  1361 Apr 12 12:00 TransformerClosure.class
+-rw-r--r--  1 rich rich  1880 Apr 12 12:00 TransformerPredicate.class
+-rw-r--r--  1 rich rich   863 Apr 12 12:00 TruePredicate.class
+-rw-r--r--  1 rich rich   869 Apr 12 12:00 UniquePredicate.class
+-rw-r--r--  1 rich rich  1869 Apr 12 12:00 WhileClosure.class
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache/commons/collections/iterators:
+total 164
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 13 rich rich 12288 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  1729 Apr 12 12:00 AbstractEmptyIterator.class
+-rw-r--r--  1 rich rich  1023 Apr 12 12:00 AbstractIteratorDecorator.class
+-rw-r--r--  1 rich rich  1667 Apr 12 12:00 AbstractListIteratorDecorator.class
+-rw-r--r--  1 rich rich  1472 Apr 12 12:00 AbstractMapIteratorDecorator.class
+-rw-r--r--  1 rich rich  1760 Apr 12 12:00 AbstractOrderedMapIteratorDecorator.class
+-rw-r--r--  1 rich rich  2663 Apr 12 12:00 ArrayIterator.class
+-rw-r--r--  1 rich rich  2283 Apr 12 12:00 ArrayListIterator.class
+-rw-r--r--  1 rich rich  4888 Apr 12 12:00 CollatingIterator.class
+-rw-r--r--  1 rich rich   678 Apr 12 12:00 EmptyIterator.class
+-rw-r--r--  1 rich rich   702 Apr 12 12:00 EmptyListIterator.class
+-rw-r--r--  1 rich rich   653 Apr 12 12:00 EmptyMapIterator.class
+-rw-r--r--  1 rich rich   673 Apr 12 12:00 EmptyOrderedIterator.class
+-rw-r--r--  1 rich rich   688 Apr 12 12:00 EmptyOrderedMapIterator.class
+-rw-r--r--  1 rich rich  2536 Apr 12 12:00 EntrySetMapIterator.class
+-rw-r--r--  1 rich rich  1729 Apr 12 12:00 EnumerationIterator.class
+-rw-r--r--  1 rich rich  2171 Apr 12 12:00 FilterIterator.class
+-rw-r--r--  1 rich rich  3640 Apr 12 12:00 FilterListIterator.class
+-rw-r--r--  1 rich rich  3683 Apr 12 12:00 IteratorChain.class
+-rw-r--r--  1 rich rich  1003 Apr 12 12:00 IteratorEnumeration.class
+-rw-r--r--  1 rich rich  2337 Apr 12 12:00 ListIteratorWrapper.class
+-rw-r--r--  1 rich rich  1426 Apr 12 12:00 LoopingIterator.class
+-rw-r--r--  1 rich rich  2304 Apr 12 12:00 LoopingListIterator.class
+-rw-r--r--  1 rich rich  2512 Apr 12 12:00 ObjectArrayIterator.class
+-rw-r--r--  1 rich rich  2197 Apr 12 12:00 ObjectArrayListIterator.class
+-rw-r--r--  1 rich rich  2596 Apr 12 12:00 ObjectGraphIterator.class
+-rw-r--r--  1 rich rich  1044 Apr 12 12:00 ProxyIterator.class
+-rw-r--r--  1 rich rich  1686 Apr 12 12:00 ProxyListIterator.class
+-rw-r--r--  1 rich rich  2142 Apr 12 12:00 ReverseListIterator.class
+-rw-r--r--  1 rich rich  1354 Apr 12 12:00 SingletonIterator.class
+-rw-r--r--  1 rich rich  1888 Apr 12 12:00 SingletonListIterator.class
+-rw-r--r--  1 rich rich  1793 Apr 12 12:00 TransformIterator.class
+-rw-r--r--  1 rich rich   678 Apr 12 12:00 UniqueFilterIterator.class
+-rw-r--r--  1 rich rich  1174 Apr 12 12:00 UnmodifiableIterator.class
+-rw-r--r--  1 rich rich  1844 Apr 12 12:00 UnmodifiableListIterator.class
+-rw-r--r--  1 rich rich  1668 Apr 12 12:00 UnmodifiableMapIterator.class
+-rw-r--r--  1 rich rich  1956 Apr 12 12:00 UnmodifiableOrderedMapIterator.class
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache/commons/collections/keyvalue:
+total 48
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 13 rich rich 12288 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  1009 Apr 12 12:00 AbstractKeyValue.class
+-rw-r--r--  1 rich rich  1242 Apr 12 12:00 AbstractMapEntry.class
+-rw-r--r--  1 rich rich  1541 Apr 12 12:00 AbstractMapEntryDecorator.class
+-rw-r--r--  1 rich rich  2181 Apr 12 12:00 DefaultKeyValue.class
+-rw-r--r--  1 rich rich  1019 Apr 12 12:00 DefaultMapEntry.class
+-rw-r--r--  1 rich rich  2727 Apr 12 12:00 MultiKey.class
+-rw-r--r--  1 rich rich  2030 Apr 12 12:00 TiedMapEntry.class
+-rw-r--r--  1 rich rich  1325 Apr 12 12:00 UnmodifiableMapEntry.class
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache/commons/collections/list:
+total 156
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 13 rich rich 12288 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich 10867 Apr 12 12:00 AbstractLinkedList.class
+-rw-r--r--  1 rich rich  3438 Apr 12 12:00 AbstractLinkedList$LinkedListIterator.class
+-rw-r--r--  1 rich rich  3988 Apr 12 12:00 AbstractLinkedList$LinkedSubList.class
+-rw-r--r--  1 rich rich  1760 Apr 12 12:00 AbstractLinkedList$LinkedSubListIterator.class
+-rw-r--r--  1 rich rich  1611 Apr 12 12:00 AbstractLinkedList$Node.class
+-rw-r--r--  1 rich rich  2073 Apr 12 12:00 AbstractListDecorator.class
+-rw-r--r--  1 rich rich  1373 Apr 12 12:00 AbstractSerializableListDecorator.class
+-rw-r--r--  1 rich rich  5674 Apr 12 12:00 CursorableLinkedList.class
+-rw-r--r--  1 rich rich  2896 Apr 12 12:00 CursorableLinkedList$Cursor.class
+-rw-r--r--  1 rich rich  1878 Apr 12 12:00 CursorableLinkedList$SubCursor.class
+-rw-r--r--  1 rich rich  3486 Apr 12 12:00 FixedSizeList.class
+-rw-r--r--  1 rich rich   941 Apr 12 12:00 FixedSizeList$FixedSizeListIterator.class
+-rw-r--r--  1 rich rich  1812 Apr 12 12:00 GrowthList.class
+-rw-r--r--  1 rich rich  1814 Apr 12 12:00 LazyList.class
+-rw-r--r--  1 rich rich  3420 Apr 12 12:00 NodeCachingLinkedList.class
+-rw-r--r--  1 rich rich  3288 Apr 12 12:00 PredicatedList.class
+-rw-r--r--  1 rich rich  1261 Apr 12 12:00 PredicatedList$PredicatedListIterator.class
+-rw-r--r--  1 rich rich  4420 Apr 12 12:00 SetUniqueList.class
+-rw-r--r--  1 rich rich  1025 Apr 12 12:00 SetUniqueList$SetListIterator.class
+-rw-r--r--  1 rich rich  1529 Apr 12 12:00 SetUniqueList$SetListListIterator.class
+-rw-r--r--  1 rich rich  2647 Apr 12 12:00 SynchronizedList.class
+-rw-r--r--  1 rich rich  3142 Apr 12 12:00 TransformedList.class
+-rw-r--r--  1 rich rich  1290 Apr 12 12:00 TransformedList$TransformedListIterator.class
+-rw-r--r--  1 rich rich   219 Apr 12 12:00 TreeList$1.class
+-rw-r--r--  1 rich rich  7609 Apr 12 12:00 TreeList$AVLNode.class
+-rw-r--r--  1 rich rich  4348 Apr 12 12:00 TreeList.class
+-rw-r--r--  1 rich rich  3485 Apr 12 12:00 TreeList$TreeListIterator.class
+-rw-r--r--  1 rich rich   808 Apr 12 12:00 TypedList.class
+-rw-r--r--  1 rich rich  2908 Apr 12 12:00 UnmodifiableList.class
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache/commons/collections/map:
+total 480
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 13 rich rich 12288 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich 14171 Apr 12 12:00 AbstractHashedMap.class
+-rw-r--r--  1 rich rich  1749 Apr 12 12:00 AbstractHashedMap$EntrySet.class
+-rw-r--r--  1 rich rich   965 Apr 12 12:00 AbstractHashedMap$EntrySetIterator.class
+-rw-r--r--  1 rich rich  1936 Apr 12 12:00 AbstractHashedMap$HashEntry.class
+-rw-r--r--  1 rich rich  2591 Apr 12 12:00 AbstractHashedMap$HashIterator.class
+-rw-r--r--  1 rich rich  1838 Apr 12 12:00 AbstractHashedMap$HashMapIterator.class
+-rw-r--r--  1 rich rich  1274 Apr 12 12:00 AbstractHashedMap$KeySet.class
+-rw-r--r--  1 rich rich  1083 Apr 12 12:00 AbstractHashedMap$KeySetIterator.class
+-rw-r--r--  1 rich rich  1108 Apr 12 12:00 AbstractHashedMap$Values.class
+-rw-r--r--  1 rich rich   983 Apr 12 12:00 AbstractHashedMap$ValuesIterator.class
+-rw-r--r--  1 rich rich  1336 Apr 12 12:00 AbstractInputCheckedMapDecorator.class
+-rw-r--r--  1 rich rich  2402 Apr 12 12:00 AbstractInputCheckedMapDecorator$EntrySet.class
+-rw-r--r--  1 rich rich  1349 Apr 12 12:00 AbstractInputCheckedMapDecorator$EntrySetIterator.class
+-rw-r--r--  1 rich rich  1132 Apr 12 12:00 AbstractInputCheckedMapDecorator$MapEntry.class
+-rw-r--r--  1 rich rich  6307 Apr 12 12:00 AbstractLinkedMap.class
+-rw-r--r--  1 rich rich  1063 Apr 12 12:00 AbstractLinkedMap$EntrySetIterator.class
+-rw-r--r--  1 rich rich  1330 Apr 12 12:00 AbstractLinkedMap$KeySetIterator.class
+-rw-r--r--  1 rich rich   898 Apr 12 12:00 AbstractLinkedMap$LinkEntry.class
+-rw-r--r--  1 rich rich  2977 Apr 12 12:00 AbstractLinkedMap$LinkIterator.class
+-rw-r--r--  1 rich rich  2092 Apr 12 12:00 AbstractLinkedMap$LinkMapIterator.class
+-rw-r--r--  1 rich rich  1230 Apr 12 12:00 AbstractLinkedMap$ValuesIterator.class
+-rw-r--r--  1 rich rich  2395 Apr 12 12:00 AbstractMapDecorator.class
+-rw-r--r--  1 rich rich  1644 Apr 12 12:00 AbstractOrderedMapDecorator.class
+-rw-r--r--  1 rich rich  8862 Apr 12 12:00 AbstractReferenceMap.class
+-rw-r--r--  1 rich rich  3521 Apr 12 12:00 AbstractReferenceMap$ReferenceEntry.class
+-rw-r--r--  1 rich rich  1667 Apr 12 12:00 AbstractReferenceMap$ReferenceEntrySet.class
+-rw-r--r--  1 rich rich  2817 Apr 12 12:00 AbstractReferenceMap$ReferenceEntrySetIterator.class
+-rw-r--r--  1 rich rich  1437 Apr 12 12:00 AbstractReferenceMap$ReferenceKeySet.class
+-rw-r--r--  1 rich rich  1076 Apr 12 12:00 AbstractReferenceMap$ReferenceKeySetIterator.class
+-rw-r--r--  1 rich rich  2072 Apr 12 12:00 AbstractReferenceMap$ReferenceMapIterator.class
+-rw-r--r--  1 rich rich  1437 Apr 12 12:00 AbstractReferenceMap$ReferenceValues.class
+-rw-r--r--  1 rich rich  1078 Apr 12 12:00 AbstractReferenceMap$ReferenceValuesIterator.class
+-rw-r--r--  1 rich rich   801 Apr 12 12:00 AbstractReferenceMap$SoftRef.class
+-rw-r--r--  1 rich rich   801 Apr 12 12:00 AbstractReferenceMap$WeakRef.class
+-rw-r--r--  1 rich rich  1508 Apr 12 12:00 AbstractSortedMapDecorator.class
+-rw-r--r--  1 rich rich  1905 Apr 12 12:00 CaseInsensitiveMap.class
+-rw-r--r--  1 rich rich  5710 Apr 12 12:00 CompositeMap.class
+-rw-r--r--  1 rich rich   623 Apr 12 12:00 CompositeMap$MapMutator.class
+-rw-r--r--  1 rich rich  2845 Apr 12 12:00 DefaultedMap.class
+-rw-r--r--  1 rich rich  3184 Apr 12 12:00 FixedSizeMap.class
+-rw-r--r--  1 rich rich  3966 Apr 12 12:00 FixedSizeSortedMap.class
+-rw-r--r--  1 rich rich 10987 Apr 12 12:00 Flat3Map.class
+-rw-r--r--  1 rich rich  1828 Apr 12 12:00 Flat3Map$EntrySet.class
+-rw-r--r--  1 rich rich  3464 Apr 12 12:00 Flat3Map$EntrySetIterator.class
+-rw-r--r--  1 rich rich  3113 Apr 12 12:00 Flat3Map$FlatMapIterator.class
+-rw-r--r--  1 rich rich  1703 Apr 12 12:00 Flat3Map$KeySet.class
+-rw-r--r--  1 rich rich   763 Apr 12 12:00 Flat3Map$KeySetIterator.class
+-rw-r--r--  1 rich rich  1551 Apr 12 12:00 Flat3Map$Values.class
+-rw-r--r--  1 rich rich   765 Apr 12 12:00 Flat3Map$ValuesIterator.class
+-rw-r--r--  1 rich rich  1578 Apr 12 12:00 HashedMap.class
+-rw-r--r--  1 rich rich  2744 Apr 12 12:00 IdentityMap.class
+-rw-r--r--  1 rich rich  1359 Apr 12 12:00 IdentityMap$IdentityEntry.class
+-rw-r--r--  1 rich rich  2619 Apr 12 12:00 LazyMap.class
+-rw-r--r--  1 rich rich  2376 Apr 12 12:00 LazySortedMap.class
+-rw-r--r--  1 rich rich  2981 Apr 12 12:00 LinkedMap.class
+-rw-r--r--  1 rich rich  3098 Apr 12 12:00 LinkedMap$LinkedMapList.class
+-rw-r--r--  1 rich rich  1079 Apr 12 12:00 ListOrderedMap$1.class
+-rw-r--r--  1 rich rich  1027 Apr 12 12:00 ListOrderedMap$2.class
+-rw-r--r--  1 rich rich  6715 Apr 12 12:00 ListOrderedMap.class
+-rw-r--r--  1 rich rich  2465 Apr 12 12:00 ListOrderedMap$EntrySetView.class
+-rw-r--r--  1 rich rich  1370 Apr 12 12:00 ListOrderedMap$KeySetView.class
+-rw-r--r--  1 rich rich  1497 Apr 12 12:00 ListOrderedMap$ListOrderedIterator.class
+-rw-r--r--  1 rich rich  1307 Apr 12 12:00 ListOrderedMap$ListOrderedMapEntry.class
+-rw-r--r--  1 rich rich  3035 Apr 12 12:00 ListOrderedMap$ListOrderedMapIterator.class
+-rw-r--r--  1 rich rich  1760 Apr 12 12:00 ListOrderedMap$ValuesView.class
+-rw-r--r--  1 rich rich  7004 Apr 12 12:00 LRUMap.class
+-rw-r--r--  1 rich rich 13987 Apr 12 12:00 MultiKeyMap.class
+-rw-r--r--  1 rich rich   232 Apr 12 12:00 MultiValueMap$1.class
+-rw-r--r--  1 rich rich  6001 Apr 12 12:00 MultiValueMap.class
+-rw-r--r--  1 rich rich  1202 Apr 12 12:00 MultiValueMap$ReflectionFactory.class
+-rw-r--r--  1 rich rich  1937 Apr 12 12:00 MultiValueMap$Values.class
+-rw-r--r--  1 rich rich  1464 Apr 12 12:00 MultiValueMap$ValuesIterator.class
+-rw-r--r--  1 rich rich  3420 Apr 12 12:00 PredicatedMap.class
+-rw-r--r--  1 rich rich  2143 Apr 12 12:00 PredicatedSortedMap.class
+-rw-r--r--  1 rich rich  2351 Apr 12 12:00 ReferenceIdentityMap.class
+-rw-r--r--  1 rich rich  1622 Apr 12 12:00 ReferenceMap.class
+-rw-r--r--  1 rich rich  5850 Apr 12 12:00 SingletonMap.class
+-rw-r--r--  1 rich rich  2599 Apr 12 12:00 SingletonMap$SingletonMapIterator.class
+-rw-r--r--  1 rich rich  1403 Apr 12 12:00 SingletonMap$SingletonValues.class
+-rw-r--r--  1 rich rich   238 Apr 12 12:00 StaticBucketMap$1.class
+-rw-r--r--  1 rich rich  6450 Apr 12 12:00 StaticBucketMap.class
+-rw-r--r--  1 rich rich  2632 Apr 12 12:00 StaticBucketMap$EntryIterator.class
+-rw-r--r--  1 rich rich  2749 Apr 12 12:00 StaticBucketMap$EntrySet.class
+-rw-r--r--  1 rich rich  1275 Apr 12 12:00 StaticBucketMap$KeyIterator.class
+-rw-r--r--  1 rich rich  2525 Apr 12 12:00 StaticBucketMap$KeySet.class
+-rw-r--r--  1 rich rich   748 Apr 12 12:00 StaticBucketMap$Lock.class
+-rw-r--r--  1 rich rich  1668 Apr 12 12:00 StaticBucketMap$Node.class
+-rw-r--r--  1 rich rich  1283 Apr 12 12:00 StaticBucketMap$ValueIterator.class
+-rw-r--r--  1 rich rich  1363 Apr 12 12:00 StaticBucketMap$Values.class
+-rw-r--r--  1 rich rich  3636 Apr 12 12:00 TransformedMap.class
+-rw-r--r--  1 rich rich  2576 Apr 12 12:00 TransformedSortedMap.class
+-rw-r--r--  1 rich rich   884 Apr 12 12:00 TypedMap.class
+-rw-r--r--  1 rich rich   932 Apr 12 12:00 TypedSortedMap.class
+-rw-r--r--  1 rich rich  2740 Apr 12 12:00 UnmodifiableEntrySet.class
+-rw-r--r--  1 rich rich   894 Apr 12 12:00 UnmodifiableEntrySet$UnmodifiableEntry.class
+-rw-r--r--  1 rich rich  1191 Apr 12 12:00 UnmodifiableEntrySet$UnmodifiableEntrySetIterator.class
+-rw-r--r--  1 rich rich  3160 Apr 12 12:00 UnmodifiableMap.class
+-rw-r--r--  1 rich rich  3816 Apr 12 12:00 UnmodifiableOrderedMap.class
+-rw-r--r--  1 rich rich  3611 Apr 12 12:00 UnmodifiableSortedMap.class
+
+./build/tmp/expandedArchives/commons-collections-3.2.jar_6jc47tfg2bgbvonc3n4j0aqtr9/org/apache/commons/collections/set:
+total 96
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 13 rich rich 12288 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  1363 Apr 12 12:00 AbstractSerializableSetDecorator.class
+-rw-r--r--  1 rich rich   738 Apr 12 12:00 AbstractSetDecorator.class
+-rw-r--r--  1 rich rich  1577 Apr 12 12:00 AbstractSortedSetDecorator.class
+-rw-r--r--  1 rich rich  3656 Apr 12 12:00 CompositeSet.class
+-rw-r--r--  1 rich rich   564 Apr 12 12:00 CompositeSet$SetMutator.class
+-rw-r--r--  1 rich rich   235 Apr 12 12:00 ListOrderedSet$1.class
+-rw-r--r--  1 rich rich  4971 Apr 12 12:00 ListOrderedSet.class
+-rw-r--r--  1 rich rich  1458 Apr 12 12:00 ListOrderedSet$OrderedSetIterator.class
+-rw-r--r--  1 rich rich  3172 Apr 12 12:00 MapBackedSet.class
+-rw-r--r--  1 rich rich  1094 Apr 12 12:00 PredicatedSet.class
+-rw-r--r--  1 rich rich  2068 Apr 12 12:00 PredicatedSortedSet.class
+-rw-r--r--  1 rich rich  1027 Apr 12 12:00 SynchronizedSet.class
+-rw-r--r--  1 rich rich  2149 Apr 12 12:00 SynchronizedSortedSet.class
+-rw-r--r--  1 rich rich   887 Apr 12 12:00 TransformedSet.class
+-rw-r--r--  1 rich rich  2072 Apr 12 12:00 TransformedSortedSet.class
+-rw-r--r--  1 rich rich   796 Apr 12 12:00 TypedSet.class
+-rw-r--r--  1 rich rich   844 Apr 12 12:00 TypedSortedSet.class
+-rw-r--r--  1 rich rich  1749 Apr 12 12:00 UnmodifiableSet.class
+-rw-r--r--  1 rich rich  3078 Apr 12 12:00 UnmodifiableSortedSet.class
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2:
+total 16
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 5 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 META-INF
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 org
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/META-INF:
+total 32
+drwxr-xr-x 3 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 4 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich 11358 Apr 12 12:00 LICENSE.txt
+-rw-r--r-- 1 rich rich  1893 Apr 12 12:00 MANIFEST.MF
+drwxr-xr-x 3 rich rich  4096 Apr 12 12:00 maven
+-rw-r--r-- 1 rich rich   301 Apr 12 12:00 NOTICE.txt
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/META-INF/maven:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 org.apache.commons
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/META-INF/maven/org.apache.commons:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 commons-lang3
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/META-INF/maven/org.apache.commons/commons-lang3:
+total 36
+drwxr-xr-x 2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich   115 Apr 12 12:00 pom.properties
+-rw-r--r-- 1 rich rich 22183 Apr 12 12:00 pom.xml
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 apache
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 commons
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache/commons:
+total 12
+drwxr-xr-x  3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x  3 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 12 rich rich 4096 Apr 12 12:00 lang3
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache/commons/lang3:
+total 408
+drwxr-xr-x 12 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x  3 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  2602 Apr 12 12:00 AnnotationUtils$1.class
+-rw-r--r--  1 rich rich  7004 Apr 12 12:00 AnnotationUtils.class
+-rw-r--r--  1 rich rich  1055 Apr 12 12:00 ArrayUtils$1.class
+-rw-r--r--  1 rich rich 52528 Apr 12 12:00 ArrayUtils.class
+-rw-r--r--  1 rich rich  2367 Apr 12 12:00 BitField.class
+-rw-r--r--  1 rich rich  8686 Apr 12 12:00 BooleanUtils.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 builder
+-rw-r--r--  1 rich rich   913 Apr 12 12:00 CharEncoding.class
+-rw-r--r--  1 rich rich   228 Apr 12 12:00 CharRange$1.class
+-rw-r--r--  1 rich rich  2154 Apr 12 12:00 CharRange$CharacterIterator.class
+-rw-r--r--  1 rich rich  3452 Apr 12 12:00 CharRange.class
+-rw-r--r--  1 rich rich  2545 Apr 12 12:00 CharSequenceUtils.class
+-rw-r--r--  1 rich rich  3840 Apr 12 12:00 CharSet.class
+-rw-r--r--  1 rich rich  2938 Apr 12 12:00 CharSetUtils.class
+-rw-r--r--  1 rich rich  4373 Apr 12 12:00 CharUtils.class
+-rw-r--r--  1 rich rich  1888 Apr 12 12:00 ClassPathUtils.class
+-rw-r--r--  1 rich rich  1580 Apr 12 12:00 ClassUtils$1$1.class
+-rw-r--r--  1 rich rich  1377 Apr 12 12:00 ClassUtils$1.class
+-rw-r--r--  1 rich rich  2527 Apr 12 12:00 ClassUtils$2$1.class
+-rw-r--r--  1 rich rich  1378 Apr 12 12:00 ClassUtils$2.class
+-rw-r--r--  1 rich rich 18408 Apr 12 12:00 ClassUtils.class
+-rw-r--r--  1 rich rich  1185 Apr 12 12:00 ClassUtils$Interfaces.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 concurrent
+-rw-r--r--  1 rich rich 18811 Apr 12 12:00 Conversion.class
+-rw-r--r--  1 rich rich  6702 Apr 12 12:00 EnumUtils.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 event
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 exception
+-rw-r--r--  1 rich rich  3867 Apr 12 12:00 JavaVersion.class
+-rw-r--r--  1 rich rich  5325 Apr 12 12:00 LocaleUtils.class
+-rw-r--r--  1 rich rich  1360 Apr 12 12:00 LocaleUtils$SyncAvoid.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 math
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 mutable
+-rw-r--r--  1 rich rich  1405 Apr 12 12:00 NotImplementedException.class
+-rw-r--r--  1 rich rich 11694 Apr 12 12:00 ObjectUtils.class
+-rw-r--r--  1 rich rich   608 Apr 12 12:00 ObjectUtils$Null.class
+-rw-r--r--  1 rich rich  3167 Apr 12 12:00 RandomStringUtils.class
+-rw-r--r--  1 rich rich  1700 Apr 12 12:00 RandomUtils.class
+-rw-r--r--  1 rich rich  7142 Apr 12 12:00 Range.class
+-rw-r--r--  1 rich rich  1462 Apr 12 12:00 Range$ComparableComparator.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 reflect
+-rw-r--r--  1 rich rich   843 Apr 12 12:00 SerializationException.class
+-rw-r--r--  1 rich rich  4367 Apr 12 12:00 SerializationUtils.class
+-rw-r--r--  1 rich rich  2662 Apr 12 12:00 SerializationUtils$ClassLoaderAwareObjectInputStream.class
+-rw-r--r--  1 rich rich  6345 Apr 12 12:00 StringEscapeUtils.class
+-rw-r--r--  1 rich rich  1909 Apr 12 12:00 StringEscapeUtils$CsvEscaper.class
+-rw-r--r--  1 rich rich  2075 Apr 12 12:00 StringEscapeUtils$CsvUnescaper.class
+-rw-r--r--  1 rich rich 51000 Apr 12 12:00 StringUtils.class
+-rw-r--r--  1 rich rich  9659 Apr 12 12:00 SystemUtils.class
+drwxr-xr-x  3 rich rich  4096 Apr 12 12:00 text
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 time
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 tuple
+-rw-r--r--  1 rich rich 14323 Apr 12 12:00 Validate.class
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache/commons/lang3/builder:
+total 256
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 12 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich   246 Apr 12 12:00 Builder.class
+-rw-r--r--  1 rich rich 11465 Apr 12 12:00 CompareToBuilder.class
+-rw-r--r--  1 rich rich   337 Apr 12 12:00 Diffable.class
+-rw-r--r--  1 rich rich  1402 Apr 12 12:00 DiffBuilder$10.class
+-rw-r--r--  1 rich rich  1380 Apr 12 12:00 DiffBuilder$11.class
+-rw-r--r--  1 rich rich  1408 Apr 12 12:00 DiffBuilder$12.class
+-rw-r--r--  1 rich rich  1364 Apr 12 12:00 DiffBuilder$13.class
+-rw-r--r--  1 rich rich  1399 Apr 12 12:00 DiffBuilder$14.class
+-rw-r--r--  1 rich rich  1372 Apr 12 12:00 DiffBuilder$15.class
+-rw-r--r--  1 rich rich  1402 Apr 12 12:00 DiffBuilder$16.class
+-rw-r--r--  1 rich rich  1224 Apr 12 12:00 DiffBuilder$17.class
+-rw-r--r--  1 rich rich  1396 Apr 12 12:00 DiffBuilder$18.class
+-rw-r--r--  1 rich rich  1378 Apr 12 12:00 DiffBuilder$1.class
+-rw-r--r--  1 rich rich  1406 Apr 12 12:00 DiffBuilder$2.class
+-rw-r--r--  1 rich rich  1366 Apr 12 12:00 DiffBuilder$3.class
+-rw-r--r--  1 rich rich  1397 Apr 12 12:00 DiffBuilder$4.class
+-rw-r--r--  1 rich rich  1386 Apr 12 12:00 DiffBuilder$5.class
+-rw-r--r--  1 rich rich  1412 Apr 12 12:00 DiffBuilder$6.class
+-rw-r--r--  1 rich rich  1374 Apr 12 12:00 DiffBuilder$7.class
+-rw-r--r--  1 rich rich  1403 Apr 12 12:00 DiffBuilder$8.class
+-rw-r--r--  1 rich rich  1370 Apr 12 12:00 DiffBuilder$9.class
+-rw-r--r--  1 rich rich 10347 Apr 12 12:00 DiffBuilder.class
+-rw-r--r--  1 rich rich  2068 Apr 12 12:00 Diff.class
+-rw-r--r--  1 rich rich  3650 Apr 12 12:00 DiffResult.class
+-rw-r--r--  1 rich rich 12739 Apr 12 12:00 EqualsBuilder.class
+-rw-r--r--  1 rich rich 11040 Apr 12 12:00 HashCodeBuilder.class
+-rw-r--r--  1 rich rich   827 Apr 12 12:00 IDKey.class
+-rw-r--r--  1 rich rich  4697 Apr 12 12:00 MultilineRecursiveToStringStyle.class
+-rw-r--r--  1 rich rich  2153 Apr 12 12:00 RecursiveToStringStyle.class
+-rw-r--r--  1 rich rich  8580 Apr 12 12:00 ReflectionToStringBuilder.class
+-rw-r--r--  1 rich rich  4872 Apr 12 12:00 StandardToStringStyle.class
+-rw-r--r--  1 rich rich 13425 Apr 12 12:00 ToStringBuilder.class
+-rw-r--r--  1 rich rich 22847 Apr 12 12:00 ToStringStyle.class
+-rw-r--r--  1 rich rich   698 Apr 12 12:00 ToStringStyle$DefaultToStringStyle.class
+-rw-r--r--  1 rich rich  5334 Apr 12 12:00 ToStringStyle$JsonToStringStyle.class
+-rw-r--r--  1 rich rich  1193 Apr 12 12:00 ToStringStyle$MultiLineToStringStyle.class
+-rw-r--r--  1 rich rich   804 Apr 12 12:00 ToStringStyle$NoClassNameToStringStyle.class
+-rw-r--r--  1 rich rich   762 Apr 12 12:00 ToStringStyle$NoFieldNameToStringStyle.class
+-rw-r--r--  1 rich rich   808 Apr 12 12:00 ToStringStyle$ShortPrefixToStringStyle.class
+-rw-r--r--  1 rich rich   924 Apr 12 12:00 ToStringStyle$SimpleToStringStyle.class
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache/commons/lang3/concurrent:
+total 104
+drwxr-xr-x  2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 12 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich 1332 Apr 12 12:00 AtomicInitializer.class
+-rw-r--r--  1 rich rich 1547 Apr 12 12:00 AtomicSafeInitializer.class
+-rw-r--r--  1 rich rich 4036 Apr 12 12:00 BackgroundInitializer.class
+-rw-r--r--  1 rich rich 1468 Apr 12 12:00 BackgroundInitializer$InitializationTask.class
+-rw-r--r--  1 rich rich  277 Apr 12 12:00 BasicThreadFactory$1.class
+-rw-r--r--  1 rich rich 3933 Apr 12 12:00 BasicThreadFactory$Builder.class
+-rw-r--r--  1 rich rich 4106 Apr 12 12:00 BasicThreadFactory.class
+-rw-r--r--  1 rich rich 1806 Apr 12 12:00 CallableBackgroundInitializer.class
+-rw-r--r--  1 rich rich  878 Apr 12 12:00 ConcurrentException.class
+-rw-r--r--  1 rich rich  359 Apr 12 12:00 ConcurrentInitializer.class
+-rw-r--r--  1 rich rich  906 Apr 12 12:00 ConcurrentRuntimeException.class
+-rw-r--r--  1 rich rich 5156 Apr 12 12:00 ConcurrentUtils.class
+-rw-r--r--  1 rich rich 1555 Apr 12 12:00 ConcurrentUtils$ConstantFuture.class
+-rw-r--r--  1 rich rich 2167 Apr 12 12:00 ConstantInitializer.class
+-rw-r--r--  1 rich rich 1137 Apr 12 12:00 LazyInitializer.class
+-rw-r--r--  1 rich rich  301 Apr 12 12:00 MultiBackgroundInitializer$1.class
+-rw-r--r--  1 rich rich 4612 Apr 12 12:00 MultiBackgroundInitializer.class
+-rw-r--r--  1 rich rich 3813 Apr 12 12:00 MultiBackgroundInitializer$MultiBackgroundInitializerResults.class
+-rw-r--r--  1 rich rich  791 Apr 12 12:00 TimedSemaphore$1.class
+-rw-r--r--  1 rich rich 4285 Apr 12 12:00 TimedSemaphore.class
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache/commons/lang3/event:
+total 28
+drwxr-xr-x  2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 12 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich 5928 Apr 12 12:00 EventListenerSupport.class
+-rw-r--r--  1 rich rich 1694 Apr 12 12:00 EventListenerSupport$ProxyInvocationHandler.class
+-rw-r--r--  1 rich rich 3086 Apr 12 12:00 EventUtils.class
+-rw-r--r--  1 rich rich 2222 Apr 12 12:00 EventUtils$EventBindingInvocationHandler.class
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache/commons/lang3/exception:
+total 44
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 12 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich   780 Apr 12 12:00 CloneFailedException.class
+-rw-r--r--  1 rich rich  3253 Apr 12 12:00 ContextedException.class
+-rw-r--r--  1 rich rich  3288 Apr 12 12:00 ContextedRuntimeException.class
+-rw-r--r--  1 rich rich  4997 Apr 12 12:00 DefaultExceptionContext.class
+-rw-r--r--  1 rich rich   841 Apr 12 12:00 ExceptionContext.class
+-rw-r--r--  1 rich rich 10043 Apr 12 12:00 ExceptionUtils.class
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache/commons/lang3/math:
+total 40
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 12 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich 10750 Apr 12 12:00 Fraction.class
+-rw-r--r--  1 rich rich  2403 Apr 12 12:00 IEEE754rUtils.class
+-rw-r--r--  1 rich rich 14920 Apr 12 12:00 NumberUtils.class
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache/commons/lang3/mutable:
+total 44
+drwxr-xr-x  2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 12 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich 2836 Apr 12 12:00 MutableBoolean.class
+-rw-r--r--  1 rich rich 3432 Apr 12 12:00 MutableByte.class
+-rw-r--r--  1 rich rich  309 Apr 12 12:00 Mutable.class
+-rw-r--r--  1 rich rich 3566 Apr 12 12:00 MutableDouble.class
+-rw-r--r--  1 rich rich 3524 Apr 12 12:00 MutableFloat.class
+-rw-r--r--  1 rich rich 3353 Apr 12 12:00 MutableInt.class
+-rw-r--r--  1 rich rich 3353 Apr 12 12:00 MutableLong.class
+-rw-r--r--  1 rich rich 1840 Apr 12 12:00 MutableObject.class
+-rw-r--r--  1 rich rich 3443 Apr 12 12:00 MutableShort.class
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache/commons/lang3/reflect:
+total 108
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 12 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  5178 Apr 12 12:00 ConstructorUtils.class
+-rw-r--r--  1 rich rich 11689 Apr 12 12:00 FieldUtils.class
+-rw-r--r--  1 rich rich  1018 Apr 12 12:00 InheritanceUtils.class
+-rw-r--r--  1 rich rich  3731 Apr 12 12:00 MemberUtils.class
+-rw-r--r--  1 rich rich 10570 Apr 12 12:00 MethodUtils.class
+-rw-r--r--  1 rich rich   234 Apr 12 12:00 Typed.class
+-rw-r--r--  1 rich rich  2529 Apr 12 12:00 TypeLiteral.class
+-rw-r--r--  1 rich rich   836 Apr 12 12:00 TypeUtils$1.class
+-rw-r--r--  1 rich rich 29661 Apr 12 12:00 TypeUtils.class
+-rw-r--r--  1 rich rich  1576 Apr 12 12:00 TypeUtils$GenericArrayTypeImpl.class
+-rw-r--r--  1 rich rich  2415 Apr 12 12:00 TypeUtils$ParameterizedTypeImpl.class
+-rw-r--r--  1 rich rich  1672 Apr 12 12:00 TypeUtils$WildcardTypeBuilder.class
+-rw-r--r--  1 rich rich  2144 Apr 12 12:00 TypeUtils$WildcardTypeImpl.class
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache/commons/lang3/text:
+total 156
+drwxr-xr-x  3 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 12 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  1566 Apr 12 12:00 CompositeFormat.class
+-rw-r--r--  1 rich rich 10333 Apr 12 12:00 ExtendedMessageFormat.class
+-rw-r--r--  1 rich rich   234 Apr 12 12:00 FormatFactory.class
+-rw-r--r--  1 rich rich  2802 Apr 12 12:00 FormattableUtils.class
+-rw-r--r--  1 rich rich 32232 Apr 12 12:00 StrBuilder.class
+-rw-r--r--  1 rich rich  1771 Apr 12 12:00 StrBuilder$StrBuilderReader.class
+-rw-r--r--  1 rich rich  1178 Apr 12 12:00 StrBuilder$StrBuilderTokenizer.class
+-rw-r--r--  1 rich rich  1632 Apr 12 12:00 StrBuilder$StrBuilderWriter.class
+-rw-r--r--  1 rich rich  2641 Apr 12 12:00 StrLookup.class
+-rw-r--r--  1 rich rich  1225 Apr 12 12:00 StrLookup$MapStrLookup.class
+-rw-r--r--  1 rich rich   675 Apr 12 12:00 StrMatcher$CharMatcher.class
+-rw-r--r--  1 rich rich   824 Apr 12 12:00 StrMatcher$CharSetMatcher.class
+-rw-r--r--  1 rich rich  2951 Apr 12 12:00 StrMatcher.class
+-rw-r--r--  1 rich rich   575 Apr 12 12:00 StrMatcher$NoMatcher.class
+-rw-r--r--  1 rich rich   889 Apr 12 12:00 StrMatcher$StringMatcher.class
+-rw-r--r--  1 rich rich   620 Apr 12 12:00 StrMatcher$TrimMatcher.class
+-rw-r--r--  1 rich rich 17320 Apr 12 12:00 StrSubstitutor.class
+-rw-r--r--  1 rich rich 13487 Apr 12 12:00 StrTokenizer.class
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 translate
+-rw-r--r--  1 rich rich  4292 Apr 12 12:00 WordUtils.class
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache/commons/lang3/text/translate:
+total 68
+drwxr-xr-x 2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich  1258 Apr 12 12:00 AggregateTranslator.class
+-rw-r--r-- 1 rich rich  2995 Apr 12 12:00 CharSequenceTranslator.class
+-rw-r--r-- 1 rich rich   917 Apr 12 12:00 CodePointTranslator.class
+-rw-r--r-- 1 rich rich 12123 Apr 12 12:00 EntityArrays.class
+-rw-r--r-- 1 rich rich  1376 Apr 12 12:00 JavaUnicodeEscaper.class
+-rw-r--r-- 1 rich rich  2330 Apr 12 12:00 LookupTranslator.class
+-rw-r--r-- 1 rich rich  1597 Apr 12 12:00 NumericEntityEscaper.class
+-rw-r--r-- 1 rich rich  3195 Apr 12 12:00 NumericEntityUnescaper.class
+-rw-r--r-- 1 rich rich  1435 Apr 12 12:00 NumericEntityUnescaper$OPTION.class
+-rw-r--r-- 1 rich rich  1671 Apr 12 12:00 OctalUnescaper.class
+-rw-r--r-- 1 rich rich  1907 Apr 12 12:00 UnicodeEscaper.class
+-rw-r--r-- 1 rich rich  1896 Apr 12 12:00 UnicodeUnescaper.class
+-rw-r--r-- 1 rich rich   700 Apr 12 12:00 UnicodeUnpairedSurrogateRemover.class
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache/commons/lang3/time:
+total 260
+drwxr-xr-x  2 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 12 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich  4294 Apr 12 12:00 DateFormatUtils.class
+-rw-r--r--  1 rich rich   592 Apr 12 12:00 DateParser.class
+-rw-r--r--  1 rich rich   730 Apr 12 12:00 DatePrinter.class
+-rw-r--r--  1 rich rich 14870 Apr 12 12:00 DateUtils.class
+-rw-r--r--  1 rich rich  1368 Apr 12 12:00 DateUtils$DateIterator.class
+-rw-r--r--  1 rich rich  1269 Apr 12 12:00 DateUtils$ModifyType.class
+-rw-r--r--  1 rich rich  8475 Apr 12 12:00 DurationFormatUtils.class
+-rw-r--r--  1 rich rich  2119 Apr 12 12:00 DurationFormatUtils$Token.class
+-rw-r--r--  1 rich rich  1168 Apr 12 12:00 FastDateFormat$1.class
+-rw-r--r--  1 rich rich  7405 Apr 12 12:00 FastDateFormat.class
+-rw-r--r--  1 rich rich  1122 Apr 12 12:00 FastDateParser$1.class
+-rw-r--r--  1 rich rich   627 Apr 12 12:00 FastDateParser$2.class
+-rw-r--r--  1 rich rich   662 Apr 12 12:00 FastDateParser$3.class
+-rw-r--r--  1 rich rich   662 Apr 12 12:00 FastDateParser$4.class
+-rw-r--r--  1 rich rich  3515 Apr 12 12:00 FastDateParser$CaseInsensitiveTextStrategy.class
+-rw-r--r--  1 rich rich 12841 Apr 12 12:00 FastDateParser.class
+-rw-r--r--  1 rich rich  1366 Apr 12 12:00 FastDateParser$CopyQuotedStrategy.class
+-rw-r--r--  1 rich rich  2408 Apr 12 12:00 FastDateParser$ISO8601TimeZoneStrategy.class
+-rw-r--r--  1 rich rich  1813 Apr 12 12:00 FastDateParser$NumberStrategy.class
+-rw-r--r--  1 rich rich  1164 Apr 12 12:00 FastDateParser$Strategy.class
+-rw-r--r--  1 rich rich  4008 Apr 12 12:00 FastDateParser$TimeZoneStrategy.class
+-rw-r--r--  1 rich rich   986 Apr 12 12:00 FastDatePrinter$CharacterLiteral.class
+-rw-r--r--  1 rich rich 13041 Apr 12 12:00 FastDatePrinter.class
+-rw-r--r--  1 rich rich  1976 Apr 12 12:00 FastDatePrinter$Iso8601_Rule.class
+-rw-r--r--  1 rich rich   370 Apr 12 12:00 FastDatePrinter$NumberRule.class
+-rw-r--r--  1 rich rich  1528 Apr 12 12:00 FastDatePrinter$PaddedNumberField.class
+-rw-r--r--  1 rich rich   335 Apr 12 12:00 FastDatePrinter$Rule.class
+-rw-r--r--  1 rich rich  1075 Apr 12 12:00 FastDatePrinter$StringLiteral.class
+-rw-r--r--  1 rich rich  1314 Apr 12 12:00 FastDatePrinter$TextField.class
+-rw-r--r--  1 rich rich  1268 Apr 12 12:00 FastDatePrinter$TimeZoneDisplayKey.class
+-rw-r--r--  1 rich rich  1692 Apr 12 12:00 FastDatePrinter$TimeZoneNameRule.class
+-rw-r--r--  1 rich rich  1875 Apr 12 12:00 FastDatePrinter$TimeZoneNumberRule.class
+-rw-r--r--  1 rich rich  1340 Apr 12 12:00 FastDatePrinter$TwelveHourField.class
+-rw-r--r--  1 rich rich  1347 Apr 12 12:00 FastDatePrinter$TwentyFourHourField.class
+-rw-r--r--  1 rich rich  1168 Apr 12 12:00 FastDatePrinter$TwoDigitMonthField.class
+-rw-r--r--  1 rich rich  1265 Apr 12 12:00 FastDatePrinter$TwoDigitNumberField.class
+-rw-r--r--  1 rich rich  1166 Apr 12 12:00 FastDatePrinter$TwoDigitYearField.class
+-rw-r--r--  1 rich rich  1298 Apr 12 12:00 FastDatePrinter$UnpaddedMonthField.class
+-rw-r--r--  1 rich rich  1333 Apr 12 12:00 FastDatePrinter$UnpaddedNumberField.class
+-rw-r--r--  1 rich rich  4852 Apr 12 12:00 FormatCache.class
+-rw-r--r--  1 rich rich  1079 Apr 12 12:00 FormatCache$MultipartKey.class
+-rw-r--r--  1 rich rich   238 Apr 12 12:00 StopWatch$1.class
+-rw-r--r--  1 rich rich  3646 Apr 12 12:00 StopWatch.class
+-rw-r--r--  1 rich rich  1214 Apr 12 12:00 StopWatch$SplitState.class
+-rw-r--r--  1 rich rich   843 Apr 12 12:00 StopWatch$State$1.class
+-rw-r--r--  1 rich rich   843 Apr 12 12:00 StopWatch$State$2.class
+-rw-r--r--  1 rich rich   843 Apr 12 12:00 StopWatch$State$3.class
+-rw-r--r--  1 rich rich   843 Apr 12 12:00 StopWatch$State$4.class
+-rw-r--r--  1 rich rich  1909 Apr 12 12:00 StopWatch$State.class
+
+./build/tmp/expandedArchives/commons-lang3-3.4.jar_d1v747hqq4qglekdlt4t9v4d2/org/apache/commons/lang3/tuple:
+total 32
+drwxr-xr-x  2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 12 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r--  1 rich rich 1629 Apr 12 12:00 ImmutablePair.class
+-rw-r--r--  1 rich rich 1703 Apr 12 12:00 ImmutableTriple.class
+-rw-r--r--  1 rich rich 1998 Apr 12 12:00 MutablePair.class
+-rw-r--r--  1 rich rich 2194 Apr 12 12:00 MutableTriple.class
+-rw-r--r--  1 rich rich 3289 Apr 12 12:00 Pair.class
+-rw-r--r--  1 rich rich 3209 Apr 12 12:00 Triple.class
+
+./build/tmp/expandedArchives/json-20140107.jar_3pln77h1fdgn3ubnk5g4me9012:
+total 16
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 5 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 META-INF
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 org
+
+./build/tmp/expandedArchives/json-20140107.jar_3pln77h1fdgn3ubnk5g4me9012/META-INF:
+total 16
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich  127 Apr 12 12:00 MANIFEST.MF
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 maven
+
+./build/tmp/expandedArchives/json-20140107.jar_3pln77h1fdgn3ubnk5g4me9012/META-INF/maven:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 org.json
+
+./build/tmp/expandedArchives/json-20140107.jar_3pln77h1fdgn3ubnk5g4me9012/META-INF/maven/org.json:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 json
+
+./build/tmp/expandedArchives/json-20140107.jar_3pln77h1fdgn3ubnk5g4me9012/META-INF/maven/org.json/json:
+total 20
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich  105 Apr 12 12:00 pom.properties
+-rw-r--r-- 1 rich rich 4188 Apr 12 12:00 pom.xml
+
+./build/tmp/expandedArchives/json-20140107.jar_3pln77h1fdgn3ubnk5g4me9012/org:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 4 rich rich 4096 Apr 12 12:00 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 json
+
+./build/tmp/expandedArchives/json-20140107.jar_3pln77h1fdgn3ubnk5g4me9012/org/json:
+total 128
+drwxr-xr-x 3 rich rich  4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich  4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich  3993 Apr 12 12:00 CDL.class
+-rw-r--r-- 1 rich rich  2904 Apr 12 12:00 Cookie.class
+-rw-r--r-- 1 rich rich  1776 Apr 12 12:00 CookieList.class
+-rw-r--r-- 1 rich rich  2410 Apr 12 12:00 HTTP.class
+-rw-r--r-- 1 rich rich  1007 Apr 12 12:00 HTTPTokener.class
+-rw-r--r-- 1 rich rich 10720 Apr 12 12:00 JSONArray.class
+-rw-r--r-- 1 rich rich   754 Apr 12 12:00 JSONException.class
+-rw-r--r-- 1 rich rich  5800 Apr 12 12:00 JSONML.class
+-rw-r--r-- 1 rich rich   189 Apr 12 12:00 JSONObject$1.class
+-rw-r--r-- 1 rich rich 19754 Apr 12 12:00 JSONObject.class
+-rw-r--r-- 1 rich rich   874 Apr 12 12:00 JSONObject$Null.class
+-rw-r--r-- 1 rich rich   156 Apr 12 12:00 JSONString.class
+-rw-r--r-- 1 rich rich   553 Apr 12 12:00 JSONStringer.class
+-rw-r--r-- 1 rich rich  5500 Apr 12 12:00 JSONTokener.class
+-rw-r--r-- 1 rich rich  3856 Apr 12 12:00 JSONWriter.class
+-rw-r--r-- 1 rich rich  3836 Apr 12 12:00 Kim.class
+-rw-r--r-- 1 rich rich  1600 Apr 12 12:00 Property.class
+-rw-r--r-- 1 rich rich  6652 Apr 12 12:00 XML.class
+-rw-r--r-- 1 rich rich  4269 Apr 12 12:00 XMLTokener.class
+drwxr-xr-x 2 rich rich  4096 Apr 12 12:00 zip
+
+./build/tmp/expandedArchives/json-20140107.jar_3pln77h1fdgn3ubnk5g4me9012/org/json/zip:
+total 80
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich 1757 Apr 12 12:00 BitInputStream.class
+-rw-r--r-- 1 rich rich 1549 Apr 12 12:00 BitOutputStream.class
+-rw-r--r-- 1 rich rich  266 Apr 12 12:00 BitReader.class
+-rw-r--r-- 1 rich rich  293 Apr 12 12:00 BitWriter.class
+-rw-r--r-- 1 rich rich 6926 Apr 12 12:00 Compressor.class
+-rw-r--r-- 1 rich rich 5083 Apr 12 12:00 Decompressor.class
+-rw-r--r-- 1 rich rich 3601 Apr 12 12:00 Huff.class
+-rw-r--r-- 1 rich rich 1008 Apr 12 12:00 Huff$Symbol.class
+-rw-r--r-- 1 rich rich 3172 Apr 12 12:00 JSONzip.class
+-rw-r--r-- 1 rich rich  933 Apr 12 12:00 Keep.class
+-rw-r--r-- 1 rich rich 2642 Apr 12 12:00 MapKeep.class
+-rw-r--r-- 1 rich rich  150 Apr 12 12:00 None.class
+-rw-r--r-- 1 rich rich  166 Apr 12 12:00 PostMortem.class
+-rw-r--r-- 1 rich rich 4106 Apr 12 12:00 TrieKeep.class
+-rw-r--r-- 1 rich rich 2415 Apr 12 12:00 TrieKeep$Node.class
+
+./build/tmp/fatJar:
+total 12
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 5 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich  163 Apr 12 12:00 MANIFEST.MF
+
+./build/tmp/jar:
+total 12
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:00 .
+drwxr-xr-x 5 rich rich 4096 Apr 12 12:00 ..
+-rw-r--r-- 1 rich rich  163 Apr 12 12:00 MANIFEST.MF
+
+./config:
+total 16
+drwxr-xr-x 3 rich rich 4096 May 24  2015 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:19 ..
+drwxr-xr-x 3 rich rich 4096 May 24  2015 commands
+-rw-r--r-- 1 rich rich   88 Mar 12 15:20 server.conf
+
+./config/commands:
+total 12
+drwxr-xr-x 3 rich rich 4096 May 24  2015 .
+drwxr-xr-x 3 rich rich 4096 May 24  2015 ..
+drwxr-xr-x 2 rich rich 4096 Mar 19 16:43 Record
+
+./config/commands/Record:
+total 40
+drwxr-xr-x 2 rich rich 4096 Mar 19 16:43 .
+drwxr-xr-x 3 rich rich 4096 May 24  2015 ..
+-rwxr-xr-x 1 rich rich   90 Mar 19 17:23 AckSentState.sh
+-rw-r--r-- 1 rich rich   42 Jan 18 14:02 cancel.sh
+-rw-r--r-- 1 rich rich  394 Mar 19 17:28 command
+-rw-r--r-- 1 rich rich  188 May 24  2015 command.bak
+-rw-r--r-- 1 rich rich   28 Aug 16  2015 command.grep
+-rwxr-xr-x 1 rich rich  438 Jan 16 19:30 command.sh
+-rw-r--r-- 1 rich rich   49 Aug 16  2015 vars
+-rw-r--r-- 1 rich rich   32 Aug 16  2015 vars.bak
+
+./.git:
+total 64
+drwxr-xr-x   8 rich rich 4096 Jan 17 17:53 .
+drwxr-xr-x   9 rich rich 4096 Apr 12 12:19 ..
+drwxr-xr-x   2 rich rich 4096 Apr 11  2015 branches
+-rw-r--r--   1 rich rich   44 Jan 17 17:51 COMMIT_EDITMSG
+-rw-r--r--   1 rich rich  217 May 25  2015 config
+-rw-r--r--   1 rich rich   73 Apr 11  2015 description
+-rw-r--r--   1 rich rich  112 Apr 11  2015 FETCH_HEAD
+-rw-r--r--   1 rich rich   26 Dec 31 21:05 HEAD
+drwxr-xr-x   2 rich rich 4096 Apr 11  2015 hooks
+-rw-r--r--   1 rich rich 6728 Jan 17 17:50 index
+drwxr-xr-x   2 rich rich 4096 Apr 11  2015 info
+drwxr-xr-x   3 rich rich 4096 Apr 11  2015 logs
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 objects
+-rw-r--r--   1 rich rich   41 Apr 11  2015 ORIG_HEAD
+drwxr-xr-x   5 rich rich 4096 Apr 11  2015 refs
+
+./.git/branches:
+total 8
+drwxr-xr-x 2 rich rich 4096 Apr 11  2015 .
+drwxr-xr-x 8 rich rich 4096 Jan 17 17:53 ..
+
+./.git/hooks:
+total 48
+drwxr-xr-x 2 rich rich 4096 Apr 11  2015 .
+drwxr-xr-x 8 rich rich 4096 Jan 17 17:53 ..
+-rwxr-xr-x 1 rich rich  452 Apr 11  2015 applypatch-msg.sample
+-rwxr-xr-x 1 rich rich  896 Apr 11  2015 commit-msg.sample
+-rwxr-xr-x 1 rich rich  189 Apr 11  2015 post-update.sample
+-rwxr-xr-x 1 rich rich  398 Apr 11  2015 pre-applypatch.sample
+-rwxr-xr-x 1 rich rich 1704 Apr 11  2015 pre-commit.sample
+-rwxr-xr-x 1 rich rich 1239 Apr 11  2015 prepare-commit-msg.sample
+-rwxr-xr-x 1 rich rich 1348 Apr 11  2015 pre-push.sample
+-rwxr-xr-x 1 rich rich 4898 Apr 11  2015 pre-rebase.sample
+-rwxr-xr-x 1 rich rich 3611 Apr 11  2015 update.sample
+
+./.git/info:
+total 12
+drwxr-xr-x 2 rich rich 4096 Apr 11  2015 .
+drwxr-xr-x 8 rich rich 4096 Jan 17 17:53 ..
+-rw-r--r-- 1 rich rich  240 Apr 11  2015 exclude
+
+./.git/logs:
+total 20
+drwxr-xr-x 3 rich rich 4096 Apr 11  2015 .
+drwxr-xr-x 8 rich rich 4096 Jan 17 17:53 ..
+-rw-r--r-- 1 rich rich 6971 Jan 17 17:51 HEAD
+drwxr-xr-x 4 rich rich 4096 Apr 11  2015 refs
+
+./.git/logs/refs:
+total 16
+drwxr-xr-x 4 rich rich 4096 Apr 11  2015 .
+drwxr-xr-x 3 rich rich 4096 Apr 11  2015 ..
+drwxr-xr-x 2 rich rich 4096 Dec 31 21:05 heads
+drwxr-xr-x 3 rich rich 4096 Apr 11  2015 remotes
+
+./.git/logs/refs/heads:
+total 20
+drwxr-xr-x 2 rich rich 4096 Dec 31 21:05 .
+drwxr-xr-x 4 rich rich 4096 Apr 11  2015 ..
+-rw-r--r-- 1 rich rich 5112 Dec 31 21:04 master
+-rw-r--r-- 1 rich rich 1843 Jan 17 17:51 phoneHome
+
+./.git/logs/refs/remotes:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 11  2015 .
+drwxr-xr-x 4 rich rich 4096 Apr 11  2015 ..
+drwxr-xr-x 2 rich rich 4096 Jan  2 10:01 origin
+
+./.git/logs/refs/remotes/origin:
+total 16
+drwxr-xr-x 2 rich rich 4096 Jan  2 10:01 .
+drwxr-xr-x 3 rich rich 4096 Apr 11  2015 ..
+-rw-r--r-- 1 rich rich 4071 Dec 31 21:04 master
+-rw-r--r-- 1 rich rich 1359 Jan 17 17:54 phoneHome
+
+./.git/objects:
+total 1004
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x   8 rich rich 4096 Jan 17 17:53 ..
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 00
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 01
+drwxr-xr-x   2 rich rich 4096 Dec 31 21:04 02
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 03
+drwxr-xr-x   2 rich rich 4096 Jun 21  2015 04
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 05
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 06
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 07
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 08
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 09
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 0a
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 0b
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 0c
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 0d
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 0e
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 0f
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 10
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 11
+drwxr-xr-x   2 rich rich 4096 Jul  3  2015 12
+drwxr-xr-x   2 rich rich 4096 Jul  3  2015 13
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 14
+drwxr-xr-x   2 rich rich 4096 Dec 31 21:04 15
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 16
+drwxr-xr-x   2 rich rich 4096 Dec 31 21:04 17
+drwxr-xr-x   2 rich rich 4096 Dec 31 21:04 18
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 19
+drwxr-xr-x   2 rich rich 4096 May 30  2015 1a
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 1b
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 1c
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 1d
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 1e
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 1f
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 20
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 21
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 22
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 23
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 24
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 25
+drwxr-xr-x   2 rich rich 4096 Jun 21  2015 26
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 27
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 28
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:20 29
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 2a
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 2b
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 2c
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 2d
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 2e
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 2f
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 30
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 31
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 32
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 33
+drwxr-xr-x   2 rich rich 4096 Jun  7  2015 34
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 35
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 36
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 37
+drwxr-xr-x   2 rich rich 4096 Jun 21  2015 38
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 39
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 3a
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 3b
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 3c
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 3d
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 3e
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 3f
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 40
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 41
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 42
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 43
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 44
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 45
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 46
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 47
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:20 48
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 49
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:50 4a
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 4b
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 4c
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 4d
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 4e
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 4f
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 50
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 51
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 52
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 53
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 54
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 55
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 56
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 57
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 58
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 59
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 5a
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 5b
+drwxr-xr-x   2 rich rich 4096 May 24  2015 5c
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 5d
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 5e
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 5f
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 60
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 61
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 62
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 63
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 64
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 65
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 66
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 68
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 69
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 6a
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 6b
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 6c
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 6d
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 6e
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 6f
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 70
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 71
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 72
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 73
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:20 74
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 75
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 78
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 79
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 7a
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 7b
+drwxr-xr-x   2 rich rich 4096 Apr 11  2015 7d
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 7e
+drwxr-xr-x   2 rich rich 4096 Jul  4  2015 7f
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 80
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 81
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 82
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 83
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 84
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 85
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 86
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 87
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 88
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 89
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 8a
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 8b
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 8c
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 8d
+drwxr-xr-x   2 rich rich 4096 Jul 26  2015 8e
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 8f
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 90
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 91
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 93
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 94
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 95
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 96
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 97
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 98
+drwxr-xr-x   2 rich rich 4096 May 24  2015 99
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 9a
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 9b
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 9c
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 9d
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:45 9e
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 9f
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 a0
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 a1
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 a2
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 a3
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 a4
+drwxr-xr-x   2 rich rich 4096 Jun 21  2015 a5
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 a6
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 a7
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 a8
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 a9
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 aa
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 ab
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 ac
+drwxr-xr-x   2 rich rich 4096 Jul 26  2015 ad
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 ae
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 af
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 b0
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:20 b1
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 b2
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 b4
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 b5
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 b6
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 b7
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 b8
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 b9
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 ba
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 bb
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 bc
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 bd
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:20 be
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 bf
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 c0
+drwxr-xr-x   2 rich rich 4096 Jun  7  2015 c1
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 c2
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 c3
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 c5
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 c6
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 c7
+drwxr-xr-x   2 rich rich 4096 Jul  4  2015 c8
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 c9
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 ca
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 cb
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 cc
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 cd
+drwxr-xr-x   2 rich rich 4096 Jun 20  2015 ce
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 cf
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 d1
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 d2
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 d3
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 d4
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 d5
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:50 d6
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 d7
+drwxr-xr-x   2 rich rich 4096 Jul  4  2015 d8
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 d9
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 da
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 db
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 dc
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 dd
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 de
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 e0
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 e1
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 e2
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 e3
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 e4
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:50 e5
+drwxr-xr-x   2 rich rich 4096 May 30  2015 e6
+drwxr-xr-x   2 rich rich 4096 Jun 20  2015 e7
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 e8
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 e9
+drwxr-xr-x   2 rich rich 4096 May 24  2015 ea
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 eb
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 ec
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 ed
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 ee
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 ef
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 f0
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 f1
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 f2
+drwxr-xr-x   2 rich rich 4096 Dec 31 21:04 f3
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 f4
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 f5
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 f6
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 f7
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 f8
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 f9
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 fa
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 fb
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 fc
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:20 fd
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 fe
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 ff
+drwxr-xr-x   2 rich rich 4096 Apr 11  2015 info
+drwxr-xr-x   2 rich rich 4096 Apr 11  2015 pack
+
+./.git/objects/00:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  457 Jan  3 12:19 7e4038b8d385f6a73986b630d555b43ee7fb8f
+-r--r--r--   1 rich rich   48 May 24  2015 83a8632a6063f75585f678f071872933ddeb58
+-r--r--r--   1 rich rich  143 May 30  2015 b530a49e042160b728d014665f2a1cd8ac4027
+
+./.git/objects/01:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 Jul  3  2015 181674f3a7f19c22701d129b1c522ec8b6621d
+-r--r--r--   1 rich rich   71 Jul 25  2015 e01a0f0582218914394c528770f547efcf980d
+-r--r--r--   1 rich rich  245 Jan  2 10:00 f459e45e1e10fde6d4d515ceac61f7266704bc
+
+./.git/objects/02:
+total 20
+drwxr-xr-x   2 rich rich 4096 Dec 31 21:04 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  167 Jul 25  2015 074bdf0bd284d566252db6cad18ba997cb7dc8
+-r--r--r--   1 rich rich   60 Jul 25  2015 24d690399264919063d862d692757cd44bef41
+-r--r--r--   1 rich rich   46 Dec 31 21:04 41652acbc6119c0d14ef211e13e803eb93237a
+
+./.git/objects/03:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  225 Jan  3 12:33 0695162fc31ffc9b8925fb78cf4036e0bfa8a3
+-r--r--r--   1 rich rich   60 May 30  2015 87750aff42f0b59578d25342aafedfced10537
+-r--r--r--   1 rich rich  194 Jul  3  2015 94192526e324e53073c8da9f19c33da8cf6e18
+-r--r--r--   1 rich rich  299 Nov  8 01:50 e591f61dcd329fe0d8edef3a8f0d45911c2084
+
+./.git/objects/04:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jun 21  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  109 Jun 21  2015 5f292548c822c8f1842deb30875d0fdf1b9569
+-r--r--r--   1 rich rich  363 Apr 11  2015 81e1a42690ca18e93867b24082264f9eba6354
+-r--r--r--   1 rich rich  143 Jun 20  2015 ba4bf9ac4adb1be9bd914f38eda6116fb1d256
+
+./.git/objects/05:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   52 Jul 25  2015 32f3f842aaeb5444109049f78d4501802fe365
+-r--r--r--   1 rich rich  620 May 24  2015 e2a088dd7b83e89bf62fafb3ec52a950f80520
+
+./.git/objects/06:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  177 Aug 23  2015 6fb60ae9fe795de2d43d44dc2090889935c3d5
+-r--r--r--   1 rich rich  195 Jan 13 21:46 9f13861620bb7c42a011ee935a5ceaf36f39ab
+
+./.git/objects/07:
+total 28
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  143 May 25  2015 0a06ddae2be9ba19dd47a92fadac21a7122258
+-r--r--r--   1 rich rich   46 Jul 25  2015 0f5758b31ea32b72986fe253a264f3769e5ada
+-r--r--r--   1 rich rich  236 Aug 16  2015 4ab47e5b4f6895c7e0fd4ecfaf609ec017ebdd
+-r--r--r--   1 rich rich  209 Jul 25  2015 b7ead014cf0735ee2b907896c904ec9434c875
+-r--r--r--   1 rich rich   91 Jul  3  2015 d3e1587c0cf620fea2362b91a1d66a0878c99c
+
+./.git/objects/08:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   87 Jan 13 21:46 df048a6f0a072bd11aff0d1c86fb5c84e35f4e
+-r--r--r--   1 rich rich  835 Nov  8 13:08 e876534cc31ac35fe1d688d1b51c73d6d7f4d3
+
+./.git/objects/09:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  230 Jun 20  2015 0830caf663fe94e0b3869374daf707c8fb228a
+-r--r--r--   1 rich rich   47 Jul 25  2015 7d8fd0f381c74f4e6306033d14819383bbef3c
+-r--r--r--   1 rich rich   52 Jan  2 19:15 efa83ecfe7ff053941423d977436c387ac9429
+
+./.git/objects/0a:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  300 Jan  2 10:00 72a37f46b2d32721ff7dd8887943ee5c3116c9
+-r--r--r--   1 rich rich   62 Aug 16  2015 94b5e648bc518936158e618604133180b5472d
+-r--r--r--   1 rich rich  180 Jan 17 17:51 d989da8e8885bd1fe4ddbdc9816ffcc0217da9
+
+./.git/objects/0b:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  210 Jan 16 20:16 405f3dabe7721798aa606ef5e16d60e6c00a94
+-r--r--r--   1 rich rich   46 May 24  2015 97b3a3e66737debe44412c499fccd0c30f6f1d
+
+./.git/objects/0c:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  143 Aug 16  2015 0bfbe7a3d744c0b9c9487a1eebd913b91f452f
+-r--r--r--   1 rich rich   44 Nov  8 13:08 16de757aca99a2b30842b6bab1aed0f3eecbb0
+-r--r--r--   1 rich rich  308 Jan 16 00:43 7089a6a8e685f05f23a4f87f65e322abd312ba
+
+./.git/objects/0d:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   89 May 25  2015 4e01fd3851514014c03bc99d900d74eb0b2e07
+-r--r--r--   1 rich rich  143 Aug 23  2015 5a903a8c3bdb0c2fa362c5835ac5436491fbef
+-r--r--r--   1 rich rich  233 Jul 25  2015 6b5ac711c655811ead692979dc78eabba40fbb
+-r--r--r--   1 rich rich  235 Jul 25  2015 b51164548ebe6b0627e978e6fb9a7a2c23da30
+-r--r--r--   1 rich rich  237 Jul 26  2015 ea7d43f0ea60243dc1f3a1b1f12da870f28328
+-r--r--r--   1 rich rich  346 Jan 16 00:43 fc514c45b689dafda22c61bcb7722b7038f1cb
+
+./.git/objects/0e:
+total 20
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  211 Aug 16  2015 2da031daed9bad54ecf3a365d4f5d7bc6b94d3
+-r--r--r--   1 rich rich 1471 Jul 25  2015 38cee253b0cbf5566ed80e2f6bcbb63f0236a3
+-r--r--r--   1 rich rich   45 May 24  2015 3be672babf43f941a58a166431d3e9e13f0af5
+
+./.git/objects/0f:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   44 Jul 25  2015 1adbd4c2fce297f006f8d003b9ea95068bb8a4
+-r--r--r--   1 rich rich  143 Jan  3 12:33 b3dc91413884eaea2a51c4b0cdb01b89281710
+
+./.git/objects/10:
+total 24
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  210 Aug 23  2015 5e72f80df972cc2b670e20ab4d47336bfda959
+-r--r--r--   1 rich rich 1442 Jul 26  2015 658a95428fcd6d299b68f6f9222d2e56c314df
+-r--r--r--   1 rich rich   53 Jun 20  2015 a788639ca69c71837e8b96dded053bc344c031
+-r--r--r--   1 rich rich  499 May 24  2015 cb65d05f9a4ace85e8fc74544d3c8e94cab3fd
+
+./.git/objects/11:
+total 12
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  210 Nov  8 13:08 1af133ded59cd09ace902e5210b48b08223c85
+
+./.git/objects/12:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jul  3  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  318 Jul  3  2015 52c5e6029b3bed91ef6ce48aa135ce419e4093
+
+./.git/objects/13:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jul  3  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   52 May 25  2015 3678cf72939d27e8be7bea57741ce93010ea92
+-r--r--r--   1 rich rich   46 Jul  3  2015 4f1f95c982f82386f3347826546659c53c4140
+-r--r--r--   1 rich rich  142 Jul  3  2015 53c90cf499468bfea791a1a849052fbd8af1d6
+-r--r--r--   1 rich rich  416 Apr 11  2015 7986d83bdac2826b81081d9f1259a86b1c05af
+
+./.git/objects/14:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 Jan 17 17:51 778c0d156baeea9549a5c1e9cf9a09507074e1
+-r--r--r--   1 rich rich   72 May 24  2015 89ea45d61ab402c0ceac0028beb728304d96d3
+-r--r--r--   1 rich rich 1023 Jun 21  2015 8a247989033f4522590664a632781a298450ce
+-r--r--r--   1 rich rich  143 Jan 16 00:44 c744a57108e69b6ffd139b551e0d42736c970f
+-r--r--r--   1 rich rich  146 Jun 20  2015 f3e72b863a31c6e589a44d672e3a82911c1ff7
+-r--r--r--   1 rich rich  769 Jun 20  2015 f8c87e4f109cb236cd35528e348d75152bd524
+
+./.git/objects/15:
+total 24
+drwxr-xr-x   2 rich rich 4096 Dec 31 21:04 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  173 Apr 11  2015 0a346c70c908a52c8bb62ea900ac0d8af8e5d5
+-r--r--r--   1 rich rich   52 Dec 31 21:04 3f2509d8e9e295c39315f0439a7eb3247d4efc
+-r--r--r--   1 rich rich   62 Jul 25  2015 58bd2444f7677948449d077955c706f8b520ad
+-r--r--r--   1 rich rich  309 Aug 16  2015 c88420d1c5f1725453a9ad89ba205108a69c47
+
+./.git/objects/16:
+total 16
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   87 Apr 11  2015 285713d6b0dda2c5a8b20ab9ce323061c5cf6e
+-r--r--r--   1 rich rich  190 Nov  8 01:50 94b9484dac43e289eee3730a8d4288d276caf8
+
+./.git/objects/17:
+total 20
+drwxr-xr-x   2 rich rich 4096 Dec 31 21:04 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   47 Dec 31 21:04 133f611c774b9fd772b7955c271e6e354ff3d2
+-r--r--r--   1 rich rich   47 Jul 25  2015 90e2a97345afb6de98a25dc617870fb9951ae2
+-r--r--r--   1 rich rich  113 Apr 11  2015 f95a8db0fbb35c7c0442069c3765005f6eb65c
+
+./.git/objects/18:
+total 24
+drwxr-xr-x   2 rich rich 4096 Dec 31 21:04 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 Jul  4  2015 2787ac62ddff91de8c3f3f75106976b7dd6bea
+-r--r--r--   1 rich rich   87 Aug 23  2015 b77eadb84109dd378ebc139de00937a44ce8e4
+-r--r--r--   1 rich rich  143 Nov  8 01:50 d63e0fdc31aaf2c7b078597b727a8d21866810
+-r--r--r--   1 rich rich  163 Dec 31 21:04 ff3fbd8f36c459cc03f0204b31551fceabdf9b
+
+./.git/objects/19:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  455 Jan  3 12:33 183c700ee01553d29a783d9b125463efa1a35f
+-r--r--r--   1 rich rich   60 Nov  8 01:50 3069b73174285c8baa916de19b67ec7d9a63ee
+-r--r--r--   1 rich rich   45 Apr 11  2015 e26c3f65a6e2d83aeead7435d80347b55262ac
+-r--r--r--   1 rich rich  240 Jan  2 10:00 ed7b5c5353b6546997612eb2fe07de252cfa18
+
+./.git/objects/1a:
+total 12
+drwxr-xr-x   2 rich rich 4096 May 30  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   44 May 30  2015 baa70e6e2209dfe44080d47b989e8a9ad3addf
+
+./.git/objects/1b:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 2542 Jan 13 21:45 05cd788c99fe25558b151476d1b1db6fce734f
+-r--r--r--   1 rich rich  237 Jul 25  2015 4c1fa865575e618af2d14a9f5dde9e1a66e457
+-r--r--r--   1 rich rich  339 Jan 16 20:15 b77174f8caf230f55a595122e1afd78460755e
+-r--r--r--   1 rich rich  212 Jan  3 12:33 df2d2a71a5d431144689fa836035d456c01b7e
+
+./.git/objects/1c:
+total 20
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  290 Nov  8 13:08 02af9636c740809594582b45f4d3df5cd8bfce
+-r--r--r--   1 rich rich   56 Jun 20  2015 8bc40fb0b1b41f55a71a5c07e1b2d0ff647cfc
+-r--r--r--   1 rich rich   46 Jun 21  2015 f0a20fae56d673ac50a6bc27bf7b46bfbb2b7e
+
+./.git/objects/1d:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   52 Nov  8 13:08 2318c73675ba4bc703738eae92992d2a8ea825
+-r--r--r--   1 rich rich   88 Jul  3  2015 86828c90bbff654f25494f11d0e8c530954be1
+-r--r--r--   1 rich rich  274 Jan  2 10:00 dd60b2f86a80da69e096b60372961525eab353
+
+./.git/objects/1e:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  408 Jul 25  2015 1090b2b25bdcf790a8657a82dd29b54fae438f
+-r--r--r--   1 rich rich  171 Apr 11  2015 253fb2ebfccb17f2c26c09ecf45070ab110900
+-r--r--r--   1 rich rich  341 Jan  2 19:15 389d99e64071fbbb4a565b5fed9f16add59445
+-r--r--r--   1 rich rich  240 May 30  2015 f2141de6c5c3d3297e2fd1ad74a6a5b144e26f
+
+./.git/objects/1f:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Jan  2 19:15 0d1bd445601cfb98c6641250915672b23b3dd4
+-r--r--r--   1 rich rich   47 Jan  3 12:33 a25643c21ebac258bb487f77efebc035e6eea0
+-r--r--r--   1 rich rich 2051 Jan  2 19:15 a9d89b0190cefcd44a21ad33258f655eeef7f5
+-r--r--r--   1 rich rich   52 Aug 23  2015 bdeca40af68d081fb09d5409e52036eb66f0ba
+
+./.git/objects/20:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   88 Jan  2 10:00 8aa7d3a699650ee8b26aa8cf742bac737a752e
+-r--r--r--   1 rich rich   52 Nov  8 01:50 e98b54c5ce90e7fe0fa398e03b0dba911fbc3d
+
+./.git/objects/21:
+total 20
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   44 Jun  7  2015 4bb58200d76256c6037a42948ed0e6e1f96ba4
+-r--r--r--   1 rich rich  142 Aug 23  2015 76b6d4d0a75d205d2948d1153af94522715980
+-r--r--r--   1 rich rich  321 Jul  3  2015 bec2bf49aef7d1c94a700c1d81ad83a559fa16
+
+./.git/objects/22:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  177 May 24  2015 2573576cc6652fc6dac8ac86575d07923594c4
+-r--r--r--   1 rich rich  322 Jul 25  2015 44ffc26e5d27b2588c62b7f94b56e8107c88ed
+-r--r--r--   1 rich rich   55 Jun  7  2015 83c9cc195f984c14e033249fb1d98c311bcd83
+-r--r--r--   1 rich rich  308 Jul 25  2015 a19341d6c8201fe59c846ed0d8919ad9df17b6
+-r--r--r--   1 rich rich  142 May 24  2015 ba53467061fe1571cd85b1c5e2c617a5f3414d
+
+./.git/objects/23:
+total 20
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   47 Nov  8 01:50 36555435772ff021e5e95354d733bfc9b2340a
+-r--r--r--   1 rich rich 1776 Aug 16  2015 57a9928e046dfc2ed23a027ea63a8817601325
+-r--r--r--   1 rich rich  166 May 30  2015 bd8b1b2b8175723ca3ac275f96903759a8b01c
+
+./.git/objects/24:
+total 40
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   52 Jul 25  2015 0c8537afefa04b8061d50fd7e66f59be8f6036
+-r--r--r--   1 rich rich   44 May 24  2015 0ee1eb7adfe7187b570a52fac40c0e6c52606d
+-r--r--r--   1 rich rich  353 Nov  8 01:50 166ba83ddc89a1d13104cc9a8b05ea47e28997
+-r--r--r--   1 rich rich   46 Aug 23  2015 26800fa2e55f660e001c089046a1fc40507b10
+-r--r--r--   1 rich rich  387 Jan  3 12:19 51b76fabbb9cc66f59db516d9dc4738804de15
+-r--r--r--   1 rich rich   46 May 24  2015 67f091a93f71cd9a72e9b1fc2bc2f244f2009e
+-r--r--r--   1 rich rich   99 Jan 16 21:22 76816ee9c2f746c19dd8c6ba37e375b3fe5290
+-r--r--r--   1 rich rich   46 Jul 12  2015 ff8e53ae569ab7a5992a5d92d986ed0351fc35
+
+./.git/objects/25:
+total 12
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  406 Aug 23  2015 694b3dfe3f03a0737ee5af9c66cf39a3abcf73
+
+./.git/objects/26:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jun 21  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Jun 21  2015 c0fec2f1890396da360933cf7d00ab33bdd0b6
+
+./.git/objects/27:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  756 Jan 16 00:43 236e34c13fcc0b7a6d97e31f166e31be4a5e4d
+-r--r--r--   1 rich rich  142 Jul  4  2015 7268a2f180863d1021a683e329c5f1b7df22a7
+-r--r--r--   1 rich rich 2156 Jun 20  2015 7aadb64e13ab1ae9f38cae33232ea925129aed
+
+./.git/objects/28:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  379 Jan 16 00:43 4bffdb65112dd33c420b23e56e72ae23e8598d
+-r--r--r--   1 rich rich  240 May 24  2015 4ec015706d158481812f4999e87488ddb25dc1
+-r--r--r--   1 rich rich  179 Jan  3 12:33 bb71abf1833c7217e9f90fdb9dc97b5dd5a9b0
+-r--r--r--   1 rich rich 2302 Jan  2 10:00 cf4372f4a2f889cb1a39c9b503bbadea55c363
+
+./.git/objects/29:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:20 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   87 Jan  3 12:20 47d9990ce1304b46f5294f44d66e7f0592ed51
+-r--r--r--   1 rich rich  178 Jul 25  2015 eb480b7eb48b2c759076b71c42019401676237
+-r--r--r--   1 rich rich  211 Nov  8 01:50 ef8c7c3f8ad992682cdfedea35835f7d4496e7
+
+./.git/objects/2a:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  211 Jan 16 00:44 2d6ba9d302ef98bf2a64e16e1a6fef9e1723e0
+-r--r--r--   1 rich rich   56 May 24  2015 7286278cb40507f3898506a7658cfb90e2cdb5
+-r--r--r--   1 rich rich   46 Aug 16  2015 bcf127fda2c352afd963a51340d33dc4e6d4a6
+-r--r--r--   1 rich rich   61 May 24  2015 d77050d5704dc2d44c2ea58b1d3f1608d3ec0d
+
+./.git/objects/2b:
+total 20
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  314 Nov  8 01:50 46e287e207889be7233d2db19e48ce01a7bd34
+-r--r--r--   1 rich rich  176 Jun 21  2015 51d3e47861434140273e39be56484417c83d1d
+-r--r--r--   1 rich rich   46 May 30  2015 c7a4442f57ae3edccb6255765bfb99b2537bf2
+
+./.git/objects/2c:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  458 Jan  3 12:20 6bae4cc48a0256e4bc90281cb15c5fbf38dbe7
+-r--r--r--   1 rich rich  356 Jun 20  2015 6d4012c0641b6c278f238afcb2c50875e2267b
+-r--r--r--   1 rich rich   46 Jan 16 21:22 ae60562831bc3631608e37421b72fd133d1233
+-r--r--r--   1 rich rich  211 Jul 25  2015 b5a47eb9d31bb424e2008c98bc14e4abdd2419
+-r--r--r--   1 rich rich   47 Jul  3  2015 be2d7e48e9ca969513607b88ad247c29aecb14
+-r--r--r--   1 rich rich  180 Jun 20  2015 f6d28b0ada20a0fe57747dbe37d23e12e49b16
+
+./.git/objects/2d:
+total 24
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  161 Aug 16  2015 5c375a29f594a7ad2b566dcd7c5d53c5e13263
+-r--r--r--   1 rich rich   52 Aug 23  2015 633f5b2cabc739754d959e1ba6b182d5f9e703
+-r--r--r--   1 rich rich   98 Aug 23  2015 a00e5a07ba10083659010a22a4d956f7d06c9b
+-r--r--r--   1 rich rich   46 Nov  8 01:50 f2380f50be8e0ed8e8fce85de1fe687144e5c4
+
+./.git/objects/2e:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  177 Jan  3 12:20 0c7dea6d9e0eaff0e5b5f9c90e199173cd727a
+-r--r--r--   1 rich rich  305 Nov  8 13:08 f8f7766749475ed5fba05607cb8f9bca506342
+-r--r--r--   1 rich rich   46 Jan  3 12:33 f9651afd7cc62e9ec6efee0b804060b95d4fc2
+
+./.git/objects/2f:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   90 Nov  8 01:50 00154d16264fedcf04d363193db04cba9056ea
+-r--r--r--   1 rich rich   48 Aug 23  2015 0572e1b704db5d36d8780a76063d326f39b654
+-r--r--r--   1 rich rich   89 Jun 21  2015 5913cddefe8fe28b2ed99e16c8ccce0b1a67e2
+-r--r--r--   1 rich rich  143 Jan  2 10:00 7fbee69b6b86f8b6429a2938f5eb879c869b43
+-r--r--r--   1 rich rich   46 Jan  2 10:00 ab70f3e0aa0e2b0b4f56626c5684177f06988a
+-r--r--r--   1 rich rich  371 Jan  3 12:19 d750996df7b5e28fe71403e9bcec91b6139063
+
+./.git/objects/30:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  250 Jul 25  2015 04ee3cdfcb950b4d147d87b8e82affa3335e7a
+-r--r--r--   1 rich rich  143 Jun 21  2015 4ca814c47e162cf6657770dbde91cbab911ad6
+-r--r--r--   1 rich rich  412 Jan  2 19:15 e576efebd61ef9f214accdb9c4e0dd28f86a23
+-r--r--r--   1 rich rich   44 Jan 17 17:51 f92d2743de1d9728e05aa9793397ee9b7ed51f
+
+./.git/objects/31:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  363 Jan  2 10:00 81c1c94b9e92e6e4edfbdd410d7b9f84c5fa2f
+
+./.git/objects/32:
+total 36
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  207 Jul  4  2015 021229efd8394e60405c16f6187f5d55ba7eb4
+-r--r--r--   1 rich rich  546 Jan 16 00:43 4ddea5ce29e9b796fac611446a9917d3f6eb61
+-r--r--r--   1 rich rich  687 May 24  2015 53828458dd0d412c5afaee02dd16355d0a6f9e
+-r--r--r--   1 rich rich  170 Apr 11  2015 858aad3c383ed1ff0a0f9bdf231d54a00c9e88
+-r--r--r--   1 rich rich   52 Jun  7  2015 872366c349a4c34f14ab4035d408db30e351ba
+-r--r--r--   1 rich rich   52 Jul  3  2015 ca2a20a32e2af33707db450665afb793cf3737
+-r--r--r--   1 rich rich  167 Nov  8 13:08 dc738caa47288ac9579662f9e57342e95ca734
+
+./.git/objects/33:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   59 Jan 16 00:44 1904a4f4d06ef4fbb3eb5a81c67a6b5b3d0c84
+-r--r--r--   1 rich rich  100 May 24  2015 621b409729e21e8121524bfac0a6058a435fbe
+-r--r--r--   1 rich rich  346 Jul 25  2015 8977b41e4246c55f83c17e7419775f4670a50f
+-r--r--r--   1 rich rich 2274 Jul 26  2015 8b523393ae89e3d528688745eea7ff49ac6756
+-r--r--r--   1 rich rich   45 Jan  3 12:33 b1d9c8b9e3f3c6c2f522ac87c8318c070634d2
+
+./.git/objects/34:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jun  7  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  143 Jun  7  2015 923635f695ef66cb937ddb8e51126931948e3a
+
+./.git/objects/35:
+total 24
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1466 Aug 16  2015 81f897f6799d2e9cdb7950ad2b8ba0df9d7589
+-r--r--r--   1 rich rich   90 May 25  2015 97129ad3d715cac9a03b96c51518aadcd2a871
+-r--r--r--   1 rich rich  425 May 24  2015 cc96e5718473365fd365f509487aa4f56da604
+-r--r--r--   1 rich rich   46 May 24  2015 f42b7996de59da35ead8d61c48f2efb08a0ff5
+
+./.git/objects/36:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   45 Jun 21  2015 5bdc8ad68c1c7a5ab121bfe3584d92657770d4
+-r--r--r--   1 rich rich  179 Jan 13 21:46 723954f4638dc9e88985cb3a8614f5ea4a6202
+-r--r--r--   1 rich rich 1151 Jun  7  2015 77bbf3b080909dae9de5f5320dd73e4e12e2e1
+
+./.git/objects/37:
+total 24
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   44 Jul 25  2015 45a8f52d391013ff31c1e3a3e8fa47ac3c2065
+-r--r--r--   1 rich rich  217 Nov  8 13:08 bc9719a91932ba3fb8b36a7b5e3e60b742778c
+-r--r--r--   1 rich rich 2222 Jul  3  2015 d5d20370c2d01e86fe6de75c83ae7efe2cf834
+-r--r--r--   1 rich rich  281 Jul 25  2015 eb580f9d0285164735059aa1f2be311a2f3e91
+
+./.git/objects/38:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jun 21  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1954 Apr 11  2015 162dd4693234887a8ba879a0e3911afd0afabc
+-r--r--r--   1 rich rich   61 May 25  2015 67f546ec447eae283ed9e071e7ae9d4e568b2e
+-r--r--r--   1 rich rich   61 Jun 21  2015 7281112a9980f949f41cc2c9b4589c4d4959d9
+-r--r--r--   1 rich rich  180 Jun  7  2015 c3728c18a34338220c9bb2eb4375a9a90228e4
+
+./.git/objects/39:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1294 Jul 25  2015 1f9d2b1590b4cb35bee8c1c6e5cff52fdddcc6
+-r--r--r--   1 rich rich  179 Jan 16 00:44 e355a33f140662e855f0f79062abef41c0d090
+-r--r--r--   1 rich rich   53 Jul 25  2015 e751dbfb40029b99a1c6e60a38b321a1420b94
+-r--r--r--   1 rich rich  418 Jan  3 12:19 e91038e9234756f4caf078650cef3c03959023
+-r--r--r--   1 rich rich   46 Dec 31 21:04 e92cf9e5f8c00d6717ee46f4ffbaecf348e1b9
+
+./.git/objects/3a:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  500 Jan 16 00:44 0583069cef0af97ca6f46fb69beb71811d8b11
+-r--r--r--   1 rich rich  147 Apr 11  2015 4fd23dadf7807722e4c307dc81e72b25c10a1d
+-r--r--r--   1 rich rich 1465 Jul 25  2015 75786ab33527d951e8a6797fa4ca82ab25f97e
+
+./.git/objects/3b:
+total 24
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   52 Aug 16  2015 1f27bea30d2337021b218ff0721abddcea3af3
+-r--r--r--   1 rich rich 1194 Aug 23  2015 3b5e3251ad908d01426a268d7a2be4a3fc6cd4
+-r--r--r--   1 rich rich   47 Jul 26  2015 7aa6fd86b88174504c744d5d0b5a0fbc4befad
+-r--r--r--   1 rich rich  171 Jul 25  2015 d2debfa8cb1b193c9fb18aaeb14f4db8e53d2a
+
+./.git/objects/3c:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1503 Jan  2 19:15 ac384041c744aef50a2cd756b962763b40d610
+-r--r--r--   1 rich rich   46 Jun 20  2015 fcb805bce16a6c9cafea7d4938fd5419f02cd5
+
+./.git/objects/3d:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  446 Jan  3 12:19 8df37f4dfa072bc7dc974076c5d957cfa7d7c6
+-r--r--r--   1 rich rich  295 Jan  2 10:00 ab37472ec773bf0feed37604227df7f99aed74
+-r--r--r--   1 rich rich   91 Jul 25  2015 bb41519a0985c6695a2c59bcf1e9e61c8a7b8b
+
+./.git/objects/3e:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1407 Jan  2 10:00 32b83c8f70069a3bda24467c895898a51980da
+-r--r--r--   1 rich rich   46 Jan 13 21:46 72dd42507ace2ed6817caf654e0f97a9f499f8
+-r--r--r--   1 rich rich   44 Jan 16 21:22 798619f795805709912aa9cc994da3338384df
+-r--r--r--   1 rich rich  267 Jul 25  2015 a25f2c41c2283feef973e03ac0e8736b9460c5
+-r--r--r--   1 rich rich  237 Aug 23  2015 a66f4963867127ac80c7404db0a854f8fb24af
+-r--r--r--   1 rich rich  347 Jul 25  2015 b31681ffc1f8b1adb5910d1949726b8e9b211b
+
+./.git/objects/3f:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  288 Jul 25  2015 528523bf8c316d7cf00ebb448f7107bb72c91b
+-r--r--r--   1 rich rich   87 Jul 25  2015 e06d7a0f925f7bae31ce05b42b8a2985083c7a
+
+./.git/objects/40:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  330 Jul 25  2015 150ebc5dabeb9d7a071f0968725ff816ebbd3b
+-r--r--r--   1 rich rich  833 Jan 13 21:45 31bbf7a7ac0000ad4ff3741f3b04c270ee6771
+-r--r--r--   1 rich rich   90 Jan 16 00:44 699d15f4057cae8a12df6bba8670fdad9a92df
+-r--r--r--   1 rich rich  237 Aug 23  2015 e2c41f70c6934b11b855e6673a148df9178e07
+
+./.git/objects/41:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  194 Jul 25  2015 35c9a04ea05d8b08b0b96847c193e15a0d45af
+
+./.git/objects/42:
+total 20
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  142 Jun 20  2015 aa1362ed11e156af5f23aabe0031c6f596cbae
+-r--r--r--   1 rich rich  100 May 24  2015 de02ff49acf563ec857409b392e078494d5e3a
+-r--r--r--   1 rich rich  227 Nov  8 13:08 e575b91882768a8ea2f30f0dee309d2e6789b7
+
+./.git/objects/43:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  187 Jun  7  2015 65b1e52cd3ee5afaf53e872510b2f98eeeaeb1
+-r--r--r--   1 rich rich   44 Jun 20  2015 b6a84394dfd72c35c37ed9a5b392b5b1ad1dbe
+-r--r--r--   1 rich rich   88 Jan  2 10:00 db4637aeea1682b69fd5c351f3720faa2f01cb
+
+./.git/objects/44:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1479 Jan 16 21:22 259f11f096039f0e1bfa97c488f88da768f151
+-r--r--r--   1 rich rich   35 Jun 21  2015 6522b81b320723559572cee7120395075355c6
+-r--r--r--   1 rich rich   44 May 25  2015 99d41292d9a288ed5eec4df69e3373461eaa26
+-r--r--r--   1 rich rich   90 Jul  4  2015 c9d71259df3fd462aa4ee3eb54f2680356cc5e
+
+./.git/objects/45:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   48 Jun 21  2015 61194a2aaa89b13908a3c4abbdd6b065d99f07
+-r--r--r--   1 rich rich 2056 Jan 16 20:15 758a699e9bda2f3e4dcee9c91aec33a7f16cc5
+-r--r--r--   1 rich rich  228 Jan  2 19:15 8a919e8ca84dad1d2636deb5da0c6d799f93fb
+
+./.git/objects/46:
+total 16
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  905 May 25  2015 1a7fc9e06b3e3e5219b3c612efd039a94e146e
+-r--r--r--   1 rich rich  993 Nov  8 01:50 b986914a95a81833d71b4c11d5919068f5ce1f
+
+./.git/objects/47:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  557 Jan  2 19:15 11389af14e8d408012752079292db39ea339a7
+-r--r--r--   1 rich rich   47 Jul 25  2015 7dbca3c8c58423fb396631bcc93c204b6dddcb
+
+./.git/objects/48:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:20 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 Jan  3 12:20 618721ce9f40a208fd18b5b750de030382b5f1
+
+./.git/objects/49:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 2067 Jun  7  2015 3d78292f8408a97dc6b687e54088b8295cfb8a
+-r--r--r--   1 rich rich  192 Jan  2 10:00 cdac351247920906b775eb75c9388e99e70baf
+
+./.git/objects/4a:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:50 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Jan 16 20:16 c14e3b0c2d306263921c2a61c9dfe3cd0bdf1e
+-r--r--r--   1 rich rich  316 Nov  8 01:50 f4a215d68ea8f254112cdd15a2ed6f7f4506ea
+-r--r--r--   1 rich rich  348 Nov  8 01:50 f8f0a7b7f150e8c3a685b1426add8698c4768b
+-r--r--r--   1 rich rich  283 Jan 17 17:50 fd2293d58aca98ede8488dfb368c7f195d0066
+
+./.git/objects/4b:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   60 Jan  3 12:33 2fd1feecbce122da5665d380f8a01fdf9240f7
+-r--r--r--   1 rich rich  346 Aug 23  2015 68aa2b4bf579a39a604b7255bc441992fc2e4d
+-r--r--r--   1 rich rich   15 Apr 11  2015 825dc642cb6eb9a060e54bf8d69288fbee4904
+
+./.git/objects/4c:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  376 Jan  3 12:19 3dc518097f61a24ccaf28674824e6ae4df3eae
+
+./.git/objects/4d:
+total 24
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  143 May 24  2015 358dd2d927e91f900552a509177f5b31806513
+-r--r--r--   1 rich rich  211 Aug 23  2015 60b2cf736b3977d030dbe72b9ac39f4d98430d
+-r--r--r--   1 rich rich  221 Apr 11  2015 a58ebde8d6c04268abd492ff7c1f71dbf8f844
+-r--r--r--   1 rich rich   46 Jul 12  2015 fef3ae19f8f6ed8e3cbf549814dca7613c39bd
+
+./.git/objects/4e:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   56 May 24  2015 09ce9535c447ee8567de50e9fc537436a944ce
+-r--r--r--   1 rich rich  306 Jan  2 10:00 ba1a6e50c079d8c13864b4fcf494cf82d9ea09
+-r--r--r--   1 rich rich   90 Jun 21  2015 e1ebfdbd9d67494e64199610a9ca60855252db
+-r--r--r--   1 rich rich   44 Aug 16  2015 fc163f793919970795b065ea68d079d32dc506
+
+./.git/objects/4f:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   87 Jan 17 17:51 e2ab74ae9f57d8d044b506cf20e76b40fac5eb
+
+./.git/objects/50:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  211 Jan 16 00:43 54bc5586c59c8289d97f5fcdc0a601e997df6c
+-r--r--r--   1 rich rich  402 May 30  2015 5dfacac4482d6718758619747f1240fb9b8e38
+-r--r--r--   1 rich rich  461 Jan  2 19:15 93661e484d091cb4d83230c50267630501d112
+-r--r--r--   1 rich rich  169 May 24  2015 adbe3edd67509f3765e5bd1ad42e38147be58f
+-r--r--r--   1 rich rich 2250 Nov  8 01:50 e3146727b13ae23b0e5b45297a35557d1456ff
+
+./.git/objects/51:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 Aug 23  2015 0d1b6358faf8a3395abc436b3bc2994730a46f
+-r--r--r--   1 rich rich  318 Jan  2 19:15 18c19f14c8c2d8887af2a38555405dc7b3dfec
+-r--r--r--   1 rich rich 1447 Aug 16  2015 7098253b52bb3782a320195fcfcd2a89882d9c
+-r--r--r--   1 rich rich  194 Jan 16 21:22 772c9fe76474acf792939b989eb8b553744bf0
+-r--r--r--   1 rich rich  100 Jul 12  2015 ede96ec43d99ff15f23ffa1e1af95f7d525e72
+
+./.git/objects/52:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   44 Jan 16 20:16 193f65dff5021c65b7a0b339dbc3e2583680ba
+-r--r--r--   1 rich rich   60 Jan 16 21:22 4c95c6a057d4285e531e9dcefa864ce7fb0d30
+
+./.git/objects/53:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 Jun 21  2015 122f7ec59c88bfa976f096f3a85d3cb9309f23
+-r--r--r--   1 rich rich  240 Jun 21  2015 2123c0c59ca48e68b31a964d8404b5c0260538
+-r--r--r--   1 rich rich  503 Apr 11  2015 6248a01b6363eb816b47caa57dc58a46a20739
+-r--r--r--   1 rich rich  161 Jul 25  2015 78b31973504b296bc8a0627222aaf23df15129
+-r--r--r--   1 rich rich  214 Jul 25  2015 c8de5a6207d7c5d234a2c8c5e511af2b0ce174
+
+./.git/objects/54:
+total 28
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1965 May 24  2015 bb132011213db666cbb66cb36a28d4105e9496
+-r--r--r--   1 rich rich   44 Jul 12  2015 c297cc6f02dae27369941296320889f3d7790d
+-r--r--r--   1 rich rich 2200 Aug 23  2015 f5432ef59f9475738c89babfe5568f5ccc724d
+-r--r--r--   1 rich rich   56 Jul 12  2015 f7a10ceb04ac257a6a01d5135f9bf0c69c6d74
+-r--r--r--   1 rich rich  240 Jul 12  2015 f7ff25a5efd4bf0a10b5239678baaa33f91790
+
+./.git/objects/55:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   99 Jul 25  2015 b9719e5e6377b4a8453c890050bcae3e380a9d
+-r--r--r--   1 rich rich  374 Jan  2 10:00 c4b7e930489ccb1945105374c4b8f06ba85f02
+
+./.git/objects/56:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 2472 Jan  2 10:00 63c200abbf5edaf323c9d22a00e81163a6be9d
+-r--r--r--   1 rich rich  380 Jan 16 00:43 8ba4e6a5b087bd6ff3290bc756ac9df253b926
+-r--r--r--   1 rich rich  305 Nov  8 01:50 d92b4546e5c1075a1413cabbc3dde57b796d88
+-r--r--r--   1 rich rich  240 Jul  4  2015 fde080fd2940ba3a783e2f882ad8600d512cfb
+
+./.git/objects/57:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   60 Jan  2 10:00 4996abc5e678a8c36baea517f7b6a1c3707eb6
+-r--r--r--   1 rich rich  408 Jan  3 12:19 db893fac85150ce884bd09aa493d3a4e4dc9ed
+
+./.git/objects/58:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   62 Jul 12  2015 23055050ac80525629bae1fd76f65961f73e1f
+-r--r--r--   1 rich rich   91 Jan 16 20:16 6c2de4439766a4ae85c7f0dd2b24f0c33d2c5a
+-r--r--r--   1 rich rich   62 May 30  2015 70681291b6b28d24f5ff80487201f0a1b72070
+
+./.git/objects/59:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 2239 Jul 25  2015 5771a4031d7c606613c19db8c0432efadb38c8
+-r--r--r--   1 rich rich   90 May 24  2015 93054cd592584ad30f5c7a52ec9149f64530a6
+
+./.git/objects/5a:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1427 Aug 23  2015 8ddec7e59dd40c0ebe6625d02c2ebb6a315770
+-r--r--r--   1 rich rich   44 Jul 26  2015 b8e9dd80d875730f6e0f84ce6abca14b9f8cf3
+-r--r--r--   1 rich rich  418 Jan 16 20:15 ddb9938d65a08de2b4740e16888a1764b92ecb
+
+./.git/objects/5b:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  338 May 25  2015 1c6886ec577ac970121d17b6fcdf0c830bde0d
+-r--r--r--   1 rich rich   46 Aug 23  2015 285faa3c2117373443af41c10a1d854b9f1e07
+-r--r--r--   1 rich rich  171 Apr 11  2015 47af04dcdde82707df9eebba05f772fb626c05
+-r--r--r--   1 rich rich  605 Jan  3 12:19 9f0a7a43bf38e088de42ad44109f422ed0d212
+
+./.git/objects/5c:
+total 12
+drwxr-xr-x   2 rich rich 4096 May 24  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   53 May 24  2015 004cd13fae6b3e0f1bf064aa8ceff60a39d4dc
+
+./.git/objects/5d:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  167 Jul 25  2015 8d592573af8dfdeee0fd48b34b4e26f01288eb
+-r--r--r--   1 rich rich  244 Jul 25  2015 fdbd05737c0ba688debf061f8df54fcf786a64
+
+./.git/objects/5e:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   48 Jan 16 00:44 6f47728550faa596cb616e8bc311ff5b749af3
+-r--r--r--   1 rich rich  505 Jan 16 20:15 f02623520755c6569185b62a441704c84052d5
+
+./.git/objects/5f:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  211 Dec 31 21:04 279bc6d112f12a6e3949cdb59712e2b57b623c
+-r--r--r--   1 rich rich   46 Jul  3  2015 46b85d98248448e560c3578483ba1393676869
+-r--r--r--   1 rich rich   46 Jan 17 17:51 594caa343ef9cd96c110fdf46547c958b71865
+-r--r--r--   1 rich rich  143 Aug 16  2015 87c2004b3515e3606f02084b261ab70778db45
+-r--r--r--   1 rich rich   53 Jan 17 17:51 ab9dabeb6af171c64b7d1f7e809634da12d638
+-r--r--r--   1 rich rich   52 Jan 16 00:44 b267a50b444f99010087c908882554ff4d2591
+
+./.git/objects/60:
+total 24
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   90 May 25  2015 66fa895da226e0d8ed15b76020755da7522ecf
+-r--r--r--   1 rich rich 1212 Jun  7  2015 94bc37fd4211313230cae9f7804ddb46d09606
+-r--r--r--   1 rich rich   44 Aug 16  2015 d32dea3431405967497fa81f777ac2f646fda1
+-r--r--r--   1 rich rich   90 Aug 23  2015 e59586c78633e148a8a2918a84a569681dc0bb
+
+./.git/objects/61:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   86 Jul 25  2015 1254086e0bf8c6197abca0ab0748a888c20356
+-r--r--r--   1 rich rich   47 Jan  3 12:33 44aaac10222eee4355e21f6b93574c48d00c9a
+-r--r--r--   1 rich rich   80 May 24  2015 63ff43de407e7acbf7df171a01972a3a068d5a
+
+./.git/objects/62:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  364 Jan  2 19:15 fd83c99acf71afccfdc6151b876a5773ad2f89
+
+./.git/objects/63:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 Dec 31 21:04 1d888b60c411dfba797b0c3b70a3707554aa0d
+-r--r--r--   1 rich rich  311 Jan 16 21:22 a7d2d39fbc834ec50bd83174c81e32cb1c5fb9
+
+./.git/objects/64:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  814 Jun 21  2015 66f53b541212a250a2b31e843eab3c2b1f1e2b
+-r--r--r--   1 rich rich   46 Jul 25  2015 6b3ae58f6f6f5726eea3db33b8cbcf4892d867
+-r--r--r--   1 rich rich   47 Jan 16 21:22 8b502699b9f01fe180d6daffd23336b2a5db0f
+-r--r--r--   1 rich rich  348 Jul 25  2015 e2642fb2bc91dfb2ed28309f071a83afef0a3e
+
+./.git/objects/65:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 2045 Jan  3 12:33 6251a5859005b0a298f3465518053b39b5bc5e
+-r--r--r--   1 rich rich   61 Jan 16 20:16 723a4c78794760d117705a93110fddb65c41b4
+-r--r--r--   1 rich rich   46 Nov  8 13:08 8e0f7b8bf79732fd72bd88e685d585639702bf
+-r--r--r--   1 rich rich   44 Jan  2 19:15 b3a5adabc39188d8bc0d5858874ab2b317d226
+
+./.git/objects/66:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Jul 25  2015 235feb93f1a32b9fe430c2d068e1b05a59cb7d
+
+./.git/objects/68:
+total 16
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   90 Nov  8 13:08 e70fe9806151ca846978db6b18df121512f3f6
+-r--r--r--   1 rich rich  191 May 24  2015 f6ae636197d14cbfa50c446b51d724ee6f8ce5
+
+./.git/objects/69:
+total 20
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 May 24  2015 b487eeac3fa5dc32626bc0e13cb5ae7858adca
+-r--r--r--   1 rich rich  186 Aug 23  2015 ba3f4a440b9cfb0e14cdb11988d018dc500bb6
+-r--r--r--   1 rich rich   44 Jun  7  2015 dc3631bd0544c0a4004244a3cc4837668e39db
+
+./.git/objects/6a:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  241 May 25  2015 cec07b2afcbb5c78d2b9cc8dab57e74868d928
+-r--r--r--   1 rich rich  372 Jan  2 19:15 d2edca513ff4511f6559ab69dcc03477f0e432
+
+./.git/objects/6b:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  283 Jan 16 00:43 0c85293b4785651be7ffb92f0466cb8733fc57
+-r--r--r--   1 rich rich   45 Jan  3 12:20 1e60eb05da055a87ef4695ffaccfe20dd363a1
+-r--r--r--   1 rich rich   87 Jan 16 00:44 3a8b8dd473a0f519897f6ed4500963be68ad71
+
+./.git/objects/6c:
+total 28
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  190 May 24  2015 155ecd35a6246b7eaac189adb937987817610b
+-r--r--r--   1 rich rich  145 Jun 21  2015 17edc87fafdc3ea6a4dbb252768ca337c66f48
+-r--r--r--   1 rich rich 2286 Aug 23  2015 6481e7cf538e07ca06df608ae582e87bde514f
+-r--r--r--   1 rich rich  109 Jul  4  2015 701609e9c32ae664d340bb311c8814bdc40bad
+-r--r--r--   1 rich rich   61 May 25  2015 a93beb597c9c44384abd038c24086632780b1b
+
+./.git/objects/6d:
+total 20
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Jun  7  2015 3e5ec3576bff7b4c867ce6339d462ebc8d878c
+-r--r--r--   1 rich rich  239 Jun  7  2015 42205529e728300837142873e0a61b33bf985a
+-r--r--r--   1 rich rich   61 Nov  8 13:08 f6ad633ce1b68c3f9d383b76f8577f81d9529f
+
+./.git/objects/6e:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  318 Jan  2 10:00 5aeea32592111cea35b77896864145145c8f5b
+-r--r--r--   1 rich rich  209 Nov  8 13:08 7002c6da285530e5caefc4fca10a14fb1bca84
+-r--r--r--   1 rich rich  142 Jul 12  2015 8b564072083c837b4a81fd3d3723a19b9ad6a2
+
+./.git/objects/6f:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  327 Jan  2 10:00 1202c479ac03618a089be7d578050150bcf523
+-r--r--r--   1 rich rich  144 Jan 13 21:46 76119ee9140828edff7db2afa9a7e29ad2c0d5
+-r--r--r--   1 rich rich  434 Jan  2 10:00 8fab5b38c4aa4435cf4f73eefb7dcbc677d1ad
+-r--r--r--   1 rich rich   46 Nov  8 01:50 b0d2ff794f3ccc6f9f3d6cf7f11f856a19b1cd
+
+./.git/objects/70:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  331 Jan  2 19:15 0d2e8b1662da3286d2f8e704f117001d3629c1
+-r--r--r--   1 rich rich   46 Aug 16  2015 7969e5c7b60ead8df33784864f72dc6a8c55a2
+-r--r--r--   1 rich rich   46 Aug 23  2015 a76e8e6294a689f76e13770063aad6c291734c
+
+./.git/objects/71:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   60 Jul 25  2015 3d00fbf9759c77029817db35b3320dbdf83e9c
+-r--r--r--   1 rich rich  204 May 24  2015 48fad4704877df7a639b01d6aaf9390fb754a2
+-r--r--r--   1 rich rich 2201 Jun 21  2015 75291d5581b6f4816d780fa065037898fa5a81
+-r--r--r--   1 rich rich   98 Jul 25  2015 75b8f9bb5743c2e96c2f5667f3c1dbfc59fea2
+-r--r--r--   1 rich rich  241 May 24  2015 8716ad6faf0a1cad6401f3d8128d7a2bbcc721
+-r--r--r--   1 rich rich  351 Jan  2 10:00 a98a5c38b04bc6278c32b952a067d1133eb09f
+
+./.git/objects/72:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  188 Jan 17 17:51 181bbf5206da73eb9f03adcd4a3e79e01063bf
+-r--r--r--   1 rich rich  274 Nov  8 13:08 b1b5a1c75c7be9a8808cf71754250958234138
+-r--r--r--   1 rich rich   87 Jan 16 21:22 dc95e5fb11b48574236d22cae95bb0dab40e37
+
+./.git/objects/73:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 2214 Jul 25  2015 196c4d2a57a90d8a6bc0387e99192a29b68572
+-r--r--r--   1 rich rich  362 Jan  3 12:19 7af36706e8d25bc395347f7255e9a75f98636f
+-r--r--r--   1 rich rich  246 Jul 25  2015 d9e2ad7a9d0284365077709b56a5d7a182e414
+
+./.git/objects/74:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:20 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  226 Jan  2 19:15 20e524e72fffcfefd3a206de3918614278e32c
+-r--r--r--   1 rich rich  241 Jan  3 12:20 9f8557b44f5a1c3c1771d697cb03cd2ad2a234
+-r--r--r--   1 rich rich   60 Nov  8 13:08 e46dc1dfacab446fcbd62a148b5de8a399cb2f
+-r--r--r--   1 rich rich   46 Jan  3 12:20 fd23a1ac7a7306f4578f8d80aff9e3b7e75c69
+
+./.git/objects/75:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   60 Jan  3 12:20 2a9b90b25bb372bdc8b5824d09f8310ea5d266
+-r--r--r--   1 rich rich   61 Jan 16 21:22 4133e6d6b221a85df4667e1d9374ff781a483b
+-r--r--r--   1 rich rich  143 Jan 16 21:22 5b4b5cd7e34ab83ca7d074515af84205f15b74
+-r--r--r--   1 rich rich  239 Apr 11  2015 e4374fb017b3a2694e12675c5d3c2fc47cadd4
+
+./.git/objects/78:
+total 16
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 Nov  8 01:50 ddbd99f383d346a7ec79e8471829d756f81cb2
+-r--r--r--   1 rich rich  185 May 25  2015 e009cd5071edfe03df6594c978eba8b0b7197f
+
+./.git/objects/79:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1379 Nov  8 13:08 02d876603a276978da9da03fecec5db772b0a2
+-r--r--r--   1 rich rich  332 Jan  3 12:19 449e780b2d36c791f4bbe1dac0c1910144898d
+-r--r--r--   1 rich rich   99 May 24  2015 7955f82d86459b1c506ae032f26570ee16dab6
+-r--r--r--   1 rich rich   46 Jul 25  2015 7bab0fd032711baa673bf7eb7bf6a7f3abf41f
+-r--r--r--   1 rich rich 1318 Jul  3  2015 9cc9b7497786d1eb82a2aa131134710a9e586d
+-r--r--r--   1 rich rich   89 Jun 20  2015 faeb87a884511292d5d61abce5ced0fab0a7a0
+
+./.git/objects/7a:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  161 Jul 25  2015 a11240b56a175784ddc82768e8b401736633b5
+-r--r--r--   1 rich rich 1227 Jul 25  2015 edf59f7ebbe6e0bd9835f363270af87f3e4663
+
+./.git/objects/7b:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  185 Aug 23  2015 00df2442e818b24cb3c1ea8718822cc275a1bb
+-r--r--r--   1 rich rich  197 May 25  2015 1aa499285252efa0f62b23120af948fcf88f29
+-r--r--r--   1 rich rich  142 Jul 25  2015 27046bbd6b20b98abbea59dfcb2a6ed43c13c4
+-r--r--r--   1 rich rich 1230 Jul  3  2015 36b242d598b2e7c303589f98cc16a0960c04a6
+-r--r--r--   1 rich rich  287 Jan 16 21:22 43f71bd6ced779965ebf51f1239460c780ab94
+
+./.git/objects/7d:
+total 12
+drwxr-xr-x   2 rich rich 4096 Apr 11  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   55 Apr 11  2015 a6ec9752322daab202a1daa08bdaafb42b75fb
+
+./.git/objects/7e:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   62 Jul 25  2015 11028e5aae96c8e8484fa8aabc7fcffd8844bc
+-r--r--r--   1 rich rich   53 Apr 11  2015 d098c5457c0c1d5fd5eff6919d82e72d182607
+
+./.git/objects/7f:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jul  4  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Jul  4  2015 2ba57f20b04373cbbc699c9ee339b96d24bcec
+-r--r--r--   1 rich rich   72 May 24  2015 556a8424ad4d27b54134dcef86313a93a7e192
+-r--r--r--   1 rich rich   44 May 25  2015 caaf66a94d817f647472fb52458cd5625b4edf
+
+./.git/objects/80:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  241 May 30  2015 2a6ee974ef78dd002f8868f0b51a82a140d9db
+-r--r--r--   1 rich rich   46 Jul 25  2015 4fec108452c0681fb58a4c294ad0366fb8b120
+-r--r--r--   1 rich rich  220 Jul  3  2015 6778beac21e9b5895b1b97bde79164ef749380
+-r--r--r--   1 rich rich  248 Jul 25  2015 b0c58e5f674e709ba9385e82775fca042300e3
+-r--r--r--   1 rich rich  306 Jan  2 19:15 ffb3684f7e69ac014fc2f6405bde7f229991b9
+
+./.git/objects/81:
+total 28
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  142 May 24  2015 03789da45c68cd632494dab1bc47fde29beba0
+-r--r--r--   1 rich rich  702 Jun  7  2015 6ff9bc3399a24942ec76cbe7f4626a62bfa6f0
+-r--r--r--   1 rich rich   55 Apr 11  2015 d29d4afef8e72e8f5ac2e573a44bc8e4584626
+-r--r--r--   1 rich rich   98 Aug 16  2015 d66bf4bf481848075439e3cfebfd1b28663dc1
+-r--r--r--   1 rich rich  175 Jul 12  2015 d77bb24df96cb8a6fba43e1069cb2b09d0218e
+
+./.git/objects/82:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  167 Jun 21  2015 43e3a52c82bb48aacf2277ace0a1f94edc59be
+-r--r--r--   1 rich rich 1561 Aug 16  2015 e009ead5caf9c0ab4081ce38bb7b0280c6f100
+-r--r--r--   1 rich rich  210 Jan 13 21:46 e5a8f9b8cda13c0116e47719edaa5608e6066c
+
+./.git/objects/83:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1387 Jul 25  2015 0edb3d0a9dbf89740ac1dfcf09257ce83539a9
+-r--r--r--   1 rich rich  178 Jan 16 00:44 bfae7c3c0fba4e580e59099afbd7923e608a23
+
+./.git/objects/84:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  142 Jul 26  2015 039508e11b1f84b93430667d8ddfea708ea41c
+-r--r--r--   1 rich rich   88 Jan 16 20:16 5252441a2da5e11f51de43642e29d2f2cfaa8a
+-r--r--r--   1 rich rich   52 Jan 16 21:22 6786222340f55be90441f95e02ac69a9ad92b9
+-r--r--r--   1 rich rich  144 Jul  3  2015 74a42ff9ff42a022f8089ec8559946621c0eb5
+
+./.git/objects/85:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  143 Aug 16  2015 019ebb9f935c69841d5e99dc383061eb94e7ad
+-r--r--r--   1 rich rich   60 Jul  3  2015 10efb7a2ef317aa7d7142b68433d99c737061e
+-r--r--r--   1 rich rich  329 Jan  2 10:00 1ae9840eb2b399349de4c19f18d08a2f2ce85e
+-r--r--r--   1 rich rich  142 Jun  7  2015 54941ba25f3f51948d0d69a221aded0b7cdd98
+-r--r--r--   1 rich rich  284 Nov  8 01:50 680074bbc50e91ea25f72111d17825ced5d3c3
+
+./.git/objects/86:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  894 May 24  2015 18e47801f930349c9c259f6f36aebaeaa67da9
+-r--r--r--   1 rich rich  514 Jan  3 12:19 606cc611650338dd255c2c0ae7dc87c4a88e62
+-r--r--r--   1 rich rich   46 Aug 16  2015 ca2367770cd0f7742e3fe304e631a423d9fe41
+
+./.git/objects/87:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  237 Jul 25  2015 5397d93f9b6d6ba13c52cddb7e1fbc4c3ef243
+-r--r--r--   1 rich rich  366 Jan 16 00:43 92899c2a31a8300da3d22ff2f83766ceab1b67
+-r--r--r--   1 rich rich  355 Jan 13 21:46 aa54e759f4a387452cc143ea1e4a8fa7eb6ce0
+-r--r--r--   1 rich rich   90 May 30  2015 ec605bcb03f8c2852ebd8f6ffb930f91e470ff
+-r--r--r--   1 rich rich   53 May 24  2015 f8ffbedfe480473e1fb9b5bd267493134f3135
+
+./.git/objects/88:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   47 Jul 25  2015 2a90e18b9cf47469d603af829e22b25b7a08a7
+-r--r--r--   1 rich rich   46 May 24  2015 74ac71863409202255eb9ac1039be7c2051117
+
+./.git/objects/89:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  327 Jan  2 19:15 0307aeeffe1504e538e42f334f4b0e8b69a5c3
+-r--r--r--   1 rich rich   89 Apr 11  2015 583dfffe53d23369def3fcc6c5f9f32c08f1df
+-r--r--r--   1 rich rich  209 Jan  2 10:00 c146319bb8a6e34dd2a30d6069805d58670e39
+-r--r--r--   1 rich rich  704 Jul  4  2015 f1cc6735138d23fac5b1eec7dc74bba1f327af
+
+./.git/objects/8a:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1126 May 24  2015 2be638b2c338f01ea5a284561986093dce484c
+-r--r--r--   1 rich rich  191 Jan  2 19:15 aefceb4c56799a3fcceb06db4d0710514f8687
+
+./.git/objects/8b:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Apr 11  2015 42addafa27f45ab827187c430fccdd03e178dd
+-r--r--r--   1 rich rich   54 Jan 16 21:22 57ff802ae7ff9376ec57ff266c8453e59bf172
+-r--r--r--   1 rich rich   56 Apr 11  2015 8a8732b22a3f5ce2659d26ce0d370bf6206ccb
+-r--r--r--   1 rich rich 1191 Jul 25  2015 945c1d6d2cfb67caf6eedd09633c9b005baadb
+-r--r--r--   1 rich rich  425 Jun  7  2015 fa169b020ef11a309dec7e8c0043cc73a2bd8a
+
+./.git/objects/8c:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   90 Jan  3 12:33 7b92c4c80524539083f24fa5cb4f39e0c2d78f
+-r--r--r--   1 rich rich   44 Jun 21  2015 8634aead316f76568c890134f3e85e24a33983
+-r--r--r--   1 rich rich  804 Jun  7  2015 a27a012c42b562b21cd298587f4b7e114588b6
+-r--r--r--   1 rich rich   90 Jul 25  2015 f84f4deabb407d419ab676c9776244a89e883f
+-r--r--r--   1 rich rich   46 May 25  2015 ffdb539e4bf55bc7f82d035413b0d9f4d4be78
+
+./.git/objects/8d:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   52 Jun 21  2015 1559fb36be11551e221c9d9685a95819883911
+-r--r--r--   1 rich rich  210 Jul 25  2015 248fbb04bb73bd05fd5c6656f4052968a54e72
+-r--r--r--   1 rich rich  143 May 24  2015 5f2fbef19e82296742ffb29401caefdf45f53d
+-r--r--r--   1 rich rich   46 Apr 11  2015 64da9e016bbae95547125399ae6a573d54bcfe
+-r--r--r--   1 rich rich  251 Jan  2 10:00 c687dee2ea8679f28227cf2928adf99b663f4b
+-r--r--r--   1 rich rich  211 Jan 16 21:22 e6d511ea56dfa3501ca32e0da40c8c788a5441
+
+./.git/objects/8e:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jul 26  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   87 Jul 26  2015 7c6ced6c0d8ae1de25ad6d0492719828be2fe6
+
+./.git/objects/8f:
+total 20
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   44 Jul  3  2015 49b9d3f8f890659845d5a3904eb611cc44b4e7
+-r--r--r--   1 rich rich 1525 Nov  8 13:08 b6ef45b8a4ba5c16dc89f0ef6b50f9a03963a9
+-r--r--r--   1 rich rich   46 Nov  8 13:08 bd3480b565fdd23d2242d317cde430d893f354
+
+./.git/objects/90:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   47 Jan  2 19:15 60669e1aa498bd0b5135ad1442dd097281e257
+-r--r--r--   1 rich rich  211 Aug 16  2015 a6e4432361dca6032b223c060d2c21a44dd4aa
+
+./.git/objects/91:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  234 Jan 16 00:43 2dc0f5e43538ee09ae9a58735f06d0b21cefc1
+-r--r--r--   1 rich rich  143 Jan 17 17:51 430c2ef001b7cc3890d484e84257f909c3704e
+-r--r--r--   1 rich rich  181 May 24  2015 a4c8e4b8152431d6d34161ced7a7b3709ac653
+-r--r--r--   1 rich rich 1988 May 24  2015 ab4bb64a0b588d09bf690fa2081a2e0a49bbac
+
+./.git/objects/93:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Jun  7  2015 54b93c77f91de417d869c7df115982ded19f66
+-r--r--r--   1 rich rich  288 Jul 25  2015 b013fb094c13d18aa5da868c106869afed6aed
+-r--r--r--   1 rich rich   48 Jul 25  2015 c6a95e17fb083b2f81389d75d4b5488a6d0d29
+
+./.git/objects/94:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 Jun  7  2015 42c97116bf28e1752c09af8504aa068d3bf2a7
+-r--r--r--   1 rich rich   61 Jan  2 10:00 f086c74ebc6aa4819a7f16b0c1de1511d5e58d
+
+./.git/objects/95:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  179 Aug 23  2015 332e700d22c4fb3f48a7a8a14fe3f36e518b48
+-r--r--r--   1 rich rich   46 Jan 13 21:46 d69e3446bbffda6bb2b2d8e5cdf3e006f7c04d
+-r--r--r--   1 rich rich   59 Jun 21  2015 f5cb243877235185d941d9b60fd220b6040139
+-r--r--r--   1 rich rich 2488 Nov  8 01:50 feb3a8d989c2ddef6e7e3601871c89f92134cc
+
+./.git/objects/96:
+total 20
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  116 Jun  7  2015 2463377bdcc4170ec10087ef8f5c4bbb43e62f
+-r--r--r--   1 rich rich   46 Aug 23  2015 38497b842c8e927a0b7eff77c0a5dd7577bafa
+-r--r--r--   1 rich rich   61 May 24  2015 3b4a7cd1c87c628c1d198c180b887152699b42
+
+./.git/objects/97:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1476 Jan 13 21:45 01162295d60c5fbef2a61d07f1af1621326792
+-r--r--r--   1 rich rich  497 Jan 17 17:51 b779e57d399787a07c21e1324355e0db592f92
+
+./.git/objects/98:
+total 24
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Jul 25  2015 20ce2bd3c612336efd747cedf0e71bb5f7746e
+-r--r--r--   1 rich rich 2223 Aug 23  2015 419dec05579a61e61c623ecb3fd981b82cda23
+-r--r--r--   1 rich rich   90 May 24  2015 41c32f54c58d98b38f2c0061bcefbb9aba332e
+-r--r--r--   1 rich rich   59 Aug 23  2015 d684298d1a9d50f182ae7625fb161803de4923
+
+./.git/objects/99:
+total 12
+drwxr-xr-x   2 rich rich 4096 May 24  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 May 24  2015 92d18a2e6aed8cffcbbda230dc8d3d7a321bae
+
+./.git/objects/9a:
+total 24
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 May 25  2015 2e1d816ef61936464516ce0c8aaf9fc9b1efbb
+-r--r--r--   1 rich rich   90 Aug 23  2015 59f241bcdb8790557f8a6abe015ffacb7b681c
+-r--r--r--   1 rich rich  342 Apr 11  2015 a22e264212258176413d7be2eb929f908e7797
+-r--r--r--   1 rich rich   46 Apr 11  2015 f0edd9a207b7f46c1bf18f00396e3fa783c5b6
+
+./.git/objects/9b:
+total 20
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   50 May 24  2015 ac2a41510994c7e9bbb4be46c81d2cfbcb3ee9
+-r--r--r--   1 rich rich   44 May 24  2015 cd533725c968040474b357b764d885b35eb713
+-r--r--r--   1 rich rich  208 Aug 16  2015 ed3d1411582f1468c9ad774a47edca1e374b30
+
+./.git/objects/9c:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  364 Jan 16 00:43 dd78191e2dccf2134587928c129ae76b9bc368
+
+./.git/objects/9d:
+total 36
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  900 May 30  2015 1c6749c8414d61ae335bd7525b1b05b2b8070a
+-r--r--r--   1 rich rich  304 Nov  8 01:50 2144557857eb9ef54d4c2e4cbe4ea7a16a1394
+-r--r--r--   1 rich rich   48 Jul  4  2015 28f8d0ded4b0e7c95c88e2967dafdb67690070
+-r--r--r--   1 rich rich   55 Jun 21  2015 41f773a288962ed64b73fb2d9b13d10bd0088c
+-r--r--r--   1 rich rich  410 Jan  3 12:19 b8120eda9e724425dc7704dbc7057618b7438f
+-r--r--r--   1 rich rich  224 Jan 16 21:22 f0de76e7bce789faa620d1c70c1999aa44536d
+-r--r--r--   1 rich rich  140 May 24  2015 f31b4a3c22cae6f8aeb0457dbc2147d423083b
+
+./.git/objects/9e:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:45 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  237 Nov  8 13:08 0021d9efd7a7382eee088582ccc75127025c65
+-r--r--r--   1 rich rich  417 Jan 13 21:45 0927a0235eaf3b943d9ec7f2530ed1418e5e3e
+-r--r--r--   1 rich rich   90 Jun  7  2015 137759b0e1657a8b683d5664b25041d7b99862
+
+./.git/objects/9f:
+total 20
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 Aug 16  2015 5a96f0ac4e6fe07fc07a1a2e9f3f8a17c252cb
+-r--r--r--   1 rich rich   45 Jul 25  2015 a6ec39d5bdc3512124a6194cefa7cfe0f6808d
+-r--r--r--   1 rich rich  315 Jul 25  2015 dd8c0c58d96fde3a73a9db31933b1df984508b
+
+./.git/objects/a0:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1299 Jul  3  2015 264bd935498263d21b054a6e90c6456f140cbc
+-r--r--r--   1 rich rich 1560 Jan 16 20:15 5884b1d178d1f720c5da55e06b6cd7dec3391a
+-r--r--r--   1 rich rich 1853 Aug 23  2015 5a8475770fd8dc3b8feb195de544d8276ae94d
+-r--r--r--   1 rich rich   60 Apr 11  2015 65fc59db587fe8a729b6c486822b6ecfab4a97
+-r--r--r--   1 rich rich   52 Jul 26  2015 c5a3218cab4be20f061f7bf886c14f88514dbb
+
+./.git/objects/a1:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Jan  2 19:15 1a911e7cfcdf217d76ce8718ad0329ea0ad844
+-r--r--r--   1 rich rich  240 May 25  2015 472185d1d2f0d6ac827bc3bf214872cd1254aa
+
+./.git/objects/a2:
+total 16
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   51 May 24  2015 0f57c1abc6f86bfba4388cd556ae39484406c4
+-r--r--r--   1 rich rich   48 Aug 23  2015 b03e3168dfbb5ab968bcd086e48c5d82a90e1a
+
+./.git/objects/a3:
+total 24
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  143 May 24  2015 08b72e5a2d4cc09484360bbd7cbd648892b55d
+-r--r--r--   1 rich rich   98 Nov  8 13:08 4420bc28a865716880cb644d521807d12e8909
+-r--r--r--   1 rich rich   46 Jul 26  2015 b2a1fcf2736d97c27c79dac6887fd857ed1afd
+-r--r--r--   1 rich rich  230 Jun 21  2015 c160b8095fddf841b0f19d3147d19b40a43a53
+
+./.git/objects/a4:
+total 36
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  198 May 30  2015 11d49beaede1954ee1984316c5c69b32b6695b
+-r--r--r--   1 rich rich   46 Jan  2 10:00 26c3ba2b32103e6be9883b3cc4b8e149275df3
+-r--r--r--   1 rich rich   44 Aug 23  2015 a65d77835fd5984a6bc593468bc94a127f4cff
+-r--r--r--   1 rich rich 2039 Jan  2 10:00 b25fac57df9d4a7a75db082f7f1ec6af582198
+-r--r--r--   1 rich rich 1429 Jul 25  2015 d146930b838a025b14386df72deb05c4efc733
+-r--r--r--   1 rich rich   44 Jul 25  2015 d5915d932119c3eede259ce5382d75ddc2e3e4
+-r--r--r--   1 rich rich  412 Aug 16  2015 ed9528f645fc1a081b0af8cf3aa8e0db290b5e
+
+./.git/objects/a5:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jun 21  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 May 24  2015 7739196c7f40877d6e66a8b9179b990314b33b
+-r--r--r--   1 rich rich  143 Jun 21  2015 a147ef94629dfab50d635c1b0e0a9263db78cd
+
+./.git/objects/a6:
+total 16
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   44 Aug 23  2015 2225812b0d8da695cd179e0e8f9247a0d212cf
+-r--r--r--   1 rich rich  210 Jul 25  2015 8226a21a0f046db882f53eb9cccaace98e092a
+
+./.git/objects/a7:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   53 Jan  3 12:20 15039ef1207ab2f0e31974cfaa9863f85b54c5
+-r--r--r--   1 rich rich  310 Jan 16 00:43 5bec77b5ec97bb210a5f23d6cc800bddc65b85
+-r--r--r--   1 rich rich 1311 Jun 21  2015 7f27ab934402c1636f8e444cf45cd27d70c021
+-r--r--r--   1 rich rich  662 Jan  2 10:00 b438f7f6ae056cfddbbd868325d8baa0f6a448
+
+./.git/objects/a8:
+total 20
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   90 Aug 23  2015 59f911b83c21bf6fef2b603567d7e2e308784f
+-r--r--r--   1 rich rich  192 Nov  8 01:50 e2e45d88ba002d0e5400594c5eb97cd36b682f
+-r--r--r--   1 rich rich  238 Nov  8 01:50 f8a21fef7c099ff25177ffa022be970b37dbb9
+
+./.git/objects/a9:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  552 Jan  2 19:15 03bae4b13ded1b884bcde35c80a90e029df903
+-r--r--r--   1 rich rich  351 Jul 25  2015 3187abd511f93474d5e8bf5672d8bbaec31bb8
+-r--r--r--   1 rich rich  357 Jan 16 20:15 5d7a1ec13563aa79cfb8450006e1faa13d5d70
+-r--r--r--   1 rich rich  212 Jan 17 17:51 8012623684f3a36d141fa73d9b701c921e4858
+-r--r--r--   1 rich rich  730 Jun 21  2015 aecb50453cfcc83ce52f97710c7c274d0abb0b
+-r--r--r--   1 rich rich 1304 Jul 25  2015 ccf098ef7d1a59e4fbce2c27d56b6ac963777d
+
+./.git/objects/aa:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   47 Jan 13 21:46 89a4c1966ec874a78a7c488ac6a0fc016b8ec2
+-r--r--r--   1 rich rich   62 Jan  2 19:15 d1885200879310a546e1707f0e260a42785586
+
+./.git/objects/ab:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  240 Jan  2 10:00 ab92e87ca13f18ccb74c1123243ed95c45f482
+-r--r--r--   1 rich rich 1891 Jan 16 00:43 c9177930941201dbefdd248a8815f765dd2e5c
+-r--r--r--   1 rich rich   91 Jul 25  2015 cb6f37c8ba74345989f9ce596b607ae04f5aa6
+
+./.git/objects/ac:
+total 20
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   47 Jun 21  2015 b063f3e5afbdc8f8437d6335625ed6283cca5a
+-r--r--r--   1 rich rich 1985 Nov  8 13:08 c39380eec4fc40f686e12e9d675313e9f5e530
+-r--r--r--   1 rich rich  180 Jun  7  2015 d9c21b6e32be56c984985e89bd9a632f5b2474
+
+./.git/objects/ad:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jul 26  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  210 Jul 26  2015 74cc5cc558d6bb6192984d3723f34aa29c2115
+
+./.git/objects/ae:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  160 Jul 25  2015 15315eee1ee147b6e66044f700b9a87294052a
+-r--r--r--   1 rich rich   61 Jan 13 21:46 3b6eb5ba1b91835931a2369b61811a41c71046
+-r--r--r--   1 rich rich  270 Aug 23  2015 7b6cf5c2c10d222da4d54d21b0d66cc6d34bbd
+-r--r--r--   1 rich rich   91 Jul  4  2015 7e54061aa80f2c0f7d579d0c133796aef77ae8
+
+./.git/objects/af:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  229 Jan  2 19:15 8adc13b8bc41e31b3462321c7e98defffa67f7
+-r--r--r--   1 rich rich  136 Apr 11  2015 a33026f591f127b0e103ad31a8e1099f46d4cd
+-r--r--r--   1 rich rich  199 Apr 11  2015 d0ce08038ffbb4994eb760b334e371b2a6e8b3
+-r--r--r--   1 rich rich  332 Jan  2 19:15 d188096425f16ce37e1bcac3c9f80bc4c19807
+
+./.git/objects/b0:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   87 Nov  8 13:08 3e410c4364acd912bc211819b369cd8a76dacf
+-r--r--r--   1 rich rich  210 Jan  2 19:15 5950c99a6549eca781baaf6e8b8f539a032962
+
+./.git/objects/b1:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:20 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  907 Jan  2 19:15 36dbf256bd95f755b3ecd51307b13a94e2f70b
+-r--r--r--   1 rich rich   46 Aug 23  2015 4d4451cfa380ea8c48edf2d360efe2802e59bc
+-r--r--r--   1 rich rich  143 Jan  3 12:20 a354bfed8769c61325cfaec963eba1ddd2fa82
+-r--r--r--   1 rich rich   50 Aug 16  2015 bd63c9ca37057ac44cc71f33e028cc30a90e2a
+-r--r--r--   1 rich rich  536 May 30  2015 c5c3f3fb9b8df6392fcaa77a7aa629d9c36732
+
+./.git/objects/b2:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  409 Jan  3 12:19 232c8d8e0da887b3813efbbef291d7e76af8ae
+-r--r--r--   1 rich rich  380 Jan 17 17:51 c4f93b9ab8d6a597c061e595f46b3b0b9e941e
+-r--r--r--   1 rich rich   46 Jul 25  2015 d14e68a4e4464b98bec8a443168d18b3a14f3d
+-r--r--r--   1 rich rich  170 Jan  3 12:33 f74e9f1b2b0af5322256250c9b830f4f5f7459
+
+./.git/objects/b4:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   47 Jun 20  2015 1c570c3456801c46d4f5b8ddd9ff6aa16a7afb
+-r--r--r--   1 rich rich   90 Jan  2 19:15 380354c8e755cad4c65ec255e6e541d5e5e6ca
+-r--r--r--   1 rich rich   47 May 25  2015 4995b4643af1fa743ac5371ece282fdaab5ddf
+-r--r--r--   1 rich rich   44 May 25  2015 63e6960e145e8c82cdd0ae962c9ecde0a0c9e0
+-r--r--r--   1 rich rich  145 Jun 21  2015 d9d94fb519dd3d3e7cdbbd020807f54c40aafd
+
+./.git/objects/b5:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  696 Jan 16 21:22 45c3f19199cb9d1e2ad5e82332fb58bc2e5c98
+-r--r--r--   1 rich rich   52 Jan 13 21:46 662924d55ee07d7e43de5bf51300383f0b531c
+
+./.git/objects/b6:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  315 Jun 21  2015 02d1e31b2f85a870c78989d736bb4812accea2
+-r--r--r--   1 rich rich   75 Jan  2 10:00 bd1c9231a1b25f56ff5b84dc647374b5692cb8
+
+./.git/objects/b7:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   44 Jan  2 10:00 a91e857cfe2d9f135ce159456c93b61f8c21ba
+
+./.git/objects/b8:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   52 Jul 25  2015 4d858da6b7be4d60aed4e8e0268a1a761470dd
+-r--r--r--   1 rich rich   47 Jan 16 00:44 d8b7685ee5bd4a401771451aa0e160c5b6a422
+-r--r--r--   1 rich rich 1503 Aug 23  2015 d99ee2c837d46e50a887027371e1b767bd8aab
+
+./.git/objects/b9:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  354 Nov  8 01:50 502c145ddd10d84fb1bb78acc7dc7d7e7d7c3d
+-r--r--r--   1 rich rich  240 Jul  3  2015 90b2f0ff4b56c10ac338cf80738e587d8c6180
+-r--r--r--   1 rich rich   46 Jan 17 17:51 b3ea924037abdc37e6f9713cfb20fee316f302
+
+./.git/objects/ba:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   55 Aug 23  2015 88adca478b01d95322dd73cb3032e1f0522bc7
+-r--r--r--   1 rich rich   62 Apr 11  2015 9734ac62d0247273449a050b3cb76b86c31bc2
+-r--r--r--   1 rich rich  143 Jan  2 19:15 a087ce76db3f0a13ae11272b4d01d2de1e576f
+-r--r--r--   1 rich rich  379 Jan 16 00:43 a217f2b698cfa825e2f16000049df7cc811b16
+-r--r--r--   1 rich rich  196 Jan 16 20:16 f43121fdc0f8ffc2eedcb6c163a8eb3145eb7a
+
+./.git/objects/bb:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1776 Nov  8 01:50 b93a0f84a583bd3443076f08a7c594e4875cd3
+-r--r--r--   1 rich rich  287 Jan  2 19:15 e60ed27db6b9ae3cbc7f2943eef3003014fa88
+
+./.git/objects/bc:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   53 Jan  2 10:00 6169d538f96bdc0a9199a4cd18e11e18555828
+-r--r--r--   1 rich rich   90 Jul 25  2015 ed751b900f9e14df8b2f13706f9e4ea5dfc701
+
+./.git/objects/bd:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   47 Jan  2 10:00 1302a92b0a87e2e8d3f8cdc6d7f98f6b65c534
+-r--r--r--   1 rich rich 1493 Aug 23  2015 30071ac21c345f53200838e55c5bd6505ca7d2
+
+./.git/objects/be:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:20 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 Aug 23  2015 4f8567389f98ec4b9c13269fc7b43cfa438991
+-r--r--r--   1 rich rich   46 Jan  3 12:20 c8e1e4495078ae9d11977d7f3572a48bc46b20
+
+./.git/objects/bf:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  498 Jan 13 21:46 83143d188c31255c1473cf123432dca43fb510
+-r--r--r--   1 rich rich   86 Nov  8 01:50 96cbf7d766226e4dd20f1a892863bca438b118
+
+./.git/objects/c0:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  362 Jan  2 19:15 1d8592583ac1dfa4fd6a433a9f2831e6b6ae28
+-r--r--r--   1 rich rich 2323 Jul 25  2015 41cbfd640ad6165ba75e117757d285f8db30c2
+-r--r--r--   1 rich rich   99 Jul  3  2015 ac6e2a9a9084a4bb998bd02e6979de88fdc563
+-r--r--r--   1 rich rich   56 May 30  2015 c9d02cb141301e007831756db502e12061b60d
+
+./.git/objects/c1:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jun  7  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  132 Apr 11  2015 6866031de90d0875ce820d39192c5e61906575
+-r--r--r--   1 rich rich   59 Jun  7  2015 9f8b82a27f962d48124b5f67e9e52c1670439a
+
+./.git/objects/c2:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  247 Jan  2 19:15 2344d55ae41591293d8de7ef14a8f3bfd8dc39
+-r--r--r--   1 rich rich  352 Jan  2 19:15 5cf38711d2ccc3875fc0dcf6d5f546570e6d85
+-r--r--r--   1 rich rich   44 Jan 13 21:46 b87876d15ac04d70d9b818ba0c84e719fba7ae
+-r--r--r--   1 rich rich   99 May 30  2015 ca7dc9a95d2417cdc246f2f4ccb3f73c1e352d
+-r--r--r--   1 rich rich   98 Jan  2 10:00 e5b28dcf5aad8c3f78a111a15e9b3b25fadb76
+
+./.git/objects/c3:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  304 Jan  2 10:00 452f434b01f42c745e9a1720cb14786f4b0a96
+-r--r--r--   1 rich rich   52 Apr 11  2015 63713587c72ca11290d7f1c955eb4323531eaa
+-r--r--r--   1 rich rich  180 May 24  2015 7d47344f7a8ee5286dc2f518e1ed9e72f70cd7
+-r--r--r--   1 rich rich   99 Jun  7  2015 ff49c826459cea34102761379bbbc1e6169276
+
+./.git/objects/c5:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   48 Aug 16  2015 239d7b0c9647c46e0fc3182a5586ed11314523
+-r--r--r--   1 rich rich   90 May 24  2015 aaea261d22a701a62b1f5d463b1afa48b52536
+-r--r--r--   1 rich rich  389 Jan 16 00:43 aefb3b6e9c93747be94ded3e3eb1cd3363b382
+-r--r--r--   1 rich rich  600 Jan  3 12:19 be6cf958bcfc1ab86da41027bb84d45721bfbf
+-r--r--r--   1 rich rich  210 Jan  3 12:20 c6f28407ff20c04d71e1c3a2f21ea85089fa25
+-r--r--r--   1 rich rich   46 Aug 16  2015 ff7d29df5511dad715038716139a39eed845a0
+
+./.git/objects/c6:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  787 May 30  2015 301bfb4196c7a7d8a9a9aa7db42f3542b7b001
+-r--r--r--   1 rich rich   87 Jul 25  2015 8dd8337d9457697c635c3a85ce134c5f555815
+-r--r--r--   1 rich rich   61 Jul 25  2015 fdd44c4aa6bf7eaea27319754402d7f66ff47c
+
+./.git/objects/c7:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   47 Jun 20  2015 1288f2fcb5b430d5db83ec879bb10b02c30313
+-r--r--r--   1 rich rich  220 Jul 25  2015 7a7ab729d109b2e1f0a6f6199a5452baf816b0
+-r--r--r--   1 rich rich  836 Jul  3  2015 975ca4f050976ab063826c6147e712e61970f3
+
+./.git/objects/c8:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jul  4  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  240 May 24  2015 b585816c715b42b9571f8fde4e106a8524ee71
+-r--r--r--   1 rich rich   46 Jul  4  2015 bb3c2d84e6b954e0b940652d3dfd4b7023a701
+
+./.git/objects/c9:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 2223 Jul 12  2015 3caf60a260eca625686bff9903279265651d33
+-r--r--r--   1 rich rich  177 Aug 16  2015 7d5ead1a5a9d9a1e49df064e62a05c25834f67
+-r--r--r--   1 rich rich  218 Jan  2 10:00 8d190d5fdd6b87eedb2631b94326ccc9bced19
+-r--r--r--   1 rich rich 1197 Jul 25  2015 c40955c32b8e4894d8c5216472dcb10f2ab258
+
+./.git/objects/ca:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  489 Jan  2 19:15 1a7e66ad7976b7b282a194470974050738f6d1
+-r--r--r--   1 rich rich 2042 May 25  2015 3495a5df3685c649eaf70493b3e74e1b2620d7
+-r--r--r--   1 rich rich   44 May 24  2015 46f6de3d2e16578c5bf72bff599b536f14879b
+-r--r--r--   1 rich rich   46 May 24  2015 83e9d6965fec8f845d5266c7520a73f56f9310
+
+./.git/objects/cb:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Jun 21  2015 1dac048fc93913f401508744f940d3881cd791
+-r--r--r--   1 rich rich   44 Jul 25  2015 8b037fadd8206813e4f7392ea377791355783a
+-r--r--r--   1 rich rich   46 Jan 16 20:16 9795c8413d35cce39033a75c3d3c86f21f7114
+-r--r--r--   1 rich rich   52 May 30  2015 a133c05d3741f02fcd41ca34a50c63c09274cd
+
+./.git/objects/cc:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Jun 21  2015 040149de223c9acec329ac1cd424e52b01308a
+-r--r--r--   1 rich rich  369 Jan  2 19:15 831e0a181e688bef88903a7d8629ba82eade84
+-r--r--r--   1 rich rich   47 Aug 16  2015 9c6cae4d821de870faaf99abd7a02fa46d0b76
+
+./.git/objects/cd:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  142 Jul 25  2015 081ffa4eb932d60c1f5926324951d27a7cf98c
+-r--r--r--   1 rich rich   91 Jan 16 21:22 11ec8cfee1933366b53b09550a9fb3189f20c5
+-r--r--r--   1 rich rich  373 Jan  2 10:00 7ff4b74065c7051149985791164d407311cc07
+-r--r--r--   1 rich rich  354 Jan 16 20:16 d55a77fe3f87d866a78fa0de9b9f91da19758c
+-r--r--r--   1 rich rich  355 Jan 16 00:44 e52043f19ce19f7dc60f6572bfe0e63cef6bb4
+
+./.git/objects/ce:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jun 20  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  452 Jun 20  2015 855d49eb279fc6de8e9ad0406b45da79027846
+
+./.git/objects/cf:
+total 24
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  280 Nov  8 13:08 8cdea2ee67a892c49736a08f96523375bd1b9d
+-r--r--r--   1 rich rich   60 Jul 25  2015 8def3a5ec67439e903086c02ff2e05c74aa3d3
+-r--r--r--   1 rich rich  195 Aug 23  2015 d8b3178a789bd0c8704d2fe93eb9957256073b
+-r--r--r--   1 rich rich  234 May 30  2015 e344a1b1381b3e9b7060d5399e4e2d4ef7b25c
+
+./.git/objects/d1:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 13 21:46 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Jul  4  2015 12f4f8ad653740dbab3ab628affa89d98cf68e
+-r--r--r--   1 rich rich   61 Jan  3 12:33 47760448afbdd85ea2b28d4f6e1a0869e0f901
+-r--r--r--   1 rich rich  805 Jan  3 12:33 5b9f27e18f3104fc948dcdd821b2bd7db375b3
+-r--r--r--   1 rich rich   98 Jan 13 21:46 a32d1b668a9780437ea8ef2e82f28b4b981659
+-r--r--r--   1 rich rich  823 May 24  2015 a935b73ac4159212257d6a35a31c4dac5bc75c
+
+./.git/objects/d2:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   90 Apr 11  2015 1eceb80db33c681a9eadec905857a782f00497
+-r--r--r--   1 rich rich  278 Jul 25  2015 292146c0225c7601a420a83b2c133b34d1e028
+-r--r--r--   1 rich rich   52 Aug 16  2015 a73082692295b3df028d927c2bbd91e84f6fa2
+-r--r--r--   1 rich rich   52 Jul 12  2015 b105a2db19480f4599da17003f879fe6cc1b5b
+-r--r--r--   1 rich rich 2500 Jan  3 12:19 ba72a51c553797aab8368362ae28ab2fdd5a7d
+-r--r--r--   1 rich rich   48 Jul  4  2015 cb472194845f0ff869752f2f6f8fdd911502e7
+
+./.git/objects/d3:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  365 Jan  2 19:15 fb311399c01b3c9fc6f81bfa43ddc612130484
+
+./.git/objects/d4:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 1304 Jul 12  2015 3e17ad697ccdcba67916279f63e390b7f0c2b1
+-r--r--r--   1 rich rich   46 Jan 16 00:44 59cb0bcb342ac9695c7e25e2a1d5d7e0688ec6
+-r--r--r--   1 rich rich 2266 Nov  8 13:08 6a57ee21fcb35775d5c7d14c4a7551ab197e73
+-r--r--r--   1 rich rich  217 Jan 16 00:43 7b49a3f493f849fbc0c8967e0a436185f63afe
+-r--r--r--   1 rich rich   47 May 25  2015 7f6206c877716a2024c60bcb7cd00f6ec3a84d
+-r--r--r--   1 rich rich   61 Jul 25  2015 d600b07f61134125181891a0d56964a3edf113
+
+./.git/objects/d5:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  497 Jan 16 20:16 5a1d1bc92ad82cbef7a32c8ff2732526a4e4fe
+
+./.git/objects/d6:
+total 40
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:50 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 2472 Jan 17 17:50 06cb4fe9ab2bd9e8532dc258bf4724ea58fc6e
+-r--r--r--   1 rich rich  400 May 24  2015 46b99bbabebc98ec8753011f620d6a690b6592
+-r--r--r--   1 rich rich   45 Nov  8 01:50 4a3bd2bb8dbd9b1f9537c2ee2de06ed12a4d1a
+-r--r--r--   1 rich rich   44 Jan 16 00:44 4aa5c0a9bebb4f1560543194ce8be0aa1cbcaa
+-r--r--r--   1 rich rich 2053 Jan 16 00:43 94080be1ce53c3262d43ce85541622b6880523
+-r--r--r--   1 rich rich  378 Jan 16 00:43 bbb6b9f2a625c70560615ccbc65a6869ee2145
+-r--r--r--   1 rich rich  646 Jun 21  2015 c8aa40875ce85f1ab53c56152798d47cfc2487
+-r--r--r--   1 rich rich  143 Jan 16 20:16 f9685d624c24c03cc8c587162331449773266c
+
+./.git/objects/d7:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  388 Jan  2 10:00 449a5a9bbc73832eb8f54ee932a0d5f1e564c2
+-r--r--r--   1 rich rich   56 May 25  2015 96759c64d678d47a1b6c54451ffacf58d18739
+-r--r--r--   1 rich rich  143 Apr 11  2015 a143915b73d37da0670138a1dcc67f02b21d71
+-r--r--r--   1 rich rich  863 Aug 23  2015 fb9b95fedd6071a833afcb1dfb6e61727fa56f
+
+./.git/objects/d8:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jul  4  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   44 Apr 11  2015 1e46632e80fcf14ae1dc572f032e66625c822b
+-r--r--r--   1 rich rich   53 Jul  4  2015 f185047a9e663d9e42c4703539f531e9216aa9
+
+./.git/objects/d9:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  142 Jul 25  2015 24125895ceaa0f12c421c327f3f7ccc75bc82d
+-r--r--r--   1 rich rich   53 Jan  2 10:00 4ba77880370cbfaa142adca944eb906981714a
+-r--r--r--   1 rich rich   46 Jul 12  2015 9a22ab13080f3360d92b465a87b52f9fb62838
+-r--r--r--   1 rich rich  161 Jun 21  2015 b81c7f23fe400576debb5125a08a8725e0027f
+
+./.git/objects/da:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  532 Jan  3 12:19 1582681cb1b397700061885c00a43ed703c2c4
+-r--r--r--   1 rich rich  170 May 24  2015 8761b9ae39b0cea86354dca174a2ab994e806c
+-r--r--r--   1 rich rich 1293 Jul 25  2015 aa7f024f9fa2aed29e5fb8d27660a8495e2284
+-r--r--r--   1 rich rich  211 Jun  7  2015 ef2ca8a8d5b90da32f5616ffd88dd99cfa7f2f
+
+./.git/objects/db:
+total 24
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   44 Jul  4  2015 154999e71e6d0282ec2a12526de7fe0111d024
+-r--r--r--   1 rich rich   90 Aug 23  2015 62d9d1438665d1a4487bf824ba9f974a2bb129
+-r--r--r--   1 rich rich 1571 Nov  8 01:50 9b62c7efcf90192de1420e72b7a2f43476d318
+-r--r--r--   1 rich rich   46 Jun  7  2015 be6dd64c610e568a7da09c2b1a3a01175d30c2
+
+./.git/objects/dc:
+total 12
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   90 Aug 16  2015 cee9bbad06490c79f98caac6c831ff032d1f81
+
+./.git/objects/dd:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  142 Jul 25  2015 84c6288ae3330b92a241674fe52e937310e06d
+-r--r--r--   1 rich rich 1597 Jan 16 21:22 db4b5695459ef4cec3e078f7066373d86171b8
+
+./.git/objects/de:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  225 Jan 16 00:43 21cfb2cbca7f38e1d8002f502e5545d482d181
+-r--r--r--   1 rich rich   60 Jan 13 21:46 4e6c2b77e8b28b7f339b4d1b84635908c6ed61
+-r--r--r--   1 rich rich  411 Jan 16 00:43 79601b89e3701ad30f3058836d12e3c9e8a374
+-r--r--r--   1 rich rich  623 Jan 13 21:45 887ea4452514bddafe6c43a8a5cdb3c995b284
+
+./.git/objects/e0:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  378 Jan 16 00:43 bfe0cf2cd0b9f0d1558968277316b7ccbe8539
+
+./.git/objects/e1:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   58 Aug 23  2015 5d75bc9b3fea75333eede5e85b59ab1a1cc0cc
+-r--r--r--   1 rich rich  357 Jan  2 19:15 ee972a2599399e14d1b2ade3d07b5532002e8d
+-r--r--r--   1 rich rich   52 Jun 21  2015 fae190262942b138babf76efabaccd16f4ff9a
+
+./.git/objects/e2:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:33 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 May 24  2015 2dc2929adc17da9205f11e09dcdce778e7e2b9
+-r--r--r--   1 rich rich 1340 Jul 25  2015 5cd66d3355252f26b0f4ac59b2648a1664a5ff
+-r--r--r--   1 rich rich  330 Jan  2 19:15 732cfecb6e37da72cea49278f0daedacd99c58
+-r--r--r--   1 rich rich   52 Jan  3 12:33 b4d2f93c9c42e54bb90159eabf0996dfb401a0
+-r--r--r--   1 rich rich  322 Nov  8 13:08 bf451a8b20ba1616240c1d35f21fd824c90011
+-r--r--r--   1 rich rich  860 Aug 16  2015 c53c2e4595aa48ec788f7d3cfaf160dd2c1a66
+
+./.git/objects/e3:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   90 Jan  2 10:00 0d9bf792f14255cdb4e0ce2f381724039b7fda
+-r--r--r--   1 rich rich   47 Jan 16 00:44 54d36875f2a3aabb3a2df589bca661631c3392
+-r--r--r--   1 rich rich  441 Jan 13 21:45 a09e93b8c47f01d848c5f7a234ee23a9fb134e
+-r--r--r--   1 rich rich  237 Jul 25  2015 c2d6b48297dc621f17914ebd3605d504e247f5
+-r--r--r--   1 rich rich  758 Jul  3  2015 fcf6c1e06e5da6c6282e81951941d3867a1800
+
+./.git/objects/e4:
+total 36
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  198 May 25  2015 0050b15e83f1ac5e8bc00367715d293c6a29d6
+-r--r--r--   1 rich rich  397 Jan  3 12:19 0832a5cc12acd0e052e4b92bf93264287eb460
+-r--r--r--   1 rich rich  195 Aug 23  2015 3bf0ba969f3d8d4279a7d4196f7a830eb5f74f
+-r--r--r--   1 rich rich  323 Jan  2 10:00 7e64a45d309b9febab7d804137a97b451f3a67
+-r--r--r--   1 rich rich  195 Jan 16 00:44 8f6dcfb35e2a2cf7f40eeacc593d2d1e31e351
+-r--r--r--   1 rich rich 1436 Jul 25  2015 a7e46cc2418a4d2b18e837fd6c80163ddd82e9
+-r--r--r--   1 rich rich  302 Jan  2 10:00 fa987fa7359a79f77d6a3495b263465234eb23
+
+./.git/objects/e5:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:50 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 2259 Nov 26 12:38 09aa1a5cbd77a2ee7e3d1543d69e68816b7335
+-r--r--r--   1 rich rich  109 Jul 25  2015 2719a65957584e9ff55258872bcab51c275b50
+-r--r--r--   1 rich rich   54 Jul 25  2015 76dbb27be1c13a7fb9174c0eb045b4683e44d4
+-r--r--r--   1 rich rich  341 Jan 17 17:50 d0b757596eee5060385d25b10ef8b4af304840
+-r--r--r--   1 rich rich   99 Nov  8 01:50 e44e99e7edb916c7ce6d5885245b4364401e17
+
+./.git/objects/e6:
+total 20
+drwxr-xr-x   2 rich rich 4096 May 30  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich 2042 May 30  2015 027b5db7706df48eb352fe7b83f8431349ce07
+-r--r--r--   1 rich rich   47 May 30  2015 48905c1f5ee342a8c47272910205c08f3609cf
+-r--r--r--   1 rich rich   46 May 24  2015 d403f8b908eef403a4488a4131696b200149bf
+
+./.git/objects/e7:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jun 20  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  240 Jun 20  2015 6b1f62f608e56ded856d5e009b6400879458b2
+
+./.git/objects/e8:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   52 May 25  2015 51698232662a835360f75361882816cac90ded
+-r--r--r--   1 rich rich  266 Aug 23  2015 760d4454587fc74f251999755c570198f49e26
+-r--r--r--   1 rich rich   46 Jan 17 17:51 7eb5e83ccb7881bfef89cf6a006a433974a1ba
+-r--r--r--   1 rich rich  408 Jan  2 10:00 8bc42cc60afd0a9bc469d170f85c9e766f6b97
+-r--r--r--   1 rich rich   61 Jun 20  2015 f7b402d845c877b498ee0fb8e62e778d41f786
+
+./.git/objects/e9:
+total 20
+drwxr-xr-x   2 rich rich 4096 Nov  8 01:50 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  280 Jul 25  2015 430a1f05c1d6536366c283162b7f717e1637b6
+-r--r--r--   1 rich rich  284 Nov  8 01:50 f081e13b6ea81d6bac42e2bfa0573240f3ff24
+-r--r--r--   1 rich rich  209 Jul 25  2015 f49a81028d8faf04d01c13944349ae809997b4
+
+./.git/objects/ea:
+total 12
+drwxr-xr-x   2 rich rich 4096 May 24  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  198 May 24  2015 6aeccd62d0d260c5694ec35c1a1cc474583613
+
+./.git/objects/eb:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   60 Jul 25  2015 0ac74faf71a3dadacecd438b7b290254dade88
+-r--r--r--   1 rich rich   47 May 25  2015 a844709cba299cf0c1db077cf80d388bf346c9
+-r--r--r--   1 rich rich   56 Jul  3  2015 dab76fd42a1f4a8f6298dac28f0e02a91108b2
+
+./.git/objects/ec:
+total 16
+drwxr-xr-x   2 rich rich 4096 Aug 23  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Jun 21  2015 bf65d7e6b8b2c5f4d7e8ef9a265441a5f8519a
+-r--r--r--   1 rich rich  256 Aug 23  2015 c5ea4952f3ec2988085609ef96a7256bb96756
+
+./.git/objects/ed:
+total 24
+drwxr-xr-x   2 rich rich 4096 Nov  8 13:08 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  278 Nov  8 01:50 1406c45400e8866d545e52dc60bc00df356c1a
+-r--r--r--   1 rich rich  652 Aug 23  2015 1ce187144aeb62a43b3a6072ce18951b9825c0
+-r--r--r--   1 rich rich   81 Aug 23  2015 8974cc8d91b549f7f6755dc29461ba3aafa584
+-r--r--r--   1 rich rich   47 Nov  8 13:08 a5b61c0b740249b64adcc9c66c5c06d0af9d72
+
+./.git/objects/ee:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  142 Dec 31 21:04 19c842e6fff9b4c7eb74e91b294c910a108b5e
+-r--r--r--   1 rich rich  241 Jan  2 19:15 5da478f6b90cb7e997b55d5c31349be8a6dffd
+-r--r--r--   1 rich rich  239 Jul 25  2015 ae410dadd28f6a161c3f1c02ab749c9bc589db
+
+./.git/objects/ef:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   60 Jan  2 19:15 8a6cdecbcee341a7538650ef8260293d7710af
+
+./.git/objects/f0:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 May 30  2015 52aa730c0d6daee9b3b824525b1da14a997a51
+-r--r--r--   1 rich rich   46 Jul 26  2015 b590f9e17d213d030c265d650be939922d2e5b
+-r--r--r--   1 rich rich   90 Aug 16  2015 b770602e3974c1fb558de22176e770a4c8bcc0
+-r--r--r--   1 rich rich  368 May 30  2015 defdcdbf36a18f1ce959f6bb97c6306bcd5f30
+-r--r--r--   1 rich rich  338 Jan 16 20:15 f623f3a03b2c75c345b809437d6b5b33785acf
+
+./.git/objects/f1:
+total 28
+drwxr-xr-x   2 rich rich 4096 Jan  2 19:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  298 Jan  2 19:15 15e9fb7af00cb44bdf94ec7cfecb07fc163606
+-r--r--r--   1 rich rich  304 Jan  2 10:00 25081027aa3f343f19d5f25c42df249dee21b1
+-r--r--r--   1 rich rich  247 Jan  2 19:15 6e2fbb1cffe1bab592ac0d1e79e4ff9c1444b6
+-r--r--r--   1 rich rich  143 May 25  2015 7ad9cd48ec7104cbf775cd9dc7ddb276efff5b
+-r--r--r--   1 rich rich   46 Jul 25  2015 ce90ab6a0ea8d7d010d8e10242c80801805acd
+
+./.git/objects/f2:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   46 Aug 16  2015 37ab348d7292c3e005f371c0911bf68b73b05d
+-r--r--r--   1 rich rich  143 Nov  8 13:08 681d9f193759879d8a0a2bc7c086597927173b
+-r--r--r--   1 rich rich   46 Jan 16 20:16 6b30857ac57cb10bda64f24e88e044486ba232
+
+./.git/objects/f3:
+total 16
+drwxr-xr-x   2 rich rich 4096 Dec 31 21:04 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  155 Jul 25  2015 0f71fb905654319b83dfcf548f9e90e4aa1a5d
+-r--r--r--   1 rich rich   87 Dec 31 21:04 478921cc457def216ef882c4e45d73ecb8a8a2
+
+./.git/objects/f4:
+total 16
+drwxr-xr-x   2 rich rich 4096 Aug 16  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  238 Aug 16  2015 00995b73d0bb12132cff0e3b0e9490dbec45a7
+-r--r--r--   1 rich rich   46 May 25  2015 915584705bfc3360e5bf90b8354a1a3059b73f
+
+./.git/objects/f5:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jan  2 10:00 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  301 Jan  2 10:00 4a9bfd64b9d5e3c5b5ab492aeac6654a838911
+
+./.git/objects/f6:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:15 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  574 Jan 16 20:15 05070fa7be43c4637210cf84cf585f7a433547
+-r--r--r--   1 rich rich  174 May 30  2015 c1bd33a3160dfbc818013aaeb09a6a1ea95ef9
+-r--r--r--   1 rich rich  304 Apr 11  2015 f0e78d8f1835635eebe2a36eed2452a8f8925f
+
+./.git/objects/f7:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  239 Jul 25  2015 6d45fa2a2c7fc81bf6ce6a3ecacf8e81bf6d00
+-r--r--r--   1 rich rich   44 May 24  2015 b185e65249451815e2b6b95953645dd398659f
+
+./.git/objects/f8:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:43 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  215 Jan 16 00:43 63626d1ab0aecc744566765ebe14f727961de2
+-r--r--r--   1 rich rich   47 Apr 11  2015 bf2307973a09e6986c883afaa5a018dac183bf
+-r--r--r--   1 rich rich  240 Jun 21  2015 ca9bee0a2a73e0005b4a65c57cfedcb71941d2
+-r--r--r--   1 rich rich  908 Jan  2 10:00 fe6e43067d127d65b7ea87aaa83323c287c0b6
+
+./.git/objects/f9:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:19 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  960 Jan  3 12:19 37bd4ed387bfd32d551071141c5fd58e77aa1d
+-r--r--r--   1 rich rich   90 Jun  7  2015 5e632bfd438d9073b7029a0fa5ca083f4d735a
+
+./.git/objects/fa:
+total 32
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   44 Dec 31 21:04 180536acc6295f9604bd6499ccb481ca4edb07
+-r--r--r--   1 rich rich   52 May 24  2015 449cd5e88ed52b667527cb89f81541e924eaf7
+-r--r--r--   1 rich rich  169 May 30  2015 554e0ccd09540adc83feac2f2d04f994b523e5
+-r--r--r--   1 rich rich   46 Jan 16 21:22 8095ddfbd98448864cbc9f6db05669bacad4d2
+-r--r--r--   1 rich rich  466 Jan  2 19:15 966f55a2c4996a41e2d6308fadf54368dbfaa6
+-r--r--r--   1 rich rich  659 Jul 25  2015 ce0a11f6e378c328f83613cf5a8b663e57f64b
+
+./.git/objects/fb:
+total 12
+drwxr-xr-x   2 rich rich 4096 Jan 16 00:44 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 Jan 16 00:44 f50909a0a3b60bb3a106afedf790343cb78dd8
+
+./.git/objects/fc:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  180 Jan 16 20:16 6bf8f11e141ea66a7850a1325b7e919f4e692e
+-r--r--r--   1 rich rich  193 Nov  8 13:08 af0d70b955898e07f9540e18caf8f2f2cd2755
+-r--r--r--   1 rich rich  356 Jan 13 21:45 c084340ba1e0752c0c0941b0ada38ec4a567d6
+-r--r--r--   1 rich rich   46 Aug 23  2015 d42dc212ae440388c02eeb41cb69a6414dac95
+
+./.git/objects/fd:
+total 16
+drwxr-xr-x   2 rich rich 4096 Jan  3 12:20 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   70 Aug 23  2015 03a350ba426879b728c89491bb092038bf6746
+-r--r--r--   1 rich rich   46 Jan  3 12:20 d4a822f09f3a13d3576d8ea30ff71abcca7aa5
+
+./.git/objects/fe:
+total 20
+drwxr-xr-x   2 rich rich 4096 Jan 16 20:16 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich  182 Jul 26  2015 16ec495afcf630648adc3a94ea8d743e953198
+-r--r--r--   1 rich rich   99 Aug 23  2015 46ac514210556f31ab75c00aa623ef84fdecdf
+-r--r--r--   1 rich rich   52 Jan 16 20:16 a10288e5fb8631e3950b5314fcba193e024e85
+
+./.git/objects/ff:
+total 24
+drwxr-xr-x   2 rich rich 4096 Jan 16 21:22 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+-r--r--r--   1 rich rich   61 Jul 26  2015 3692569474f9a08513d89c877578f91f87a93a
+-r--r--r--   1 rich rich 2232 Jan 16 21:22 594330ca3eeb4b9a324bfd2d1957c424a38eb1
+-r--r--r--   1 rich rich 2055 Jan 13 21:45 8bacbec8d09c84fb0814a5c4988097069719f6
+-r--r--r--   1 rich rich  175 Nov  8 01:50 a55ef298187bf1f5130f8b4dce8b38ceb115b0
+
+./.git/objects/info:
+total 8
+drwxr-xr-x   2 rich rich 4096 Apr 11  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+
+./.git/objects/pack:
+total 8
+drwxr-xr-x   2 rich rich 4096 Apr 11  2015 .
+drwxr-xr-x 251 rich rich 4096 Jan 17 17:51 ..
+
+./.git/refs:
+total 20
+drwxr-xr-x 5 rich rich 4096 Apr 11  2015 .
+drwxr-xr-x 8 rich rich 4096 Jan 17 17:53 ..
+drwxr-xr-x 2 rich rich 4096 Jan 17 17:51 heads
+drwxr-xr-x 3 rich rich 4096 Apr 11  2015 remotes
+drwxr-xr-x 2 rich rich 4096 Apr 11  2015 tags
+
+./.git/refs/heads:
+total 16
+drwxr-xr-x 2 rich rich 4096 Jan 17 17:51 .
+drwxr-xr-x 5 rich rich 4096 Apr 11  2015 ..
+-rw-r--r-- 1 rich rich   41 Dec 31 21:04 master
+-rw-r--r-- 1 rich rich   41 Jan 17 17:51 phoneHome
+
+./.git/refs/remotes:
+total 12
+drwxr-xr-x 3 rich rich 4096 Apr 11  2015 .
+drwxr-xr-x 5 rich rich 4096 Apr 11  2015 ..
+drwxr-xr-x 2 rich rich 4096 Jan 17 17:54 origin
+
+./.git/refs/remotes/origin:
+total 16
+drwxr-xr-x 2 rich rich 4096 Jan 17 17:54 .
+drwxr-xr-x 3 rich rich 4096 Apr 11  2015 ..
+-rw-r--r-- 1 rich rich   41 Dec 31 21:04 master
+-rw-r--r-- 1 rich rich   41 Jan 17 17:54 phoneHome
+
+./.git/refs/tags:
+total 8
+drwxr-xr-x 2 rich rich 4096 Apr 11  2015 .
+drwxr-xr-x 5 rich rich 4096 Apr 11  2015 ..
+
+./.gradle:
+total 16
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:19 ..
+drwxr-xr-x 3 rich rich 4096 Mar 21  2015 1.4
+drwxr-xr-x 3 rich rich 4096 Mar 21  2015 2.1
+
+./.gradle/1.4:
+total 12
+drwxr-xr-x 3 rich rich 4096 Mar 21  2015 .
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 ..
+drwxr-xr-x 2 rich rich 4096 Mar 21  2015 taskArtifacts
+
+./.gradle/1.4/taskArtifacts:
+total 9576
+drwxr-xr-x 2 rich rich    4096 Mar 21  2015 .
+drwxr-xr-x 3 rich rich    4096 Mar 21  2015 ..
+-rw-r--r-- 1 rich rich      30 Mar 21  2015 cache.properties
+-rw-r--r-- 1 rich rich       2 Apr 12 12:00 cache.properties.lock
+-rw-r--r-- 1 rich rich   92749 Apr 12 12:00 fileHashes.bin
+-rw-r--r-- 1 rich rich 9665700 Apr 12 12:00 fileSnapshots.bin
+-rw-r--r-- 1 rich rich   18928 Apr 12 12:00 outputFileStates.bin
+-rw-r--r-- 1 rich rich   31928 Apr 12 12:00 taskArtifacts.bin
+
+./.gradle/2.1:
+total 12
+drwxr-xr-x 3 rich rich 4096 Mar 21  2015 .
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 ..
+drwxr-xr-x 2 rich rich 4096 Mar 21  2015 taskArtifacts
+
+./.gradle/2.1/taskArtifacts:
+total 68
+drwxr-xr-x 2 rich rich  4096 Mar 21  2015 .
+drwxr-xr-x 3 rich rich  4096 Mar 21  2015 ..
+-rw-r--r-- 1 rich rich    30 Mar 21  2015 cache.properties
+-rw-r--r-- 1 rich rich    17 Mar 19 16:28 cache.properties.lock
+-rw-r--r-- 1 rich rich 18734 Mar 19 16:28 fileHashes.bin
+-rw-r--r-- 1 rich rich 20038 Mar 19 16:28 fileSnapshots.bin
+-rw-r--r-- 1 rich rich 18602 Mar 21  2015 outputFileStates.bin
+-rw-r--r-- 1 rich rich 21725 Mar 19 16:28 taskArtifacts.bin
+
+./.settings:
+total 16
+drwxr-xr-x 3 rich rich 4096 Mar 19 16:28 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:19 ..
+drwxr-xr-x 2 rich rich 4096 Mar 21  2015 gradle
+-rw-r--r-- 1 rich rich  619 Mar 19 16:28 org.eclipse.jdt.core.prefs
+
+./.settings/gradle:
+total 16
+drwxr-xr-x 2 rich rich 4096 Mar 21  2015 .
+drwxr-xr-x 3 rich rich 4096 Mar 19 16:28 ..
+-rw-r--r-- 1 rich rich  289 Mar 21  2015 org.springsource.ide.eclipse.gradle.core.prefs
+-rw-r--r-- 1 rich rich  283 Mar 21  2015 org.springsource.ide.eclipse.gradle.refresh.prefs
+
+./src:
+total 16
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:19 ..
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 main
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 test
+
+./src/main:
+total 16
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 .
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 ..
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:08 java
+drwxr-xr-x 2 rich rich 4096 Mar 21  2015 resources
+
+./src/main/java:
+total 16
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:08 .
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 ..
+-rw-r--r-- 1 rich rich  171 Apr 12 12:09 CommandCoordinator.java
+drwxr-xr-x 3 rich rich 4096 Mar 21  2015 tk
+
+./src/main/java/tk:
+total 12
+drwxr-xr-x 3 rich rich 4096 Mar 21  2015 .
+drwxr-xr-x 3 rich rich 4096 Apr 12 12:08 ..
+drwxr-xr-x 3 rich rich 4096 Mar 21  2015 bad_rabbit
+
+./src/main/java/tk/bad_rabbit:
+total 12
+drwxr-xr-x 3 rich rich 4096 Mar 21  2015 .
+drwxr-xr-x 3 rich rich 4096 Mar 21  2015 ..
+drwxr-xr-x 3 rich rich 4096 Mar 21  2015 rcam
+
+./src/main/java/tk/bad_rabbit/rcam:
+total 12
+drwxr-xr-x 3 rich rich 4096 Mar 21  2015 .
+drwxr-xr-x 3 rich rich 4096 Mar 21  2015 ..
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:11 distributed_backend
+
+./src/main/java/tk/bad_rabbit/rcam/distributed_backend:
+total 36
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:11 .
+drwxr-xr-x 3 rich rich 4096 Mar 21  2015 ..
+drwxr-xr-x 2 rich rich 4096 Jul 25  2015 app
+drwxr-xr-x 2 rich rich 4096 Jan  1 16:47 client
+drwxr-xr-x 4 rich rich 4096 Jan  3 12:24 command
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:11 commandcoordinator
+drwxr-xr-x 2 rich rich 4096 Apr 11  2015 commandfactory
+drwxr-xr-x 2 rich rich 4096 Jul 25  2015 configurationprovider
+drwxr-xr-x 2 rich rich 4096 Apr  5  2015 controller
+
+./src/main/java/tk/bad_rabbit/rcam/distributed_backend/app:
+total 12
+drwxr-xr-x 2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:11 ..
+-rw-r--r-- 1 rich rich  552 Jan 16 21:06 Main.java
+
+./src/main/java/tk/bad_rabbit/rcam/distributed_backend/client:
+total 24
+drwxr-xr-x 2 rich rich 4096 Jan  1 16:47 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:11 ..
+-rw-r--r-- 1 rich rich  912 Jan 16 20:57 Client.java
+-rw-r--r-- 1 rich rich 9316 Apr 12 12:10 ClientThread.java
+
+./src/main/java/tk/bad_rabbit/rcam/distributed_backend/command:
+total 32
+drwxr-xr-x 4 rich rich 4096 Jan  3 12:24 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:11 ..
+-rw-r--r-- 1 rich rich 1396 Mar 19 15:20 ACommand.java
+-rw-r--r-- 1 rich rich 7650 Mar 19 17:56 Command.java
+-rw-r--r-- 1 rich rich 1410 Mar 19 15:21 ICommand.java
+drwxr-xr-x 2 rich rich 4096 Jan 30 23:45 responseactions
+drwxr-xr-x 2 rich rich 4096 Jan 18 12:21 state
+
+./src/main/java/tk/bad_rabbit/rcam/distributed_backend/command/responseactions:
+total 60
+drwxr-xr-x 2 rich rich 4096 Jan 30 23:45 .
+drwxr-xr-x 4 rich rich 4096 Jan  3 12:24 ..
+-rw-r--r-- 1 rich rich  413 Mar 19 16:12 AckCommandResponseAction.java
+-rw-r--r-- 1 rich rich  417 Mar 19 16:11 ACommandResponseAction.java
+-rw-r--r-- 1 rich rich  628 Mar 19 16:13 CancelCommandResponseAction.java
+-rw-r--r-- 1 rich rich  892 Mar 19 16:13 CancelRelatedCommandResponseAction.java
+-rw-r--r-- 1 rich rich  856 Mar 19 16:13 CommandReadyToReduceResponseAction.java
+-rw-r--r-- 1 rich rich  564 Mar 19 16:28 DefaultCommandResponseAction.java
+-rw-r--r-- 1 rich rich  732 Mar 19 16:11 ICommandResponseAction.java
+-rw-r--r-- 1 rich rich 1088 Mar 19 16:14 ReductionCompleteResponseAction.java
+-rw-r--r-- 1 rich rich  437 Mar 19 16:14 ResultCommandResponseAction.java
+-rw-r--r-- 1 rich rich  597 Mar 19 16:14 RunCleanupResponseAction.java
+-rw-r--r-- 1 rich rich 1342 Mar 19 17:33 RunCommandResponseAction.java
+-rw-r--r-- 1 rich rich  790 Mar 19 16:34 SendAckAction.java
+-rw-r--r-- 1 rich rich  613 Mar 19 16:15 SendCommandResponseAction.java
+
+./src/main/java/tk/bad_rabbit/rcam/distributed_backend/command/state:
+total 72
+drwxr-xr-x 2 rich rich 4096 Jan 18 12:21 .
+drwxr-xr-x 4 rich rich 4096 Jan  3 12:24 ..
+-rw-r--r-- 1 rich rich 1477 Mar 19 15:22 AckedState.java
+-rw-r--r-- 1 rich rich 1686 Mar 19 15:22 AckSentState.java
+-rw-r--r-- 1 rich rich 2174 Mar 19 18:30 ACommandState.java
+-rw-r--r-- 1 rich rich 1425 Mar 19 15:22 AwaitingAckState.java
+-rw-r--r-- 1 rich rich 1468 Mar 19 15:22 CancellingState.java
+-rw-r--r-- 1 rich rich 1362 Mar 19 15:23 CommandCompletedState.java
+-rw-r--r-- 1 rich rich 1542 Mar 19 15:23 CommandReadyToReduceState.java
+-rw-r--r-- 1 rich rich 1570 Mar 19 15:23 CommandReducedState.java
+-rw-r--r-- 1 rich rich 1364 Mar 19 15:23 CommandSentState.java
+-rw-r--r-- 1 rich rich 1430 Mar 19 15:23 DoneState.java
+-rw-r--r-- 1 rich rich 1432 Mar 19 15:23 ErrorCommandState.java
+-rw-r--r-- 1 rich rich 1024 Mar 19 16:07 ICommandState.java
+-rw-r--r-- 1 rich rich 1470 Mar 19 15:24 ReadyToSendState.java
+-rw-r--r-- 1 rich rich 2583 Mar 19 15:24 ReceivedCommandState.java
+-rw-r--r-- 1 rich rich 1478 Mar 19 15:24 RunningState.java
+-rw-r--r-- 1 rich rich 1416 Mar 19 15:24 WaitingForReductionState.java
+
+./src/main/java/tk/bad_rabbit/rcam/distributed_backend/commandcoordinator:
+total 8
+drwxr-xr-x 2 rich rich 4096 Apr 12 12:11 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:11 ..
+
+./src/main/java/tk/bad_rabbit/rcam/distributed_backend/commandfactory:
+total 20
+drwxr-xr-x 2 rich rich 4096 Apr 11  2015 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:11 ..
+-rw-r--r-- 1 rich rich 5065 Apr 12 11:58 CommandFactory.java
+-rw-r--r-- 1 rich rich  466 Jan  3 12:28 ICommandFactory.java
+
+./src/main/java/tk/bad_rabbit/rcam/distributed_backend/configurationprovider:
+total 20
+drwxr-xr-x 2 rich rich 4096 Jul 25  2015 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:11 ..
+-rw-r--r-- 1 rich rich 6029 Jan 18 12:29 ConfigurationProvider.java
+-rw-r--r-- 1 rich rich  671 Jan 16 21:15 IConfigurationProvider.java
+
+./src/main/java/tk/bad_rabbit/rcam/distributed_backend/controller:
+total 12
+drwxr-xr-x 2 rich rich 4096 Apr  5  2015 .
+drwxr-xr-x 9 rich rich 4096 Apr 12 12:11 ..
+-rw-r--r-- 1 rich rich 2154 Apr 12 12:08 Controller.java
+
+./src/main/resources:
+total 8
+drwxr-xr-x 2 rich rich 4096 Mar 21  2015 .
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 ..
+
+./src/test:
+total 16
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 .
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 ..
+drwxr-xr-x 2 rich rich 4096 Mar 21  2015 java
+drwxr-xr-x 2 rich rich 4096 Mar 21  2015 resources
+
+./src/test/java:
+total 8
+drwxr-xr-x 2 rich rich 4096 Mar 21  2015 .
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 ..
+
+./src/test/resources:
+total 8
+drwxr-xr-x 2 rich rich 4096 Mar 21  2015 .
+drwxr-xr-x 4 rich rich 4096 Mar 21  2015 ..

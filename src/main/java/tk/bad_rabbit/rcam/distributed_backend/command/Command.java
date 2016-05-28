@@ -9,11 +9,12 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.concurrent.Callable;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import tk.bad_rabbit.rcam.distributed_backend.command.state.CommandReadyToReduceState;
+import tk.bad_rabbit.rcam.distributed_backend.command.state.ACommandState;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.ICommandState;
 
 
@@ -24,21 +25,23 @@ public class Command extends ACommand {
   private volatile JSONObject commandConfiguration;
   private JSONObject serverVariables;
   private Integer commandAckNumber;
-  private volatile ICommandState state;
+  private volatile ACommandState state;
 
   private String returnCode;
   
-  public Command(String commandName, Integer commandAckNumber, JSONObject commandConfiguration, JSONObject clientVariables,
-      JSONObject serverVariables) {
+  public Command(String commandName, Integer commandAckNumber, JSONObject commandConfiguration, JSONObject clientVariables, JSONObject serverVariables) {
     this.commandName = commandName;
     
     this.clientVariables = clientVariables;
     this.commandConfiguration = commandConfiguration;
     this.serverVariables = serverVariables;
     this.commandAckNumber = commandAckNumber;
-    
   }
-
+  
+  public JSONObject getClientVariables() {
+    return clientVariables;
+  }
+  
   public void doNetworkAction(Observer actionObserver, ICommandState commandState) {
     this.state.doNetworkAction(actionObserver, this);
   }
@@ -48,17 +51,23 @@ public class Command extends ACommand {
     commandState.doRelatedCommandAction(actionObserver, this);
   }
   
-  public ICommandState setState(ICommandState state) {
-    
+  public ACommandState setState(ACommandState state) {
+    System.out.println("RCam Distributed Backend - Command("+commandName+"["+commandAckNumber+"]"+") - Setting state to " + state.getClass().getSimpleName());
     this.state = state;
     
     setChanged();
     notifyObservers(state);
     
+    state.addObserver(this);
+    
     return state;
   }
   
-  public ICommandState getState() {
+  public void nextState() {
+    this.setState(this.getState().getNextState());
+  }
+  
+  public ACommandState getState() {
     return this.state;
   }
   
@@ -71,7 +80,10 @@ public class Command extends ACommand {
   }
    
   public String getReturnCode() {
-    return this.commandConfiguration.get("returnCode").toString();
+    if(this.commandConfiguration.has("returnCode")) {
+      return this.commandConfiguration.get("returnCode").toString();  
+    }
+    return "0";
   }
   
   
@@ -165,35 +177,51 @@ public class Command extends ACommand {
      }
   }
 
-  public Map.Entry<Integer, Integer> call() throws Exception {
-    //String[] command = {commandConfiguration.getString(this.state.getStateExecutableType())};
-    ProcessBuilder pb = new ProcessBuilder(commandConfiguration.getString("commandExecutable"));
-    
-    setupEnvironment(pb.environment());
-    
-    Process process = pb.start();
-    
-    InputStream is = process.getInputStream();
-    InputStreamReader isr = new InputStreamReader(is);
-    BufferedReader br = new BufferedReader(isr);
-    String line;
+  public Callable<Map.Entry<Integer, Integer>> getCallable(final String executable) {
+    synchronized(executable) {
+      final ACommand commandCopy = this;
+      class ReductionCommand implements  Callable<Map.Entry<Integer, Integer>> {
+        public Map.Entry<Integer, Integer> call() throws Exception {    
+          ProcessBuilder pb = new ProcessBuilder(commandConfiguration.getJSONObject("executables").getString(executable));
 
-    while ((line = br.readLine()) != null) {
-        System.out.println(line);
+          setupEnvironment(pb.environment());
+  //        
+          Process process = pb.start();
+  //        
+          InputStream is = process.getInputStream();
+          InputStreamReader isr = new InputStreamReader(is);
+          BufferedReader br = new BufferedReader(isr);
+          String line;
+  
+          while ((line = br.readLine()) != null) {
+              System.out.println(line);
+          }
+          
+          //Wait to get exit value
+          Integer exitValue = null;
+          try {
+            System.out.println("RCam Distributed Backend - Trying to run a command");
+            exitValue = process.waitFor();
+            commandConfiguration.put("returnCode", Integer.toString(exitValue));
+            
+            System.out.println("RCam Distributed Backend - Done Command");
+            //System.out.println("This will set the state");
+            //setState(state.getNextState());
+            //System.out.println("The state has been set.");
+            
+          } catch (InterruptedException e) {
+              e.printStackTrace();
+          }
+  
+          return new AbstractMap.SimpleEntry<Integer, Integer>(getAckNumber(), exitValue);      
+        //}
+        }
+      }  
+      return new ReductionCommand();
     }
-    
-    //Wait to get exit value
-    Integer exitValue = null;
-    try {
-      exitValue = process.waitFor();
-      commandConfiguration.put("returnCode", Integer.toString(exitValue));
-      this.setState(new CommandReadyToReduceState());
-    } catch (InterruptedException e) {
-        e.printStackTrace();
-    }
-
-    return new AbstractMap.SimpleEntry<Integer, Integer>(this.getAckNumber(), exitValue);      
   }
+  
+  
 
   public void update(Observable serverThread, Object arg) {
     //if(serverThread instanceof ServerThread) {

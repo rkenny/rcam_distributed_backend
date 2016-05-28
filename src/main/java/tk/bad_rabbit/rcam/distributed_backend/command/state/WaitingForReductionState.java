@@ -9,9 +9,7 @@ public class WaitingForReductionState extends ACommandState {
   ICommandResponseAction relatedCommandResponseAction;
   
   
-  public WaitingForReductionState() {
-    
-  }
+  public WaitingForReductionState() {}
   
   public ICommandResponseAction getNetworkResponseAction() {
     return networkResponseAction;
@@ -29,5 +27,9 @@ public class WaitingForReductionState extends ACommandState {
   ICommandResponseAction runCommandResponseAction;
   public ICommandResponseAction getRunCommandResponseAction() { return this.runCommandResponseAction; }
   public void setRunCommandResponseAction(ICommandResponseAction newRunCommandResponseAction) {  this.runCommandResponseAction = newRunCommandResponseAction; }
+ 
+  public ACommandState getNextState() {
+    return null; // TBI.
+  }
   
 }

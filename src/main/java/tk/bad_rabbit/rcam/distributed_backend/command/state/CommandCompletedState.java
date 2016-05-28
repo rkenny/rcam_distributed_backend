@@ -6,10 +6,6 @@ import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
 
 public class CommandCompletedState extends ACommandState {
-
-  public String getStateExecutableType() {
-    return "commandExecutable";
-  }
   
 
   ICommandResponseAction networkResponseAction;
@@ -31,6 +27,9 @@ public class CommandCompletedState extends ACommandState {
   ICommandResponseAction runCommandResponseAction;
   public ICommandResponseAction getRunCommandResponseAction() { return this.runCommandResponseAction; }
   public void setRunCommandResponseAction(ICommandResponseAction newRunCommandResponseAction) {  this.runCommandResponseAction = newRunCommandResponseAction; }
-  
+ 
+  public ACommandState getNextState() {
+    return null; // not used.
+  }
 
 }

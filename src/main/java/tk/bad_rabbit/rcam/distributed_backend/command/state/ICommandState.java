@@ -6,7 +6,7 @@ import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
 
 public interface ICommandState {
-  //public void nextState(ACommand actionSubject);
+  public ICommandState getNextState();
   
   abstract void doNetworkAction(Observer actionObject, ACommand actionSubject);
   abstract void doRelatedCommandAction(Observer actionObject, ACommand actionSubject);

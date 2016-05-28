@@ -6,16 +6,18 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.CharBuffer;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 import org.json.JSONObject;
 
+import tk.bad_rabbit.rcam.distributed_backend.client.ClientThread;
 import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.Command;
+import tk.bad_rabbit.rcam.distributed_backend.commandcontroller.CommandController;
+import tk.bad_rabbit.rcam.distributed_backend.commandcoordinator.CommandCoordinator;
 import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.IConfigurationProvider;
+import tk.bad_rabbit.rcam.distributed_backend.controller.RunController;
 
 public class CommandFactory implements ICommandFactory {
   String commandConfigurationPath;
@@ -25,9 +27,14 @@ public class CommandFactory implements ICommandFactory {
   Random rand;
   
   IConfigurationProvider configurationProvider;
+  CommandCoordinator commandCoordinator;
+  CommandController commandController;
   
-  
-  
+  public CommandFactory(ClientThread clientThread, RunController runController, CommandController commandController, IConfigurationProvider configurationProvider) {
+    this(configurationProvider);
+    this.commandCoordinator = new CommandCoordinator(clientThread, runController, commandController, configurationProvider);
+    this.commandController = commandController;
+  }
   
   public CommandFactory(IConfigurationProvider configurationProvider) {
     this.commandConfigurationPath = configurationProvider.getCommandConfigurationPath();
@@ -35,6 +42,7 @@ public class CommandFactory implements ICommandFactory {
     this.serverVariables = configurationProvider.getServerVariables();
     rand = new Random();
     this.configurationProvider = configurationProvider;
+    
   }
   
   
@@ -69,20 +77,22 @@ public class CommandFactory implements ICommandFactory {
     return new JSONObject(commandArgs.toString());
   }
   
-  public ACommand createCommand(String commandType, Integer ackNumber, JSONObject clientVariables) {
+  public ACommand createCommand(String commandType, Integer ackNumber, JSONObject details) {
     ACommand command = null;
-    command = new Command(commandType, ackNumber, createCommandConfiguration(commandType), clientVariables, serverVariables);
+    command = new Command(commandType, ackNumber, createCommandConfiguration(commandType), details, serverVariables);
     System.out.println("RCam Distirbuted Backend - CommandFactory - Creating Command("+commandType+"["+ackNumber+"])");
+    command.addObserver(commandCoordinator);
+    commandController.addCommand(command);
     return command;
   }
   
-  public ACommand createResultCommand(ACommand command) {
-    return createCommand("CommandResult{ackNumber:"+command.getAckNumber()+",resultCode:"+command.getReturnCode()+"}");
-  }
+  //public ACommand createResultCommand(ACommand command) {
+  //  return createCommand("CommandResult{ackNumber:"+command.getAckNumber()+",resultCode:"+command.getReturnCode()+"}");
+  //}
     
-  public ACommand createAckCommand(ACommand command) {
-    return createCommand("Ack{command:" + command.getCommandName() + ",ackNumber:"+command.getAckNumber()+"}");
-  }
+  //public ACommand createAckCommand(ACommand command) {
+  //  return createCommand("Ack{command:" + command.getCommandName() + ",ackNumber:"+command.getAckNumber()+"}");
+  //}
   
   public ACommand createCommand(CharBuffer commandBuffer) {
     return createCommand(commandBuffer.toString());
@@ -95,24 +105,21 @@ public class CommandFactory implements ICommandFactory {
     
     ACommand command = null;
     
+    JSONObject commandObject = new JSONObject(commandString);
+    
     String commandType;
-    int commandTypeLength;
-    
-    commandTypeLength = commandString.indexOf("{") > 0 ? commandString.indexOf("{") : commandString.length();
-    commandTypeLength = (commandString.indexOf("[") < commandTypeLength  
-        && commandString.indexOf("[") > 0 )? commandString.indexOf("[") : commandTypeLength;
-    commandType = commandString.substring(0, commandTypeLength).trim();
-    
     Integer commandAckNumber;
-    if(commandString.indexOf("[") > 0 && commandString.indexOf("[") < commandString.indexOf("{") ) {
-      commandAckNumber = Integer.parseInt(commandString.substring(commandString.indexOf("[")+1, commandString.indexOf("]")));
-    } else {
-      commandAckNumber = rand.nextInt((99999 - 10000) + 1) + 10000;
+    
+    commandType = commandObject.getString("commandName");
+    commandAckNumber = commandObject.getInt("ackNumber");
+    JSONObject commandDetails = null; 
+    if(commandObject.has("details")) {
+      commandDetails = commandObject.getJSONObject("details");
     }
     
-    JSONObject clientVariables = new JSONObject(commandString.substring(commandString.indexOf("{"), commandString.length()));
+    
 
-    return createCommand(commandType, commandAckNumber, clientVariables);
+    return createCommand(commandType, commandAckNumber, commandDetails);
   }
   
 //  

@@ -30,4 +30,8 @@ public class ReadyToSendState extends ACommandState {
   public ICommandResponseAction getRunCommandResponseAction() { return this.runCommandResponseAction; }
   public void setRunCommandResponseAction(ICommandResponseAction newRunCommandResponseAction) {  this.runCommandResponseAction = newRunCommandResponseAction; }
   
+  public ACommandState getNextState() {
+    return new CommandSentState();
+  }
+  
 }

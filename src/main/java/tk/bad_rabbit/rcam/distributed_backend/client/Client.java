@@ -1,25 +1,20 @@
 package tk.bad_rabbit.rcam.distributed_backend.client;
 
-import tk.bad_rabbit.rcam.distributed_backend.commandfactory.CommandFactory;
-import tk.bad_rabbit.rcam.distributed_backend.commandfactory.ICommandFactory;
+import tk.bad_rabbit.rcam.distributed_backend.commandcontroller.CommandController;
 import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.IConfigurationProvider;
-import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
+import tk.bad_rabbit.rcam.distributed_backend.controller.RunController;
 
 public class Client {
   int port;
   String address;
   
-  ICommandFactory commandFactory;
   ClientThread clientThread;
-  Controller controller;
+  RunController runController;
+  CommandController commandController;
   
-
   public Client(IConfigurationProvider configurationProvider) {
     
-    this.commandFactory = new CommandFactory(configurationProvider);
-    this.clientThread = new ClientThread(configurationProvider,
-                                          commandFactory, 
-                                          new Controller());
+    this.clientThread = new ClientThread(configurationProvider, new RunController(), new CommandController());
   }
   
   

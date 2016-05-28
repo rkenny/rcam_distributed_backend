@@ -1,19 +1,18 @@
 package tk.bad_rabbit.rcam.distributed_backend.command.state;
 
-import java.util.Observer;
-
-import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
-import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
+import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.RunCleanupResponseAction;
 
 public class CommandReducedState extends ACommandState {
 
-  public String getStateExecutableType() {
-    return "commandExecutable";
-  }
 
   ICommandResponseAction networkResponseAction;
   ICommandResponseAction relatedCommandResponseAction;
+  
+  public CommandReducedState() {
+    System.out.println("Command Reduced State created.");
+    this.setRunCommandResponseAction(new RunCleanupResponseAction());
+  }
   
   public ICommandResponseAction getNetworkResponseAction() {
     // TODO Auto-generated method stub
@@ -33,5 +32,8 @@ public class CommandReducedState extends ACommandState {
   public ICommandResponseAction getRunCommandResponseAction() { return this.runCommandResponseAction; }
   public void setRunCommandResponseAction(ICommandResponseAction newRunCommandResponseAction) {  this.runCommandResponseAction = newRunCommandResponseAction; }
   
-
+  public ACommandState getNextState() {
+    return new DoneState();
+  }
+  
 }

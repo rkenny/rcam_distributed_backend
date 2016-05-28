@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
-import java.nio.channels.CancelledKeyException;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
@@ -16,19 +15,24 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
-import java.util.Observer;
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
-import tk.bad_rabbit.rcam.distributed_backend.command.state.CommandSentState;
+import tk.bad_rabbit.rcam.distributed_backend.command.action.IActionHandler;
+import tk.bad_rabbit.rcam.distributed_backend.command.action.ICommandAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.action.INetworkAction;
+import tk.bad_rabbit.rcam.distributed_backend.command.action.ReceivedNewCommandAction;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.ErrorCommandState;
-import tk.bad_rabbit.rcam.distributed_backend.command.state.ReceivedCommandState;
+import tk.bad_rabbit.rcam.distributed_backend.commandcontroller.CommandController;
+import tk.bad_rabbit.rcam.distributed_backend.commandfactory.CommandFactory;
 import tk.bad_rabbit.rcam.distributed_backend.commandfactory.ICommandFactory;
-import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.ConfigurationProvider;
 import tk.bad_rabbit.rcam.distributed_backend.configurationprovider.IConfigurationProvider;
-import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
+import tk.bad_rabbit.rcam.distributed_backend.controller.RunController;
 
-public class ClientThread extends Observable implements Runnable, Observer {
+public class ClientThread extends Observable implements Runnable, IActionHandler {
   //int port;
   //String address;
   
@@ -42,22 +46,17 @@ public class ClientThread extends Observable implements Runnable, Observer {
   IConfigurationProvider configurationProvider;
   
   Thread clientThread;
-  List<Observer> observers;
+
+  ExecutorService commandExecutor;
   
-  public ClientThread(IConfigurationProvider configurationProvider, ICommandFactory commandFactory, Controller controller) {
-    
-    //this.address = (String) configurationProvider.getServerVariable("address");
-    
-    this.commandFactory = commandFactory;
+  public ClientThread(IConfigurationProvider configurationProvider, RunController runController, CommandController commandController) {
+
+    this.commandFactory = new CommandFactory(this, runController, commandController, configurationProvider );
     this.configurationProvider = configurationProvider;
-    
-    observers = new ArrayList<Observer>();
-    observers.add(controller);
-    observers.add(this);
-    
 
     this.asciiDecoder = Charset.forName("US-ASCII").newDecoder();
     this.asciiEncoder = Charset.forName("US-ASCII").newEncoder();
+    this.commandExecutor = Executors.newFixedThreadPool(2);
   }
   
   public void start() {
@@ -145,8 +144,6 @@ public class ClientThread extends Observable implements Runnable, Observer {
       return; 
     }
     
-    
-    
     Set<SelectionKey> selectedKeys = clientSelector.selectedKeys();
     Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
     while(keyIterator.hasNext()) {
@@ -186,20 +183,16 @@ public class ClientThread extends Observable implements Runnable, Observer {
       SelectionKey key = keyIterator.next();
       SocketChannel selectedChannel = (SocketChannel) key.channel();
       
-      
-      
-      
       try {
         if(key.isValid() && key.isReadable()) {
           
           List<CharBuffer> newCommands = readFromChannel(selectedChannel);
           for(CharBuffer cB : newCommands) {
             if(cB.toString().length() > 3) {
+              System.out.println(cB.toString());
               ACommand newCommand = commandFactory.createCommand(cB);
               if(newCommand != null) {
-                
-                newCommand.addObservers(observers);
-                newCommand.setState(new ReceivedCommandState());
+                newCommand.addPendingAction(new ReceivedNewCommandAction());
               }
             }
           }
@@ -231,9 +224,11 @@ public class ClientThread extends Observable implements Runnable, Observer {
     
     buffer.clear();
     
+    
     String[] tokens = returnedBuffer.split("\n");
     
     for(String commandString : tokens) {
+      System.out.println("Returned " + commandString);
       returnedList.add(CharBuffer.wrap(commandString));
     }
     
@@ -242,13 +237,20 @@ public class ClientThread extends Observable implements Runnable, Observer {
   }
   
 
+  public void writeCommandToChannel(SocketChannel selectedChannel, ICommandAction action) throws IOException  {
+    writeToChannel(selectedChannel, action.asCharBuffer());
+  }
   
   public void writeCommandToChannel(SocketChannel selectedChannel, ACommand command) throws IOException  {
     writeToChannel(selectedChannel, command.asCharBuffer());
   }
   
+  public void writeToChannel(SocketChannel selectedChannel, ICommandAction action) throws IOException {
+    writeToChannel(selectedChannel, action.asCharBuffer());
+  }
+  
   public void writeToChannel(SocketChannel selectedChannel, CharBuffer buffer) throws IOException {
-
+    //System.out.println("RCAm Distributed Backend - " + buffer.toString());
     while(buffer.hasRemaining()) {
         selectedChannel.write(asciiEncoder.encode(buffer));
     }    
@@ -257,18 +259,57 @@ public class ClientThread extends Observable implements Runnable, Observer {
   }
   
 
-  public void update(Observable o, Object arg) {
-    ACommand updatedCommand = (ACommand) o;
-    updatedCommand.doNetworkAction(this);
+  public void update(Observable o, Object arg) {    
+    //ACommand updatedCommand = (ACommand) o;
+    //System.out.println("RCam Distributed Backend - ClientThread - Updating Command("+updatedCommand.getCommandName()+"["+updatedCommand.getAckNumber()+"]");
+    //updatedCommand.doNetworkAction(this);
   }
   
-  public void sendAck(ACommand command) {
-    send(commandFactory.createAckCommand(command));
+  //public void sendAck(ACommand command) {
+  //  send(commandFactory.createAckCommand(command));
+  //}
+  
+  //public void sendResult(ACommand command) {
+  //  send(commandFactory.createResultCommand(command));
+  //}
+  
+  public void send(ICommandAction action) {
+    Iterator<SelectionKey> keyIterator = clientSelector.selectedKeys().iterator();
+    while(keyIterator.hasNext()) {
+      SelectionKey key = keyIterator.next();
+      SocketChannel selectedChannel = (SocketChannel) key.channel();
+      try {
+        if(key.isValid() && key.isWritable()) {
+          writeToChannel(selectedChannel, action);
+        }  else {
+          System.out.println("Key is not writable.");
+        }
+      } catch(IOException ioException) {
+        System.err.println("Error reading from a channel. Closing that channel.");
+        //command.setState(new ErrorCommandState());
+        closeSocket(selectedChannel);
+      }
+    } 
   }
   
-  public void sendResult(ACommand command) {
-    send(commandFactory.createResultCommand(command));
-  }
+  public void send(CharBuffer charBuffer) {
+    Iterator<SelectionKey> keyIterator = clientSelector.selectedKeys().iterator();
+    while(keyIterator.hasNext()) {
+      SelectionKey key = keyIterator.next();
+      SocketChannel selectedChannel = (SocketChannel) key.channel();
+      try {
+        if(key.isValid() && key.isWritable()) {
+          writeToChannel(selectedChannel, charBuffer);
+        } else {
+          System.out.println("Key is not writable.");
+        }
+      } catch(IOException ioException) {
+        System.err.println("Error reading from a channel. Closing that channel.");
+        //command.setState(new ErrorCommandState());
+        closeSocket(selectedChannel);
+      }
+    }
+  }   
   
   public void send(ACommand command) {
     Iterator<SelectionKey> keyIterator = clientSelector.selectedKeys().iterator();
@@ -278,8 +319,6 @@ public class ClientThread extends Observable implements Runnable, Observer {
       try {
         if(key.isValid() && key.isWritable()) {
           writeCommandToChannel(selectedChannel, command);
-          //command.addObservers(observers);
-          //command.setState(new CommandSentState());
         } else {
           System.out.println("Key is not writable.");
         }
@@ -291,6 +330,13 @@ public class ClientThread extends Observable implements Runnable, Observer {
         
       }
     }
+  }
+  
+  public Future<Integer> handleAction(ICommandAction action) {
+    if(action instanceof INetworkAction) {
+      return commandExecutor.submit(((INetworkAction) action).getNetworkCallable(this));
+    }
+    return null;
   }
   
 }

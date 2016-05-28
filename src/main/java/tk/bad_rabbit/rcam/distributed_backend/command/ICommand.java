@@ -6,9 +6,10 @@ import java.util.Map;
 import java.util.Observer;
 import java.util.concurrent.Callable;
 
+import tk.bad_rabbit.rcam.distributed_backend.command.state.ACommandState;
 import tk.bad_rabbit.rcam.distributed_backend.command.state.ICommandState;
 
-public interface ICommand extends  Callable<Map.Entry<Integer, Integer>>{
+public interface ICommand {
 
   public CharBuffer asCharBuffer();
   public Boolean isIgnored();
@@ -24,15 +25,18 @@ public interface ICommand extends  Callable<Map.Entry<Integer, Integer>>{
   public void doRunCommandAction(Observer actionObserver);
   
   public Boolean isType(String commandType);
-  public ICommandState getState();
+  public ACommandState getState();
   
   //public ACommand copy();
-  public ICommandState setState(ICommandState state);
+  public ACommandState setState(ACommandState state);
+  public void nextState();
   
   public void setReturnCode(String returnCode);
   public String getReturnCode();
 
   public void addObservers(List<Observer> observers);
+  
+  public Callable<Map.Entry<Integer, Integer>> getCallable(String executable);
   
   //public void doNetworkAction(Observer actionObserver, ICommandState commandState);
   //public void doRelatedCommandAction(Observer actionObserver, ICommandState commandState);

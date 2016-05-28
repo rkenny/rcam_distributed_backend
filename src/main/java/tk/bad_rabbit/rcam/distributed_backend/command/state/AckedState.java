@@ -4,31 +4,12 @@ import java.util.Observer;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
-import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
+import tk.bad_rabbit.rcam.distributed_backend.controller.RunController;
 
 
 
 public class AckedState extends ACommandState {
-  public String getStateExecutableType() {
-    return "commandExecutable";
-  }
-  
-//  public void doNetworkStuff(Observer actionObserver, ACommand actionSubject) {
-//    System.out.println("RCam Distributed Backend - AckedState - doNetworkStuff for " + actionSubject.getCommandName() + "[" + actionSubject.getAckNumber() + "]");
-//  }
-//  
-//  public void doRelatedCommandStuff(Observer actionObserver, ACommand actionSubject) {
-//    System.out.println("RCam Distributed Backend - AckedState - doRelatedCommandStuff for " + actionSubject.getCommandName() + "[" + actionSubject.getAckNumber() + "]");
-//    if(actionObserver instanceof Controller) {
-//      ((Controller) actionObserver).runCommand((ACommand) actionSubject);
-//    }
-//  }
-//  
-//  public void nextState(ACommand actionSubject) {
-//    //actionSubject.setState(new ReadyToReduceState());
-//  }
-  
-
+ 
   ICommandResponseAction networkResponseAction;
   ICommandResponseAction relatedCommandResponseAction;
   
@@ -48,5 +29,9 @@ public class AckedState extends ACommandState {
   ICommandResponseAction runCommandResponseAction;
   public ICommandResponseAction getRunCommandResponseAction() { return this.runCommandResponseAction; }
   public void setRunCommandResponseAction(ICommandResponseAction newRunCommandResponseAction) {  this.runCommandResponseAction = newRunCommandResponseAction; }
+  
+  public ACommandState getNextState() {
+    return null; // This isn't called in the backend yet. It would be ready to run.
+  }
   
 }

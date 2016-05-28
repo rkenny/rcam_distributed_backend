@@ -4,14 +4,11 @@ import java.util.Observer;
 
 import tk.bad_rabbit.rcam.distributed_backend.command.ACommand;
 import tk.bad_rabbit.rcam.distributed_backend.command.responseactions.ICommandResponseAction;
-import tk.bad_rabbit.rcam.distributed_backend.controller.Controller;
+import tk.bad_rabbit.rcam.distributed_backend.controller.RunController;
 
 
 public class ErrorCommandState extends ACommandState {
 
-  public String getStateExecutableType() {
-    return "cancelExecutable";
-  }
 
   ICommandResponseAction networkResponseAction;
   ICommandResponseAction relatedCommandResponseAction;
@@ -33,5 +30,8 @@ public class ErrorCommandState extends ACommandState {
   public ICommandResponseAction getRunCommandResponseAction() { return this.runCommandResponseAction; }
   public void setRunCommandResponseAction(ICommandResponseAction newRunCommandResponseAction) {  this.runCommandResponseAction = newRunCommandResponseAction; }
   
+  public ACommandState getNextState() {
+    return new CancellingState(); 
+  }
 
 }
